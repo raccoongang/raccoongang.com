@@ -1,0 +1,10 @@
+<h1>{{ instance.gallery.name }}</h1>
+
+    {% csrf_token %}
+
+        {% for every_photo in instance.gallery.photo_set.all %}
+            <img src="{{ every_photo.file.url }}"`>
+            <b>{{ every_photo.title }}</b></br>
+        {% endfor %}
+
+</form>

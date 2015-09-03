@@ -1,0 +1,11 @@
+{% extends 'top_gallery/base.html' %}
+
+{% block top_gallery_content %}
+
+    <ul>
+    {% for poll in latest_photo_list %}
+		<img src="{% poll.file %}"></img>
+    {% endfor %}
+    </ul>
+{% endif %}
+{% endblock %}
