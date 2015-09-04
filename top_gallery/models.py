@@ -1,5 +1,6 @@
 #-*- coding: utf-8 -*-
 from django.db import models
+from sorl.thumbnail import get_thumbnail
 
 
 class Gallery(models.Model):
@@ -15,5 +16,10 @@ class Photo(models.Model):
 
     def __str__(self):
         return u'%s' % self.title or self.file.name
+
+    def slide_thumbnail(self):
+        print (self.file.url)
+        return '<img src="'+self.file.url+'" width=15%/>'
+    slide_thumbnail.allow_tags = True
 
 

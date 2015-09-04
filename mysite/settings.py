@@ -143,7 +143,11 @@ INSTALLED_APPS = (
     'reversion',
     'mysite',
     'top_gallery',
-    'top_gallery_plugin'
+    'top_gallery_plugin',
+    'core',
+    'call_to_action_plugin',
+    'clients_plugin',
+    'debug_toolbar'
 )
 
 LANGUAGES = (

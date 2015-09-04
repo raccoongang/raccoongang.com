@@ -1,0 +1,7 @@
+<h1>{{ instance.block_to_show.title }}</h1>
+
+{% csrf_token %}
+<a href="{{ instance.block_to_show.button_link }}">
+    <button> {{ instance.block_to_show.button_title }} </button>
+</a>
+

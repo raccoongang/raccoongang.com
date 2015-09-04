@@ -1,0 +1,8 @@
+<h1>{{ instance.clients.name }}</h1>
+
+    {% csrf_token %}
+
+        {% for every_client in instance.clients.photo_set.all %}
+            <img src="{{ every_client.file.url }}"`>
+            <b>{{ every_client.title }}</b></br>
+        {% endfor %}
