@@ -32,10 +32,6 @@ ALLOWED_HOSTS = []
 
 # Application definition
 
-
-
-
-
 ROOT_URLCONF = 'mysite.urls'
 
 WSGI_APPLICATION = 'mysite.wsgi.application'
@@ -43,7 +39,6 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/1.7/ref/settings/#databases
-
 
 
 # Internationalization
@@ -147,7 +142,13 @@ INSTALLED_APPS = (
     'core',
     'call_to_action_plugin',
     'clients_plugin',
-    'debug_toolbar'
+    'debug_toolbar',
+    'djangocms_blog',
+    'parler',
+    'taggit',
+    'taggit_autosuggest',
+    'meta',
+    'meta_mixin',
 )
 
 LANGUAGES = (
@@ -192,7 +193,8 @@ CMS_LANGUAGES = {
 CMS_TEMPLATES = (
     ## Customize this
     ('page.html', 'Page'),
-    ('feature.html', 'Page with Feature')
+    ('feature.html', 'Page with Feature'),
+    ('header.html', 'Header')
 )
 
 CMS_PERMISSION = True
@@ -221,7 +223,7 @@ MIGRATION_MODULES = {
     'cmsplugin_filer_video': 'cmsplugin_filer_video.migrations_django',
     'cmsplugin_filer_teaser': 'cmsplugin_filer_teaser.migrations_django',
     'cmsplugin_filer_file': 'cmsplugin_filer_file.migrations_django',
-    'djangocms_googlemap': 'djangocms_googlemap.migrations_django'
+    'djangocms_googlemap': 'djangocms_googlemap.migrations_django',
 }
 
 THUMBNAIL_PROCESSORS = (
@@ -230,3 +232,24 @@ THUMBNAIL_PROCESSORS = (
     'filer.thumbnail_processors.scale_and_crop_with_subject_location',
     'easy_thumbnails.processors.filters'
 )
+
+# Blog settings
+
+BLOG_PAGINATION=4
+META_SITE_PROTOCOL = 'http'
+META_USE_SITES = True
+PARLER_LANGUAGES = {
+    1: (
+        {'code': 'en',},
+        {'code': 'ru',},
+        {'code': 'ua',},
+    ),
+}
+# Ckeditor settings
+
+CKEDITOR_UPLOAD_PATH = "uploads/"
+
+try:
+    from local_settings import *
+except ImportError:
+    print ('Local settings import error')

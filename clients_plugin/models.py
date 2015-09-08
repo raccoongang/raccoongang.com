@@ -6,7 +6,7 @@ from top_gallery.models import Gallery
 class ClientsPlugin(CMSPlugin):
     clients = models.ForeignKey(Gallery)
 
-    def __unicode__(self):
+    def __str__(self):
         return self.clients.name
 
 

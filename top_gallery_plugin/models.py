@@ -9,4 +9,7 @@ class TopGalleryPlugin(CMSPlugin):
     def __unicode__(self):
         return self.gallery.name
 
+    def __str__(self):
+        return self.gallery.name
+
 

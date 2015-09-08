@@ -3,7 +3,7 @@
 {% block sidebar %}
     {{ block.super }}
 
-    {% for each in original.gallery.photo_set.all %}
+    {% for each in original.clients.photo_set.all %}
         <img src="{{ each.file.url }}" width="10%">
     {% endfor %}
 

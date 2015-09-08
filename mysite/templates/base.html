@@ -7,10 +7,16 @@
         <meta name="viewport" content="width=device-width,initial-scale=1">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.4/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.4/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="/media/css/main.css">
+        <link rel="stylesheet" href="/media/css/style.css">
+        <link rel="icon" type="image/ico" href="/media/img/favicon.ico"/>
+        {% load cms_tags %}
         {% render_block "css" %}
     </head>
     <body>
         {% cms_toolbar %}
+        {% static_placeholder "header" or %}
+        {% endstatic_placeholder %}
         <div class="container">
             <div class="navbar navbar-default" role="navigation">
                 <div class="navbar-header">
@@ -20,18 +26,46 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#">Project name</a>
+                    <a class="navbar-brand" href="#"><img src="/media/img/logo.png" height="100%"> </a>
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
                         {% show_menu 0 1 100 100 "menu.html" %}
                     </ul>
                 </div>
+                <div>
+                    {% show_breadcrumb 0 "raccoon_breadcrumbs.html" 0 %}
+                </div>
             </div>
-            {% block content %}{% endblock content %}
+            <div class="jumbotron">
+                {% block content %}{% endblock content %}
+            </div>
         </div>
+        <footer>
+            {% static_placeholder 'footer' or %}
+                <div class="wrapper">
+                    <div class="static-area-footer-bottom">
+                        <a href="#" class="footer_info">info@raccoongang.com</a>
+                   <div class="social">
+                     <a href="#" class="ic-fb"></a>
+                     <a href="#" class="ic-tw"></a>
+                     <a href="#" class="ic-in"></a>
+                     <a href="#" class="ic-g"></a>
+                     <a href="#" class="ic-ins"></a>
+                     <a href="#" class="ic-gh"></a>
+                  </div>
+                   <h1 class="footer_name" id="year"></h1>
+                  </div>
+                  </div>
+                </div>
+                <b id="year"></b>
+            {% endstatic_placeholder %}
+        </footer>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.4/js/bootstrap.min.js"></script>
+        <script>
+            document.getElementById("year").innerHTML='&copy; RACCOON GANG '+new Date().getFullYear();
+        </script>
         {% render_block "js" %}
     </body>
 </html>
