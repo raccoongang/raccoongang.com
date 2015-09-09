@@ -37,9 +37,12 @@
                     {% show_breadcrumb 0 "raccoon_breadcrumbs.html" 0 %}
                 </div>
             </div>
-            <div class="jumbotron">
-                {% block content %}{% endblock content %}
-            </div>
+
+
+                {% block content %}
+
+                {% endblock content %}
+       
         </div>
         <footer>
             {% static_placeholder 'footer' or %}
