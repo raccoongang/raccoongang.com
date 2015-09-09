@@ -194,7 +194,8 @@ CMS_TEMPLATES = (
     ## Customize this
     ('page.html', 'Page'),
     ('feature.html', 'Page with Feature'),
-    ('header.html', 'Header')
+    ('header.html', 'Header'),
+    ('home_page.html', 'Home page')
 )
 
 CMS_PERMISSION = True

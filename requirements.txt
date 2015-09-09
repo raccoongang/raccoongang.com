@@ -1,3 +1,4 @@
-sorl-thumbnail=12.3
-djangocms-installer
+sorl-thumbnail
+mysql-python
 djangocms-blog
+django-debug-toolbar
