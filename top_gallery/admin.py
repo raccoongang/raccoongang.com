@@ -3,12 +3,11 @@ from .models import Gallery, Photo
 
 
 class PhotoAdmin(admin.ModelAdmin):
-    list_display = ('gallery', 'title', 'slide_thumbnail',)
+    list_display = ('gallery', 'title', 'file')
 
 
 class BookInline(admin.TabularInline):
     model = Photo
-    list_display = ('gallery', 'title', 'slide_thumbnail',)
     extra = 0
 
 
