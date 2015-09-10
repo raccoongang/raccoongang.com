@@ -58,8 +58,8 @@ docs/_build/
 target/
 
 
-migrations/
 raccoonGang
 raccoonGang.pub
 project.db
+project.sql
 local_settings.py

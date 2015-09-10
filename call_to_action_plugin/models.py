@@ -6,7 +6,7 @@ from core.models import Block
 class CallToActionPlugin(CMSPlugin):
     block_to_show = models.ForeignKey(Block)
 
-    def __str__(self):
+    def __unicode__(self):
         return self.block_to_show.title
 
 # Create your models here.
