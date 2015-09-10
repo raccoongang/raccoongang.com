@@ -1,8 +1,8 @@
-DROP TABLE IF EXISTS "auth_group";
+
 CREATE TABLE "auth_group" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "name" varchar(80) NOT NULL UNIQUE);
-DROP TABLE IF EXISTS "auth_group_permissions";
+
 CREATE TABLE "auth_group_permissions" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "group_id" integer NOT NULL REFERENCES "auth_group" ("id"), "permission_id" integer NOT NULL REFERENCES "auth_permission" ("id"), UNIQUE ("group_id", "permission_id"));
-DROP TABLE IF EXISTS "auth_permission";
+
 CREATE TABLE "auth_permission" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "name" varchar(50) NOT NULL, "content_type_id" integer NOT NULL REFERENCES "django_content_type" ("id"), "codename" varchar(100) NOT NULL, UNIQUE ("content_type_id", "codename"));
 INSERT INTO "auth_permission" VALUES(1,'Can use Structure mode',1,'use_structure');
 INSERT INTO "auth_permission" VALUES(2,'',2,'change_page');
@@ -180,25 +180,25 @@ INSERT INTO "auth_permission" VALUES(173,'Can delete Tag',58,'delete_tag');
 INSERT INTO "auth_permission" VALUES(174,'Can add Tagged Item',59,'add_taggeditem');
 INSERT INTO "auth_permission" VALUES(175,'Can change Tagged Item',59,'change_taggeditem');
 INSERT INTO "auth_permission" VALUES(176,'Can delete Tagged Item',59,'delete_taggeditem');
-DROP TABLE IF EXISTS "auth_user";
+
 CREATE TABLE "auth_user" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "password" varchar(128) NOT NULL, "last_login" datetime NOT NULL, "is_superuser" bool NOT NULL, "username" varchar(30) NOT NULL UNIQUE, "first_name" varchar(30) NOT NULL, "last_name" varchar(30) NOT NULL, "email" varchar(75) NOT NULL, "is_staff" bool NOT NULL, "is_active" bool NOT NULL, "date_joined" datetime NOT NULL);
 INSERT INTO "auth_user" VALUES(1,'pbkdf2_sha256$15000$Eu735m0L1awP$3waQmdSDgNbRLY/WOzklyKdq91nbe2bqHVXzYw+IIWk=','2015-09-09 12:32:21.862468',1,'raccoon','','','raccoon@raccoon.com',1,1,'2015-09-04 10:43:40.106738');
 INSERT INTO "auth_user" VALUES(2,'pbkdf2_sha256$15000$aIb6DlQs4fEH$xJAviHXcl0p+wYhnSYlxzEX7xAsmpQUOcqxKC8nfw6w=','2015-09-04 10:46:07.973354',1,'gang','','','gang@gang.com',1,1,'2015-09-04 10:45:52.521609');
-DROP TABLE IF EXISTS "auth_user_groups";
+
 CREATE TABLE "auth_user_groups" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "user_id" integer NOT NULL REFERENCES "auth_user" ("id"), "group_id" integer NOT NULL REFERENCES "auth_group" ("id"), UNIQUE ("user_id", "group_id"));
-DROP TABLE IF EXISTS "auth_user_user_permissions";
+
 CREATE TABLE "auth_user_user_permissions" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "user_id" integer NOT NULL REFERENCES "auth_user" ("id"), "permission_id" integer NOT NULL REFERENCES "auth_permission" ("id"), UNIQUE ("user_id", "permission_id"));
-DROP TABLE IF EXISTS "call_to_action_plugin_calltoactionplugin";
+
 CREATE TABLE "call_to_action_plugin_calltoactionplugin" ("cmsplugin_ptr_id" integer NOT NULL PRIMARY KEY REFERENCES "cms_cmsplugin" ("id"), "block_to_show_id" integer NOT NULL REFERENCES "core_block" ("id"));
 INSERT INTO "call_to_action_plugin_calltoactionplugin" VALUES(216,2);
 INSERT INTO "call_to_action_plugin_calltoactionplugin" VALUES(260,2);
-DROP TABLE IF EXISTS "clients_plugin_clientsplugin";
+
 CREATE TABLE "clients_plugin_clientsplugin" ("cmsplugin_ptr_id" integer NOT NULL PRIMARY KEY REFERENCES "cms_cmsplugin" ("id"), "clients_id" integer NOT NULL REFERENCES "top_gallery_gallery" ("id"));
 INSERT INTO "clients_plugin_clientsplugin" VALUES(217,3);
 INSERT INTO "clients_plugin_clientsplugin" VALUES(261,3);
-DROP TABLE IF EXISTS "cms_aliaspluginmodel";
+
 CREATE TABLE "cms_aliaspluginmodel" ("cmsplugin_ptr_id" integer NOT NULL PRIMARY KEY REFERENCES "cms_cmsplugin" ("id"), "plugin_id" integer NULL REFERENCES "cms_cmsplugin" ("id"), "alias_placeholder_id" integer NULL REFERENCES "cms_placeholder" ("id"));
-DROP TABLE IF EXISTS "cms_cmsplugin";
+
 CREATE TABLE "cms_cmsplugin" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "position" smallint unsigned NULL, "language" varchar(15) NOT NULL, "plugin_type" varchar(50) NOT NULL, "creation_date" datetime NOT NULL, "changed_date" datetime NOT NULL, "parent_id" integer NULL REFERENCES "cms_cmsplugin" ("id"), "placeholder_id" integer NULL REFERENCES "cms_placeholder" ("id"), "depth" integer unsigned NOT NULL, "numchild" integer unsigned NOT NULL, "path" varchar(255) NOT NULL UNIQUE);
 INSERT INTO "cms_cmsplugin" VALUES(187,0,'en','CMSTopGalleryPlugin','2015-09-09 13:10:15.919022','2015-09-09 13:10:19.856357',NULL,33,1,0,'000G');
 INSERT INTO "cms_cmsplugin" VALUES(188,0,'en','StylePlugin','2015-09-09 13:28:22.260993','2015-09-09 13:28:45.714595',NULL,31,1,1,'000H');
@@ -249,17 +249,17 @@ INSERT INTO "cms_cmsplugin" VALUES(258,2,'en','StylePlugin','2015-09-09 13:36:21
 INSERT INTO "cms_cmsplugin" VALUES(259,0,'en','TextPlugin','2015-09-09 13:34:43.040455','2015-09-09 13:49:38.805253',258,38,4,0,'000O000300030001');
 INSERT INTO "cms_cmsplugin" VALUES(260,0,'en','CMSCallToActionPlugin','2015-09-09 13:42:53.152066','2015-09-09 13:49:38.818717',NULL,39,1,0,'000P');
 INSERT INTO "cms_cmsplugin" VALUES(261,0,'en','CMSClientsPlugin','2015-09-09 13:43:08.944687','2015-09-09 13:49:38.836187',NULL,40,1,0,'000Q');
-DROP TABLE IF EXISTS "cms_globalpagepermission";
+
 CREATE TABLE "cms_globalpagepermission" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "can_change" bool NOT NULL, "can_add" bool NOT NULL, "can_delete" bool NOT NULL, "can_change_advanced_settings" bool NOT NULL, "can_publish" bool NOT NULL, "can_change_permissions" bool NOT NULL, "can_move_page" bool NOT NULL, "can_view" bool NOT NULL, "can_recover_page" bool NOT NULL, "group_id" integer NULL REFERENCES "auth_group" ("id"), "user_id" integer NULL REFERENCES "auth_user" ("id"));
-DROP TABLE IF EXISTS "cms_globalpagepermission_sites";
+
 CREATE TABLE "cms_globalpagepermission_sites" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "site_id" integer NOT NULL REFERENCES "django_site" ("id"), "globalpagepermission_id" integer NOT NULL REFERENCES "cms_globalpagepermission" ("id"), UNIQUE ("globalpagepermission_id", "site_id"));
-DROP TABLE IF EXISTS "cms_page";
+
 CREATE TABLE "cms_page" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "changed_by" varchar(255) NOT NULL, "creation_date" datetime NOT NULL, "changed_date" datetime NOT NULL, "publication_date" datetime NULL, "publication_end_date" datetime NULL, "in_navigation" bool NOT NULL, "soft_root" bool NOT NULL, "reverse_id" varchar(40) NULL, "navigation_extenders" varchar(80) NULL, "template" varchar(100) NOT NULL, "login_required" bool NOT NULL, "limit_visibility_in_menu" smallint NULL, "is_home" bool NOT NULL, "application_urls" varchar(200) NULL, "application_namespace" varchar(200) NULL, "publisher_is_draft" bool NOT NULL, "languages" varchar(255) NULL, "revision_id" integer unsigned NOT NULL, "xframe_options" integer NOT NULL, "parent_id" integer NULL REFERENCES "cms_page" ("id"), "publisher_public_id" integer NULL UNIQUE REFERENCES "cms_page" ("id"), "site_id" integer NOT NULL REFERENCES "django_site" ("id"), "depth" integer unsigned NOT NULL, "numchild" integer unsigned NOT NULL, "path" varchar(255) NOT NULL UNIQUE, "created_by" varchar(255) NOT NULL, UNIQUE ("reverse_id", "site_id", "publisher_is_draft"), UNIQUE ("publisher_is_draft", "site_id", "application_namespace"));
 INSERT INTO "cms_page" VALUES(9,'raccoon','2015-09-09 13:09:45.797078','2015-09-09 13:49:39.126996','2015-09-09 13:09:45.893373',NULL,1,0,NULL,'','home_page.html',0,NULL,1,'',NULL,1,'en',0,0,NULL,10,1,1,1,'0001','raccoon');
 INSERT INTO "cms_page" VALUES(10,'raccoon','2015-09-09 13:09:45.904088','2015-09-09 13:49:38.875931','2015-09-09 13:09:45.893373',NULL,1,0,NULL,'','home_page.html',0,NULL,1,'',NULL,0,'en',0,0,NULL,9,1,1,1,'0002','raccoon');
 INSERT INTO "cms_page" VALUES(11,'raccoon','2015-09-10 08:04:20.283448','2015-09-10 08:05:04.192678','2015-09-10 08:05:03.922574',NULL,1,0,NULL,NULL,'INHERIT',0,NULL,0,NULL,NULL,1,'en',0,0,9,12,1,2,0,'00010001','raccoon');
 INSERT INTO "cms_page" VALUES(12,'raccoon','2015-09-10 08:05:03.933712','2015-09-10 08:05:04.067993','2015-09-10 08:05:03.922574',NULL,1,0,NULL,NULL,'INHERIT',0,NULL,0,NULL,NULL,0,'en',0,0,10,11,1,2,0,'00020001','raccoon');
-DROP TABLE IF EXISTS "cms_page_placeholders";
+
 CREATE TABLE "cms_page_placeholders" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "page_id" integer NOT NULL REFERENCES "cms_page" ("id"), "placeholder_id" integer NOT NULL REFERENCES "cms_placeholder" ("id"), UNIQUE ("page_id", "placeholder_id"));
 INSERT INTO "cms_page_placeholders" VALUES(18,9,31);
 INSERT INTO "cms_page_placeholders" VALUES(19,10,32);
@@ -281,13 +281,13 @@ INSERT INTO "cms_page_placeholders" VALUES(34,12,47);
 INSERT INTO "cms_page_placeholders" VALUES(35,12,48);
 INSERT INTO "cms_page_placeholders" VALUES(36,12,49);
 INSERT INTO "cms_page_placeholders" VALUES(37,12,50);
-DROP TABLE IF EXISTS "cms_pagepermission";
+
 CREATE TABLE "cms_pagepermission" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "can_change" bool NOT NULL, "can_add" bool NOT NULL, "can_delete" bool NOT NULL, "can_change_advanced_settings" bool NOT NULL, "can_publish" bool NOT NULL, "can_change_permissions" bool NOT NULL, "can_move_page" bool NOT NULL, "can_view" bool NOT NULL, "grant_on" integer NOT NULL, "group_id" integer NULL REFERENCES "auth_group" ("id"), "page_id" integer NULL REFERENCES "cms_page" ("id"), "user_id" integer NULL REFERENCES "auth_user" ("id"));
-DROP TABLE IF EXISTS "cms_pageuser";
+
 CREATE TABLE "cms_pageuser" ("user_ptr_id" integer NOT NULL PRIMARY KEY REFERENCES "auth_user" ("id"), "created_by_id" integer NOT NULL REFERENCES "auth_user" ("id"));
-DROP TABLE IF EXISTS "cms_pageusergroup";
+
 CREATE TABLE "cms_pageusergroup" ("group_ptr_id" integer NOT NULL PRIMARY KEY REFERENCES "auth_group" ("id"), "created_by_id" integer NOT NULL REFERENCES "auth_user" ("id"));
-DROP TABLE IF EXISTS "cms_placeholder";
+
 CREATE TABLE "cms_placeholder" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "slot" varchar(255) NOT NULL, "default_width" smallint unsigned NULL);
 INSERT INTO "cms_placeholder" VALUES(1,'clipboard',NULL);
 INSERT INTO "cms_placeholder" VALUES(5,'post_content',NULL);
@@ -322,40 +322,40 @@ INSERT INTO "cms_placeholder" VALUES(47,'gallery',NULL);
 INSERT INTO "cms_placeholder" VALUES(48,'services',NULL);
 INSERT INTO "cms_placeholder" VALUES(49,'to action',NULL);
 INSERT INTO "cms_placeholder" VALUES(50,'clients',NULL);
-DROP TABLE IF EXISTS "cms_placeholderreference";
+
 CREATE TABLE "cms_placeholderreference" ("cmsplugin_ptr_id" integer NOT NULL PRIMARY KEY REFERENCES "cms_cmsplugin" ("id"), "name" varchar(255) NOT NULL, "placeholder_ref_id" integer NULL REFERENCES "cms_placeholder" ("id"));
-DROP TABLE IF EXISTS "cms_staticplaceholder";
+
 CREATE TABLE "cms_staticplaceholder" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "name" varchar(255) NOT NULL, "code" varchar(255) NOT NULL, "dirty" bool NOT NULL, "creation_method" varchar(20) NOT NULL, "draft_id" integer NULL REFERENCES "cms_placeholder" ("id"), "public_id" integer NULL REFERENCES "cms_placeholder" ("id"), "site_id" integer NULL REFERENCES "django_site" ("id"), UNIQUE ("code", "site_id"));
 INSERT INTO "cms_staticplaceholder" VALUES(1,'footer','footer',0,'template',9,10,NULL);
 INSERT INTO "cms_staticplaceholder" VALUES(2,'Header','Header',1,'template',13,14,NULL);
 INSERT INTO "cms_staticplaceholder" VALUES(3,'header','header',0,'template',15,16,NULL);
-DROP TABLE IF EXISTS "cms_title";
+
 CREATE TABLE "cms_title" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "redirect" varchar(2048) NULL, "language" varchar(15) NOT NULL, "title" varchar(255) NOT NULL, "page_title" varchar(255) NULL, "menu_title" varchar(255) NULL, "meta_description" text NULL, "slug" varchar(255) NOT NULL, "path" varchar(255) NOT NULL, "has_url_overwrite" bool NOT NULL, "creation_date" datetime NOT NULL, "published" bool NOT NULL, "publisher_is_draft" bool NOT NULL, "publisher_state" smallint NOT NULL, "page_id" integer NOT NULL REFERENCES "cms_page" ("id"), "publisher_public_id" integer NULL UNIQUE REFERENCES "cms_title" ("id"), UNIQUE ("language", "page_id"));
 INSERT INTO "cms_title" VALUES(9,'','en','Home','','','','home','',0,'2015-09-09 13:09:45.844416',1,1,0,9,10);
 INSERT INTO "cms_title" VALUES(10,'','en','Home','','','','home','',0,'2015-09-09 13:09:45.844416',1,0,0,10,9);
 INSERT INTO "cms_title" VALUES(11,NULL,'en','home1','','','','home1','home1',0,'2015-09-10 08:04:20.345474',1,1,0,11,12);
 INSERT INTO "cms_title" VALUES(12,NULL,'en','home1','','','','home1','home1',0,'2015-09-10 08:04:20.345474',1,0,0,12,11);
-DROP TABLE IF EXISTS "cms_usersettings";
+
 CREATE TABLE "cms_usersettings" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "language" varchar(10) NOT NULL, "clipboard_id" integer NULL REFERENCES "cms_placeholder" ("id"), "user_id" integer NOT NULL UNIQUE REFERENCES "auth_user" ("id"));
 INSERT INTO "cms_usersettings" VALUES(1,'en',1,2);
 INSERT INTO "cms_usersettings" VALUES(2,'en',12,1);
-DROP TABLE IF EXISTS "cmsplugin_filer_file_filerfile";
+
 CREATE TABLE "cmsplugin_filer_file_filerfile" ("cmsplugin_ptr_id" integer NOT NULL PRIMARY KEY REFERENCES "cms_cmsplugin" ("id"), "title" varchar(255) NULL, "target_blank" bool NOT NULL, "style" varchar(255) NOT NULL, "file_id" integer NOT NULL REFERENCES "filer_file" ("id"));
-DROP TABLE IF EXISTS "cmsplugin_filer_folder_filerfolder";
+
 CREATE TABLE "cmsplugin_filer_folder_filerfolder" ("cmsplugin_ptr_id" integer NOT NULL PRIMARY KEY REFERENCES "cms_cmsplugin" ("id"), "title" varchar(255) NULL, "style" varchar(50) NOT NULL, "folder_id" integer NOT NULL REFERENCES "filer_folder" ("id"));
-DROP TABLE IF EXISTS "cmsplugin_filer_image_filerimage";
+
 CREATE TABLE "cmsplugin_filer_image_filerimage" ("cmsplugin_ptr_id" integer NOT NULL PRIMARY KEY REFERENCES "cms_cmsplugin" ("id"), "style" varchar(50) NOT NULL, "caption_text" varchar(255) NULL, "image_url" varchar(200) NULL, "alt_text" varchar(255) NULL, "use_original_image" bool NOT NULL, "use_autoscale" bool NOT NULL, "width" integer unsigned NULL, "height" integer unsigned NULL, "crop" bool NOT NULL, "upscale" bool NOT NULL, "alignment" varchar(10) NULL, "free_link" varchar(255) NULL, "original_link" bool NOT NULL, "description" text NULL, "target_blank" bool NOT NULL, "file_link_id" integer NULL REFERENCES "filer_file" ("id"), "image_id" integer NULL REFERENCES "filer_image" ("file_ptr_id"), "page_link_id" integer NULL REFERENCES "cms_page" ("id"), "thumbnail_option_id" integer NULL REFERENCES "cmsplugin_filer_image_thumbnailoption" ("id"));
-DROP TABLE IF EXISTS "cmsplugin_filer_image_thumbnailoption";
+
 CREATE TABLE "cmsplugin_filer_image_thumbnailoption" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "name" varchar(100) NOT NULL, "width" integer NOT NULL, "height" integer NOT NULL, "crop" bool NOT NULL, "upscale" bool NOT NULL);
-DROP TABLE IF EXISTS "cmsplugin_filer_teaser_filerteaser";
+
 CREATE TABLE "cmsplugin_filer_teaser_filerteaser" ("cmsplugin_ptr_id" integer NOT NULL PRIMARY KEY REFERENCES "cms_cmsplugin" ("id"), "title" varchar(255) NOT NULL, "image_url" varchar(200) NULL, "style" varchar(255) NOT NULL, "use_autoscale" bool NOT NULL, "width" integer unsigned NULL, "height" integer unsigned NULL, "free_link" varchar(255) NULL, "description" text NULL, "target_blank" bool NOT NULL, "image_id" integer NULL REFERENCES "filer_image" ("file_ptr_id"), "page_link_id" integer NULL REFERENCES "cms_page" ("id"));
-DROP TABLE IF EXISTS "cmsplugin_filer_video_filervideo";
+
 CREATE TABLE "cmsplugin_filer_video_filervideo" ("cmsplugin_ptr_id" integer NOT NULL PRIMARY KEY REFERENCES "cms_cmsplugin" ("id"), "movie_url" varchar(255) NULL, "width" smallint unsigned NOT NULL, "height" smallint unsigned NOT NULL, "auto_play" bool NOT NULL, "auto_hide" bool NOT NULL, "fullscreen" bool NOT NULL, "loop" bool NOT NULL, "bgcolor" varchar(6) NOT NULL, "textcolor" varchar(6) NOT NULL, "seekbarcolor" varchar(6) NOT NULL, "seekbarbgcolor" varchar(6) NOT NULL, "loadingbarcolor" varchar(6) NOT NULL, "buttonoutcolor" varchar(6) NOT NULL, "buttonovercolor" varchar(6) NOT NULL, "buttonhighlightcolor" varchar(6) NOT NULL, "image_id" integer NULL REFERENCES "filer_image" ("file_ptr_id"), "movie_id" integer NULL REFERENCES "filer_file" ("id"));
-DROP TABLE IF EXISTS "core_block";
+
 CREATE TABLE "core_block" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "subtitle" varchar(300) NOT NULL, "title" varchar(200) NOT NULL, "button_title" varchar(100) NOT NULL, "button_link" varchar(100) NOT NULL);
 INSERT INTO "core_block" VALUES(1,'Some subtitle going to be there','sadfsadfsdaf','sdfsadf','http:\\mail.ru');
 INSERT INTO "core_block" VALUES(2,'Support and tehnical  assistance for courses creation and components integration','TO BLOG','MORE INFO','httt');
-DROP TABLE IF EXISTS "django_admin_log";
+
 CREATE TABLE "django_admin_log" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "action_time" datetime NOT NULL, "object_id" text NULL, "object_repr" varchar(200) NOT NULL, "action_flag" smallint unsigned NOT NULL, "change_message" text NOT NULL, "content_type_id" integer NULL REFERENCES "django_content_type" ("id"), "user_id" integer NOT NULL REFERENCES "auth_user" ("id"));
 INSERT INTO "django_admin_log" VALUES(1,'2015-09-04 10:46:24.821305','1','Home',1,'',2,2);
 INSERT INTO "django_admin_log" VALUES(2,'2015-09-04 10:47:06.383096','1','gallery 1',1,'',46,2);
@@ -462,7 +462,7 @@ INSERT INTO "django_admin_log" VALUES(102,'2015-09-09 13:49:16.426588','218','21
 INSERT INTO "django_admin_log" VALUES(103,'2015-09-09 13:49:38.946979','9','Home',2,'',2,1);
 INSERT INTO "django_admin_log" VALUES(104,'2015-09-10 08:04:20.366200','11','home1',1,'',2,1);
 INSERT INTO "django_admin_log" VALUES(105,'2015-09-10 08:05:04.121868','11','home1',2,'',2,1);
-DROP TABLE IF EXISTS "django_content_type";
+
 CREATE TABLE "django_content_type" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "name" varchar(100) NOT NULL, "app_label" varchar(100) NOT NULL, "model" varchar(100) NOT NULL, UNIQUE ("app_label", "model"));
 INSERT INTO "django_content_type" VALUES(1,'placeholder','cms','placeholder');
 INSERT INTO "django_content_type" VALUES(2,'page','cms','page');
@@ -523,64 +523,7 @@ INSERT INTO "django_content_type" VALUES(56,'latest posts plugin','djangocms_blo
 INSERT INTO "django_content_type" VALUES(57,'author entries plugin','djangocms_blog','authorentriesplugin');
 INSERT INTO "django_content_type" VALUES(58,'Tag','taggit','tag');
 INSERT INTO "django_content_type" VALUES(59,'Tagged Item','taggit','taggeditem');
-DROP TABLE IF EXISTS "django_migrations";
-CREATE TABLE "django_migrations" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "app" varchar(255) NOT NULL, "name" varchar(255) NOT NULL, "applied" datetime NOT NULL);
-INSERT INTO "django_migrations" VALUES(1,'contenttypes','0001_initial','2015-09-04 10:42:18.879216');
-INSERT INTO "django_migrations" VALUES(2,'auth','0001_initial','2015-09-04 10:42:18.946641');
-INSERT INTO "django_migrations" VALUES(3,'admin','0001_initial','2015-09-04 10:42:18.974132');
-INSERT INTO "django_migrations" VALUES(4,'core','0001_initial','2015-09-04 10:42:18.982535');
-INSERT INTO "django_migrations" VALUES(5,'sites','0001_initial','2015-09-04 10:42:18.990376');
-INSERT INTO "django_migrations" VALUES(6,'cms','0001_initial','2015-09-04 10:42:19.125715');
-INSERT INTO "django_migrations" VALUES(7,'cms','0002_auto_20140816_1918','2015-09-04 10:42:19.622377');
-INSERT INTO "django_migrations" VALUES(8,'cms','0003_auto_20140926_2347','2015-09-04 10:42:19.760605');
-INSERT INTO "django_migrations" VALUES(9,'cms','0004_auto_20140924_1038','2015-09-04 10:42:20.219097');
-INSERT INTO "django_migrations" VALUES(10,'cms','0005_auto_20140924_1039','2015-09-04 10:42:20.377335');
-INSERT INTO "django_migrations" VALUES(11,'cms','0006_auto_20140924_1110','2015-09-04 10:42:21.053950');
-INSERT INTO "django_migrations" VALUES(12,'cms','0007_auto_20141028_1559','2015-09-04 10:42:21.351338');
-INSERT INTO "django_migrations" VALUES(13,'cms','0008_auto_20150208_2149','2015-09-04 10:42:21.597636');
-INSERT INTO "django_migrations" VALUES(14,'cms','0008_auto_20150121_0059','2015-09-04 10:42:21.852766');
-INSERT INTO "django_migrations" VALUES(15,'cms','0009_merge','2015-09-04 10:42:22.075521');
-INSERT INTO "django_migrations" VALUES(16,'cms','0010_migrate_use_structure','2015-09-04 10:42:22.372326');
-INSERT INTO "django_migrations" VALUES(17,'cms','0011_auto_20150419_1006','2015-09-04 10:42:22.792809');
-INSERT INTO "django_migrations" VALUES(18,'cms','0012_auto_20150607_2207','2015-09-04 10:42:23.194829');
-INSERT INTO "django_migrations" VALUES(19,'call_to_action_plugin','0001_initial','2015-09-04 10:42:23.564549');
-INSERT INTO "django_migrations" VALUES(20,'top_gallery','0001_initial','2015-09-04 10:42:23.575596');
-INSERT INTO "django_migrations" VALUES(21,'clients_plugin','0001_initial','2015-09-04 10:42:23.958280');
-INSERT INTO "django_migrations" VALUES(22,'filer','0001_initial','2015-09-04 10:42:24.275164');
-INSERT INTO "django_migrations" VALUES(23,'cmsplugin_filer_file','0001_initial','2015-09-04 10:42:24.483833');
-INSERT INTO "django_migrations" VALUES(24,'cmsplugin_filer_folder','0001_initial','2015-09-04 10:42:24.674791');
-INSERT INTO "django_migrations" VALUES(25,'cmsplugin_filer_image','0001_initial','2015-09-04 10:42:25.005571');
-INSERT INTO "django_migrations" VALUES(26,'cmsplugin_filer_teaser','0001_initial','2015-09-04 10:42:25.218396');
-INSERT INTO "django_migrations" VALUES(27,'cmsplugin_filer_video','0001_initial','2015-09-04 10:42:25.481529');
-INSERT INTO "django_migrations" VALUES(28,'djangocms_column','0001_initial','2015-09-04 10:42:25.574643');
-INSERT INTO "django_migrations" VALUES(29,'djangocms_flash','0001_initial','2015-09-04 10:42:25.640592');
-INSERT INTO "django_migrations" VALUES(30,'djangocms_googlemap','0001_initial','2015-09-04 10:42:25.712505');
-INSERT INTO "django_migrations" VALUES(31,'djangocms_inherit','0001_initial','2015-09-04 10:42:25.781011');
-INSERT INTO "django_migrations" VALUES(32,'djangocms_link','0001_initial','2015-09-04 10:42:25.852273');
-INSERT INTO "django_migrations" VALUES(33,'djangocms_link','0002_auto_20140929_1705','2015-09-04 10:42:25.964473');
-INSERT INTO "django_migrations" VALUES(34,'djangocms_link','0003_auto_20150212_1310','2015-09-04 10:42:26.090942');
-INSERT INTO "django_migrations" VALUES(35,'djangocms_link','0004_auto_20150708_1133','2015-09-04 10:42:26.250666');
-INSERT INTO "django_migrations" VALUES(36,'djangocms_style','0001_initial','2015-09-04 10:42:26.322981');
-INSERT INTO "django_migrations" VALUES(37,'djangocms_text_ckeditor','0001_initial','2015-09-04 10:42:26.388796');
-INSERT INTO "django_migrations" VALUES(38,'easy_thumbnails','0001_initial','2015-09-04 10:42:26.414589');
-INSERT INTO "django_migrations" VALUES(39,'easy_thumbnails','0002_thumbnaildimensions','2015-09-04 10:42:26.428865');
-INSERT INTO "django_migrations" VALUES(40,'filer','0002_auto_20150606_2003','2015-09-04 10:42:26.509469');
-INSERT INTO "django_migrations" VALUES(41,'menus','0001_initial','2015-09-04 10:42:26.516746');
-INSERT INTO "django_migrations" VALUES(42,'reversion','0001_initial','2015-09-04 10:42:26.562485');
-INSERT INTO "django_migrations" VALUES(43,'sessions','0001_initial','2015-09-04 10:42:26.571044');
-INSERT INTO "django_migrations" VALUES(44,'top_gallery_plugin','0001_initial','2015-09-04 10:42:27.006581');
-INSERT INTO "django_migrations" VALUES(45,'taggit','0001_initial','2015-09-04 12:18:22.794264');
-INSERT INTO "django_migrations" VALUES(46,'taggit','0002_auto_20150616_2121','2015-09-04 12:18:22.817274');
-INSERT INTO "django_migrations" VALUES(47,'djangocms_blog','0001_initial','2015-09-04 12:18:24.095213');
-INSERT INTO "django_migrations" VALUES(48,'djangocms_blog','0002_post_sites','2015-09-04 12:18:24.888325');
-INSERT INTO "django_migrations" VALUES(49,'djangocms_blog','0003_auto_20141201_2252','2015-09-04 12:18:25.703112');
-INSERT INTO "django_migrations" VALUES(50,'djangocms_blog','0004_auto_20150108_1435','2015-09-04 12:18:26.783985');
-INSERT INTO "django_migrations" VALUES(51,'djangocms_blog','0005_auto_20150212_1118','2015-09-04 12:18:27.848213');
-INSERT INTO "django_migrations" VALUES(52,'djangocms_blog','0006_auto_20150214_1907','2015-09-04 12:18:28.809782');
-INSERT INTO "django_migrations" VALUES(53,'djangocms_blog','0007_auto_20150719_0933','2015-09-04 12:18:31.925411');
-INSERT INTO "django_migrations" VALUES(54,'djangocms_blog','0008_auto_20150904_1518','2015-09-04 12:19:05.095507');
-INSERT INTO "django_migrations" VALUES(55,'core','0002_block_subtitle','2015-09-07 07:22:40.990658');
-DROP TABLE IF EXISTS "django_session";
+
 CREATE TABLE "django_session" ("session_key" varchar(40) NOT NULL PRIMARY KEY, "session_data" text NOT NULL, "expire_date" datetime NOT NULL);
 INSERT INTO "django_session" VALUES('3v13hyyi2hf5likeesnzkah2ojtzm6l2','MTFhNzhhZWJlNTcxMzNlYzRhNWY0ZjQ2MDc4NzQ2M2I5N2M3YzY3Nzp7Il9hdXRoX3VzZXJfaGFzaCI6IjUyZDU4NjQ2NDljMTgzYTNhZTI5NzEyMDc4NmU1ZTdmNDQ0YzIwMzUiLCJjbXNfdG9vbGJhcl9kaXNhYmxlZCI6ZmFsc2UsIl9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6MSwiY21zX2VkaXQiOnRydWV9','2015-09-21 10:04:48.884718');
 INSERT INTO "django_session" VALUES('x76pm12ogwu18j0sa1csomzn62s2uv8c','MjQyYTU5YTdiYzljYjdiOWRjNmYxODZiOGNlMmMyMWZkYWFiYzI3NDp7ImNtc190b29sYmFyX2Rpc2FibGVkIjpmYWxzZSwiY21zX2VkaXQiOnRydWV9','2015-09-21 11:05:41.317901');
@@ -588,42 +531,42 @@ INSERT INTO "django_session" VALUES('puls50ycpivgeov8zmim5rue0bissvd6','MjQyYTU5
 INSERT INTO "django_session" VALUES('u29hnl9mip7h57mmw1svj2e59i2knrk3','ZTY0ZDFiYTFlYjVlMDRmNDQzN2M4ZTBhOTE4YWE2ZjI3ZTVkMjYxMTp7Il9hdXRoX3VzZXJfaWQiOjEsImNtc190b29sYmFyX2Rpc2FibGVkIjpmYWxzZSwiY21zX2FkbWluX3NpdGUiOjEsIl9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9oYXNoIjoiNTJkNTg2NDY0OWMxODNhM2FlMjk3MTIwNzg2ZTVlN2Y0NDRjMjAzNSIsImNtc19lZGl0Ijp0cnVlfQ==','2015-09-24 08:49:48.742084');
 INSERT INTO "django_session" VALUES('jurvu17ju8rn32o74fk5gwng6qozx21b','MTk0YmM4NzM4NGYzNzkwMDkyMGIwMmFhNDdlZmYzOGRlNTE1MmViNzp7ImNtc19lZGl0Ijp0cnVlLCJjbXNfdG9vbGJhcl9kaXNhYmxlZCI6ZmFsc2V9','2015-09-21 14:47:43.075017');
 INSERT INTO "django_session" VALUES('l1ukbijgf2xh14ecliwkv2b4254wud1w','MGU4MTI1N2MzMDg0ZWYxY2JjZjRkOWZhYmU1YTNhYjQ3Y2MwZmEzMzp7ImNtc19hZG1pbl9zaXRlIjoxLCJfYXV0aF91c2VyX2lkIjoxLCJjbXNfdG9vbGJhcl9kaXNhYmxlZCI6ZmFsc2UsIl9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiY21zX2VkaXQiOnRydWUsIl9hdXRoX3VzZXJfaGFzaCI6IjUyZDU4NjQ2NDljMTgzYTNhZTI5NzEyMDc4NmU1ZTdmNDQ0YzIwMzUifQ==','2015-09-24 08:05:06.865175');
-DROP TABLE IF EXISTS "django_site";
+
 CREATE TABLE "django_site" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "domain" varchar(100) NOT NULL, "name" varchar(50) NOT NULL);
 INSERT INTO "django_site" VALUES(1,'example.com','example.com');
-DROP TABLE IF EXISTS "djangocms_blog_authorentriesplugin";
+
 CREATE TABLE "djangocms_blog_authorentriesplugin" ("cmsplugin_ptr_id" integer NOT NULL PRIMARY KEY REFERENCES "cms_cmsplugin" ("id"), "latest_posts" integer NOT NULL);
-DROP TABLE IF EXISTS "djangocms_blog_authorentriesplugin_authors";
+
 CREATE TABLE "djangocms_blog_authorentriesplugin_authors" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "user_id" integer NOT NULL REFERENCES "auth_user" ("id"), "authorentriesplugin_id" integer NOT NULL REFERENCES "djangocms_blog_authorentriesplugin" ("cmsplugin_ptr_id"), UNIQUE ("authorentriesplugin_id", "user_id"));
-DROP TABLE IF EXISTS "djangocms_blog_blogcategory";
+
 CREATE TABLE "djangocms_blog_blogcategory" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "date_created" datetime NOT NULL, "date_modified" datetime NOT NULL, "parent_id" integer NULL REFERENCES "djangocms_blog_blogcategory" ("id"));
 INSERT INTO "djangocms_blog_blogcategory" VALUES(1,'2015-09-04 12:28:34.057566','2015-09-04 12:28:34.057605',NULL);
-DROP TABLE IF EXISTS "djangocms_blog_blogcategory_translation";
+
 CREATE TABLE "djangocms_blog_blogcategory_translation" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "name" varchar(255) NOT NULL, "slug" varchar(50) NOT NULL, "master_id" integer NULL REFERENCES "djangocms_blog_blogcategory" ("id"), "language_code" varchar(15) NOT NULL, UNIQUE ("language_code", "slug"), UNIQUE ("language_code", "master_id"));
 INSERT INTO "djangocms_blog_blogcategory_translation" VALUES(1,'1','1',1,'ru');
-DROP TABLE IF EXISTS "djangocms_blog_latestpostsplugin";
+
 CREATE TABLE "djangocms_blog_latestpostsplugin" ("cmsplugin_ptr_id" integer NOT NULL PRIMARY KEY REFERENCES "cms_cmsplugin" ("id"), "latest_posts" integer NOT NULL);
-DROP TABLE IF EXISTS "djangocms_blog_latestpostsplugin_categories";
+
 CREATE TABLE "djangocms_blog_latestpostsplugin_categories" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "latestpostsplugin_id" integer NOT NULL REFERENCES "djangocms_blog_latestpostsplugin" ("cmsplugin_ptr_id"), "blogcategory_id" integer NOT NULL REFERENCES "djangocms_blog_blogcategory" ("id"), UNIQUE ("latestpostsplugin_id", "blogcategory_id"));
-DROP TABLE IF EXISTS "djangocms_blog_latestpostsplugin_tags";
+
 CREATE TABLE "djangocms_blog_latestpostsplugin_tags" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "latestpostsplugin_id" integer NOT NULL REFERENCES "djangocms_blog_latestpostsplugin" ("cmsplugin_ptr_id"), "tag_id" integer NOT NULL REFERENCES "taggit_tag" ("id"), UNIQUE ("latestpostsplugin_id", "tag_id"));
-DROP TABLE IF EXISTS "djangocms_blog_post";
+
 CREATE TABLE "djangocms_blog_post" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "date_created" datetime NOT NULL, "date_modified" datetime NOT NULL, "date_published" datetime NOT NULL, "date_published_end" datetime NULL, "enable_comments" bool NOT NULL, "author_id" integer NULL REFERENCES "auth_user" ("id"), "content_id" integer NULL REFERENCES "cms_placeholder" ("id"), "main_image_id" integer NULL REFERENCES "filer_image" ("file_ptr_id"), "main_image_full_id" integer NULL REFERENCES "cmsplugin_filer_image_thumbnailoption" ("id"), "main_image_thumbnail_id" integer NULL REFERENCES "cmsplugin_filer_image_thumbnailoption" ("id"), "publish" bool NOT NULL);
 INSERT INTO "djangocms_blog_post" VALUES(1,'2015-09-04 12:28:36.898733','2015-09-07 11:45:26.327145','2015-09-04 12:28:14',NULL,1,2,5,NULL,NULL,NULL,1);
 INSERT INTO "djangocms_blog_post" VALUES(2,'2015-09-04 12:28:59.747115','2015-09-07 11:45:16.412572','2015-09-04 12:28:42',NULL,1,2,6,NULL,NULL,NULL,1);
 INSERT INTO "djangocms_blog_post" VALUES(3,'2015-09-04 12:29:09.058356','2015-09-07 11:45:03.826053','2015-09-04 12:29:04',NULL,1,2,7,NULL,NULL,NULL,1);
 INSERT INTO "djangocms_blog_post" VALUES(4,'2015-09-04 12:29:25.062991','2015-09-07 11:16:58.837492','2015-09-04 12:29:15',NULL,1,2,8,NULL,NULL,NULL,1);
 INSERT INTO "djangocms_blog_post" VALUES(5,'2015-09-07 11:02:11.023412','2015-09-07 11:08:04.593868','2015-09-07 11:02:01',NULL,1,2,17,NULL,NULL,NULL,1);
-DROP TABLE IF EXISTS "djangocms_blog_post_categories";
+
 CREATE TABLE "djangocms_blog_post_categories" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "post_id" integer NOT NULL REFERENCES "djangocms_blog_post" ("id"), "blogcategory_id" integer NOT NULL REFERENCES "djangocms_blog_blogcategory" ("id"), UNIQUE ("post_id", "blogcategory_id"));
 INSERT INTO "djangocms_blog_post_categories" VALUES(6,5,1);
 INSERT INTO "djangocms_blog_post_categories" VALUES(7,4,1);
 INSERT INTO "djangocms_blog_post_categories" VALUES(8,3,1);
 INSERT INTO "djangocms_blog_post_categories" VALUES(9,2,1);
 INSERT INTO "djangocms_blog_post_categories" VALUES(10,1,1);
-DROP TABLE IF EXISTS "djangocms_blog_post_sites";
+
 CREATE TABLE "djangocms_blog_post_sites" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "site_id" integer NOT NULL REFERENCES "django_site" ("id"), "post_id" integer NOT NULL REFERENCES "djangocms_blog_post" ("id"), UNIQUE ("post_id", "site_id"));
-DROP TABLE IF EXISTS "djangocms_blog_post_translation";
+
 CREATE TABLE "djangocms_blog_post_translation" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "abstract" text NOT NULL, "language_code" varchar(15) NOT NULL, "title" varchar(255) NOT NULL, "slug" varchar(50) NOT NULL, "meta_description" text NOT NULL, "meta_keywords" text NOT NULL, "meta_title" varchar(255) NOT NULL, "post_text" text NOT NULL, "master_id" integer NULL REFERENCES "djangocms_blog_post" ("id"), UNIQUE ("language_code", "master_id"), UNIQUE ("language_code", "slug"));
 INSERT INTO "djangocms_blog_post_translation" VALUES(1,'<p>11111</p>
 ','ru','1','1','','','','',1);
@@ -639,19 +582,19 @@ INSERT INTO "djangocms_blog_post_translation" VALUES(6,'','en','4','4','','','',
 INSERT INTO "djangocms_blog_post_translation" VALUES(7,'','en','3','3','','','','',3);
 INSERT INTO "djangocms_blog_post_translation" VALUES(8,'','en','2','2','','','','',2);
 INSERT INTO "djangocms_blog_post_translation" VALUES(9,'','en','1','1','','','','',1);
-DROP TABLE IF EXISTS "djangocms_column_column";
+
 CREATE TABLE "djangocms_column_column" ("cmsplugin_ptr_id" integer NOT NULL PRIMARY KEY REFERENCES "cms_cmsplugin" ("id"), "width" varchar(50) NOT NULL);
-DROP TABLE IF EXISTS "djangocms_column_multicolumns";
+
 CREATE TABLE "djangocms_column_multicolumns" ("cmsplugin_ptr_id" integer NOT NULL PRIMARY KEY REFERENCES "cms_cmsplugin" ("id"));
-DROP TABLE IF EXISTS "djangocms_flash_flash";
+
 CREATE TABLE "djangocms_flash_flash" ("cmsplugin_ptr_id" integer NOT NULL PRIMARY KEY REFERENCES "cms_cmsplugin" ("id"), "file" varchar(100) NOT NULL, "width" varchar(6) NOT NULL, "height" varchar(6) NOT NULL);
-DROP TABLE IF EXISTS "djangocms_googlemap_googlemap";
+
 CREATE TABLE "djangocms_googlemap_googlemap" ("cmsplugin_ptr_id" integer NOT NULL PRIMARY KEY REFERENCES "cms_cmsplugin" ("id"), "title" varchar(100) NULL, "address" varchar(150) NOT NULL, "zipcode" varchar(30) NOT NULL, "city" varchar(100) NOT NULL, "content" varchar(255) NOT NULL, "zoom" smallint unsigned NOT NULL, "lat" decimal NULL, "lng" decimal NULL, "route_planer_title" varchar(150) NULL, "route_planer" bool NOT NULL, "width" varchar(6) NOT NULL, "height" varchar(6) NOT NULL, "info_window" bool NOT NULL, "scrollwheel" bool NOT NULL, "double_click_zoom" bool NOT NULL, "draggable" bool NOT NULL, "keyboard_shortcuts" bool NOT NULL, "pan_control" bool NOT NULL, "zoom_control" bool NOT NULL, "street_view_control" bool NOT NULL);
-DROP TABLE IF EXISTS "djangocms_inherit_inheritpageplaceholder";
+
 CREATE TABLE "djangocms_inherit_inheritpageplaceholder" ("cmsplugin_ptr_id" integer NOT NULL PRIMARY KEY REFERENCES "cms_cmsplugin" ("id"), "from_language" varchar(5) NULL, "from_page_id" integer NULL REFERENCES "cms_page" ("id"));
-DROP TABLE IF EXISTS "djangocms_link_link";
+
 CREATE TABLE "djangocms_link_link" ("cmsplugin_ptr_id" integer NOT NULL PRIMARY KEY REFERENCES "cms_cmsplugin" ("id"), "name" varchar(256) NOT NULL, "anchor" varchar(128) NOT NULL, "mailto" varchar(75) NULL, "phone" varchar(40) NULL, "target" varchar(100) NOT NULL, "page_link_id" integer NULL REFERENCES "cms_page" ("id"), "url" varchar(2048) NULL);
-DROP TABLE IF EXISTS "djangocms_style_style";
+
 CREATE TABLE "djangocms_style_style" ("cmsplugin_ptr_id" integer NOT NULL PRIMARY KEY REFERENCES "cms_cmsplugin" ("id"), "class_name" varchar(50) NULL, "tag_type" varchar(50) NOT NULL, "padding_left" smallint NULL, "padding_right" smallint NULL, "padding_top" smallint NULL, "padding_bottom" smallint NULL, "margin_left" smallint NULL, "margin_right" smallint NULL, "margin_top" smallint NULL, "margin_bottom" smallint NULL, "additional_classes" varchar(200) NOT NULL);
 INSERT INTO "djangocms_style_style" VALUES(188,'info','div',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'box container');
 INSERT INTO "djangocms_style_style" VALUES(190,'info','div',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'container');
@@ -677,7 +620,7 @@ INSERT INTO "djangocms_style_style" VALUES(253,'info','div',NULL,NULL,NULL,NULL,
 INSERT INTO "djangocms_style_style" VALUES(254,'info','div',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'services-item ic1');
 INSERT INTO "djangocms_style_style" VALUES(256,'info','div',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'services-item ic2');
 INSERT INTO "djangocms_style_style" VALUES(258,'info','div',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'services-item ic3');
-DROP TABLE IF EXISTS "djangocms_text_ckeditor_text";
+
 CREATE TABLE "djangocms_text_ckeditor_text" ("cmsplugin_ptr_id" integer NOT NULL PRIMARY KEY REFERENCES "cms_cmsplugin" ("id"), "body" text NOT NULL);
 INSERT INTO "djangocms_text_ckeditor_text" VALUES(189,'<h2 class="title">We help customers build world class construction projects since 1970</h2>
 
@@ -779,29 +722,29 @@ INSERT INTO "djangocms_text_ckeditor_text" VALUES(259,'<h5 class="title">Deploy<
 
 <p><button class="btnl">MORE INFO <img src="/media/img/arrowl.png" class="arr"></button></p>
 ');
-DROP TABLE IF EXISTS "easy_thumbnails_source";
+
 CREATE TABLE "easy_thumbnails_source" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "storage_hash" varchar(40) NOT NULL, "name" varchar(255) NOT NULL, "modified" datetime NOT NULL, UNIQUE ("storage_hash", "name"));
-DROP TABLE IF EXISTS "easy_thumbnails_thumbnail";
+
 CREATE TABLE "easy_thumbnails_thumbnail" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "storage_hash" varchar(40) NOT NULL, "name" varchar(255) NOT NULL, "modified" datetime NOT NULL, "source_id" integer NOT NULL REFERENCES "easy_thumbnails_source" ("id"), UNIQUE ("storage_hash", "name", "source_id"));
-DROP TABLE IF EXISTS "easy_thumbnails_thumbnaildimensions";
+
 CREATE TABLE "easy_thumbnails_thumbnaildimensions" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "thumbnail_id" integer NOT NULL UNIQUE REFERENCES "easy_thumbnails_thumbnail" ("id"), "width" integer unsigned NULL, "height" integer unsigned NULL);
-DROP TABLE IF EXISTS "filer_clipboard";
+
 CREATE TABLE "filer_clipboard" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "user_id" integer NOT NULL REFERENCES "auth_user" ("id"));
 INSERT INTO "filer_clipboard" VALUES(1,2);
-DROP TABLE IF EXISTS "filer_clipboarditem";
+
 CREATE TABLE "filer_clipboarditem" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "clipboard_id" integer NOT NULL REFERENCES "filer_clipboard" ("id"), "file_id" integer NOT NULL REFERENCES "filer_file" ("id"));
-DROP TABLE IF EXISTS "filer_file";
+
 CREATE TABLE "filer_file" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "polymorphic_ctype_id" integer NULL REFERENCES "django_content_type" ("id"), "file" varchar(255) NULL, "_file_size" integer NULL, "sha1" varchar(40) NOT NULL, "has_all_mandatory_data" bool NOT NULL, "original_filename" varchar(255) NULL, "name" varchar(255) NOT NULL, "description" text NULL, "uploaded_at" datetime NOT NULL, "modified_at" datetime NOT NULL, "is_public" bool NOT NULL, "folder_id" integer NULL REFERENCES "filer_folder" ("id"), "owner_id" integer NULL REFERENCES "auth_user" ("id"));
-DROP TABLE IF EXISTS "filer_folder";
+
 CREATE TABLE "filer_folder" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "name" varchar(255) NOT NULL, "uploaded_at" datetime NOT NULL, "created_at" datetime NOT NULL, "modified_at" datetime NOT NULL, "lft" integer unsigned NOT NULL, "rght" integer unsigned NOT NULL, "tree_id" integer unsigned NOT NULL, "level" integer unsigned NOT NULL, "owner_id" integer NULL REFERENCES "auth_user" ("id"), "parent_id" integer NULL REFERENCES "filer_folder" ("id"), UNIQUE ("parent_id", "name"));
-DROP TABLE IF EXISTS "filer_folderpermission";
+
 CREATE TABLE "filer_folderpermission" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "type" smallint NOT NULL, "everybody" bool NOT NULL, "can_edit" smallint NULL, "can_read" smallint NULL, "can_add_children" smallint NULL, "folder_id" integer NULL REFERENCES "filer_folder" ("id"), "group_id" integer NULL REFERENCES "auth_group" ("id"), "user_id" integer NULL REFERENCES "auth_user" ("id"));
-DROP TABLE IF EXISTS "filer_image";
+
 CREATE TABLE "filer_image" ("file_ptr_id" integer NOT NULL PRIMARY KEY REFERENCES "filer_file" ("id"), "_height" integer NULL, "_width" integer NULL, "date_taken" datetime NULL, "default_alt_text" varchar(255) NULL, "default_caption" varchar(255) NULL, "author" varchar(255) NULL, "must_always_publish_author_credit" bool NOT NULL, "must_always_publish_copyright" bool NOT NULL, "subject_location" varchar(64) NULL);
-DROP TABLE IF EXISTS "menus_cachekey";
+
 CREATE TABLE "menus_cachekey" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "language" varchar(255) NOT NULL, "site" integer unsigned NOT NULL, "key" varchar(255) NOT NULL);
 INSERT INTO "menus_cachekey" VALUES(177,'en',1,'menu_cache_menu_nodes_en_1_1_user');
-DROP TABLE IF EXISTS "reversion_revision";
+
 CREATE TABLE "reversion_revision" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "manager_slug" varchar(200) NOT NULL, "date_created" datetime NOT NULL, "comment" text NOT NULL, "user_id" integer NULL REFERENCES "auth_user" ("id"));
 INSERT INTO "reversion_revision" VALUES(1,'default','2015-09-04 10:46:24.898195','Initial version.',2);
 INSERT INTO "reversion_revision" VALUES(20,'default','2015-09-04 12:19:37.638648','Initial version.',2);
@@ -889,7 +832,7 @@ INSERT INTO "reversion_revision" VALUES(219,'default','2015-09-09 13:49:16.87387
 INSERT INTO "reversion_revision" VALUES(220,'default','2015-09-09 13:49:39.086662','Publish',1);
 INSERT INTO "reversion_revision" VALUES(221,'default','2015-09-10 08:04:20.393015','Initial version.',1);
 INSERT INTO "reversion_revision" VALUES(222,'default','2015-09-10 08:05:04.171274','Publish',1);
-DROP TABLE IF EXISTS "reversion_version";
+
 CREATE TABLE "reversion_version" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "object_id" text NOT NULL, "object_id_int" integer NULL, "format" varchar(255) NOT NULL, "serialized_data" text NOT NULL, "object_repr" text NOT NULL, "content_type_id" integer NOT NULL REFERENCES "django_content_type" ("id"), "revision_id" integer NOT NULL REFERENCES "reversion_revision" ("id"));
 INSERT INTO "reversion_version" VALUES(1,'1',1,'json','[{"pk": 1, "fields": {"template": "INHERIT", "placeholders": [2], "numchild": 0, "navigation_extenders": null, "publication_date": "2015-09-04T10:46:24.039Z", "created_by": "gang", "depth": 1, "in_navigation": true, "application_urls": null, "revision_id": 0, "limit_visibility_in_menu": null, "changed_date": "2015-09-04T10:46:24.684Z", "languages": "en", "publication_end_date": null, "creation_date": "2015-09-04T10:46:23.623Z", "site": 1, "reverse_id": null, "xframe_options": 0, "soft_root": false, "path": "0001", "is_home": true, "login_required": false, "parent": null, "application_namespace": null, "changed_by": "gang"}, "model": "cms.page"}]','Home',2,1);
 INSERT INTO "reversion_version" VALUES(2,'2',2,'json','[{"pk": 2, "fields": {"slot": "content", "default_width": null}, "model": "cms.placeholder"}]','content',1,1);
@@ -2933,17 +2876,17 @@ INSERT INTO "reversion_version" VALUES(4788,'11',11,'json','[{"fields": {"naviga
 INSERT INTO "reversion_version" VALUES(4789,'44',44,'json','[{"fields": {"slot": "to action", "default_width": null}, "model": "cms.placeholder", "pk": 44}]','to action',1,222);
 INSERT INTO "reversion_version" VALUES(4790,'45',45,'json','[{"fields": {"slot": "clients", "default_width": null}, "model": "cms.placeholder", "pk": 45}]','clients',1,222);
 INSERT INTO "reversion_version" VALUES(4791,'11',11,'json','[{"fields": {"menu_title": "", "meta_description": "", "page_title": "", "language": "en", "title": "home1", "has_url_overwrite": false, "redirect": null, "page": 11, "published": true, "path": "home1", "creation_date": "2015-09-10T08:04:20.345Z", "slug": "home1"}, "model": "cms.title", "pk": 11}]','home1 (home1, en)',17,222);
-DROP TABLE IF EXISTS "taggit_tag";
+
 CREATE TABLE "taggit_tag" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "name" varchar(100) NOT NULL UNIQUE, "slug" varchar(100) NOT NULL UNIQUE);
-DROP TABLE IF EXISTS "taggit_taggeditem";
+
 CREATE TABLE "taggit_taggeditem" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "object_id" integer NOT NULL, "content_type_id" integer NOT NULL REFERENCES "django_content_type" ("id"), "tag_id" integer NOT NULL REFERENCES "taggit_tag" ("id"));
-DROP TABLE IF EXISTS "top_gallery_gallery";
+
 CREATE TABLE "top_gallery_gallery" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "name" varchar(128) NOT NULL);
 INSERT INTO "top_gallery_gallery" VALUES(1,'gallery 1');
 INSERT INTO "top_gallery_gallery" VALUES(2,'2');
 INSERT INTO "top_gallery_gallery" VALUES(3,'Logos');
 INSERT INTO "top_gallery_gallery" VALUES(4,'colors');
-DROP TABLE IF EXISTS "top_gallery_photo";
+
 CREATE TABLE "top_gallery_photo" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "title" varchar(128) NULL, "file" varchar(100) NOT NULL, "gallery_id" integer NOT NULL REFERENCES "top_gallery_gallery" ("id"));
 INSERT INTO "top_gallery_photo" VALUES(1,'Title for image 2','images/z_23d671d9.jpg',1);
 INSERT INTO "top_gallery_photo" VALUES(2,'Title for image 1','images/z_79d6397b.jpg',1);
@@ -2960,7 +2903,7 @@ INSERT INTO "top_gallery_photo" VALUES(12,'','images/ios.jpg',3);
 INSERT INTO "top_gallery_photo" VALUES(13,'Title for blue color','images/blue.jpg',4);
 INSERT INTO "top_gallery_photo" VALUES(14,'Title for purple color','images/purple.jpg',4);
 INSERT INTO "top_gallery_photo" VALUES(15,'Title for red color','images/red.jpg',4);
-DROP TABLE IF EXISTS "top_gallery_plugin_topgalleryplugin";
+
 CREATE TABLE "top_gallery_plugin_topgalleryplugin" ("cmsplugin_ptr_id" integer NOT NULL PRIMARY KEY REFERENCES "cms_cmsplugin" ("id"), "gallery_id" integer NOT NULL REFERENCES "top_gallery_gallery" ("id"));
 INSERT INTO "top_gallery_plugin_topgalleryplugin" VALUES(187,4);
 INSERT INTO "top_gallery_plugin_topgalleryplugin" VALUES(243,4);
