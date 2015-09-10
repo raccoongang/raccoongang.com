@@ -20,7 +20,7 @@ class Photo(models.Model):
 
     def slide_thumbnail(self):
         print(self.file.url)
-        return '<img src="'+self.file.url+'" width=15%/>'
+        return '<img src="%s" width=15%/>' % (self.file.url)
     slide_thumbnail.allow_tags = True
 
 
