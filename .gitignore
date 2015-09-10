@@ -62,3 +62,4 @@ migrations/
 raccoonGang
 raccoonGang.pub
 project.db
+local_settings.py
