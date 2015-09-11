@@ -35,15 +35,6 @@ padding: 0;
 
 }
 
-body{
-font: 18px Arial, sans-serif;
-margin: 0;
-padding: 0;
-
-}
-
-
-
 
 .static-area-footer-bottom{
     background-color: #e7e7e9;
@@ -167,17 +158,9 @@ font: 14px Arial, sans-serif;
 color: #222;
 }
 
-ol, ul{list-style:none;}
 
 a {text-decoration: none;}
 
-
-
-*{
-    margin:0;
-    padding:0;
-    outline:0;
-}
 
 .text-right{text-align:right;}
 .text-left{text-align:left;}

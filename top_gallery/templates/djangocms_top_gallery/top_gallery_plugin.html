@@ -4,7 +4,7 @@
 
 <div class="container">
 <div id="raccoon-carousel" class="carousel slide" data-ride="carousel" data-pause="hover">
-  <!-- Indicators -->
+  <!-- Indicators
   <ol class="carousel-indicators">
       {% for every_photo in instance.gallery.photo_set.all %}
             <li data-target="#raccoon-carousel" data-slide-to="{{ forloop.counter }}" {% if forloop.first %}class="active"{% endif %}></li>
@@ -21,8 +21,8 @@
         <div class="container">
       <div class="carousel-caption">
         <h1>{{ every_photo.title }}</h1>
-          <p>Some more information goes here</p>
-          <p><a class="btn btn-lg btn-primary" href="#" role="button">Sign up today</a></p>
+          <p>{{ every_photo.subtitle }}</p>
+          <p><a class="btn btn-lg btn-primary" href="{{ every_photo.button_link }}" role="button">{{ every_photo.button_title }}</a></p>
       </div>
         </div>
     </div>

@@ -3,7 +3,7 @@ from .models import Gallery, Photo
 
 
 class PhotoAdmin(admin.ModelAdmin):
-    list_display = ('gallery', 'title', 'file')
+    list_display = ('gallery', 'title', 'file','subtitle','button_title','button_link')
 
 
 class BookInline(admin.TabularInline):
