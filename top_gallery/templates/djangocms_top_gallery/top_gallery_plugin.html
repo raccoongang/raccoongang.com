@@ -2,7 +2,7 @@
 
 {% csrf_token %}
 
-<div class="container">
+
 <div id="raccoon-carousel" class="carousel slide" data-ride="carousel" data-pause="hover">
   <!-- Indicators
   <ol class="carousel-indicators">
@@ -22,7 +22,7 @@
       <div class="carousel-caption">
         <h1>{{ every_photo.title }}</h1>
           <p>{{ every_photo.subtitle }}</p>
-          <p><a class="btn btn-lg btn-primary" href="{{ every_photo.button_link }}" role="button">{{ every_photo.button_title }}</a></p>
+          <p><a class="top-btn" href="{{ every_photo.button_link }}" role="button">{{ every_photo.button_title }}</a></p>
       </div>
         </div>
     </div>
@@ -42,4 +42,4 @@
   </a>
 </div>
 
-</div>
+

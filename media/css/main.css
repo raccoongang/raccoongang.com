@@ -1,7 +1,12 @@
 .navbar-brand {
-    padding: 3px 7px 3px 3px;
+    padding:0px;
+
 }
 
+.container {
+    padding-left: 0px;
+    padding-right: 0px;
+}
 .main-content-block {
   padding: 40px 15px;
   text-align: center;
@@ -13,6 +18,196 @@
     align:left;
 }
 
+
 .navbar {
     height:70px
+}
+
+.nav li a:hover, .dropdown-menu li a:hover {background-color: #b8dd92;
+    color: #000;}
+
+.nav .active {background-color: #72bb25;  }
+
+.nav .active a {color:#fff;}
+
+.nav li a, .dropdown-menu li a {font: 16px Arial;
+                                color: #868691; height: 116px;}
+
+.navbar{height: 116px;background-color: white;box-shadow: 0px 0px 5px #292929 ;}
+
+.navbar-nav{  height: 116px;  }
+
+.nav {float:right;}
+
+.dropdown-menu li a {height: 30px;}
+
+.dropdown-menu li a:visited{background-color:#72bb25;}
+
+
+
+.top-btn{
+    font: 24px Arial, sans-serif;
+    color: #72BB25;
+    text-transform: uppercase;
+    background: none;
+    height: 60px;
+    border: 2px solid #ffffff;
+    width: 250px;
+    display: inline-block;
+    cursor: pointer;
+
+ }
+
+
+.top-btn:hover{
+    border: 2px solid #b8dd92;
+
+}
+
+.wrapper{
+    width: 100%;
+    font: arial;
+    color: #fff;
+    background-color: #252536;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 32px 0;
+}
+
+.call-btn{
+   font: 24px Arial, sans-serif;
+   color: #72BB25 ;
+   text-transform: uppercase;
+   background: none;
+   margin-top:30px;
+   height: 60px;
+   border: 2px solid #72BB25 ;
+   width: 250px;
+   display: inline-block;
+   cursor: pointer;
+
+ }
+
+
+.call-btn:hover{
+    border: 2px solid #4d7c1b;
+
+}
+
+.wrapper-footer{
+    width: 100%;
+    font: arial;
+    color: #fff;
+    background-color: #e7e7e7;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 32px 0;
+}
+
+
+
+.box-services{
+padding: 120px 0;
+}
+
+.services{
+    width: 100%;
+    text-align: center;
+    margin: 10px;
+    margin: 0 auto;
+    background: #ECECEC;
+}
+
+.services h3{
+    font: 40px arial, sans-serif;
+
+}
+
+
+.services h1{
+
+    font: 70px arial, sans-serif;
+    text-transform: uppercase;
+    margin: 50px
+
+
+}
+
+
+.btnl{
+    font: 13px Arial, sans-serif;
+    color: #222;
+    background: #ECECEC;
+    text-transform: uppercase;
+    height: 32px;
+    border: 2px solid #606060;
+    width: 124px;
+    margin-top: 30px;
+    display: inline-block;
+    cursor: pointer;
+
+ }
+
+.btnl:hover{
+    border: 2px solid #222;
+
+ }
+
+.services-wrapper {
+    width: 1170px;
+    margin: 0 auto;
+}
+
+h2.title {
+    font: bold 40px Arial, sans-serif;
+    color: #222;
+    text-transform: uppercase; /*все заглавные буквы*/
+    margin-bottom: 50px;
+    margin-top: 0px;
+}
+
+
+
+h5.title {
+    font: bold 24px Arial, sans-serif;
+    color: #222;
+    margin-bottom: 10px;
+    margin-top: 40px;
+}
+
+.ic1{
+    background: url(../img/1.png) no-repeat center top;
+
+}
+
+
+.ic2{
+    background: url(../img/2.png) no-repeat center top;
+
+}
+
+
+.ic3 {
+    background: url(../img/3.png) no-repeat center top;
+
+}
+.ic4{
+    background: url(../img/4.png) no-repeat center top;
+
+}
+
+
+.ic5{
+    background: url(../img/5.png) no-repeat center top;
+
+}
+
+
+.ic6 {
+    background: url(../img/6.png) no-repeat center top;
+
+}
+
+.ic1, .ic2, .ic3, .ic4, .ic5, .ic6 {
+    padding: 5%;
 }

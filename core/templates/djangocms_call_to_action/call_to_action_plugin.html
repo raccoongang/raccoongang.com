@@ -1,13 +1,13 @@
 {% load sekizai_tags %}
 
 {% addtoblock "css" %}
-<link href="/media/css/style.css" media="screen" rel="stylesheet" type="text/css" />
+<link href="/static/css/style.css" media="screen" rel="stylesheet" type="text/css" />
 {% endaddtoblock %}
 
  <div class="wrapper">
         <h1>{{ instance.block_to_show.title }}</h1>
         <h3>{{ instance.block_to_show.subtitle }}</h3>
-        <button class="btn" onclick="window.location='{{ instance.block_to_show.button_link }}'">
+        <button class="call-btn" onclick="window.location='{{ instance.block_to_show.button_link }}'">
             {{ instance.block_to_show.button_title }}
              <img src="/media/img/arrow.png" class="arr">
         </button>
