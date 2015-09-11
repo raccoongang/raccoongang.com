@@ -1,3 +1,8 @@
 .navbar-brand {
     padding: 3px 7px 3px 3px;
 }
+
+.main-content-block {
+  padding: 40px 15px;
+  text-align: center;
+}
