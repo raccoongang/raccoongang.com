@@ -1,0 +1,45 @@
+{% load sekizai_tags %}
+
+{% csrf_token %}
+
+<div class="container">
+<div id="raccoon-carousel" class="carousel slide" data-ride="carousel" data-pause="hover">
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+      {% for every_photo in instance.gallery.photo_set.all %}
+            <li data-target="#raccoon-carousel" data-slide-to="{{ forloop.counter }}" {% if forloop.first %}class="active"{% endif %}></li>
+      {% endfor %}
+  </ol>
+
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner" role="listbox">
+
+    {% for every_photo in instance.gallery.photo_set.all %}
+
+    <div class="item {% if forloop.first %}active{% endif %}">
+      <img src="{{ every_photo.file.url }}" alt="...">
+        <div class="container">
+      <div class="carousel-caption">
+        <h1>{{ every_photo.title }}</h1>
+          <p>Some more information goes here</p>
+          <p><a class="btn btn-lg btn-primary" href="#" role="button">Sign up today</a></p>
+      </div>
+        </div>
+    </div>
+
+    {% endfor %}
+
+  </div>
+
+  <!-- Controls -->
+  <a class="left carousel-control" href="#raccoon-carousel" role="button" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="right carousel-control" href="#raccoon-carousel" role="button" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+
+</div>
