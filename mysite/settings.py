@@ -15,6 +15,8 @@ https://docs.djangoproject.com/en/1.7/ref/settings/
 import os
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
+print (BASE_DIR)
+print(DATA_DIR)
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.7/howto/deployment/checklist/
@@ -193,23 +195,13 @@ CMS_TEMPLATES = (
     ('page.html', 'Page'),
     ('feature.html', 'Page with Feature'),
     ('header.html', 'Header'),
-    ('home_page.html', 'Home page')
+    ('home_page.html', 'Home page'),
+    ('contact_us.html', 'Contact us')
 )
 
 CMS_PERMISSION = True
 
 CMS_PLACEHOLDER_CONF = {}
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'HOST': 'localhost',
-        'NAME': 'project.db',
-        'PASSWORD': '',
-        'PORT': '',
-        'USER': ''
-    }
-}
 
 MIGRATION_MODULES = {
     'cmsplugin_filer_image': 'cmsplugin_filer_image.migrations_django',
@@ -247,6 +239,8 @@ PARLER_LANGUAGES = {
 # Ckeditor settings
 
 CKEDITOR_UPLOAD_PATH = "uploads/"
+
+
 
 try:
     from local_settings import *

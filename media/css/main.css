@@ -4,10 +4,7 @@
 }
 body {padding: 0px;
 margin: 0pz;}
-.container {
-    padding-left: 0px;
-    padding-right: 0px;
-}
+
 .main-content-block {
   padding: 40px 15px;
   text-align: center;
@@ -20,6 +17,9 @@ margin: 0pz;}
 }
 
 
+
+
+/*
 .navbar {
     height:70px
 }
@@ -40,11 +40,15 @@ margin: 0pz;}
 
 .nav {float:right;}
 
-.dropdown-menu li a {height: 30px;}
+ul.dropdown-menu li a {height: 30px;}
 
-.dropdown-menu li a:visited{background-color:#72bb25;}
+ul.dropdown-menu li a:visited{background-color:#72bb25;}
 
+ul.dropdown-menu li.active a {background:#72bb25;}
+ul.dropdown-menu li a:hover, ul.dropdown-menu li.active a:hover {background-color:#b8dd92;
+    color: #000;}
 
+*/
 
 .top-btn{
     font: 24px Arial, sans-serif;
@@ -66,7 +70,7 @@ margin: 0pz;}
 }
 
 .wrapper{
-    width: 100%;
+
     font: arial;
     color: #fff;
     background-color: #252536;
@@ -111,21 +115,20 @@ margin: 0pz;}
 padding: 120px 0;
 }
 
-.services{
-    width: 100%;
+.service{
     text-align: center;
     margin: 10px;
     margin: 0 auto;
     background: #ECECEC;
 }
 
-.services h3{
+.service h3{
     font: 40px arial, sans-serif;
 
 }
 
 
-.services h1{
+.service h1{
 
     font: 70px arial, sans-serif;
     text-transform: uppercase;
@@ -154,10 +157,6 @@ padding: 120px 0;
 
  }
 
-.services-wrapper {
-    width: 1170px;
-    margin: 0 auto;
-}
 
 h2.title {
     font: bold 40px Arial, sans-serif;
@@ -211,4 +210,42 @@ h5.title {
 
 .ic1, .ic2, .ic3, .ic4, .ic5, .ic6 {
     padding: 5%;
+}
+
+.btn-g{
+   font: 22px Arial, sans-serif;
+   text-align: center;
+   color: #fff;
+   text-transform: uppercase;
+   background: none;
+   margin-top:30px;
+   height: 60px;
+   border: 2px solid #ffffff ;
+   width: 250px;
+   display: inline-block;
+   cursor: pointer;
+
+}
+
+.btn-g:hover{
+   border: 2px solid #bfbfbf ;
+}
+
+.carousel-caption h1{
+
+   font: 70px arial, sans-serif;
+   text-transform: uppercase;
+   text-align: center;
+   color:#fff;
+
+}
+
+
+
+.carousel-caption h3{
+   font: 30px arial, sans-serif;
+   text-transform: uppercase;
+   text-align: center;
+   color:#fff;
+
 }
