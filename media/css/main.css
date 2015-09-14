@@ -222,10 +222,9 @@ h5.title {
 }
 
 
-@media (max-width: 767px) {
+@media (max-width: 999px) {
 
-body {padding-top: 116px;}
-
+#raccoon-carousel {padding-top: 116px;}
     h5.title {margin-top: 80px;}
 }
 
@@ -250,13 +249,16 @@ body {padding-top: 116px;}
     margin-top: 116px;
     height: 96px;
     background-color: #262537;
-    margin-bottom: 46px;
+
 }
 
-.contacts-header > h1 {
+h1.contacts {
     color: #FFFFFF;
-    padding-right: 20px;
+    text-transform: uppercase;
+    font: 20px Arial, sans-serif;
+    margin-top: 38px;
 }
+
 
 .message-form input{
 
@@ -279,13 +281,13 @@ body {padding-top: 116px;}
    resize: none;}
 
 .btnc{
-   font: 24px Arial, sans-serif;
+   font: 20px Arial, sans-serif;
    color: #72BB25 ;
    text-transform: uppercase;
    background: none;
-   height: 60px;
+   height: 45px;
    border: 2px solid #72BB25 ;
-   width: 250px;
+   width: 240px;
    cursor: pointer;
 }
 
@@ -293,5 +295,10 @@ body {padding-top: 116px;}
 .btnc:hover{
    border: 2px solid #4d7c1b ;
 
+}
 
+.blue-class {
+    background-color: #2F2F4B;
+    padding-top: 26px;
+    padding-bottom: 46px;
 }

@@ -46,9 +46,12 @@ nav {
 }
 
 .navbar-default .navbar-nav > li > a:hover,
-.navbar-default .navbar-nav > li > a:focus {
+.navbar-default .navbar-nav > li > a:focus,
+.dropdown-menu> li >a:focus,
+.dropdown-menu> li >a:hover{
     color: #000;
     background-color: #B8DD92;
+    background-image: none;
 }
 
 .navbar-default .navbar-nav>.active>a,
@@ -80,7 +83,7 @@ nav {
 
 /* mobile version */
 
-@media (max-width: 767px) {
+@media (max-width: 999px) {
     nav {width: 100%;}
     .services-wrapper {width:100%;}
 
@@ -114,4 +117,8 @@ nav {
             box-shadow: -1px 3px 5px #222222 ;
     }
 
+}
+
+.carousel-caption {
+    padding-bottom: 5%;
 }
