@@ -18,38 +18,6 @@ margin: 0pz;}
 
 
 
-
-/*
-.navbar {
-    height:70px
-}
-
-.nav li a:hover, .dropdown-menu li a:hover {background-color: #b8dd92;
-    color: #000;}
-
-.nav .active {background-color: #72bb25;  }
-
-.nav .active a {color:#fff;}
-
-.nav li a, .dropdown-menu li a {font: 16px Arial;
-                                color: #868691; height: 116px;}
-
-.navbar{height: 116px;background-color: white;box-shadow: 0px 0px 5px #292929 ;}
-
-.navbar-nav{  height: 116px;  }
-
-.nav {float:right;}
-
-ul.dropdown-menu li a {height: 30px;}
-
-ul.dropdown-menu li a:visited{background-color:#72bb25;}
-
-ul.dropdown-menu li.active a {background:#72bb25;}
-ul.dropdown-menu li a:hover, ul.dropdown-menu li.active a:hover {background-color:#b8dd92;
-    color: #000;}
-
-*/
-
 .top-btn{
     font: 24px Arial, sans-serif;
     color: #72BB25;
@@ -107,12 +75,15 @@ ul.dropdown-menu li a:hover, ul.dropdown-menu li.active a:hover {background-colo
     text-transform: uppercase;
     text-align: center;
     padding: 32px 0;
+    margin-top: 30px;
 }
 
 
 
 .box-services{
 padding: 120px 0;
+    margin-left: 10px;
+    margin-right: 10px;
 }
 
 .service{
@@ -247,5 +218,80 @@ h5.title {
    text-transform: uppercase;
    text-align: center;
    color:#fff;
+
+}
+
+
+@media (max-width: 767px) {
+
+body {padding-top: 116px;}
+
+    h5.title {margin-top: 80px;}
+}
+
+/* contact us */
+
+.sk-ml p{
+   margin-top: 30px;
+}
+
+.sk-ml p a{
+
+   color: #72bb25 ;
+   margin-left: 10px;
+
+}
+
+.sk-ml a:hover{
+   color: #CBCBCB ;
+}
+
+.contacts-header {
+    margin-top: 116px;
+    height: 96px;
+    background-color: #262537;
+    margin-bottom: 46px;
+}
+
+.contacts-header > h1 {
+    color: #FFFFFF;
+    padding-right: 20px;
+}
+
+.message-form input{
+
+   height: 40px;
+   border: 1px solid #e3e3e3;
+   display: block;
+   border-radius: 0px;
+}
+
+
+.message-form textarea{
+
+   padding: 0 15px;
+   background: #ffffff ;
+   font:16px/16px Arial;
+   margin-bottom: 30px;
+   padding-top:15px;
+    border-radius: 0px;
+   height: 205px;
+   resize: none;}
+
+.btnc{
+   font: 24px Arial, sans-serif;
+   color: #72BB25 ;
+   text-transform: uppercase;
+   background: none;
+   height: 60px;
+   border: 2px solid #72BB25 ;
+   width: 250px;
+   cursor: pointer;
+}
+
+
+.btnc:hover{
+   border: 2px solid #4d7c1b ;
+
 
 }

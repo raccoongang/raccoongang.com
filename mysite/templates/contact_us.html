@@ -2,47 +2,43 @@
 {% load cms_tags %}
 
 {% block content %}
-        <section id="contactus" class="form-section">
-                <div class="container">
-                    <h1><p>Contact us</p>
-</h1>
-                    <div class="col-md-4">
-                        <dl>
-                            <dt><p>Skype</p>
-</dt>
-                            <dd><a href="http://Go.Raccoons/">Go.Raccoons</a></dd>
-                            <dt><p>Mail</p>
-</dt>
-                            <dd><a href="mailto:info@raccoongang.com">info@raccoongang.com</a></dd>
 
-                        </dl>
+        <section id="contactus" class="form-section">
+                <div class="container-fluid">
+                    <div class="row">
+                    <div class="contacts-header">
+                        <h1 class="pull-right">Contact us</h1>
                     </div>
-                    <div class="col-md-8">
+
+                    <div class="col-md-3 col-md-offset-2 sk-ml">
+                        <p><img src="/media/img/skype.png"><a href="#">Go.Raccoons</a></p>
+                        <p><img src="/media/img/mail.png"><a href="#">info@raccoongang.com</a>
+
+                    </div>
+                    <div class="col-md-5">
                         <form class="message-form" id="send_form">
                             <fieldset>
-                                <h2><p>Or write us</p>
-</h2>
+
                                 <div class="form-holder">
                                     <div class="form-group">
-                                        <label for="mail"><p>Your email</p>
-</label>
+
                     <p id="error_mail"></p>
                                         <input type="email" class="form-control" id="mail" placeholder="Email" name="mail">
                                     </div>
                                     <div class="form-group">
-                                        <label for="name"><p>Name</p>
-</label>
+
+
                     <p id="error_name"></p>
                     <input type="text" class="form-control" id="name" placeholder="Name" name="name">
                                     </div>
                                     <div class="form-group">
-                                        <label for="message"><p>Message</p>
-</label>
+
+
                     <p id="error_message"></p>
                                         <textarea class="form-control" rows="6" id="message" placeholder="Text" name="message"></textarea>
                                     </div>
                   <div class="submit-holder">
-                    <button type="button" id="send_form_submit" class="submit-btn btn btn-warning pull-right">Send message
+                    <button type="button" id="send_form_submit" class="btnc pull-right">Send message
 </button>
                     <p id="success" style="display:none;"></p>
                   </div>
@@ -50,6 +46,7 @@
                             </fieldset>
                         </form>
                     </div>
+                        </div>
                 </div>
             </section>
 {% endblock content %}
