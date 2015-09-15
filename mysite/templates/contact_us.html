@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% load cms_tags %}
-
+{% block title %}{% page_attribute "page_title" %}{% endblock title %}
 {% block content %}
 
         <section id="contactus" class="form-section">
@@ -30,15 +30,19 @@
                                     <div class="form-group">
 
 
+
                     <input type="text" class="form-control" id="name" placeholder="Name" name="name">
                                     </div>
                                     <div class="form-group">
+
+
+
                                         <textarea class="form-control" rows="6" id="message" placeholder="Text" name="message"></textarea>
                                     </div>
                   <div class="submit-holder">
                     <button type="button" id="send_form_submit" class="btnc pull-right">Send message <img src="/media/img/arrow.png" class="arr">
 </button>
-                 <!---   <p id="success" style="display:none;"></p> --->
+                <p id="success" style="display:none;"></p>
                   </div>
                                 </div>
                             </fieldset>
