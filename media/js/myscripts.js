@@ -20,12 +20,12 @@ $('#send_form_submit').on('click', function (){
     //                    $("#success").hide();
                         }
                     else {
-                        $('#error_name').text('');
-                        $('#error_mail').text('');
-                        $('#error_message').text('');
-                        $('#error_name').text(data['errors']['name']);
-                        $('#error_mail').text(data['errors']['mail']);
-                        $('#error_message').text(data['errors']['message']);
+                        $('#name').css("border","1px solid black");
+                        $('#mail').css("border","1px solid black");
+                        $('#message').css("border","1px solid black");
+                        $('#name').css("border","3px solid "+data['errors']['name']);
+                        $('#mail').css("border","3px solid "+data['errors']['mail']);
+                        $('#message').css("border","3px solid "+data['errors']['message']);
                         $('#success').text(data['notification']);
                         $("#success").show().hide(10000);
                         }

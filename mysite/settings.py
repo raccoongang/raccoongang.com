@@ -149,6 +149,7 @@ INSTALLED_APPS = (
     'taggit_autosuggest',
     'meta',
     'meta_mixin',
+    'send_email'
 )
 
 LANGUAGES = (
