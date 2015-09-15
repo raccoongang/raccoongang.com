@@ -3,7 +3,7 @@
  */
 
 $('#send_form_submit').on('click', function (){
-            _gaq.push(['_trackEvent', 'Send button', 'clicked']);
+            ga('send', 'button', 'Contact us', 'clicked');
             $.ajax({
                 url: '/send_email/',
                 type: 'GET',
@@ -33,6 +33,5 @@ $('#send_form_submit').on('click', function (){
                 }
 	        })
 	    });
-
 
 
