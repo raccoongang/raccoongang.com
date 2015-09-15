@@ -5,6 +5,7 @@ from django.template.loader import get_template
 from django.template import Context
 from .forms import MailForm
 import json
+from django.utils.translation import ugettext as _
 
 from django.conf import settings
 
@@ -20,27 +21,30 @@ def send_email(request):
         notification = ''
         if form.is_valid():
             form_data = form.cleaned_data
-            recipient_list = ['info@raccoongang.com']
+            #recipient_list = ['info@raccoongang.com']
+            recipient_list = ['vz10@me.com']
             subject = form_data['name']
             message = 'From user email: %s \nMessage: \n %s' % (form_data['mail'],form_data['message'])
+
             #from_mail = form_data['mail']
+
             try:
-                send_mail(subject, message, settings.DEFAULT_FROM_EMAIL, recipient_list, fail_silently=False)
+                send_mail(subject, message, 'some@email.com', recipient_list, fail_silently=False)
                 success = 'success'
                 notification = _('The letter was sent, thank you for contacting us')
 
                 #response to email sending
-                plaintext = get_template('/email_templates/email.txt')
-                htmly     = get_template('/email_templates/index.html')
+                plaintext = get_template('email.txt')
+                htmly     = get_template('index.html')
 
                 d = Context({ 'username': form_data['name'] })
 
                 subject, from_email, to = 'Thanks for your message to us', 'no-reply@raccoongang.com', form_data['mail']
                 text_content = plaintext.render(d)
                 html_content = htmly.render(d)
+
                 msg = EmailMultiAlternatives(subject, text_content, from_email, [to])
                 msg.attach_alternative(html_content, "text/html")
-                msg.send()
 
             except:
                 notification = _('Message has not been sent')
