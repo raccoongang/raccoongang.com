@@ -85,7 +85,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.tz',
     'sekizai.context_processors.sekizai',
     'django.core.context_processors.static',
-    'cms.context_processors.cms_settings'
+    'cms.context_processors.cms_settings',
 )
 
 TEMPLATE_DIRS = (
@@ -228,13 +228,21 @@ THUMBNAIL_PROCESSORS = (
 # Blog settings
 
 BLOG_PAGINATION=4
+BLOG_USE_PLACEHOLDER=False
+BLOG_USE_ABSTRACT=False
+BLOG_ENABLE_COMMENTS=False
+BLOG_POSTS_LIST_TRUNCWORDS_COUNT=50
+BLOG_IMAGE_THUMBNAIL_SIZE =  {'size': '900x350', 'crop': True,'upscale': False}
+BLOG_IMAGE_FULL_SIZE = {'size': '900x350', 'crop': True,'upscale': False}
+BLOG_AUTHOR_DEFAULT = False
+
 META_SITE_PROTOCOL = 'http'
 META_USE_SITES = True
 PARLER_LANGUAGES = {
     1: (
-        {'code': 'en',},
-        {'code': 'ru',},
-        {'code': 'ua',},
+        {'code': 'en'},
+        {'code': 'ru'},
+        {'code': 'ua'},
     ),
 }
 # Ckeditor settings
