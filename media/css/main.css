@@ -306,3 +306,62 @@ h1.contacts {
     padding-top: 26px;
     padding-bottom: 46px;
 }
+
+
+/* blog */
+.btnbtn-b{
+    font: 13px Arial, sans-serif;
+    color: #72BB25;
+    background-color: #fff;
+    text-transform: uppercase;
+    height: 32px;
+    border: 2px solid #72BB25;
+    width: 124px;
+    margin: 5px 0 30px 0;
+    display: inline-block;
+    cursor: pointer;
+
+ }
+
+.btnbtn-b:hover{
+    border: 2px solid #658b3d;
+
+ }
+
+
+.col-kos{
+    background: #fff;
+    padding-top: 5px;
+    border-bottom: 1px solid #eee;
+}
+
+.col-kos p{
+    display: inline-block;
+    font-size: 16px;
+    color: #3c3c3c;
+}
+
+.time{
+    margin-top: 10px;
+    display: inline-block;
+
+}
+
+
+.time p {
+
+    margin :0 20px 0 0;
+    color: #9f9f9f;
+    font-size: 12px;
+
+}
+.background{
+    width: 100%;
+    background: #f5f4f4;
+
+
+}
+
+header > h1 > a{
+    color:black;
+}

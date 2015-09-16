@@ -5,16 +5,6 @@
 
 {% block content_blog %}
 <section class="blog-list">
-    {% block blog_title %}
-    <header>
-        <h2>
-        {% if author %}{% trans "Articles by" %} {{ author.get_full_name }}
-        {% elif archive_date %}{% trans "Archive" %} &ndash; {% if month %}{{ archive_date|date:'F' }} {% endif %}{{ year }}
-        {% elif tagged_entries %}{% trans "Tag" %} &ndash; {{ tagged_entries|capfirst }}
-        {% elif category %}{% trans "Category" %} &ndash; {{ category }}{% endif %}
-        </h2>
-    </header>
-    {% endblock %}
     {% for post in post_list %}
         {% include "djangocms_blog/includes/blog_item.html" with post=post image="true" TRUNCWORDS_COUNT=TRUNCWORDS_COUNT %}
     {% empty %}
@@ -23,20 +13,40 @@
     {% if author or archive_date or tagged_entries %}
     <p class="blog-back"><a href="{% url 'djangocms_blog:posts-latest' %}">{% trans "Back" %}</a></p>
     {% endif %}
+
     {% if is_paginated %}
-    <nav class="{% firstof css_grid instance.css_grid %} pagination">
+    <div class="container-fluid row">
+    <div class="{% firstof css_grid instance.css_grid %} col-md-6 col-md-offset-4" >
+        <ul class="pagination ">
         {% if page_obj.has_previous %}
-            <a href="?{{ view.page_kwarg }}={{ page_obj.previous_page_number }}">&laquo; {% trans "previous" %}</a>
+            <li>
+             <a href="?{{ view.page_kwarg }}={{ page_obj.previous_page_number }}" aria-label="Previous">&laquo; {% trans "Previous" %}</a>
+            </li>
+            {% else %}
+            <li class="disabled">
+               <a href="#"  aria-label="Previous"> &laquo; {% trans "Previous" %} </a>
+            </li>
         {% endif %}
+        <li>
         <span class="current">
             {% trans "Page" %} {{ page_obj.number }} {% trans "of" %} {{ paginator.num_pages }}
         </span>
+        </li>
         {% if page_obj.has_next %}
-            <a href="?{{ view.page_kwarg }}={{ page_obj.next_page_number }}">{% trans "next" %} &raquo;</a>
+            <li>
+            <a href="?{{ view.page_kwarg }}={{ page_obj.next_page_number }}" aria-label="Next">{% trans "Next" %} &raquo;</a>
+            </li>
+            {% else %}
+                        <li class="disabled">
+               <a href="#"  aria-label="Next"> {% trans "Next" %} &raquo; </a>
+            </li>
         {% endif %}
-    </nav>
+        </ul>
+    </div></div>
+   </section>
     {% endif %}
-</section>
+
+
     <script>
     var elements = document.getElementsByClassName('cutThis');
     while(elements.length > 0){

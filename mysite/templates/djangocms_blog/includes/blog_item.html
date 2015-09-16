@@ -4,10 +4,7 @@
     <header>
         <h1><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h1>
         <hr>
-        {% block blog_meta %}
-            {% include "djangocms_blog/includes/blog_meta.html" %}
-        {% endblock %}
-        <hr>
+
     </header>
 
     {% if image and post.main_image %}
@@ -16,6 +13,10 @@
         <img src="{{ thumb.url }}" alt="{{ post.main_image.default_alt_text }}" width="{{ thumb.width }}" height="{{ thumb.height }}" />
     </div>
     {% endif %}
+            {% block blog_meta %}
+            {% include "djangocms_blog/includes/blog_meta.html" %}
+        {% endblock %}
+        <hr>
     <div class="lead">
         {% render_model post "post_text" "post_text" %}
     </div>
