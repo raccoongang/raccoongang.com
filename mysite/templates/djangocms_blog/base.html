@@ -1,14 +1,14 @@
 {% extends CMS_TEMPLATE %}
 
-{% block meta %}
-    {%  if meta %}
-        {% include "meta_mixin/meta.html" %}
-    {% endif %}
-{% endblock meta %}
 
 {% block content %}
-<div class="app app-blog span8 container-fluid">
+    <div style="height: 116px;"></div>
+      <div class="background">
+    <div class="container">
+    <div class="row ">
+    <div class="col-lg-8">
+<div class="app app-blog span8">
     {% block content_blog %}{% endblock %}
 </div>
+    </div></div></div></div>
 {% endblock content %}
-

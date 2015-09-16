@@ -2,25 +2,26 @@
 
 <article id="post-{{ post.slug }}" class="post-item">
     <header>
-        <h3><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h3>
+        <h1><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h1>
+        <hr>
         {% block blog_meta %}
             {% include "djangocms_blog/includes/blog_meta.html" %}
         {% endblock %}
+        <hr>
     </header>
+
     {% if image and post.main_image %}
     <div class="blog-visual">
         {% thumbnail post.main_image post.thumbnail_options.size crop=post.thumbnail_options.crop upscale=post.thumbnail_options.upscale subject_location=post.main_image.subject_location as thumb %}
         <img src="{{ thumb.url }}" alt="{{ post.main_image.default_alt_text }}" width="{{ thumb.width }}" height="{{ thumb.height }}" />
     </div>
     {% endif %}
-    <div class="blog-lead">
-        {% if not TRUNCWORDS_COUNT %}
-            {% render_model post "abstract" %}
-        {% else %}
-            {% render_model post "abstract" "" "" 'truncatewords_html:TRUNCWORDS_COUNT'  %}
-        {% endif %}
+    <div class="lead">
+        {% render_model post "post_text" "post_text" %}
     </div>
-    <footer class="read-more">
-        <a href="{{ post.get_absolute_url }}">{% trans "read more" %} &raquo;</a>
+    <footer class="read-more" onclick="window.location='{{ post.get_absolute_url }}'">
+        <button class="btnbtn-b">MORE INFO
+                         <img src="/media/img/arrow-b.png" class="arr">
+                        </button>
     </footer>
 </article>
