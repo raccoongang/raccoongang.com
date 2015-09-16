@@ -14,7 +14,7 @@ urlpatterns = i18n_patterns('',
         {'sitemaps': {'cmspages': CMSSitemap}}),
     url(r'^select2/', include('django_select2.urls')),
     url(r'^taggit_autosuggest/', include('taggit_autosuggest.urls')),
-    url(r'djangocms_blog/', include('djangocms_blog.urls', namespace='djangocms_blog')),
+  #  url(r'djangocms_blog/', include('djangocms_blog.urls', namespace='djangocms_blog')),
     url(r'send_email/',include('send_email.urls', namespace='send_email') ),
     url(r'^', include('cms.urls')),
 )
