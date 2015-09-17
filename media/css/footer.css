@@ -110,3 +110,6 @@
     background-color: #252536;
     }
 
+.media-area-footer-bottom > a{
+    text-transform: none;
+}
