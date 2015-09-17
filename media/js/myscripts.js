@@ -15,9 +15,8 @@ $('#send_form_submit').on('click', function (){
                         $('#mail').val('');
                         $('#name').val('');
                         $('#message').val('');
-                        $('#success').val('');
-                        $('#success').text(data['notification']);
-                        $("#success").show().hide(10000);
+                        $('#finalMessage').text(data['notification']);
+                        $("#success").show().fadeOut(5000);
     //                    $("#success").hide();
                         }
                     else {
@@ -27,8 +26,8 @@ $('#send_form_submit').on('click', function (){
                         $('#name').css("border","3px solid "+data['errors']['name']);
                         $('#mail').css("border","3px solid "+data['errors']['mail']);
                         $('#message').css("border","3px solid "+data['errors']['message']);
-                        $('#success').text(data['notification']);
-                        $("#success").show().hide(10000);
+                        $('#finalMessage').text(data['notification']);
+                        $("#success").show().fadeOut(5000);
                         }
                 }
 	        })
