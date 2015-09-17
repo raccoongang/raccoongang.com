@@ -12,6 +12,9 @@ $('#send_form_submit').on('click', function (){
                 success: function(data){
                     console.dir(data);
                     if (data['success']){
+                        $('#mail').val('');
+                        $('#name').val('');
+                        $('#message').val('');
                         $('#mail').css("border","1px solid black");
                         $('#name').css("border","1px solid black");
                         $('#message').css("border","1px solid black");
@@ -23,9 +26,9 @@ $('#send_form_submit').on('click', function (){
                         $('#name').css("border","1px solid black");
                         $('#mail').css("border","1px solid black");
                         $('#message').css("border","1px solid black");
-                        $('#name').css("border","3px solid "+data['errors']['name']);
-                        $('#mail').css("border","3px solid "+data['errors']['mail']);
-                        $('#message').css("border","3px solid "+data['errors']['message']);
+                        $('#name').css("border","2px solid "+data['errors']['name']);
+                        $('#mail').css("border","2px solid "+data['errors']['mail']);
+                        $('#message').css("border","2px solid "+data['errors']['message']);
 //                        $('#finalMessage').text(data['notification']);
 //                        $("#success").show().fadeOut(5000);
                         }

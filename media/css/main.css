@@ -226,6 +226,11 @@ h5.title {
 
 #raccoon-carousel {padding-top: 116px;}
     h5.title {margin-top: 80px;}
+
+    .mainpage-col-kos{
+        margin-right: 10px;
+        margin-left: 10px;
+    }
 }
 
 
@@ -235,7 +240,9 @@ font: 18px Arial, sans-serif;}
 /* contact us */
 
 .sk-ml p{
-   margin-top: 30px;
+   margin-top: 5px;
+    margin-bottom: 35px;
+    width: 191px;
 }
 
 .sk-ml p a{
@@ -277,12 +284,15 @@ h1.contacts {
 
    padding: 0 15px;
    background: #ffffff ;
-   font:16px/16px Arial;
    margin-bottom: 30px;
    padding-top:15px;
     border-radius: 0px;
    height: 205px;
    resize: none;}
+
+.form-control{
+    font-size:14px;
+}
 
 .btnc{
    font: 20px Arial, sans-serif;
@@ -335,6 +345,11 @@ h1.contacts {
     border-bottom: 1px solid #eee;
 }
 
+.mainpage-col-kos {
+
+        background: #fff;
+}
+
 .col-kos p{
     display: inline-block;
     font-size: 16px;
@@ -359,7 +374,6 @@ h1.contacts {
     width: 100%;
     background: #f5f4f4;
 
-
 }
 
 header > h1 > a{
@@ -376,11 +390,12 @@ header > h1 > a{
     background: rgba(100,100,100,.5);
     border: 2px solid white;
     display: none;
+
 }
 
 .textinmessage {
     font: bold 1.5em Arial, sans-serif;
-    color: white;
+    color: #EEEEEE;
     text-transform: uppercase;
     line-height: 311px;
     margin: 0;
