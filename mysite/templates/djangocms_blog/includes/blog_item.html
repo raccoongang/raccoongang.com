@@ -18,7 +18,7 @@
         {% endblock %}
         <hr>
     <div class="lead">
-        {% render_model post "post_text" "post_text" %}
+        {% render_model post "post_text" "" "" 'truncatewords_html:TRUNCWORDS_COUNT' %}
     </div>
     <footer class="read-more" onclick="window.location='{{ post.get_absolute_url }}'">
         <button class="btnbtn-b">MORE INFO
