@@ -1,9 +1,9 @@
 {% load i18n thumbnail cms_tags %}
 
 <div class="time">
-    <p><img src="/media/img/cl.png"> &nbsp; {{ post.date_published|date:"DATE_FORMAT" }}</p>
+    <p><img src="/media/img/cl.png" height="16px" width="16px"> &nbsp; {{ post.date_published|date:"DATE_FORMAT" }}</p>
     {% if post.author %}
-         <p><img src="/media/img/siluet.png"> &nbsp; {% trans "by" %}
+         <p><img src="/media/img/siluet.png" height="16px" width="16px"> &nbsp; {% trans "by" %}
         {% if post.author.get_full_name %}{{ post.author.get_full_name }}{% else %}{{ post.author }}{% endif %}</p>
 
     {% endif %}
