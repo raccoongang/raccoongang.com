@@ -9,4 +9,4 @@ class Block(models.Model):
     button_link = models.CharField(max_length=100)
 
     def __unicode__(self):
-        return u'Title: %s' % (self.title)
+        return u'Title: %s' % self.title
