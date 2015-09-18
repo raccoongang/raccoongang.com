@@ -254,7 +254,8 @@ h5.title {
   display: inline-block;
 }
 .col-height {
-  display: inline-block;}
+  display: inline-block;
+  table-layout: none;}
 }
 
 
