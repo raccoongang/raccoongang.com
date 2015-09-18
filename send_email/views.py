@@ -22,7 +22,7 @@ def send_email(request):
         if form.is_valid():
             form_data = form.cleaned_data
             #recipient_list = ['info@raccoongang.com']
-            recipient_list = ['vz10@me.com']
+            recipient_list = ['info@raccoongang.com']
             subject = form_data['name']
             message = 'From user email: %s \nMessage: \n %s' % (form_data['mail'],form_data['message'])
 
@@ -31,7 +31,7 @@ def send_email(request):
             try:
                 send_mail(subject, message, 'some@email.com', recipient_list, fail_silently=False)
                 success = 'success'
-                notification = _('The letter was sent, thank you for contacting us')
+                notification = _('Letter was sent, thank you for contacting us')
 
                 #response to email sending
                 plaintext = get_template('email.txt')
@@ -45,7 +45,7 @@ def send_email(request):
 
                 msg = EmailMultiAlternatives(subject, text_content, from_email, [to])
                 msg.attach_alternative(html_content, "text/html")
-                msg.send()
+                #msg.send()
 
             except:
                 notification = _('Message has not been sent')
