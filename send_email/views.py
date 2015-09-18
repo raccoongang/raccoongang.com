@@ -31,7 +31,7 @@ def send_email(request):
             try:
                 send_mail(subject, message, 'some@email.com', recipient_list, fail_silently=False)
                 success = 'success'
-                notification = _('Letter was sent, thank you for contacting us')
+                notification = _('Letter was sent, thank you')
 
                 #response to email sending
                 plaintext = get_template('email.txt')
