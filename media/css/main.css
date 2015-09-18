@@ -434,4 +434,5 @@ header > h1 > a{
 
 .fill-height-or-more {
   display: flex;
+    flex-direction: column;
 }
