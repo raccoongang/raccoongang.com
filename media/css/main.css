@@ -432,14 +432,6 @@ header > h1 > a{
 }
 
 
-.row-height {
-  display: table;
-  table-layout: fixed;
-  height: 100%;
-  width: 100%;
-}
-.col-height {
-  display: table-cell;
-  float: none;
-  height: 100%;
+.fill-height-or-more {
+  display: flex;
 }
