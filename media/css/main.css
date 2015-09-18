@@ -250,6 +250,11 @@ h5.title {
     background-size: 75px ;
 
 }
+    .row-height {
+  display: inline-block;
+}
+.col-height {
+  display: inline-block;}
 }
 
 
