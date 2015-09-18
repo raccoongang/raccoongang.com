@@ -2,16 +2,12 @@
 
 {% csrf_token %}
 
- {% addtoblock "css" %}
-    <link rel="stylesheet" href="/media/css/gray.css">
- {% endaddtoblock %}
 
-    <div >
+    <div style="margin: 0 auto;" >
 
 
             {% for every_client in instance.clients.photo_set.all %}
-
-                <div class="client"><img class="grayscale" width="50%" alt="{{ every_client.title }}" src="{{ every_client.file.url }}" /></div>
+                <div class="client"><img width="50%" alt="{{ every_client.title }}" src="{{ every_client.file.url }}" /></div>
             {% endfor %}
 
 
