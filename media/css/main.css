@@ -250,12 +250,6 @@ h5.title {
     background-size: 75px ;
 
 }
-
-    .row-eq-height {
-  display: -webkit-box;
-
-
-}
 }
 
 
@@ -438,9 +432,14 @@ header > h1 > a{
 }
 
 
-.row-eq-height {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display:         flex;
+.row-height {
+  display: table;
+  table-layout: fixed;
+  height: 100%;
+  width: 100%;
+}
+.col-height {
+  display: table-cell;
+  float: none;
+  height: 100%;
 }
