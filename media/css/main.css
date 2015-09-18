@@ -185,8 +185,9 @@ h5.title {
 
 .ic1, .ic2, .ic3, .ic4, .ic5, .ic6 {
     padding: 5%;
-    height: 100%;
+    height: 400px;
     background-size: 75px ;
+
 }
 
 .btn-g{
