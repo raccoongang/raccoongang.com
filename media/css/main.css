@@ -436,6 +436,6 @@ header > h1 > a{
   display: flex;
     flex-direction: column;
     flex-grow: 3;
-flex-shrink: 1;
+flex-shrink: 3;
 flex-basis: auto;
 }
