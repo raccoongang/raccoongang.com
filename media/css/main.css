@@ -191,7 +191,7 @@ h5.title {
 
 }
 
-.ic1 > p, .ic2 > p , .ic3 > p, .ic4 > p, .ic5 > p, .ic6 > p {
+.ic1 > ul, .ic2 > ul , .ic3 > ul, .ic4 > ul, .ic5 > ul, .ic6 > ul {
     padding-left: 80px;
 
 }
