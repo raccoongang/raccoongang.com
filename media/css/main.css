@@ -405,3 +405,8 @@ header > h1 > a{
     line-height: 311px;
     margin: 0;
 }
+
+/* clients */
+.client {
+    display: inline-block;
+}
