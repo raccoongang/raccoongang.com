@@ -1,0 +1,402 @@
+.navbar-brand {
+    padding:0px;
+
+}
+body {padding: 0px;
+margin: 0pz;}
+
+.main-content-block {
+  padding: 40px 15px;
+  text-align: center;
+}
+
+.breadcrumb {
+    background-color: #e7e7e9;
+    width:100%;
+    align:left;
+}
+
+
+
+.top-btn{
+    font: 24px Arial, sans-serif;
+    color: #72BB25;
+    text-transform: uppercase;
+    background: none;
+    height: 60px;
+    border: 2px solid #ffffff;
+    width: 250px;
+    display: inline-block;
+    cursor: pointer;
+
+ }
+
+
+.top-btn:hover{
+    border: 2px solid #b8dd92;
+
+}
+
+.wrapper{
+
+    font: arial;
+    color: #fff;
+    background-color: #252536;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 32px 0;
+}
+
+.call-btn{
+   font: 24px Arial, sans-serif;
+   color: #72BB25 ;
+   text-transform: uppercase;
+   background: none;
+   margin-top:30px;
+   height: 60px;
+   border: 2px solid #72BB25 ;
+   width: 250px;
+   display: inline-block;
+   cursor: pointer;
+
+ }
+
+
+.call-btn:hover{
+    border: 2px solid #4d7c1b;
+
+}
+
+.wrapper-footer{
+    width: 100%;
+    font: arial;
+    color: #fff;
+    background-color: #e7e7e7;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 32px 0;
+    margin-top: 30px;
+}
+
+
+
+.box-services{
+padding: 120px 0;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.service{
+    text-align: center;
+    margin: 10px;
+    margin: 0 auto;
+    background: #ECECEC;
+}
+
+.service h3{
+    font: 40px arial, sans-serif;
+
+}
+
+
+.service h1{
+
+    font: 70px arial, sans-serif;
+    text-transform: uppercase;
+    margin: 50px
+
+
+}
+
+
+.btnl{
+    font: 13px Arial, sans-serif;
+    color: #222;
+    background: #ECECEC;
+    text-transform: uppercase;
+    height: 32px;
+    border: 2px solid #606060;
+    width: 124px;
+    margin-top: 30px;
+    display: inline-block;
+    cursor: pointer;
+
+ }
+
+.btnl:hover{
+    border: 2px solid #222;
+
+ }
+
+
+h2.title {
+    font: bold 40px Arial, sans-serif;
+    color: #222;
+    text-transform: uppercase; /*все заглавные буквы*/
+    margin-bottom: 50px;
+    margin-top: 0px;
+}
+
+
+
+h5.title {
+    font: bold 24px Arial, sans-serif;
+    color: #222;
+    margin-bottom: 10px;
+    margin-top: 40px;
+}
+
+.ic1{
+    background: url(../img/1.png) no-repeat center top;
+
+}
+
+
+.ic2{
+    background: url(../img/2.png) no-repeat center top;
+
+}
+
+
+.ic3 {
+    background: url(../img/3.png) no-repeat center top;
+
+}
+.ic4{
+    background: url(../img/4.png) no-repeat center top;
+
+}
+
+
+.ic5{
+    background: url(../img/5.png) no-repeat center top;
+
+}
+
+
+.ic6 {
+    background: url(../img/6.png) no-repeat center top;
+
+}
+
+.ic1, .ic2, .ic3, .ic4, .ic5, .ic6 {
+    padding: 5%;
+}
+
+.btn-g{
+   font: 22px Arial, sans-serif;
+   text-align: center;
+   color: #fff;
+   text-transform: uppercase;
+   background: none;
+   margin-top:30px;
+   height: 60px;
+   border: 2px solid #ffffff ;
+   width: 250px;
+   display: inline-block;
+   cursor: pointer;
+
+}
+
+.btn-g:hover{
+   border: 2px solid #bfbfbf ;
+}
+
+.carousel-caption h1{
+
+   font: 70px arial, sans-serif;
+   text-transform: uppercase;
+   text-align: center;
+   color:#fff;
+
+}
+
+
+
+.carousel-caption h3{
+   font: 30px arial, sans-serif;
+   text-transform: uppercase;
+   text-align: center;
+   color:#fff;
+
+}
+
+
+@media (max-width: 999px) {
+
+#raccoon-carousel {padding-top: 116px;}
+    h5.title {margin-top: 80px;}
+
+    .mainpage-col-kos{
+        margin-right: 10px;
+        margin-left: 10px;
+    }
+}
+
+
+.main-text {color: #909090;
+font: 18px Arial, sans-serif;}
+
+/* contact us */
+
+.sk-ml p{
+   margin-top: 5px;
+    margin-bottom: 35px;
+    width: 191px;
+}
+
+.sk-ml p a{
+
+   color: #72bb25 ;
+   margin-left: 10px;
+
+}
+
+.sk-ml a:hover{
+   color: #CBCBCB ;
+}
+
+.contacts-header {
+    margin-top: 116px;
+    height: 96px;
+    background-color: #262537;
+
+}
+
+h1.contacts {
+    color: #FFFFFF;
+    text-transform: uppercase;
+    font: 20px Arial, sans-serif;
+    margin-top: 38px;
+}
+
+
+.message-form input{
+
+   height: 40px;
+   border: 1px solid #e3e3e3;
+   display: block;
+   border-radius: 0px;
+}
+
+
+.message-form textarea{
+
+   padding: 0 15px;
+   background: #ffffff ;
+   margin-bottom: 30px;
+   padding-top:15px;
+    border-radius: 0px;
+   height: 205px;
+   resize: none;}
+
+.form-control{
+    font-size:14px;
+}
+
+.btnc{
+   font: 20px Arial, sans-serif;
+   color: #72BB25 ;
+   text-transform: uppercase;
+   background: none;
+   height: 45px;
+   border: 2px solid #72BB25 ;
+   width: 240px;
+   cursor: pointer;
+}
+
+
+.btnc:hover{
+   border: 2px solid #4d7c1b ;
+
+}
+
+.blue-class {
+    background-color: #2F2F4B;
+    padding-top: 26px;
+    padding-bottom: 46px;
+}
+
+
+/* blog */
+.btnbtn-b{
+    font: 13px Arial, sans-serif;
+    color: #72BB25;
+    background-color: #fff;
+    text-transform: uppercase;
+    height: 32px;
+    border: 2px solid #72BB25;
+    width: 124px;
+    margin: 5px 0 30px 0;
+    display: inline-block;
+    cursor: pointer;
+
+ }
+
+.btnbtn-b:hover{
+    border: 2px solid #658b3d;
+
+ }
+
+
+.col-kos{
+    background: #fff;
+    padding-top: 5px;
+    border-bottom: 1px solid #eee;
+}
+
+.mainpage-col-kos {
+
+        background: #fff;
+}
+
+.col-kos p{
+    display: inline-block;
+    font-size: 16px;
+    color: #3c3c3c;
+}
+
+.time{
+    margin-top: 10px;
+    display: inline-block;
+
+}
+
+
+.time p {
+
+    margin :0 20px 0 0;
+    color: #9f9f9f;
+    font-size: 12px;
+
+}
+.background{
+    width: 100%;
+    background: #f5f4f4;
+
+}
+
+header > h1 > a{
+    color:black;
+}
+
+/* div поверх полей ввода */
+
+.overmessage {
+    position: absolute;
+    z-index: 10;
+    width: 100%;
+    height: 100%;
+    background: rgba(100,100,100,.5);
+    border: 2px solid white;
+    display: none;
+
+}
+
+.textinmessage {
+    font: bold 1.5em Arial, sans-serif;
+    color: #EEEEEE;
+    text-transform: uppercase;
+    line-height: 311px;
+    margin: 0;
+}
