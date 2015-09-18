@@ -7,7 +7,7 @@
 
 
             {% for every_client in instance.clients.photo_set.all %}
-               <img width="50%" class="client" alt="{{ every_client.title }}" src="{{ every_client.file.url }}" />
+               <img height="30px" class="client" alt="{{ every_client.title }}" src="{{ every_client.file.url }}" />
             {% endfor %}
 
 
