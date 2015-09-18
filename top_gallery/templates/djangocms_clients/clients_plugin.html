@@ -3,8 +3,8 @@
 {% csrf_token %}
 
 
-    <div style="margin: 0 auto;" >
-        <div>
+    <div class="row" >
+        <div class="col-md-8 col-md-offset-2">
             {% for every_client in instance.clients.photo_set.all %}
                <img height="30px" class="client" alt="{{ every_client.title }}" src="{{ every_client.file.url }}" />
             {% endfor %}
