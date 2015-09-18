@@ -4,13 +4,11 @@
 
 
     <div style="margin: 0 auto;" >
-
-
+        <div>
             {% for every_client in instance.clients.photo_set.all %}
                <img height="30px" class="client" alt="{{ every_client.title }}" src="{{ every_client.file.url }}" />
             {% endfor %}
-
-
+        </div>
     </div>
 
 
