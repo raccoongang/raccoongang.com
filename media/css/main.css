@@ -420,6 +420,6 @@ header > h1 > a{
     margin-bottom: 10px;
 }
 
-.bread {
+.bread > a{
     color:#72bb25;
 }
