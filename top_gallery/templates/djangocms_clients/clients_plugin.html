@@ -4,7 +4,7 @@
 
 
     <div class="row" >
-        <div class="col-md-8 col-md-offset-2">
+        <div class="col-md-10 col-md-offset-1">
             {% for every_client in instance.clients.photo_set.all %}
                <img height="30px" class="client" alt="{{ every_client.title }}" src="{{ every_client.file.url }}" />
             {% endfor %}
