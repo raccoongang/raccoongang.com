@@ -223,6 +223,7 @@ h5.title {
   .bottom-align-text {
     position: absolute;
     margin: 50px;
+      bottom: 0;
   }
 
 @media (max-width: 999px) {
