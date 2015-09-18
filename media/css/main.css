@@ -432,10 +432,9 @@ header > h1 > a{
 }
 
 
-.fill-height-or-more {
-  display: flex;
-    flex-direction: column;
-    flex-grow: 3;
-flex-shrink: 3;
-flex-basis: auto;
+.row-eq-height {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display:         flex;
 }
