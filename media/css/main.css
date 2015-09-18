@@ -250,6 +250,12 @@ h5.title {
     background-size: 75px ;
 
 }
+
+    .row-eq-height {
+  display: -webkit-box;
+
+
+}
 }
 
 
