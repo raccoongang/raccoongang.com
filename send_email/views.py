@@ -29,7 +29,7 @@ def send_email(request):
             #from_mail = form_data['mail']
 
             try:
-                send_mail(subject, message, 'some@email.com', recipient_list, fail_silently=False)
+                send_mail(subject, message, form_data['mail'], recipient_list, fail_silently=False)
                 success = 'success'
                 notification = _('Letter was sent, thank you')
 
