@@ -237,7 +237,7 @@ h5.title {
 @media (max-width: 999px) {
 
 #raccoon-carousel {padding-top: 116px;}
-    h5.title {margin-top: 80px;}
+    h5.title {margin-top: 170px;}
 
     .mainpage-col-kos{
         margin-right: 10px;
@@ -245,7 +245,7 @@ h5.title {
     }
 
     .ic1, .ic2, .ic3, .ic4, .ic5, .ic6 {
-    padding: 5px;
+    padding-left: 25px;
 
     background-size: 75px ;
 
