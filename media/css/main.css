@@ -191,7 +191,7 @@ h5.title {
 
 }
 
-.ic1 > ul, .ic2 > ul , .ic3 > ul, .ic4 > ul, .ic5 > ul, .ic6 > ul {
+.ic1 > .cms_plugin > ul, .ic2 > .cms_plugin > ul , .ic3 > .cms_plugin > ul, .ic4 > .cms_plugin > ul, .ic5 > .cms_plugin > ul, .ic6 > .cms_plugin > ul {
     padding-left: 80px;
 
 }
