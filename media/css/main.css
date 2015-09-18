@@ -147,7 +147,7 @@ h5.title {
     font: bold 24px Arial, sans-serif;
     color: #222;
     margin-bottom: 10px;
-    margin-top: 40px;
+    margin-top: 170px;
 }
 
 .ic1{
@@ -237,7 +237,7 @@ h5.title {
 @media (max-width: 999px) {
 
 #raccoon-carousel {padding-top: 116px;}
-    h5.title {margin-top: 170px;}
+    h5.title {margin-top: 80px;}
 
     .mainpage-col-kos{
         margin-right: 10px;
