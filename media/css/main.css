@@ -409,4 +409,5 @@ header > h1 > a{
 /* clients */
 .client {
     display: inline-block;
+    margin: 0;
 }
