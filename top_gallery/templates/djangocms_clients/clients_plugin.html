@@ -11,7 +11,7 @@
 
             {% for every_client in instance.clients.photo_set.all %}
 
-                <div><img class="grayscale" u="image" alt="{{ every_client.title }}" src="{{ every_client.file.url }}" /></div>
+                <div float="left"><img class="grayscale" u="image" alt="{{ every_client.title }}" src="{{ every_client.file.url }}" /></div>
             {% endfor %}
 
 
