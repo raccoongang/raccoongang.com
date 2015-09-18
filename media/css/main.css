@@ -243,6 +243,13 @@ h5.title {
         margin-right: 10px;
         margin-left: 10px;
     }
+
+    .ic1, .ic2, .ic3, .ic4, .ic5, .ic6 {
+    padding: 95px;
+
+    background-size: 75px ;
+
+}
 }
 
 

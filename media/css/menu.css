@@ -3,6 +3,8 @@
     min-height: 115px;
     max-height: 152px;
     max-width: 1170px;
+    border-image-width:0px;
+    border-bottom: 0px;
 }
 
 .navbar-fixed-top{
