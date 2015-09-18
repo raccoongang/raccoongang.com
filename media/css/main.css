@@ -185,7 +185,7 @@ h5.title {
 
 .ic1, .ic2, .ic3, .ic4, .ic5, .ic6 {
     padding: 170px;
-  
+
     background-size: 150px ;
 
 }
@@ -418,4 +418,8 @@ header > h1 > a{
     display: inline-block;
     margin: 0;
     margin-bottom: 10px;
+}
+
+.bread {
+    color:#72bb25;
 }
