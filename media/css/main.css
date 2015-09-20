@@ -240,10 +240,18 @@ h5.title {
       bottom: 20px;
   }
 
-@media (max-width: 999px) {
 
-#raccoon-carousel {padding-top: 116px;}
+
+@media (max-width: 999px) and (min-width: 371px) {
+
+    #raccoon-carousel {margin-top: 116px;}
+
     h5.title {margin-top: 80px;}
+
+    .carousel-caption h1{font: 50px arial, sans-serif;}
+
+    .carousel-caption h3{font: 20px arial, sans-serif;}
+
 
     .mainpage-col-kos{
         margin-right: 10px;
@@ -262,6 +270,41 @@ h5.title {
 .col-height {
   display: inline-block;
   table-layout: none;}
+}
+
+@media (max-width: 370px) {
+#raccoon-carousel {margin-top: 58px;}
+
+
+    .carousel-caption h1{font: 30px arial, sans-serif;}
+
+    .carousel-caption h3{font: 16px arial, sans-serif;}
+
+    .btn-g{
+   font: 12px Arial, sans-serif;
+
+   margin-top:5px;
+   height: 30px;
+   width: 120px;
+        margin-bottom: -15px;
+}
+
+.navbar-fixed-top, .navbar-toggle {
+    min-height: 58px;
+    max-height: 94px;
+}
+
+.navbar-nav > li > a {
+    padding-top: 0px;
+    padding-bottom: 0px;
+    line-height: 68px;
+}
+
+.navbar-brand > img {
+    width: 155px;
+    height: 58px;
+
+}
 }
 
 
