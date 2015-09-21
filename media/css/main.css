@@ -236,7 +236,7 @@ h5.title {
 
 
 .carousel-inner > div > img{
-    min-height: 580px;
+    min-height: 680px;
 }
 
   .bottom-align-text {
@@ -248,6 +248,9 @@ h5.title {
 
 
 @media (max-width: 999px) and (min-width: 371px) {
+
+       .carousel-inner > div > img{
+    min-height: 580px;}
 
     #raccoon-carousel {margin-top: 116px;}
 
@@ -280,6 +283,9 @@ h5.title {
 @media (max-width: 370px) {
 #raccoon-carousel {margin-top: 58px;}
 
+    .carousel-inner > div > img{
+    min-height: 480px;
+}
 
     .carousel-caption h1{font: 30px arial, sans-serif;
     padding-bottom: 80px;}
