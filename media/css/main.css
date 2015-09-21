@@ -236,7 +236,7 @@ h5.title {
 
 
 .carousel-inner > div > img{
-    min-height: 360px;
+    min-height: 985px;
 }
 
   .bottom-align-text {
@@ -281,9 +281,12 @@ h5.title {
 #raccoon-carousel {margin-top: 58px;}
 
 
-    .carousel-caption h1{font: 30px arial, sans-serif;}
+    .carousel-caption h1{font: 30px arial, sans-serif;
+    padding-bottom: 80px;}
 
-    .carousel-caption h3{font: 16px arial, sans-serif;}
+    .carousel-caption h3{font: 16px arial, sans-serif;
+        padding-bottom: 30px;
+    }
 
     .btn-g{
    font: 12px Arial, sans-serif;
