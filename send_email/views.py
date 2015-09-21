@@ -35,7 +35,7 @@ def send_email(request):
 
                 #response to email sending
                 plaintext = get_template('email.txt')
-                htmly     = get_template('index.html')
+                htmly     = get_template('main.html')
 
                 d = Context({ 'username': form_data['name'] })
 
