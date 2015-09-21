@@ -3,7 +3,7 @@ Raccoon Gang corporate site
 
 To make syncdb from scratch you have to comment
 
-    url(r'^sitemap\.xml$', 'django.contrib.sitemaps.views.sitemap',
+    url(r'^sitemap\.xml$', 'django.contrib.sitemaps.views.sitemap'),
 
 and
 
