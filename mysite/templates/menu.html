@@ -5,7 +5,8 @@
         {% if child.selected %}active{% endif %}
         {% if child.children %}dropdown{% endif %}">
         {% if child.children %}
-            <a class="dropdown-toggle" data-hover="dropdown" href="{{ child.get_absolute_url }}">
+             <!-- <a class="dropdown-toggle" data-hover="dropdown" href="{{ child.get_absolute_url }}"> -->
+            <a class="dropdown-toggle" data-toggle="dropdown" href="/">
                 {{ child.get_menu_title }} <span class="caret"></span>
             </a>
             <ul class="dropdown-menu">
