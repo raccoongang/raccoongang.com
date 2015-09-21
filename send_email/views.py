@@ -29,7 +29,7 @@ def send_email(request):
             #from_mail = form_data['mail']
 
             try:
-                send_mail(subject, message, form_data['mail'], recipient_list, fail_silently=False)
+                #send_mail(subject, message, form_data['mail'], recipient_list, fail_silently=False)
                 success = 'success'
                 notification = _('Letter was sent, thank you')
 
@@ -45,7 +45,7 @@ def send_email(request):
 
                 msg = EmailMultiAlternatives(subject, text_content, from_email, [to])
                 msg.attach_alternative(html_content, "text/html")
-                #msg.send()
+                msg.send()
 
             except:
                 notification = _('Message has not been sent')
