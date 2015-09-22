@@ -38,6 +38,7 @@
 
     border-radius: 50%;
     background: url(../img/social.png)#72BB25 no-repeat;
+    background-size: 240px;
     -webkit-border-radius: 50%;
        -moz-border-radius: 50%;
          -o-border-radius: 50%;
