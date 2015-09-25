@@ -1,4 +1,5 @@
 import os
+
 gettext = lambda s: s
 DATA_DIR = os.path.dirname(os.path.dirname(__file__))
 """
@@ -13,6 +14,7 @@ https://docs.djangoproject.com/en/1.7/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
+
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
 # Quick-start development settings - unsuitable for production
@@ -69,19 +71,28 @@ TEMPLATE_LOADERS = (
     'django.template.loaders.eggs.Loader'
 )
 
-TEMPLATE_CONTEXT_PROCESSORS = (
-    'django.contrib.auth.context_processors.auth',
-    'django.contrib.messages.context_processors.messages',
-    'django.core.context_processors.i18n',
-    'django.core.context_processors.debug',
-    'django.core.context_processors.request',
-    'django.core.context_processors.media',
-    'django.core.context_processors.csrf',
-    'django.core.context_processors.tz',
-    'sekizai.context_processors.sekizai',
-    'django.core.context_processors.static',
-    'cms.context_processors.cms_settings',
-)
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'APP_DIRS': True,
+        'OPTIONS': {
+            'context_processors':
+                (
+                    'django.contrib.auth.context_processors.auth',
+                    'django.contrib.messages.context_processors.messages',
+                    'django.core.context_processors.i18n',
+                    'django.core.context_processors.debug',
+                    'django.core.context_processors.request',
+                    'django.core.context_processors.media',
+                    'django.core.context_processors.csrf',
+                    'django.core.context_processors.tz',
+                    'sekizai.context_processors.sekizai',
+                    'django.core.context_processors.static',
+                    'cms.context_processors.cms_settings',
+                )
+        }
+    },
+]
 
 TEMPLATE_DIRS = (
     os.path.join(BASE_DIR, 'mysite', 'templates'),
@@ -144,7 +155,9 @@ INSTALLED_APPS = (
     'taggit_autosuggest',
     'meta',
     'meta_mixin',
-    'send_email'
+    'send_email',
+    'eav',
+    'questionary'
 )
 
 LANGUAGES = (
@@ -193,7 +206,7 @@ CMS_TEMPLATES = (
     ('header.html', 'Header'),
     ('home_page.html', 'Home page'),
     ('contact_us.html', 'Contact us'),
-    ('feature_bread.html','Page with Feature (breadcrumbs)')
+    ('feature_bread.html', 'Page with Feature (breadcrumbs)')
 )
 
 CMS_PERMISSION = True
@@ -223,13 +236,13 @@ THUMBNAIL_PROCESSORS = (
 
 # Blog settings
 
-BLOG_PAGINATION=4
-BLOG_USE_PLACEHOLDER=False
-BLOG_USE_ABSTRACT=False
-BLOG_ENABLE_COMMENTS=False
-BLOG_POSTS_LIST_TRUNCWORDS_COUNT=50
-BLOG_IMAGE_THUMBNAIL_SIZE =  {'size': '900x350', 'crop': True,'upscale': False}
-BLOG_IMAGE_FULL_SIZE = {'size': '900x350', 'crop': True,'upscale': False}
+BLOG_PAGINATION = 4
+BLOG_USE_PLACEHOLDER = False
+BLOG_USE_ABSTRACT = False
+BLOG_ENABLE_COMMENTS = False
+BLOG_POSTS_LIST_TRUNCWORDS_COUNT = 50
+BLOG_IMAGE_THUMBNAIL_SIZE = {'size': '900x350', 'crop': True, 'upscale': False}
+BLOG_IMAGE_FULL_SIZE = {'size': '900x350', 'crop': True, 'upscale': False}
 BLOG_AUTHOR_DEFAULT = False
 
 META_SITE_PROTOCOL = 'http'
@@ -244,8 +257,6 @@ PARLER_LANGUAGES = {
 # Ckeditor settings
 
 CKEDITOR_UPLOAD_PATH = "uploads/"
-
-
 
 try:
     from local_settings import *
