@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% load cms_tags sekizai_tags %}
+
+{% block title %}Edx ankete{% endblock title %}
+
+{% block content %}
+    <div class="background">
+        <div style="height:116px; "></div>
+        <h1>{{ form_step.name }}</h1>
+
+        <form action="" method="post" id="survey-form">
+            {% csrf_token %}
+            {{ form }}
+        </form>
+        <div class="buttons">
+            {% if form_step.order != 0 %}
+                <button class="btn-back">Back</button>
+            {% endif %}
+            {% if form_step.order < max_order %}
+                <button class="btn-next">Next</button>
+            {% else %}
+                <button class="btn-finish">Finish</button>
+            {% endif %}
+        </div>
+    </div>
+
+    {% addtoblock "js" %}
+
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $('.btn-next').click(function(){
+                    sendForm({{ form_step.order }}+2)
+                });
+                $('.btn-back').click(function(){
+                    sendForm({{ form_step.order }})
+                });
+                $('.btn-finish').click(function(){
+                    sendForm(-1)
+                });
+
+            });
+            function sendForm(step) {
+                $('#survey-form').append('<input type="hidden" name="form_step" value="' + step + '">').submit();
+            }
+        </script>
+    {% endaddtoblock %}
+{% endblock content %}
