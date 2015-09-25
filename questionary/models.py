@@ -20,7 +20,7 @@ class FormStep(SortableMixin):
     name = models.CharField(max_length=32)
     description = models.TextField(blank=True)
     order = models.PositiveIntegerField(default=0, editable=False,
-                                        db_index=True, unique=True)
+                                        db_index=True)
     attribute = OneToManyField('eav.Attribute')
 
     class Meta:

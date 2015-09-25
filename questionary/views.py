@@ -13,7 +13,7 @@ from questionary.forms import SurveyForm
 def survey_view(request, step=1):
     form_step = get_object_or_404(
         FormStep,
-        order=int(step) - 1
+        order=int(step)
     )
     max_order = FormStep.objects.all().aggregate(Max('order'))['order__max']
     survey, created = Survey.objects.get_or_create(user=request.user,
@@ -36,9 +36,6 @@ def survey_view(request, step=1):
                 return HttpResponseRedirect(
                     reverse('questionary:questionary',
                             kwargs={'step': go_to_step}))
-                # else:
-                #     form = SurveyForm(form_step=form_step)
-                # form = SurveyForm(instance=survey, step=step)
 
     return render(request, 'form_step.html',
                   {

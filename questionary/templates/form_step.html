@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% load cms_tags sekizai_tags %}
 
-{% block title %}Edx ankete{% endblock title %}
+{% block title %}Edx questionary{% endblock title %}
 
 {% block content %}
     <div class="background">
@@ -13,10 +13,10 @@
             {{ form }}
         </form>
         <div class="buttons">
-            {% if form_step.order != 0 %}
+            {% if form_step.order > 1 %}
                 <button class="btn-back">Back</button>
             {% endif %}
-            {% if form_step.order < max_order %}
+            {% if form_step.order <= max_order %}
                 <button class="btn-next">Next</button>
             {% else %}
                 <button class="btn-finish">Finish</button>
@@ -29,10 +29,10 @@
         <script type="text/javascript">
             $(document).ready(function () {
                 $('.btn-next').click(function(){
-                    sendForm({{ form_step.order }}+2)
+                    sendForm({{ form_step.order }}+1)
                 });
                 $('.btn-back').click(function(){
-                    sendForm({{ form_step.order }})
+                    sendForm({{ form_step.order }}-1)
                 });
                 $('.btn-finish').click(function(){
                     sendForm(-1)

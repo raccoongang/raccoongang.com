@@ -156,8 +156,9 @@ INSTALLED_APPS = (
     'meta',
     'meta_mixin',
     'send_email',
+    'adminsortable',
     'eav',
-    'questionary'
+    'questionary',
 )
 
 LANGUAGES = (

@@ -20,7 +20,7 @@ class Migration(migrations.Migration):
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('name', models.CharField(max_length=32)),
                 ('description', models.TextField(blank=True)),
-                ('order', models.PositiveIntegerField(default=0, unique=True, editable=False, db_index=True)),
+                ('order', models.PositiveIntegerField(default=0, editable=False, db_index=True)),
                 ('attribute', questionary.fields.OneToManyField(to='eav.Attribute')),
             ],
             options={
