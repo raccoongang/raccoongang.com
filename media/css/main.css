@@ -215,6 +215,9 @@ h5.title {
    border: 2px solid #bfbfbf ;
 }
 
+
+/* carousel */
+
 .carousel-caption h1{
 
    font: 70px arial, sans-serif;
@@ -225,7 +228,17 @@ h5.title {
 }
 
 
-
+/*.inner-image{
+    max-width: 1920px; //the largest you want the image to stretch
+    min-width: 1170px; //the "container" width
+    overflow: hidden;
+}
+.inner-image > div{
+   width: 1920px;
+   left: 50%;
+   margin-left: -960px;
+}
+*/
 .carousel-caption h3{
    font: 30px arial, sans-serif;
    text-transform: uppercase;
@@ -234,10 +247,8 @@ h5.title {
 
 }
 
+.carousel {overflow:hidden}
 
-.carousel-inner > div > img{
-    min-height: 680px;
-}
 
   .bottom-align-text {
     position: absolute;
@@ -249,8 +260,8 @@ h5.title {
 
 @media (max-width: 999px) and (min-width: 481px) {
 
-       .carousel-inner > div > img{
-    min-height: 580px;}
+       .inner-image > img{
+    height: 580px;}
 
     #raccoon-carousel {margin-top: 116px;}
 
@@ -283,8 +294,8 @@ h5.title {
 @media (max-width: 480px) {
 #raccoon-carousel {margin-top: 58px;}
 
-    .carousel-inner > div > img{
-    min-height: 400px;
+   .inner-image > img{
+    height: 400px;
 }
 
     .carousel-caption h1{font: 30px arial, sans-serif;
