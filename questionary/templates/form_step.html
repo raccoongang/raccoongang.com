@@ -22,19 +22,24 @@
                 <button class="btn-finish">Finish</button>
             {% endif %}
         </div>
+        <div class="gallery">
+            {% for image in form_step.formgallery_set.all %}
+                <img width="320" height="240" src="{{ image.image.url }}" alt="{{ image.name }}" title="{{ image.name }}">
+            {% endfor %}
+        </div>
     </div>
 
     {% addtoblock "js" %}
 
         <script type="text/javascript">
             $(document).ready(function () {
-                $('.btn-next').click(function(){
+                $('.btn-next').click(function () {
                     sendForm({{ form_step.order }}+1)
                 });
-                $('.btn-back').click(function(){
+                $('.btn-back').click(function () {
                     sendForm({{ form_step.order }}-1)
                 });
-                $('.btn-finish').click(function(){
+                $('.btn-finish').click(function () {
                     sendForm(-1)
                 });
 
