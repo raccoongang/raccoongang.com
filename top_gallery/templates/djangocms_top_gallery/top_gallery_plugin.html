@@ -17,11 +17,10 @@
     {% for every_photo in instance.gallery.photo_set.all %}
 
     <div class="item {% if forloop.first %}active{% endif %}">
-        <div class="inner-image">
 
       <img src="{{ every_photo.file.url }}" alt="...">
 
-            </div>
+
         <div class="container">
       <div class="carousel-caption">
           <h1>{{ every_photo.title }}</h1>
