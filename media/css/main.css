@@ -227,18 +227,6 @@ h5.title {
 
 }
 
-
-/*.inner-image{
-    max-width: 1920px; //the largest you want the image to stretch
-    min-width: 1170px; //the "container" width
-    overflow: hidden;
-}
-.inner-image > div{
-   width: 1920px;
-   left: 50%;
-   margin-left: -960px;
-}
-*/
 .carousel-caption h3{
    font: 30px arial, sans-serif;
    text-transform: uppercase;
@@ -256,12 +244,14 @@ h5.title {
       bottom: 20px;
   }
 
-
+.carousel-inner > div > img{
+    min-height: 680px;
+}
 
 @media (max-width: 999px) and (min-width: 481px) {
 
-       .inner-image > img{
-    height: 580px;}
+    .carousel-inner > div > img{
+    min-height: 564px;}
 
     #raccoon-carousel {margin-top: 116px;}
 
@@ -294,8 +284,8 @@ h5.title {
 @media (max-width: 480px) {
 #raccoon-carousel {margin-top: 58px;}
 
-   .inner-image > img{
-    height: 400px;
+  .carousel-inner > div > img{
+    min-height: 400px;
 }
 
     .carousel-caption h1{font: 30px arial, sans-serif;
