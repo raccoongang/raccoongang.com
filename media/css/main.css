@@ -281,7 +281,7 @@ h5.title {
   table-layout: none;}
 }
 
-@media (max-width: 450px) {
+@media (max-width: 480px) {
 #raccoon-carousel {margin-top: 58px;}
 
   .carousel-inner > div > img{
