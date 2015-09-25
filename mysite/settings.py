@@ -245,8 +245,6 @@ PARLER_LANGUAGES = {
 
 CKEDITOR_UPLOAD_PATH = "uploads/"
 
-
-
 try:
     from local_settings import *
 except ImportError:
