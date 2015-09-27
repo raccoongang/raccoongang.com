@@ -3,15 +3,18 @@ from adminsortable.admin import SortableAdmin
 from eav.forms import BaseDynamicEntityForm
 from eav.admin import BaseEntityAdmin
 
-from questionary.models import FormStep, Survey
+from questionary.models import FormStep, Survey, FormGallery
 
 class AttributeInline(admin.StackedInline):
     model = FormStep.attribute.through
 
+class GalleryInline(admin.StackedInline):
+    model = FormGallery
 
 class FormStepAdmin(SortableAdmin):
     inlines = [
         AttributeInline,
+        GalleryInline,
     ]
     exclude = ('attribute',)
 

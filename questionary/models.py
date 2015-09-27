@@ -19,8 +19,11 @@ pre_save.disconnect(eav.models.Entity.pre_save_handler, sender=Survey)
 class FormStep(SortableMixin):
     name = models.CharField(max_length=32)
     description = models.TextField(blank=True)
-    order = models.PositiveIntegerField(default=0, editable=False,
-                                        db_index=True)
+    order = models.PositiveIntegerField(
+        default=0,
+        editable=False,
+        db_index=True
+    )
     attribute = OneToManyField('eav.Attribute')
 
     class Meta:
@@ -29,8 +32,22 @@ class FormStep(SortableMixin):
     def __unicode__(self):
         return self.name
 
-    def get_step_by_order(self):
-        return self.order + 1
+
+class FormGallery(SortableMixin):
+    name = models.CharField(max_length=64)
+    formstep = models.ForeignKey('questionary.FormStep')
+    image = models.ImageField()
+    order = models.PositiveIntegerField(
+        default=0,
+        editable=False,
+        db_index=True
+    )
+
+    class Meta:
+        ordering = ['order']
+
+    def __unicode__(self):
+        return self.name
 
 
 def pre_save_handler(sender, *args, **kwargs):
