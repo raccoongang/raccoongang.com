@@ -120,6 +120,7 @@ class Attribute(models.Model):
         * int (TYPE_INT)
         * float (TYPE_FLOAT)
         * text (TYPE_TEXT)
+        * textarea (TYPE_TEXTAREA)
         * date (TYPE_DATE)
         * bool (TYPE_BOOLEAN)
         * object (TYPE_OBJECT)
@@ -152,6 +153,7 @@ class Attribute(models.Model):
         unique_together = ('site', 'slug')
 
     TYPE_TEXT = 'text'
+    TYPE_TEXTAREA = 'textarea'
     TYPE_FLOAT = 'float'
     TYPE_INT = 'int'
     TYPE_DATE = 'date'
@@ -161,6 +163,7 @@ class Attribute(models.Model):
 
     DATATYPE_CHOICES = (
         (TYPE_TEXT, _(u"Text")),
+        (TYPE_TEXTAREA, _(u"Text area")),
         (TYPE_FLOAT, _(u"Float")),
         (TYPE_INT, _(u"Integer")),
         (TYPE_DATE, _(u"Date")),
@@ -191,7 +194,7 @@ class Attribute(models.Model):
     def help_text(self):
         return self.description
 
-    datatype = EavDatatypeField(_(u"data type"), max_length=6,
+    datatype = EavDatatypeField(_(u"data type"), max_length=8,
                                 choices=DATATYPE_CHOICES)
 
     created = models.DateTimeField(_(u"created"), default=datetime.now,
@@ -216,6 +219,7 @@ class Attribute(models.Model):
         '''
         DATATYPE_VALIDATORS = {
             'text': validate_text,
+            'textarea': validate_text,
             'float': validate_float,
             'int': validate_int,
             'date': validate_date,
