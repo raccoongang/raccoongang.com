@@ -4,30 +4,100 @@
 {% block title %}Edx questionary{% endblock title %}
 
 {% block content %}
-    <div class="background">
-        <div style="height:116px; "></div>
-        <h1>{{ form_step.name }}</h1>
+{#    {% addtoblock "css" %}#}
+{#        <link rel="stylesheet"#}
+{#              href="{{ STATIC_URL }}css/questionary_style.css">#}
+{#    {% endaddtoblock %}#}
+{#    <div class="container row-fluid">#}
+{#        <div class="header_name">#}
+{#            <h3 class="wiz-name">Lorem ipsum</h3>#}
+{#            <img src="img/Poly_logo.png" width="138" height="30"#}
+{#                 class="Poly_logo" alt="">#}
+{#        </div>#}
+{#        <div class="span3">#}
+{#            <form>#}
+{#                <fieldset>#}
+{#                    <label>Описание поля</label>#}
+{#                    <input type="text" placeholder="Ввите текст…">#}
+{#                    <span class="help-block">Подсказка или доп. информация.</span>#}
+{#                    <label class="checkbox margin-bottom">#}
+{#                        <input type="checkbox"> Нажми здесь и выдели checkbox#}
+{#                    </label>#}
+{#                </fieldset>#}
+{#            </form>#}
+{#            <label>Описание поля</label>#}
+{#            <input type="text" placeholder="Введите текст…">#}
+{#            <label>Описание поля</label>#}
+{#            <input type="text" placeholder="Введите текст…">#}
+{#            <label>Описание поля</label>#}
+{#            <input type="text" placeholder="Введите текст…">#}
+{##}
+{#            <form class="margin-bottom">#}
+{#                <fieldset>#}
+{#                    <label>Выберите тип</label>#}
+{#                    <select>#}
+{#                        <option>Выберите—для бла бла бла</option>#}
+{#                        <option>Выберите—для бла бла бла</option>#}
+{#                        <option>Выберите—для бла бла бла</option>#}
+{#                        <option>Выберите—для бла бла бла</option>#}
+{#                        <option>Выберите—для бла бла бла</option>#}
+{#                    </select>#}
+{##}
+{#                    <select multiple="multiple">#}
+{#                        <option>Выберите—для бла бла бла</option>#}
+{#                        <option>Выберите—для бла бла бла</option>#}
+{#                        <option>Выберите—для бла бла бла</option>#}
+{#                        <option>Выберите—для бла бла бла</option>#}
+{#                        <option>Выберите—для бла бла бла</option>#}
+{#                    </select>#}
+{#            </form>#}
+{#        </div>#}
+{##}
+{##}
+{#        <div class="span7">#}
+{#            <img src="{{ STATIC_URL }}img/1.jpg" class="img-polaroid">#}
+{#        </div>#}
+{#        <div class="span12">#}
+{#            <div class="bottom-p">#}
+{#                <div class="progress progress-striped active margin-bottom">#}
+{#                    <div class="bar" style="width: 2%;"></div>#}
+{#                </div>#}
+{#                <ul class="pager margin-bottom">#}
+{##}
+{#                    <li class="next">#}
+{#                        <a href="articles/index2.html">Вперед &rarr;</a>#}
+{#                    </li>#}
+{#                </ul>#}
+{#            </div>#}
+{#        </div>#}
+{#    </div>#}
 
-        <form action="" method="post" id="survey-form">
-            {% csrf_token %}
-            {{ form }}
-        </form>
-        <div class="buttons">
-            {% if form_step.order > 1 %}
-                <button class="btn-back">Back</button>
-            {% endif %}
-            {% if form_step.order <= max_order %}
-                <button class="btn-next">Next</button>
-            {% else %}
-                <button class="btn-finish">Finish</button>
-            {% endif %}
-        </div>
-        <div class="gallery">
-            {% for image in form_step.formgallery_set.all %}
-                <img width="320" height="240" src="{{ image.image.url }}"
-                     alt="{{ image.name }}" title="{{ image.name }}">
-            {% endfor %}
-        </div>
+
+
+        <div class="background">
+            <div style="height:116px; "></div>
+            <h1>{{ form_step.name }}</h1>
+
+            <form action="" method="post" id="survey-form">
+                {% csrf_token %}
+                {{ form }}
+            </form>
+            <div class="buttons">
+                {% if form_step.order > 1 %}
+                    <button class="btn-back">Back</button>
+                {% endif %}
+                {% if form_step.order < max_order %}
+                    <button class="btn-next">Next</button>
+                {% else %}
+                    <button class="btn-finish">Finish</button>
+                {% endif %}
+            </div>
+            <div class="gallery">
+                {% for image in form_step.formgallery_set.all %}
+                    <img width="320" height="240" src="{{ image.image.url }}"
+                         alt="{{ image.name }}" title="{{ image.name }}">
+                {% endfor %}
+            </div>
     </div>
 
     {% addtoblock "js" %}

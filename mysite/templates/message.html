@@ -1,0 +1,37 @@
+{% if messages %}
+  {% for message in messages %}
+  {% if message.tags == 'success' %}
+    <div class="alert alert-success" role="alert">
+      <ul class="messages">
+        <span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span>
+        {{ message }}
+        <button class="close" data-dismiss="alert">×</button>
+      </ul>
+    </div>
+  {% elif message.tags == 'warning' %}
+    <div class="alert alert-danger" role="alert">
+      <ul class="messages">
+        <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+        {{ message }}
+        <button class="close" data-dismiss="alert">×</button>
+      </ul>
+    </div>
+  {% elif message.tags == 'info' %}
+    <div class="alert alert-info" role="alert">
+      <ul class="messages">
+        <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
+        {{ message }}
+        <button class="close" data-dismiss="alert">×</button>
+      </ul>
+    </div>
+  {% else %}
+    <div class="alert alert-info" role="alert">
+      <ul class="messages">
+        <span class="glyphicon glyphicon-alert" aria-hidden="true"></span>
+        {{ message }}
+        <button class="close" data-dismiss="alert">×</button>
+      </ul>
+    </div>
+  {% endif %}
+  {% endfor %}
+{% endif %}
