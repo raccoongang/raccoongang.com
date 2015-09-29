@@ -8,9 +8,10 @@ from adminsortable.models import SortableMixin
 
 class Survey(models.Model):
     user = models.ForeignKey(User)
-    name = models.CharField(max_length=64)
     is_draft = models.BooleanField(default=True)
 
+    def __unicode__(self):
+        return u"%s's survey" % self.user.username
 
 eav.register(Survey)
 pre_save.disconnect(eav.models.Entity.pre_save_handler, sender=Survey)

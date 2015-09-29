@@ -24,7 +24,8 @@
         </div>
         <div class="gallery">
             {% for image in form_step.formgallery_set.all %}
-                <img width="320" height="240" src="{{ image.image.url }}" alt="{{ image.name }}" title="{{ image.name }}">
+                <img width="320" height="240" src="{{ image.image.url }}"
+                     alt="{{ image.name }}" title="{{ image.name }}">
             {% endfor %}
         </div>
     </div>

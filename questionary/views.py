@@ -18,13 +18,12 @@ def survey_view(request, step=1):
     max_order = FormStep.objects.all().aggregate(Max('order'))['order__max']
     survey, created = Survey.objects.get_or_create(user=request.user,
                                                    is_draft=True)
-    form = SurveyForm(instance=survey, form_step=form_step)
 
     if request.method == 'POST':
         params = request.POST.copy()
         go_to_step = int(params['form_step'])
         del (params['form_step'])
-        form = SurveyForm(request.POST, instance=survey, form_step=form_step)
+        form = SurveyForm(params, instance=survey, form_step=form_step)
         if form.is_valid():
             form.save()
             if go_to_step == -1:
@@ -36,6 +35,8 @@ def survey_view(request, step=1):
                 return HttpResponseRedirect(
                     reverse('questionary:questionary',
                             kwargs={'step': go_to_step}))
+    else:
+        form = SurveyForm(instance=survey, form_step=form_step)
 
     return render(request, 'form_step.html',
                   {

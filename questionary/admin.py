@@ -5,11 +5,14 @@ from eav.admin import BaseEntityAdmin
 
 from questionary.models import FormStep, Survey, FormGallery
 
+
 class AttributeInline(admin.StackedInline):
     model = FormStep.attribute.through
 
+
 class GalleryInline(admin.StackedInline):
     model = FormGallery
+
 
 class FormStepAdmin(SortableAdmin):
     inlines = [
@@ -17,7 +20,6 @@ class FormStepAdmin(SortableAdmin):
         GalleryInline,
     ]
     exclude = ('attribute',)
-
 
 
 class SurveyAdminForm(BaseDynamicEntityForm):

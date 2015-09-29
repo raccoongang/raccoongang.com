@@ -43,7 +43,6 @@ class Migration(migrations.Migration):
             name='Survey',
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
-                ('name', models.CharField(max_length=64)),
                 ('is_draft', models.BooleanField(default=True)),
                 ('user', models.ForeignKey(to=settings.AUTH_USER_MODEL)),
             ],
