@@ -64,6 +64,7 @@ project.db
 project.sql
 local_settings.py
 images/
+media/uploads
 filer_public_thumbnails/
 filer_public/
 *.db

@@ -1,7 +1,6 @@
 from django.db import models
 from django.db.models.signals import pre_save
 from django.contrib.auth.models import User
-from questionary.fields import OneToManyField
 import eav
 from adminsortable.models import SortableMixin
 
@@ -25,7 +24,6 @@ class FormStep(SortableMixin):
         editable=False,
         db_index=True
     )
-    attribute = OneToManyField('eav.Attribute')
 
     class Meta:
         ordering = ['order']
@@ -37,7 +35,7 @@ class FormStep(SortableMixin):
 class FormGallery(SortableMixin):
     name = models.CharField(max_length=64)
     formstep = models.ForeignKey('questionary.FormStep')
-    image = models.ImageField()
+    image = models.ImageField(upload_to = 'uploads/')
     order = models.PositiveIntegerField(
         default=0,
         editable=False,

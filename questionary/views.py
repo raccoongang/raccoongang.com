@@ -42,5 +42,8 @@ def survey_view(request, step=1):
                   {
                       'form_step': form_step,
                       'form': form,
-                      'max_order': max_order
+                      'max_order': max_order,
+                      'progress': round(
+                          100 / max_order * (form_step.order - 1)
+                      )
                   })

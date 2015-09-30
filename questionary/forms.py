@@ -24,7 +24,7 @@ class SurveyForm(BaseDynamicEntityForm):
         # reset form fields
         self.fields = deepcopy(self.base_fields)
         attributes = self.entity.get_all_attributes().filter(
-            formstep=self.form_step)
+            form_step=self.form_step).order_by('pk')
         for attribute in attributes:
             value = getattr(self.entity, attribute.slug)
 
@@ -78,7 +78,7 @@ class SurveyForm(BaseDynamicEntityForm):
 
         # assign attributes
         attributes = self.entity.get_all_attributes().filter(
-            formstep=self.form_step)
+            form_step=self.form_step).order_by('pk')
         for attribute in attributes:
             value = self.cleaned_data.get(attribute.slug)
             if attribute.datatype == attribute.TYPE_ENUM:

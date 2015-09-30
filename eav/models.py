@@ -179,16 +179,18 @@ class Attribute(models.Model):
                              default=Site.objects.get_current)
 
     slug = EavSlugField(_(u"slug"), max_length=50, db_index=True,
-                          help_text=_(u"Short unique attribute label"))
+                        help_text=_(u"Short unique attribute label"))
 
     description = models.CharField(_(u"description"), max_length=256,
-                                     blank=True, null=True,
-                                     help_text=_(u"Short description"))
+                                   blank=True, null=True,
+                                   help_text=_(u"Short description"))
 
     enum_group = models.ForeignKey(EnumGroup, verbose_name=_(u"choice group"),
                                    blank=True, null=True)
 
     type = models.CharField(_(u"type"), max_length=20, blank=True, null=True)
+
+    form_step = models.ForeignKey("questionary.FormStep")
 
     @property
     def help_text(self):
@@ -242,7 +244,7 @@ class Attribute(models.Model):
             if value not in self.enum_group.enums.all():
                 raise ValidationError(_(u"%(enum)s is not a valid choice "
                                         u"for %(attr)s") % \
-                                       {'enum': value, 'attr': self})
+                                      {'enum': value, 'attr': self})
 
     def save(self, *args, **kwargs):
         '''
@@ -373,24 +375,26 @@ class Value(models.Model):
         and value_enum is not a valid choice for this value's attribute.
         '''
         if self.attribute.datatype == Attribute.TYPE_ENUM and \
-           self.value_enum:
+                self.value_enum:
             if self.value_enum not in self.attribute.enum_group.enums.all():
                 raise ValidationError(_(u"%(choice)s is not a valid " \
                                         u"choice for %s(attribute)") % \
-                                        {'choice': self.value_enum,
-                                         'attribute': self.attribute})
+                                      {'choice': self.value_enum,
+                                       'attribute': self.attribute})
 
     def _get_value(self):
         '''
         Return the python object this value is holding
         '''
-        return getattr(self, 'value_%s' % self.attribute.datatype)
+        data_type = 'text' if self.attribute.datatype == "textarea" else self.attribute.datatype
+        return getattr(self, 'value_%s' % data_type)
 
     def _set_value(self, new_value):
         '''
         Set the object this value is holding
         '''
-        setattr(self, 'value_%s' % self.attribute.datatype, new_value)
+        data_type = 'text' if self.attribute.datatype == "textarea" else self.attribute.datatype
+        setattr(self, 'value_%s' % data_type, new_value)
 
     value = property(_get_value, _set_value)
 
@@ -482,20 +486,20 @@ class Entity(object):
                 value = self._getattr(attribute.slug)
             else:
                 value = values_dict.get(attribute.slug, None)
-            
+
             if value is None:
                 if attribute.required:
                     raise ValidationError(_(u"%(attr)s EAV field cannot " \
-                                                u"be blank") % \
-                                              {'attr': attribute.slug})
+                                            u"be blank") % \
+                                          {'attr': attribute.slug})
             else:
                 try:
                     attribute.validate_value(value)
                 except ValidationError as e:
                     raise ValidationError(_(u"%(attr)s EAV field %(err)s") % \
-                                              {'attr': attribute.slug,
-                                               'err': e})
-                
+                                          {'attr': attribute.slug,
+                                           'err': e})
+
     def get_values_dict(self):
         values_dict = dict()
         for value in self.get_values():
@@ -558,6 +562,7 @@ class Entity(object):
         instance = kwargs['instance']
         entity = getattr(kwargs['instance'], instance._eav_config_cls.eav_attr)
         entity.validate_attributes()
+
 
 if 'django_nose' in settings.INSTALLED_APPS:
     '''
