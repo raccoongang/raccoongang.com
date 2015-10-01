@@ -13,7 +13,8 @@ from questionary.forms import SurveyForm
 def survey_view(request, projecthash, step=1):
     edp = EdxProject
     if edp.check_is_hash_expire(projecthash):
-        messages.error(request, _("Your link has expired."))
+        messages.error(request, _(
+            "Seems that this link is outdated. contact with our managers to get new one.."))
         return redirect('/')
     date, name, project_id = edp.decode_hash(projecthash)
     edx_project = get_object_or_404(

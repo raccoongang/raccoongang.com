@@ -35,7 +35,10 @@ class EdxProject(models.Model):
 
     @staticmethod
     def check_is_hash_expire(hash):
-        date, name, id = EdxProject.decode_hash(hash)
+        try:
+            date, name, id = EdxProject.decode_hash(hash)
+        except:
+            return True
         date_format = "%Y-%m-%d"
         return datetime.strptime(date,
                                  date_format).date() < datetime.now().date()
