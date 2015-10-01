@@ -1,16 +1,55 @@
+from datetime import datetime
 from django.db import models
 from django.db.models.signals import pre_save
 from django.contrib.auth.models import User
 import eav
 from adminsortable.models import SortableMixin
+from django.core.urlresolvers import reverse
+from django.contrib.sites.models import Site
+import base64
+
+
+class EdxProject(models.Model):
+    name = models.CharField(max_length=48)
+    expire_date = models.DateField(default=datetime.now(), blank=True)
+
+    def __unicode__(self):
+        return self.name
+
+    def generate_url(self):
+        current_site = Site.objects.get_current()
+
+        url = reverse('questionary', 'mysite.urls', kwargs={
+            'projecthash': self.generate_hash(),
+            'step': 1
+        })
+        return current_site.domain + url
+
+    def generate_hash(self):
+        data = ",".join(str(i) for i in (self.expire_date, self.name, self.pk))
+        return base64.urlsafe_b64encode(data)
+
+    @staticmethod
+    def decode_hash(hash):
+        return base64.urlsafe_b64decode(str(hash)).split(',')
+
+    @staticmethod
+    def check_is_hash_expire(hash):
+        date, name, id = EdxProject.decode_hash(hash)
+        date_format = "%Y-%m-%d"
+        return datetime.strptime(date,
+                                 date_format).date() < datetime.now().date()
+
+    link = None
 
 
 class Survey(models.Model):
-    user = models.ForeignKey(User)
+    edx_project = models.ForeignKey(EdxProject)
     is_draft = models.BooleanField(default=True)
 
     def __unicode__(self):
-        return u"%s's survey" % self.user.username
+        return u"Survey for %s" % self.edx_project.name
+
 
 eav.register(Survey)
 pre_save.disconnect(eav.models.Entity.pre_save_handler, sender=Survey)
@@ -35,7 +74,7 @@ class FormStep(SortableMixin):
 class FormGallery(SortableMixin):
     name = models.CharField(max_length=64)
     formstep = models.ForeignKey('questionary.FormStep')
-    image = models.ImageField(upload_to = 'uploads/')
+    image = models.ImageField(upload_to='uploads/')
     order = models.PositiveIntegerField(
         default=0,
         editable=False,
