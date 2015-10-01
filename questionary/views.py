@@ -46,7 +46,7 @@ def survey_view(request, projecthash, step=1):
                 return redirect('/')
             else:
                 return HttpResponseRedirect(
-                    reverse('questionary:questionary',
+                    reverse('questionary', 'mysite.urls',
                             kwargs={
                                 'projecthash': projecthash,
                                 'step': go_to_step
