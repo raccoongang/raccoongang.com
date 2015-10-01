@@ -36,7 +36,8 @@ class SurveyAdmin(BaseEntityAdmin):
 
 
 class EdxProjectAdminForm(forms.ModelForm):
-    link = forms.CharField(required=False)
+    widget = forms.Textarea
+    link = forms.CharField(required=False,widget=forms.Textarea)
 
     def __init__(self, *args, **kwargs):
         super(EdxProjectAdminForm, self).__init__(*args, **kwargs)

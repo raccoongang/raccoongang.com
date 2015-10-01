@@ -23,7 +23,7 @@ class EdxProject(models.Model):
             'projecthash': self.generate_hash(),
             'step': 1
         })
-        return current_site.domain + url
+        return 'http://' + current_site.domain + url
 
     def generate_hash(self):
         data = ",".join(str(i) for i in (self.expire_date, self.name, self.pk))
