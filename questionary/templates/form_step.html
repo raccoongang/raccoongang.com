@@ -1,103 +1,80 @@
 {% extends "base.html" %}
 {% load cms_tags sekizai_tags %}
-
+{% load i18n %}
 {% block title %}Edx questionary{% endblock title %}
 
 {% block content %}
-{#    {% addtoblock "css" %}#}
-{#        <link rel="stylesheet"#}
-{#              href="{{ STATIC_URL }}css/questionary_style.css">#}
-{#    {% endaddtoblock %}#}
-{#    <div class="container row-fluid">#}
-{#        <div class="header_name">#}
-{#            <h3 class="wiz-name">Lorem ipsum</h3>#}
-{#            <img src="img/Poly_logo.png" width="138" height="30"#}
-{#                 class="Poly_logo" alt="">#}
-{#        </div>#}
-{#        <div class="span3">#}
-{#            <form>#}
-{#                <fieldset>#}
-{#                    <label>Описание поля</label>#}
-{#                    <input type="text" placeholder="Ввите текст…">#}
-{#                    <span class="help-block">Подсказка или доп. информация.</span>#}
-{#                    <label class="checkbox margin-bottom">#}
-{#                        <input type="checkbox"> Нажми здесь и выдели checkbox#}
-{#                    </label>#}
-{#                </fieldset>#}
-{#            </form>#}
-{#            <label>Описание поля</label>#}
-{#            <input type="text" placeholder="Введите текст…">#}
-{#            <label>Описание поля</label>#}
-{#            <input type="text" placeholder="Введите текст…">#}
-{#            <label>Описание поля</label>#}
-{#            <input type="text" placeholder="Введите текст…">#}
-{##}
-{#            <form class="margin-bottom">#}
-{#                <fieldset>#}
-{#                    <label>Выберите тип</label>#}
-{#                    <select>#}
-{#                        <option>Выберите—для бла бла бла</option>#}
-{#                        <option>Выберите—для бла бла бла</option>#}
-{#                        <option>Выберите—для бла бла бла</option>#}
-{#                        <option>Выберите—для бла бла бла</option>#}
-{#                        <option>Выберите—для бла бла бла</option>#}
-{#                    </select>#}
-{##}
-{#                    <select multiple="multiple">#}
-{#                        <option>Выберите—для бла бла бла</option>#}
-{#                        <option>Выберите—для бла бла бла</option>#}
-{#                        <option>Выберите—для бла бла бла</option>#}
-{#                        <option>Выберите—для бла бла бла</option>#}
-{#                        <option>Выберите—для бла бла бла</option>#}
-{#                    </select>#}
-{#            </form>#}
-{#        </div>#}
-{##}
-{##}
-{#        <div class="span7">#}
-{#            <img src="{{ STATIC_URL }}img/1.jpg" class="img-polaroid">#}
-{#        </div>#}
-{#        <div class="span12">#}
-{#            <div class="bottom-p">#}
-{#                <div class="progress progress-striped active margin-bottom">#}
-{#                    <div class="bar" style="width: 2%;"></div>#}
-{#                </div>#}
-{#                <ul class="pager margin-bottom">#}
-{##}
-{#                    <li class="next">#}
-{#                        <a href="articles/index2.html">Вперед &rarr;</a>#}
-{#                    </li>#}
-{#                </ul>#}
-{#            </div>#}
-{#        </div>#}
-{#    </div>#}
-
-
-
-        <div class="background">
-            <div style="height:116px; "></div>
-            <h1>{{ form_step.name }}</h1>
-
-            <form action="" method="post" id="survey-form">
-                {% csrf_token %}
-                {{ form }}
-            </form>
-            <div class="buttons">
-                {% if form_step.order > 1 %}
-                    <button class="btn-back">Back</button>
-                {% endif %}
-                {% if form_step.order < max_order %}
-                    <button class="btn-next">Next</button>
-                {% else %}
-                    <button class="btn-finish">Finish</button>
-                {% endif %}
+    {% addtoblock "css" %}
+        <link rel="stylesheet"
+              href="{{ STATIC_URL }}css/questionary_style.css">
+    {% endaddtoblock %}
+    <div class="container">
+        <div class="row">
+            <div class="header_name">
+                <h3 class="wiz-name">
+                    {{ form_step.name }}&nbsp;{{ form_step.order }} of {{ max_order }}
+                </h3>
             </div>
-            <div class="gallery">
+        </div>
+        <div class="row-fluid">
+            <p>{{ form_step.description }}</p>
+        </div>
+        <div class="row-fluid">
+
+            <div class="col-md-4">
+                <form action="" method="post" id="survey-form"
+                      class="margin-bottom">
+                    <div class="form-group">
+                        {% csrf_token %}
+                        {{ form }}
+                    </div>
+                </form>
+            </div>
+
+
+            <div class="col-md-8">
                 {% for image in form_step.formgallery_set.all %}
-                    <img width="320" height="240" src="{{ image.image.url }}"
-                         alt="{{ image.name }}" title="{{ image.name }}">
+                    <img src="{{ image.image.url }}"
+                         alt="{{ image.name }}" title="{{ image.name }}"
+                         class="img-polaroid">
                 {% endfor %}
             </div>
+        </div>
+
+        <div class="row-fluid">
+            <div class="col-md-12">
+                <div class="bottom-p">
+                    <div class="progress progress-striped active margin-bottom">
+                        <div class="bar" style="width: {{ progress }}%;"></div>
+                    </div>
+                    <ul class="pager margin-bottom">
+                        {% if form_step.order > 1 %}
+                            <li class="previous">
+                                <a href="#"
+                                   class="btn-back">&larr; {% trans "Back" %}</a>
+                                {#                                <a href="../index.html">&larr; {% trans "Back" %}</a>#}
+                            </li>
+                        {% endif %}
+                        {% if form_step.order < max_order %}
+                            <li class="next">
+                                <a href="#"
+                                   class="btn-next">{% trans "Next" %} &rarr;</a>
+                                {#                                <a href="articles/index2.html">{% trans "Next" %} &rarr;</a>#}
+                            </li>
+                        {% else %}
+                            <li class="next">
+                                <a href="#"
+                                   class="btn-finish">{% trans "Finish" %}</a>
+                                {#                                <a href="articles/index2.html">{% trans "Finish" %}</a>#}
+                            </li>
+                        {% endif %}
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </div>
     </div>
 
     {% addtoblock "js" %}
@@ -105,13 +82,16 @@
         <script type="text/javascript">
             $(document).ready(function () {
                 $('.btn-next').click(function () {
-                    sendForm({{ form_step.order }}+1)
+                    sendForm({{ form_step.order }}+1);
+                    return false;
                 });
                 $('.btn-back').click(function () {
-                    sendForm({{ form_step.order }}-1)
+                    sendForm({{ form_step.order }}-1);
+                    return false;
                 });
                 $('.btn-finish').click(function () {
-                    sendForm(-1)
+                    sendForm(-1);
+                    return false;
                 });
 
             });

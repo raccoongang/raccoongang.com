@@ -1,11 +1,8 @@
 __author__ = 'xahgmah'
-
 from copy import deepcopy
-from django.forms import  Textarea, SplitDateTimeWidget
-from django.contrib.admin.widgets import AdminSplitDateTime
+from django.forms import Textarea, SplitDateTimeWidget
 from eav.forms import BaseDynamicEntityForm
 from questionary.models import Survey
-
 
 class SurveyForm(BaseDynamicEntityForm):
     def __init__(self, data=None, *args, **kwargs):
@@ -24,7 +21,7 @@ class SurveyForm(BaseDynamicEntityForm):
         # reset form fields
         self.fields = deepcopy(self.base_fields)
         attributes = self.entity.get_all_attributes().filter(
-            formstep=self.form_step)
+            form_step=self.form_step).order_by('pk')
         for attribute in attributes:
             value = getattr(self.entity, attribute.slug)
 
@@ -46,8 +43,8 @@ class SurveyForm(BaseDynamicEntityForm):
                 if value:
                     defaults.update({'initial': value.pk})
 
-            elif datatype == attribute.TYPE_DATE:
-                defaults.update({'widget': SplitDateTimeWidget})
+            # elif datatype == attribute.TYPE_DATE:
+                # defaults.update({'widget': DateWidget})
             elif datatype == attribute.TYPE_TEXTAREA:
                 defaults.update({'widget': Textarea})
             elif datatype == attribute.TYPE_OBJECT:
@@ -78,7 +75,7 @@ class SurveyForm(BaseDynamicEntityForm):
 
         # assign attributes
         attributes = self.entity.get_all_attributes().filter(
-            formstep=self.form_step)
+            form_step=self.form_step).order_by('pk')
         for attribute in attributes:
             value = self.cleaned_data.get(attribute.slug)
             if attribute.datatype == attribute.TYPE_ENUM:

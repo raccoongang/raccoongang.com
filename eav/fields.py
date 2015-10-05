@@ -82,8 +82,9 @@ class EavDatatypeField(models.CharField):
         :class:`~eav.models.Value` objects.
         '''
         super(EavDatatypeField, self).validate(value, instance)
+        from eav.models import Attribute
         if not instance.pk:
             return
-        if instance.value_set.count():
+        if instance.datatype != Attribute.objects.get(pk=instance.pk).datatype and instance.value_set.count():
             raise ValidationError(_(u"You cannot change the datatype of an "
                                     u"attribute that is already in use."))
