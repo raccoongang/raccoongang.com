@@ -9,7 +9,7 @@ from questionary.models import FormStep, Survey, FormGallery, EdxProject
 
 
 def generate_fieldsets():
-    fieldsets = (None, {'fields': ('edx_project', 'is_draft')}),
+    fieldsets = (None, {'fields': ('edx_project', 'is_draft', 'logo')}),
 
     for form_step in FormStep.objects.all():
         fieldset_fields = ()

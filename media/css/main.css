@@ -284,8 +284,19 @@ h5.title {
   table-layout: none;}
 }
 
+.message-send {
+    position: absolute;
+    top:116px;
+    width: 100%;
+    z-index: 100;
+}
+
+
 @media (max-width: 480px) {
 #raccoon-carousel {margin-top: 58px;}
+    .message-send {
+        top:58px;
+    }
 
   .carousel-inner > div > img{
     min-height: 400px;

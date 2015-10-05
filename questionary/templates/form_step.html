@@ -23,7 +23,7 @@
 
             <div class="col-md-4">
                 <form action="" method="post" id="survey-form"
-                      class="margin-bottom">
+                      class="margin-bottom" enctype="multipart/form-data">
                     <div class="form-group">
                         {% csrf_token %}
                         {{ form }}

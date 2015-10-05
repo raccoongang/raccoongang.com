@@ -1,6 +1,6 @@
 __author__ = 'xahgmah'
 from copy import deepcopy
-from django.forms import Textarea, SplitDateTimeWidget
+from django.forms import Textarea, SplitDateTimeWidget, ImageField
 from eav.forms import BaseDynamicEntityForm
 from questionary.models import Survey
 
@@ -15,11 +15,13 @@ class SurveyForm(BaseDynamicEntityForm):
 
     class Meta:
         model = Survey
-        fields = []
+        fields = ['logo']
 
     def _build_dynamic_fields(self):
         # reset form fields
         self.fields = deepcopy(self.base_fields)
+        if self.form_step.order != 1:
+            del(self.fields['logo'])
         attributes = self.entity.get_all_attributes().filter(
             form_step=self.form_step).order_by('pk')
         for attribute in attributes:
@@ -56,6 +58,7 @@ class SurveyForm(BaseDynamicEntityForm):
             # fill initial data (if attribute was already defined)
             if value and not datatype == attribute.TYPE_ENUM:  # enum done above
                 self.initial[attribute.slug] = value
+        print self.fields
 
     def save(self, commit=True):
         """
@@ -83,7 +86,6 @@ class SurveyForm(BaseDynamicEntityForm):
                     value = attribute.enum_group.enums.get(pk=value)
                 else:
                     value = None
-
             setattr(self.entity, attribute.slug, value)
 
         # save entity and its attributes
