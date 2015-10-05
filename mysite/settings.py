@@ -94,6 +94,20 @@ TEMPLATES = [
     },
 ]
 
+TEMPLATE_CONTEXT_PROCESSORS = (
+    'django.contrib.auth.context_processors.auth',
+    'django.contrib.messages.context_processors.messages',
+    'django.core.context_processors.i18n',
+    'django.core.context_processors.debug',
+    'django.core.context_processors.request',
+    'django.core.context_processors.media',
+    'django.core.context_processors.csrf',
+    'django.core.context_processors.tz',
+    'sekizai.context_processors.sekizai',
+    'django.core.context_processors.static',
+    'cms.context_processors.cms_settings',
+)
+
 TEMPLATE_DIRS = (
     os.path.join(BASE_DIR, 'mysite', 'templates'),
 )
@@ -156,7 +170,7 @@ INSTALLED_APPS = (
     'meta',
     'meta_mixin',
     'send_email',
-    'adminsortable',
+   'adminsortable',
     'eav',
     'questionary',
 )
