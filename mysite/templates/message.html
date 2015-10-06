@@ -1,4 +1,4 @@
-
+{% if not messages %}
     <div class="message-send">
   {% for message in messages %}
   {% if message.tags == 'success' %}
@@ -36,3 +36,4 @@
   {% endif %}
   {% endfor %}
     </div>
+{% endif %}
