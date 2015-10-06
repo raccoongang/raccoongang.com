@@ -20,7 +20,7 @@ class SurveyForm(BaseDynamicEntityForm):
     def _build_dynamic_fields(self):
         # reset form fields
         self.fields = deepcopy(self.base_fields)
-        if self.form_step.order != 1:
+        if self.form_step.order != 4:
             del(self.fields['logo'])
         attributes = self.entity.get_all_attributes().filter(
             form_step=self.form_step).order_by('pk')
