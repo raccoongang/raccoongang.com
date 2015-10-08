@@ -8,7 +8,7 @@ import datetime
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('questionary', '0002_auto_20151006_1109.py'),
+        ('questionary', '0002_auto_20151006_1109'),
     ]
 
     operations = [
