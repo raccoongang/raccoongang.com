@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% load cms_tags sekizai_tags %}
+
+{% block title %}{% page_attribute "page_title" %}{% endblock title %}
+
+
+{% block content %}
+       <div class="background">
+    <div style="height:116px; "></div>
+
+    <div class="row ">
+        <div class="col-md-offset-1 col-md-10  mainpage-col-kos" style="padding-top: 10px; ">
+            <div class="col-md-3 kryklia">
+                <img style="width:100%;" src="/media/img/kryklia.jpg"/>
+                    <p><h4>ALEXANDER KRYKLIA</h4>
+<h5>R&D expert</h5>
+Former lead of edX blades team. Worked in edX for more than two years.
+Except knowledge of Open edX platform/Python/JS has R&D background (PhD) which allows him to do really good course specific content. Alexander was core developer or supervised development of variety of edX problem types, including edX video player, chemical equation problem, conditional, poll, LTI, drag and drop, etc</p>
+            </div>
+            <div class="col-md-3">
+                <img style="width:100%;" src="/media/img/radchenko.jpg"/>
+                <p><h4>ALEXEY RADCHENKO</h4>
+<h5>Web development expert</h5>
+Aleksey has a lot of experience in web-development since 2003 year and since 2007 with python/django.
+He has experience in the education domain, has experience of teaching at the university, he is now an instructor of the course "Web development with Python" (http://pybursa.com/).
+He participated in the development of some educational projects. Also he has a diverse experience in developing various web services: cms, e-commerce, e-booking, e-learning. He has experience in leading development teams and project management.
+
+</p>
+            </div>
+                        <div class="col-md-3">
+                            <img style="width:100%;" src="/media/img/movchan.jpg"/>
+                            <p>
+                                <h4>SERGIY MOVCHAN</h4>
+<h5>Business development</h5>
+In IT since 2002 and starting from 2004 - on various management positions.
+Focal point of professional interests currently includes customer collaboration/business analysis, technologically challenging projects and a team of bright professionals to work with.
+Specialties: problem solving, negotiations, business analysis, leading software development projects during the whole lifecycle, code/architecture review, human management, processes development & improvement, personnel education and development.
+                            </p>
+
+            </div>
+                        <div class="col-md-3">
+                            <img style="width:100%;" src="/media/img/koblyakov.jpg"/>
+                            <p><h4>PETER KOBLYAKOV</h4>
+                               <H5> Project Manager</H5>
+Peter has a background in management and startup development. Has an experience in building complicated mathematical models in finance, statistics and data analize. Areas of expertise: agile project management, effective teams creation, business communications, complex problems solving with a help of mathematical solutions and methods
+                            </p>
+
+            </div>
+
+
+        {% placeholder "feature" %}
+
+    <div>
+        {% placeholder "content" %}
+    </div>
+            </div>
+    </div>
+    </div>
+{% endblock content %}
