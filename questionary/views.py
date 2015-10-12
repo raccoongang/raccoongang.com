@@ -36,16 +36,17 @@ def survey_view(request, projecthash, step=1):
         params = request.POST.copy()
         go_to_step = int(params['form_step'])
         del (params['form_step'])
-        form = SurveyForm(params, instance=survey, form_step=form_step)
+        form = SurveyForm(params,
+                          request.FILES,
+                          instance=survey,
+                          form_step=form_step)
         if form.is_valid():
             form.save()
-            if 'logo' in request.FILES:
-                form.instance.logo = request.FILES['logo']
-                form.instance.save()
             if go_to_step == -1:
                 form.instance.is_draft = False
                 form.instance.save()
-                messages.success(request, _("Data has been successfully saved."))
+                messages.success(request,
+                                 _("Data has been successfully saved."))
                 return redirect('/')
             else:
                 return HttpResponseRedirect(

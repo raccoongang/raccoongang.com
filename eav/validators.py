@@ -35,6 +35,7 @@ Functions
 '''
 
 from datetime import datetime, date
+from django.core.files.uploadedfile import UploadedFile
 
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
@@ -57,6 +58,15 @@ def validate_float(value):
         float(value)
     except ValueError:
         raise ValidationError(_(u"Must be a float"))
+
+
+def validate_file(value):
+    '''
+    Raises ``ValidationError`` unless *value* is an
+    instance of ``InMemoryUploadedFile``
+    '''
+    if not (isinstance(value, UploadedFile)):
+        raise ValidationError(_(u"Must be a file"))
 
 
 def validate_int(value):
@@ -103,6 +113,7 @@ def validate_enum(value):
     :class:`~eav.models.EnumValue` model instance.
     '''
     from eav.models import EnumValue
+
     try:
         EnumValue.objects.get(pk=value)
     except EnumValue.DoesNotExist:

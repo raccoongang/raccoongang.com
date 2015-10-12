@@ -154,6 +154,8 @@ class Attribute(models.Model):
 
     TYPE_TEXT = 'text'
     TYPE_TEXTAREA = 'textarea'
+    TYPE_FILE = 'file'
+    TYPE_IMAGE = 'image'
     TYPE_FLOAT = 'float'
     TYPE_INT = 'int'
     TYPE_DATE = 'date'
@@ -164,6 +166,8 @@ class Attribute(models.Model):
     DATATYPE_CHOICES = (
         (TYPE_TEXT, _(u"Text")),
         (TYPE_TEXTAREA, _(u"Text area")),
+        (TYPE_FILE, _(u"File")),
+        (TYPE_IMAGE, _(u"Image")),
         (TYPE_FLOAT, _(u"Float")),
         (TYPE_INT, _(u"Integer")),
         (TYPE_DATE, _(u"Date")),
@@ -222,6 +226,8 @@ class Attribute(models.Model):
         DATATYPE_VALIDATORS = {
             'text': validate_text,
             'textarea': validate_text,
+            'file': validate_file,
+            'image': validate_file,
             'float': validate_float,
             'int': validate_int,
             'date': validate_date,
@@ -343,6 +349,8 @@ class Value(models.Model):
                                        fk_field='entity_id')
 
     value_text = models.TextField(blank=True, null=True)
+    value_file = models.FileField(upload_to='eav_uploads/', blank=True,
+                                  null=True)
     value_float = models.FloatField(blank=True, null=True)
     value_int = models.IntegerField(blank=True, null=True)
     value_date = models.DateTimeField(blank=True, null=True)
@@ -386,15 +394,24 @@ class Value(models.Model):
         '''
         Return the python object this value is holding
         '''
-        data_type = 'text' if self.attribute.datatype == "textarea" else self.attribute.datatype
-        return getattr(self, 'value_%s' % data_type)
+        return getattr(self, 'value_%s' % self._get_data_type())
 
     def _set_value(self, new_value):
         '''
         Set the object this value is holding
         '''
-        data_type = 'text' if self.attribute.datatype == "textarea" else self.attribute.datatype
-        setattr(self, 'value_%s' % data_type, new_value)
+        setattr(self, 'value_%s' % self._get_data_type(), new_value)
+
+    def _get_data_type(self):
+        '''
+        Get datatype for special types
+        '''
+        special_types = {
+            'textarea': 'text',
+            'image': 'file'
+        }
+        return special_types.get(self.attribute.datatype,
+                                 self.attribute.datatype)
 
     value = property(_get_value, _set_value)
 
