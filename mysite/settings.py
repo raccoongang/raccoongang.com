@@ -262,8 +262,28 @@ PARLER_LANGUAGES = {
 
 CKEDITOR_UPLOAD_PATH = "uploads/"
 
+DATABASES = {
+   'default': {
+       'ENGINE': 'django.db.backends.sqlite3',
+       'HOST': 'localhost',
+       'NAME': 'raccoon.db',
+       'PASSWORD': '',
+       'PORT': '',
+       'USER': 'root'
+   }
+}
+
+SECRET_KEY = '4!m=-ar)rotkn@5)orp!o8s4=93q=ls+0ix&ee*&)@&^@0kb6*'
+
+EMAIL_HOST = 'smtp.sendgrid.net'
+EMAIL_HOST_USER = 'dixon'
+EMAIL_HOST_PASSWORD = 'hysmia6GG'
+EMAIL_PORT = 587
+DEFAULT_FROM_EMAIL = 'new@customer.com'
+
 
 try:
     from local_settings import *
 except ImportError:
     print ('Local settings import error')
+

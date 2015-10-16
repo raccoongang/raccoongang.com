@@ -85,8 +85,8 @@
 <script src="/media/js/bootstrap-hover-dropdown.min.js"></script> -->
 <script>
 $("#year").html('&copy; RACCOON GANG '+new Date().getFullYear() );
-if ($(".breadcrumb").children().length <= 1) {
-    $(".breadcrumb").hide();
+if ($(".breadcrumb").children().length > 1) {
+    $(".breadcrumb").show();
 }
 </script>
 {% render_block "js" %}

@@ -5,28 +5,24 @@
 
 <div id="raccoon-carousel" class="carousel slide" data-ride="carousel" data-pause="hover">
   <!-- Wrapper for slides -->
-  <div class="carousel-inner" role="listbox">
-
+    <div class="carousel-inner" role="listbox">
     {% for every_photo in instance.gallery.photo_set.all %}
-
         <div class="item {% if forloop.first %}active{% endif %}">
-
             <img src="{{ every_photo.file.url }}" alt="...">
-
             <div class="container">
-                  <div class="carousel-caption">
-                      <h1>{{ every_photo.title }}</h1>
-                      <h3>{{ every_photo.subtitle }}</h3>
-                      <button class="btn-g" onclick="window.location='{{ every_photo.button_link }}'">
-                        {{ every_photo.button_title }}
-                      </button>
-                  </div>
+                <div class="carousel-caption">
+                    <div class="carousel-text">
+                        <h1>{{ every_photo.title }}</h1>
+                        <h3>{{ every_photo.subtitle }}</h3>
+                        <button class="btn-g" onclick="window.location='{{ every_photo.button_link }}'">
+                            {{ every_photo.button_title }}
+                        </button>
+                    </div>
+                </div>
             </div>
         </div>
-
     {% endfor %}
-
-  </div>
+    </div>
 
   <!-- Controls -->
   <a class="left carousel-control" href="#raccoon-carousel" role="button" data-slide="prev">
