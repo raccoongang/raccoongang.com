@@ -2,8 +2,12 @@
     padding:0px;
 
 }
-body {padding: 0px;
-margin: 0pz;}
+body {
+    padding: 0;
+    margin: 0;
+    font: 16px 'Khula',sans-serif;
+    overflow-x: hidden;
+}
 
 .main-content-block {
   padding: 40px 15px;
@@ -18,7 +22,7 @@ margin: 0pz;}
 
 
 .top-btn{
-    font: 24px Arial, sans-serif;
+    font: 24px Khula, sans-serif;
     color: #72BB25;
     text-transform: uppercase;
     background: none;
@@ -36,18 +40,9 @@ margin: 0pz;}
 
 }
 
-.wrapper{
-
-    font: arial;
-    color: #fff;
-    background-color: #252536;
-    text-transform: uppercase;
-    text-align: center;
-    padding: 32px 0;
-}
-
 .call-btn{
-   font: 24px Arial, sans-serif;
+   font-size: 24px;
+   line-height: 60px;
    color: #72BB25 ;
    text-transform: uppercase;
    background: none;
@@ -60,6 +55,10 @@ margin: 0pz;}
 
  }
 
+.call-btn img {
+    margin-left: 5px;
+    margin-top: -2px;
+}
 
 .call-btn:hover{
     border: 2px solid #4d7c1b;
@@ -68,28 +67,69 @@ margin: 0pz;}
 
 .wrapper-footer{
     width: 100%;
-    font: arial;
     color: #fff;
     background-color: #e7e7e7;
     text-transform: uppercase;
     text-align: center;
-    padding: 32px 0;
-    margin-top: 30px;
+    padding: 32px 0 10px;
 }
 
 
 
 .box-services{
-    max-width: 1170px;
-padding: 120px 0;
+    padding: 80px 0;
+}
+
+.box-services h1 {
+    margin-top: 0;
+}
+
+.box-services h5 {
+    text-align: center;
+}
+
+.box-openedx,
+.box-contact {
+    padding: 80px 0;
+    color: #fff;
+    background: #252536 url(../img/textures_2.jpg) 50% 0 repeat;
+    background-size: 50%;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.box-openedx h1,
+.box-contact h1 {
+    margin-top: 0;
+}
+
+.services {
+    display: block;
+    margin: 0;
+    padding: 0;
+}
+
+.services li {
+    text-align: center;
+    padding: 0;
+    margin: 10px 30px;
+    list-style: none;
+}
+
+.box-clients{
+    padding: 60px 0;
     margin-left: 10px;
     margin-right: 10px;
 }
 
-.box-clients{
-padding: 60px 0;
-    margin-left: 10px;
-    margin-right: 10px;
+.clients-list {
+    text-align: center;
+    margin-top: -20px;
+}
+
+.clients-list a {
+    display: inline-block;
+    margin: 20px;
 }
 
 .service{
@@ -99,23 +139,19 @@ padding: 60px 0;
 }
 
 .service h3{
-    font: 40px arial, sans-serif;
-
+    font-size: 40px;
 }
 
 
 .service h1{
-
-    font: 70px arial, sans-serif;
+    font-size: 70px;
     text-transform: uppercase;
     margin: 50px
-
-
 }
 
 
 .btnl{
-    font: 13px Arial, sans-serif;
+    font-size: 13px;
     color: #222;
     background: #ECECEC;
     text-transform: uppercase;
@@ -125,80 +161,60 @@ padding: 60px 0;
     margin-top: 30px;
     display: inline-block;
     cursor: pointer;
-
- }
+}
 
 .btnl:hover{
     border: 2px solid #222;
-
- }
-
-
-h2.title {
-    font: bold 40px Arial, sans-serif;
-    color: #222;
-    text-transform: uppercase; /*все заглавные буквы*/
-    margin-bottom: 50px;
-    margin-top: 0px;
 }
 
 
+h2.title {
+    font-size: 40px;
+    color: #222;
+    text-transform: uppercase;
+    margin-bottom: 40px;
+    margin-top: 0px;
+}
 
 h5.title {
-    font: bold 24px Arial, sans-serif;
+    font: 24px Khula, sans-serif;
     color: #222;
-    margin-bottom: 10px;
-    margin-top: 170px;
+    text-transform: uppercase;
+    margin: 150px 0 30px;
 }
 
 .ic1{
     background: url(../img/XBlock.png) no-repeat center top;
-
 }
-
 
 .ic2{
     background: url(../img/core-dev.png) no-repeat center top;
-
 }
-
 
 .ic3 {
     background: url(../img/themes.png) no-repeat center top;
-
 }
+
 .ic4{
     background: url(../img/deploy.png) no-repeat center top;
-
 }
-
 
 .ic5{
     background: url(../img/support.png) no-repeat center top;
-
 }
-
 
 .ic6 {
     background: url(../img/custom.png) no-repeat center top;
-
 }
 
 .ic1, .ic2, .ic3, .ic4, .ic5, .ic6 {
     padding: 10px;
-
-    background-size: 150px ;
+    background-size: 120px ;
     margin-bottom: 50px;
-
-}
-
-.service_ul {
-    padding-left: 120px;
-
 }
 
 .btn-g{
-   font: 22px Arial, sans-serif;
+   font: 22px/60px Khula, sans-serif;
    text-align: center;
    color: #fff;
    text-transform: uppercase;
@@ -209,7 +225,6 @@ h5.title {
    width: 250px;
    display: inline-block;
    cursor: pointer;
-
 }
 
 .btn-g:hover{
@@ -219,21 +234,19 @@ h5.title {
 
 /* carousel */
 
-.carousel-caption h1{
-
-   font: 70px arial, sans-serif;
+.carousel-caption h1 {
+   font: 300 70px/1.2 Khula, sans-serif;
    text-transform: uppercase;
    text-align: center;
    color:#fff;
 
 }
 
-.carousel-caption h3{
-   font: 30px arial, sans-serif;
+.carousel-caption h3 {
+   font: 300 30px/1.2 Khula, sans-serif;
    text-transform: uppercase;
-   text-align: left;
+   text-align: center;
    color:#fff;
-
 }
 
 .carousel {overflow:hidden;}
@@ -244,10 +257,14 @@ h5.title {
 
       bottom: 20px;
   }
+.carousel-inner {
+    background: #252536;
+}
 
 .carousel-inner > div > img{
     min-height: 680px;
     min-width: 1500px;
+    opacity: 0.5;
 }
 
 @media (max-width: 999px) and (min-width: 481px) {
@@ -260,9 +277,9 @@ h5.title {
 
     h5.title {margin-top: 80px;}
 
-    .carousel-caption h1{font: 50px arial, sans-serif;}
+    .carousel-caption h1{font-size: 50px;}
 
-    .carousel-caption h3{font: 20px arial, sans-serif;}
+    .carousel-caption h3{font-size: 20px;}
 
 
     .mainpage-col-kos{
@@ -303,19 +320,21 @@ h5.title {
       min-width: 1000px;
 }
 
-    .carousel-caption h1{font: 30px arial, sans-serif;
-    padding-bottom: 30px;}
-
-    .carousel-caption h3{font: 16px arial, sans-serif;
+    .carousel-caption h1{
+        font-size: 30px;
         padding-bottom: 30px;
     }
 
-    .btn-g{
-   font: 12px Arial, sans-serif;
+    .carousel-caption h3{
+        font-size: 16px;
+        padding-bottom: 30px;
+    }
 
-   margin-top:5px;
-   height: 30px;
-   width: 120px;
+    .btn-g {
+        font-size: 12px;
+        margin-top:5px;
+        height: 30px;
+        width: 120px;
         margin-bottom: -15px;
 }
 
@@ -338,8 +357,10 @@ h5.title {
 }
 
 
-.main-text {color: #909090;
-font: 18px Arial, sans-serif;}
+.main-text {
+    color: #909090;
+    font-size: 18px;
+}
 
 /* contact us */
 
@@ -370,7 +391,7 @@ font: 18px Arial, sans-serif;}
 h1.contacts {
     color: #FFFFFF;
     text-transform: uppercase;
-    font: 20px Arial, sans-serif;
+    font-size: 20px;
     margin-top: 38px;
 }
 
@@ -398,8 +419,8 @@ h1.contacts {
     font-size:14px;
 }
 
-.btnc{
-   font: 20px Arial, sans-serif;
+.btnc {
+   font: 20px Khula, sans-serif;
    color: #72BB25 ;
    text-transform: uppercase;
    background: none;
@@ -424,7 +445,7 @@ h1.contacts {
 
 /* blog */
 .btnbtn-b{
-    font: 13px Arial, sans-serif;
+    font: 13px Khula, sans-serif;
     color: #72BB25;
     background-color: #fff;
     text-transform: uppercase;
@@ -498,7 +519,7 @@ header > h1 > a{
 }
 
 .textinmessage {
-    font: bold 1.5em Arial, sans-serif;
+    font: 700 1.5em Khula, sans-serif;
     color: #EEEEEE;
     text-transform: uppercase;
     line-height: 311px;
@@ -523,6 +544,7 @@ header > h1 > a{
   height: 100%;
   width: 100%;
 }
+
 .col-height {
   display: table-cell;
   float: none;

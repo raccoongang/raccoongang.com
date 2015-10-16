@@ -2,56 +2,55 @@
 {% load cms_tags %}
 
 {% block content %}
-    <div class="row">
-
+<div class="row">
     {% placeholder "gallery" %}
-
     <div class="main-content-block box-services row">
         <div class="col-md-10 col-md-offset-1">
         {% placeholder "content" %}
-            </div>
+        </div>
     </div>
-
-
-    <div class="service box-services  ">
+<div class="service box-services">
+    <div style="max-width:1170px;margin:0 auto;">
         <h2 class="title" align="center">services</h2>
 
         <div class="row">
 
-        <div class="col-md-4 ic1 ">
-            {% placeholder "service1" %}
-        </div>
-        <div class="col-md-4 ic2 ">
-            {% placeholder "service2" %}
-        </div>
-        <div class="col-md-4 ic3 ">
-            {% placeholder "service3" %}
-        </div>
+            <div class="col-md-4 ic1">
+                {% placeholder "service1" %}
             </div>
-         <div class="row  ">
-        <div class="col-md-4 ic4 ">
-            {% placeholder "service4" %}
+            <div class="col-md-4 ic2">
+                {% placeholder "service2" %}
+            </div>
+            <div class="col-md-4 ic3">
+                {% placeholder "service3" %}
+            </div>
         </div>
-        <div class="col-md-4 ic5 ">
-            {% placeholder "service5" %}
+        <div class="row ">
+            <div class="col-md-4 ic4">
+                {% placeholder "service4" %}
+            </div>
+            <div class="col-md-4 ic5">
+                {% placeholder "service5" %}
+            </div>
+            <div class="col-md-4 ic6">
+                {% placeholder "service6" %}
+            </div>
         </div>
-        <div class="col-md-4 ic6">
-            {% placeholder "service6" %}
         </div>
-             </div>
     </div>
 
-    <div>
+    <div class="box-contact">
         {% placeholder "to action" %}
     </div>
+
     <div class="box-clients">
         <h2 class="title" align="center">Our clients</h2>
         {% placeholder "clients" %}
     </div>
 
-        <div>
+    <div class="box-openedx">
         {% placeholder "to action 2" %}
     </div>
-    </div>
+</div>
 {% endblock content %}
 
