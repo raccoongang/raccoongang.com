@@ -2,15 +2,16 @@
 {% load cms_tags %}
 
 {% block content %}
-<div class="row">
     {% placeholder "gallery" %}
     <div class="main-content-block row">
-        <div class="col-md-10 col-md-offset-1">
-        {% placeholder "content" %}
+        <div class="container">
+            <div class="col-md-12">
+            {% placeholder "content" %}
+            </div>
         </div>
     </div>
 <div class="service box-services">
-    <div style="max-width:1170px;margin:0 auto;">
+    <div style="container">
         <h2 class="title" align="center">services</h2>
 
         <div class="row">
@@ -44,8 +45,10 @@
     </div>
 
     <div class="box-clients">
-        <h2 class="title" align="center">Our clients</h2>
-        {% placeholder "clients" %}
+        <div class="container">
+            <h2 class="title" align="center">Our clients</h2>
+            {% placeholder "clients" %}
+        </div>
     </div>
 
     <div class="box-openedx">
