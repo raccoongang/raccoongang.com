@@ -70,11 +70,10 @@ body {
 
 .wrapper {
     margin-top: 60px;
-    padding: 80px 0;
+    padding: 60px 500px;
     margin-left: -500px;
     margin-right: -500px;
     text-align: center;
-    padding: 60px 0;
     color: #fff;
     background: #252536 url(../img/textures_2.jpg) 50% 0 repeat;
     background-size: 50%;
@@ -111,7 +110,6 @@ body {
     text-align: center;
 }
 
-
 .services {
     display: block;
     margin: 0;
@@ -123,6 +121,10 @@ body {
     padding: 0;
     margin: 10px 30px;
     list-style: none;
+}
+
+.box-services .col-md-4:nth-child(3n+1) {
+    clear: left;
 }
 
 .box-clients{
@@ -293,10 +295,14 @@ h5.title {
 }
 
 @media (max-width: 999px) and (min-width: 481px) {
+    .carousel-caption {
+        top: 0;
+    }
 
     .carousel-inner > div > img{
-    min-height: 564px;
-    min-width: 1300px;}
+        min-height: 400px;
+        min-width: 1000px;
+    }
 
     #raccoon-carousel {margin-top: 116px;}
 
@@ -306,21 +312,19 @@ h5.title {
 
     .carousel-caption h3{font-size: 20px;}
 
-
     .mainpage-col-kos{
         margin-right: 10px;
         margin-left: 10px;
     }
 
     .ic1, .ic2, .ic3, .ic4, .ic5, .ic6 {
+        background-size: 75px ;
+    }
 
-     margin-left: 50px;
-    background-size: 75px ;
-
-}
     .row-height {
   display: inline-block;
 }
+
 .col-height {
   display: inline-block;
   table-layout: none;}
@@ -340,10 +344,9 @@ h5.title {
         top:58px;
     }
 
-  .carousel-inner > div > img{
-    min-height: 400px;
-      min-width: 1000px;
-}
+    .carousel-caption {
+        top: 0;
+    }
 
     .carousel-caption h1{
         font-size: 30px;
@@ -357,14 +360,14 @@ h5.title {
 
     .btn-g {
         font-size: 12px;
+        line-height: 26px;
         margin-top:5px;
         height: 30px;
         width: 120px;
         margin-bottom: -15px;
-}
+    }
 
-.navbar-fixed-top, .navbar-toggle {
-    min-height: 58px;
+.navbar-fixed-top {
     max-height: 94px;
 }
 
@@ -379,7 +382,20 @@ h5.title {
     height: 58px;
 
 }
+    .clients-list a {
+        display: block;
+    }
+
+    .carousel-inner > div > img{
+        min-height: 250px;
+        min-width: 600px;
+    }
+
+    .carousel-inner h3 {
+        display: none;
+    }
 }
+
 
 
 .main-text {
