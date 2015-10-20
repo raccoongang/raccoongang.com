@@ -1,12 +1,14 @@
-.navbar-brand {
-    padding:0px;
 
+html {
+  height: 100%;
 }
+
 body {
     padding: 0;
     margin: 0;
     font: 16px 'Khula',sans-serif;
     overflow-x: hidden;
+    min-height: 100%;
 }
 
 .main-content-block {
