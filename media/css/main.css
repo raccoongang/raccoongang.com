@@ -436,46 +436,40 @@ h5.title {
 
 .contacts-header {
     margin-top: 116px;
-    height: 96px;
-    background-color: #262537;
-
 }
 
-h1.contacts {
-    color: #FFFFFF;
-    text-transform: uppercase;
-    font-size: 20px;
-    margin-top: 38px;
+.message-form {
+    padding: 30px 0 60px;
 }
-
-
 .message-form input{
 
    height: 40px;
    border: 1px solid #e3e3e3;
    display: block;
    border-radius: 0px;
+   padding-top: 10px;
+   font-size: 16px;
+   line-height: 40px;
+}
+
+.message-form input::-webkit-input-placeholder {
+   line-height: 40px;
 }
 
 
 .message-form textarea{
-
-   padding: 0 15px;
-   background: #ffffff ;
-   margin-bottom: 30px;
-   padding-top:15px;
+    padding: 12px 12px;
+    background: #ffffff ;
+    margin-bottom: 30px;
     border-radius: 0px;
-   height: 205px;
-   resize: none;}
+    height: 205px;
+    resize: none;
+    font-size: 16px;
+}
 
 .form-control{
     font-size:14px;
 }
-
-#contactus {
-    background: #262537;
-}
-
 
 .btnc {
    font: 20px/60px Khula, sans-serif;

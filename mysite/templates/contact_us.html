@@ -3,23 +3,24 @@
 {% block title %}{% page_attribute "page_title" %}{% endblock title %}
 {% block content %}
 
-        <section id="contactus" class="form-section">
-                <div class="container-fluid">
+    <div class="background">
+        <section class="form-section">
+                <div class="container mainpage-col-kos">
                     <div class="row contacts-header">
-                    <div class="col-md-3 col-md-offset-2">
-                                 <h1 class="contacts">Contact us</h1>
-                    </div>
+                        <div class="col-xs-12">
+                            <h1 сlass="title">Contact us</h1>
                         </div>
-                    <div class="row blue-class">
+                    </div>
+                    <div class="message-form row">
                         {% placeholder 'Contact us text' %}
-                    <div class="col-md-3 col-md-offset-2 sk-ml">
+                    <div class="col-md-3 sk-ml">
                         <p><img src="/media/img/skype.png" width="26px" height="26px"><a href="#">Go.Raccoons</a></p>
                         <p><img src="/media/img/mail.png" width="30px" height="20px"><a href="#">info@raccoongang.com</a></p>
                     </div>
 
-                    <div class="col-md-4">
+                    <div class="col-md-6">
 
-                        <form class="message-form" id="send_form">
+                        <form  id="send_form">
                             <fieldset>
 
                                 <div class="form-holder">
@@ -56,4 +57,5 @@
                         </div>
                 </div>
             </section>
+    </div>
 {% endblock content %}
