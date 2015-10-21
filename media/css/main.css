@@ -394,6 +394,18 @@ h5.title {
     .carousel-inner h3 {
         display: none;
     }
+    h1,h2,h2.title {
+        font-size: 30px;
+        font-weight: 300;
+    }
+    h3 {
+        font-size: 20px;
+        font-weight: 300;
+    }
+    h5.title {
+        font-weight: 300;
+        font-size: 20px;
+    }
 }
 
 
