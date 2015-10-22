@@ -4,11 +4,20 @@ html {
 }
 
 body {
-    padding: 0;
+    padding: 0 0 192px;
     margin: 0;
     font: 16px 'Khula',sans-serif;
     overflow-x: hidden;
     min-height: 100%;
+    background: #f5f4f4;
+    position: relative;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
 }
 
 .main-content-block {
@@ -69,7 +78,6 @@ body {
 }
 
 .wrapper {
-    margin-top: 60px;
     padding: 60px 500px;
     margin-left: -500px;
     margin-right: -500px;
@@ -98,7 +106,6 @@ body {
 
 .box-services {
     padding: 60px 0 0;
-    margin-bottom: -60px;
     background: #ECECEC;
 }
 
@@ -128,10 +135,10 @@ body {
 }
 
 .box-clients{
-    padding: 60px 0 0;
+    padding: 60px 0 40px;
     margin-left: 10px;
     margin-right: 10px;
-    margin-bottom: -20px;
+    background: #fff;
 }
 
 .clients-list {
@@ -214,7 +221,7 @@ h5.title {
 }
 
 .ic1, .ic2, .ic3, .ic4, .ic5, .ic6 {
-    padding: 10px;
+    padding: 10px 10px 0;
     background-size: 120px ;
     margin-bottom: 50px;
 }
