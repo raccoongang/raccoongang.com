@@ -541,6 +541,10 @@ h5.title {
     background: #fff;
 }
 
+.mainpage-col-kos .wrapper {
+    margin-top: 40px;
+}
+
 .col-kos p{
     display: inline-block;
     font-size: 16px;
