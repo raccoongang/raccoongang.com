@@ -29,9 +29,10 @@ Classes
 from copy import deepcopy
 
 from django.forms import BooleanField, CharField, DateTimeField, FloatField, \
-                         IntegerField, ModelForm, ChoiceField, ValidationError, \
-    FileField, ImageField
-from django.contrib.admin.widgets import AdminSplitDateTime, AdminTextareaWidget
+    IntegerField, ModelForm, ChoiceField, ValidationError, \
+    FileField, ImageField, RadioSelect
+from django.contrib.admin.widgets import AdminSplitDateTime, \
+    AdminTextareaWidget
 from django.utils.translation import ugettext_lazy as _
 
 
@@ -56,6 +57,7 @@ class BaseDynamicEntityForm(ModelForm):
         'date': DateTimeField,
         'bool': BooleanField,
         'enum': ChoiceField,
+        'radio': ChoiceField,
     }
 
     def __init__(self, data=None, *args, **kwargs):
@@ -79,12 +81,15 @@ class BaseDynamicEntityForm(ModelForm):
             }
 
             datatype = attribute.datatype
-            if datatype == attribute.TYPE_ENUM:
+            if datatype == attribute.TYPE_ENUM or\
+                            datatype == attribute.TYPE_RADIO:
                 enums = attribute.get_choices() \
-                                 .values_list('id', 'value')
-
-                choices = [('', '-----')] + list(enums)
-
+                    .values_list('id', 'value')
+                choices = list(enums)
+                if datatype == attribute.TYPE_RADIO:
+                    defaults.update({'widget': RadioSelect})
+                else:
+                    choices = [('', '-----')] + choices
                 defaults.update({'choices': choices})
                 if value:
                     defaults.update({'initial': value.pk})
@@ -100,7 +105,8 @@ class BaseDynamicEntityForm(ModelForm):
             self.fields[attribute.slug] = MappedField(**defaults)
 
             # fill initial data (if attribute was already defined)
-            if value and not datatype == attribute.TYPE_ENUM: #enum done above
+            if value and datatype not in [attribute.TYPE_ENUM,
+                                          attribute.TYPE_RADIO]:
                 self.initial[attribute.slug] = value
 
     def save(self, commit=True):
@@ -113,7 +119,7 @@ class BaseDynamicEntityForm(ModelForm):
 
         if self.errors:
             raise ValueError(_(u"The %s could not be saved because the data"
-                             u"didn't validate.") % \
+                               u"didn't validate.") % \
                              self.instance._meta.object_name)
 
         # create entity instance, don't save yet

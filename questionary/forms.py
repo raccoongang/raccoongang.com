@@ -1,8 +1,9 @@
 __author__ = 'xahgmah'
 from copy import deepcopy
-from django.forms import Textarea, SplitDateTimeWidget, ImageField
+from django.forms import Textarea, SplitDateTimeWidget, ImageField, RadioSelect
 from eav.forms import BaseDynamicEntityForm
 from questionary.models import Survey
+
 
 class SurveyForm(BaseDynamicEntityForm):
     def __init__(self, data=None, *args, **kwargs):
@@ -21,7 +22,7 @@ class SurveyForm(BaseDynamicEntityForm):
         # reset form fields
         self.fields = deepcopy(self.base_fields)
         if self.form_step.order != 4:
-            del(self.fields['logo'])
+            del (self.fields['logo'])
         attributes = self.entity.get_all_attributes().filter(
             form_step=self.form_step).order_by('pk')
         for attribute in attributes:
@@ -35,18 +36,21 @@ class SurveyForm(BaseDynamicEntityForm):
             }
 
             datatype = attribute.datatype
-            if datatype == attribute.TYPE_ENUM:
+            if datatype == attribute.TYPE_ENUM or \
+                            datatype == attribute.TYPE_RADIO:
                 enums = attribute.get_choices() \
                     .values_list('id', 'value')
-
-                choices = [('', '-----')] + list(enums)
-
+                choices = list(enums)
+                if datatype == attribute.TYPE_RADIO:
+                    defaults.update({'widget': RadioSelect})
+                else:
+                    choices = [('', '-----')] + choices
                 defaults.update({'choices': choices})
                 if value:
                     defaults.update({'initial': value.pk})
 
-            # elif datatype == attribute.TYPE_DATE:
-                # defaults.update({'widget': DateWidget})
+                    # elif datatype == attribute.TYPE_DATE:
+                    # defaults.update({'widget': DateWidget})
             elif datatype == attribute.TYPE_TEXTAREA:
                 defaults.update({'widget': Textarea})
             elif datatype == attribute.TYPE_OBJECT:
@@ -56,7 +60,8 @@ class SurveyForm(BaseDynamicEntityForm):
             self.fields[attribute.slug] = MappedField(**defaults)
 
             # fill initial data (if attribute was already defined)
-            if value and not datatype == attribute.TYPE_ENUM:  # enum done above
+            if value and datatype not in [attribute.TYPE_ENUM,
+                                          attribute.TYPE_RADIO]:
                 self.initial[attribute.slug] = value
         print self.fields
 

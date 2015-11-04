@@ -162,6 +162,7 @@ class Attribute(models.Model):
     TYPE_BOOLEAN = 'bool'
     TYPE_OBJECT = 'object'
     TYPE_ENUM = 'enum'
+    TYPE_RADIO = 'radio'
 
     DATATYPE_CHOICES = (
         (TYPE_TEXT, _(u"Text")),
@@ -173,7 +174,8 @@ class Attribute(models.Model):
         (TYPE_DATE, _(u"Date")),
         (TYPE_BOOLEAN, _(u"True / False")),
         (TYPE_OBJECT, _(u"Django Object")),
-        (TYPE_ENUM, _(u"Multiple Choice")),
+        (TYPE_ENUM, _(u"Select Choice")),
+        (TYPE_RADIO, _(u"Radio Choice")),
     )
 
     name = models.CharField(_(u"name"), max_length=100,
@@ -234,6 +236,7 @@ class Attribute(models.Model):
             'bool': validate_bool,
             'object': validate_object,
             'enum': validate_enum,
+            'radio': validate_enum,
         }
 
         validation_function = DATATYPE_VALIDATORS[self.datatype]
@@ -273,19 +276,19 @@ class Attribute(models.Model):
                 u"You must set the choice group for multiple choice" \
                 u"attributes"))
 
-        if self.datatype != self.TYPE_ENUM and self.enum_group:
+        if self.datatype not in [self.TYPE_RADIO,self.TYPE_ENUM] and self.enum_group:
             raise ValidationError(_(
-                u"You can only assign a choice group to multiple choice " \
-                u"attributes"))
+                u"You can only assign a choice group to multiple choice or " \
+                u" radio choice attributes"))
 
     def get_choices(self):
         '''
         Returns a query set of :class:`EnumValue` objects for this attribute.
         Returns None if the datatype of this attribute is not *TYPE_ENUM*.
         '''
-        if not self.datatype == Attribute.TYPE_ENUM:
-            return None
-        return self.enum_group.enums.all()
+        if self.datatype in [Attribute.TYPE_ENUM,Attribute.TYPE_RADIO]:
+            return self.enum_group.enums.all()
+        return None
 
     def save_value(self, entity, value):
         '''
@@ -400,6 +403,8 @@ class Value(models.Model):
         '''
         Set the object this value is holding
         '''
+        if self.attribute.datatype == 'radio':
+            new_value = EnumValue.objects.get(pk=new_value)
         setattr(self, 'value_%s' % self._get_data_type(), new_value)
 
     def _get_data_type(self):
@@ -408,7 +413,8 @@ class Value(models.Model):
         '''
         special_types = {
             'textarea': 'text',
-            'image': 'file'
+            'image': 'file',
+            'radio': 'enum'
         }
         return special_types.get(self.attribute.datatype,
                                  self.attribute.datatype)
