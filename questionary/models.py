@@ -11,7 +11,7 @@ import base64
 
 class EdxProject(models.Model):
     name = models.CharField(max_length=48)
-    expire_date = models.DateField(default=datetime.now(), blank=True)
+    expire_date = models.DateField(default=datetime.now, blank=True)
 
     def __unicode__(self):
         return self.name
@@ -77,6 +77,7 @@ class FormStep(SortableMixin):
 
 class FormGallery(SortableMixin):
     name = models.CharField(max_length=64)
+    data_attribute = models.CharField(max_length=64)
     formstep = models.ForeignKey('questionary.FormStep')
     image = models.ImageField(upload_to='uploads/')
     order = models.PositiveIntegerField(
