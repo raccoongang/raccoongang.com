@@ -45,7 +45,7 @@ class MyCheckboxInput(CheckboxInput):
         if not (value is True or value is False or value is None or value == ''):
             # Only add the 'value' attribute if a value is non-empty.
             final_attrs['value'] = force_text(value)
-        return format_html('<label><input{}/><span><o></o></span><div class="quiz_checkbox">{}</div></label>', flatatt(final_attrs), self.label)
+        return format_html('<div class="quiz_checkbox"><label><input{}/><span><o></o></span><div>{}</div></label></div>', flatatt(final_attrs), self.label)
 
 class SurveyForm(BaseDynamicEntityForm):
     def __init__(self, data=None, *args, **kwargs):
