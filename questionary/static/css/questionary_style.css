@@ -1,5 +1,5 @@
 body {
-    background: #c7c7c7;
+    background: #f5f4f4;
     margin-top: 115px;
 }
 
@@ -30,13 +30,9 @@ input[type="text"], select, textarea {
     width: 100%;
 }
 
-label {
-    margin-top: 20px;
-    width: 100%
-}
-
 .container {
-    background: #f7f7f7;
+    max-width: 1170px;
+    background: #fff;
     /*padding: 0px 25px 25px 25px;*/
 }
 
@@ -62,8 +58,7 @@ select, option, fieldset {
 }
 
 .bottom-p {
-
-    margin-top: 10px;
+    margin: 20px 0;
 }
 
 .nav-pills {
