@@ -1,39 +1,51 @@
 __author__ = 'xahgmah'
 from copy import deepcopy
-from django.forms import Textarea, SplitDateTimeWidget, ImageField, RadioSelect
+from django.forms import Textarea, CheckboxInput
+from django.forms.widgets import RadioSelect
 from django.utils.html import conditional_escape, format_html, html_safe
+from django.utils import formats, six
+from django.utils.datastructures import MergeDict, MultiValueDict
+from django.utils.encoding import force_text, python_2_unicode_compatible
 from django.forms.utils import flatatt
+
 
 from eav.forms import BaseDynamicEntityForm
 from questionary.models import Survey
 
 
-class MyRadioSelect(RadioSelect):
 
+class MyRadioRenderer(RadioSelect.renderer):
 
-    def __init__(self, attrs=None, choices=()):
-        super(MyRadioSelect, self).__init__(attrs)
+    def render(self):
+            """Outputs radios"""
+            output = '<div class="quiz_radio">'
 
-    def render(self, name=None, value=None, attrs=None, choices=()):
-        if self.id_for_label:
-            label_for = format_html(' for="{}"', self.id_for_label)
-        else:
-            label_for = ''
-        attrs = dict(self.attrs, **attrs) if attrs else self.attrs
-        return format_html(
-            '<label{}>{} {}</label>', label_for, self.tag(attrs), self.choice_label
-        )
-    #
-    # def is_checked(self):
-    #     return self.value == self.choice_value
-    #
-    def tag(self, attrs=None):
-        attrs = attrs or self.attrs
-        final_attrs = dict(attrs, type=self.input_type, name=self.name, value=self.choice_value)
-        if self.is_checked():
+            for w in self:
+                html_str = '<label for="%s"><input id="%s" name="%s" ' \
+                       'type="radio" value="%s" /><span><o></o></span><div>%s' \
+                       '</div></label>' % (w.id_for_label,
+                                           w.id_for_label,
+                                           w.name,
+                                           w.choice_value, w.choice_label )
+                output += html_str
+            output += '</div>'
+            return output
+
+class MyCheckboxInput(CheckboxInput):
+
+    def __init__(self, attrs=None, check_test=None, label = None):
+        super(MyCheckboxInput, self).__init__(attrs)
+        self.label = label
+
+    def render(self, name, value, attrs=None):
+        print self.label
+        final_attrs = self.build_attrs(attrs, type='checkbox', name=name)
+        if self.check_test(value):
             final_attrs['checked'] = 'checked'
-        return format_html('<input{} />', flatatt(final_attrs))
-
+        if not (value is True or value is False or value is None or value == ''):
+            # Only add the 'value' attribute if a value is non-empty.
+            final_attrs['value'] = force_text(value)
+        return format_html('<label><input{}/><span><o></o></span><div class="quiz_checkbox">{}</div></label>', flatatt(final_attrs), self.label)
 
 class SurveyForm(BaseDynamicEntityForm):
     def __init__(self, data=None, *args, **kwargs):
@@ -72,7 +84,7 @@ class SurveyForm(BaseDynamicEntityForm):
                     .values_list('id', 'value')
                 choices = list(enums)
                 if datatype == attribute.TYPE_RADIO:
-                    defaults.update({'widget': RadioSelect})
+                    defaults.update({'widget': RadioSelect(renderer=MyRadioRenderer)})
                 else:
                     choices = [('', '-----')] + choices
                 defaults.update({'choices': choices})
@@ -83,6 +95,9 @@ class SurveyForm(BaseDynamicEntityForm):
                     # defaults.update({'widget': DateWidget})
             elif datatype == attribute.TYPE_TEXTAREA:
                 defaults.update({'widget': Textarea})
+            elif datatype == attribute.TYPE_BOOLEAN:
+                defaults['label']=''
+                defaults.update({'widget': MyCheckboxInput(label=attribute.name)})
             elif datatype == attribute.TYPE_OBJECT:
                 continue
 
