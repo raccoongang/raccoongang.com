@@ -10,17 +10,23 @@ from questionary.models import FormStep, Survey, EdxProject
 from questionary.forms import SurveyForm
 
 
-def survey_view(request, projecthash, step=1):
-    edp = EdxProject
-    if edp.check_is_hash_expire(projecthash):
-        messages.error(request, _(
-            "Seems that this link is outdated. contact with our managers to get new one.."))
-        return redirect('/')
-    date, name, project_id = edp.decode_hash(projecthash)
-    edx_project = get_object_or_404(
-        EdxProject,
-        pk=int(project_id)
-    )
+def survey_view(request, step=1):
+    # if edp.check_is_hash_expire(projecthash):
+    #     messages.error(request, _(
+    #         "Seems that this link is outdated. contact with our managers to get new one.."))
+    #     return redirect('/')
+    #date, name, project_id = edp.decode_hash(projecthash)
+    # edx_project = get_object_or_404(
+    #     EdxProject,
+    #     pk=int(project_id)
+    # )
+    if 'project_pk' in request.session.keys():
+        edx_project = EdxProject.objects.get(pk=request.session['project_pk'])
+    else:
+        edx_project = EdxProject(name='name')
+        edx_project.save()
+        request.session['project_pk'] = edx_project.pk
+    all_steps = FormStep.objects.all().order_by('order').values_list('name', flat=True)
     form_step = get_object_or_404(
         FormStep,
         order=int(step)
@@ -52,7 +58,7 @@ def survey_view(request, projecthash, step=1):
                 return HttpResponseRedirect(
                     reverse('questionary', 'mysite.urls',
                             kwargs={
-                                'projecthash': projecthash,
+                                # 'projecthash': projecthash,
                                 'step': go_to_step
                             }))
     else:
@@ -60,6 +66,7 @@ def survey_view(request, projecthash, step=1):
 
     return render(request, 'form_step.html',
                   {
+                      'all_steps':all_steps,
                       'form_step': form_step,
                       'form': form,
                       'max_order': max_order,
