@@ -1,8 +1,38 @@
 __author__ = 'xahgmah'
 from copy import deepcopy
 from django.forms import Textarea, SplitDateTimeWidget, ImageField, RadioSelect
+from django.utils.html import conditional_escape, format_html, html_safe
+from django.forms.utils import flatatt
+
 from eav.forms import BaseDynamicEntityForm
 from questionary.models import Survey
+
+
+class MyRadioSelect(RadioSelect):
+
+
+    def __init__(self, attrs=None, choices=()):
+        super(MyRadioSelect, self).__init__(attrs)
+
+    def render(self, name=None, value=None, attrs=None, choices=()):
+        if self.id_for_label:
+            label_for = format_html(' for="{}"', self.id_for_label)
+        else:
+            label_for = ''
+        attrs = dict(self.attrs, **attrs) if attrs else self.attrs
+        return format_html(
+            '<label{}>{} {}</label>', label_for, self.tag(attrs), self.choice_label
+        )
+    #
+    # def is_checked(self):
+    #     return self.value == self.choice_value
+    #
+    def tag(self, attrs=None):
+        attrs = attrs or self.attrs
+        final_attrs = dict(attrs, type=self.input_type, name=self.name, value=self.choice_value)
+        if self.is_checked():
+            final_attrs['checked'] = 'checked'
+        return format_html('<input{} />', flatatt(final_attrs))
 
 
 class SurveyForm(BaseDynamicEntityForm):

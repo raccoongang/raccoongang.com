@@ -67,17 +67,17 @@ class EdxProjectAdminForm(forms.ModelForm):
     widget = forms.Textarea
     link = forms.CharField(required=False, widget=forms.Textarea)
 
-    def __init__(self, *args, **kwargs):
-        super(EdxProjectAdminForm, self).__init__(*args, **kwargs)
-        instance = getattr(self, 'instance', None)
-        if instance and instance.pk:
-            if instance.expire_date:
-                self.initial['link'] = instance.generate_url()
-        self.fields['link'].widget.attrs['readonly'] = True
+    # def __init__(self, *args, **kwargs):
+    #     super(EdxProjectAdminForm, self).__init__(*args, **kwargs)
+    #     instance = getattr(self, 'instance', None)
+    #     if instance and instance.pk:
+    #         if instance.expire_date:
+    #             self.initial['link'] = instance.generate_url()
+    #     self.fields['link'].widget.attrs['readonly'] = True
 
     class Meta:
         model = EdxProject
-        fields = ['name', 'expire_date', 'link']
+        fields = ['name']
 
 
 class EdxProjectAdmin(admin.ModelAdmin):
