@@ -121,6 +121,7 @@
 
 .quiz-fields label {
     margin-top: 30px;
+    font-weight: 700;
 }
 
 .quiz-fields label:first-child {
@@ -183,15 +184,6 @@
     padding: 0;
 }
 
-.quiz-fields label {
-    font-weight: 400;
-    cursor: pointer;
-}
-
-#id_hosting {
-    width: 200%;
-}
-
 /* highlight images */
 .highlights {
     position: relative;
@@ -200,6 +192,7 @@
     margin: 0;
     width: 50%;
     margin-left: 50%;
+    margin-right: 30px;
     transition: background-color 0.2s linear;
 }
 
@@ -258,32 +251,33 @@
     transform: scale(1);
 }
 
-.quiz-radios {
-    padding: 10px 0;
+.quiz_radio {
+    padding: 10px 0 0;
+    width: 200%;
 }
 
-.quiz-radios label {
+
+.quiz_radio label {
     text-align: center;
     display: inline-block;
-    width: 150px;
     position: relative;
     overflow: hidden;
     padding: 0;
     font: 400 16px/24px Khula,sans-serif;
     cursor: pointer;
+    margin: 0 20px 0 0;
 }
-.quiz-radios input {
+.quiz_radio input {
     position: absolute;
     left: -1000px;
 }
 
-.quiz-radios input + div {
-    padding-bottom: 4px;
+.quiz_radio div {
     white-space: nowrap;
+    display: inline-block;
 }
 
-.quiz-radios input + div + span,
-.quiz-radios-horizontal input + span {
+.quiz_radio input + span {
     display: inline-block;
     width: 20px;
     height: 20px;
@@ -292,29 +286,8 @@
     border-radius: 10px;
 }
 
-.quiz-radios input[value=aws] + div {
-    color: transparent;
-    padding-top: 26px;
-    background: url(./aws.png) center 0 no-repeat;
-    background-size: auto 40px;
-}
-
-.quiz-radios input[value=do] + div {
-    color: transparent;
-    padding-top: 26px;
-    background: url(./do.png) center 0 no-repeat;
-    background-size: auto 40px;
-}
-
-.quiz-radios input[value=azure] + div {
-    color: transparent;
-    padding-top: 26px;
-    background: url(./azure.png) center 0 no-repeat;
-    background-size: auto 40px;
-}
-
-.quiz-radios input + div + span o,
-.quiz-radios-horizontal input + span o {
+.quiz_radio input + div + span o,
+.quiz_radio input + span o {
     display: block;
     width: 10px;
     height: 10px;
@@ -327,40 +300,140 @@
     transition: transform 0.3s ease;
 }
 
-.quiz-radios input:checked + div + span o,
-.quiz-radios-horizontal input:checked + span o {
+.quiz_radio input:checked + div + span o,
+.quiz_radio input:checked + span o {
     transform: scale(1);
 }
 
-.quiz-radios-horizontal label {
+.quiz_radio label {
     text-align: left;
     padding-right: 10px;
+    white-space: nowrap;
 }
 
-.quiz-radios-horizontal input + span {
+.quiz_radio input + span {
     margin-right: 10px;
     top: 4px;
 }
 
-.quiz-radios-horizontal input + span + div {
+.quiz_radio input + span + div {
     display: inline-block;
 }
 
-.quiz-switch {
-    position: relative;
-    overflow: hidden;
+
+
+/* custom radio groups */
+
+label[for=id_payments_0] + .quiz_radio {
+    padding: 0;
+    height: 80px;
 }
 
-.quiz-switch label {
+label[for=id_hosting_0] + .quiz_radio {
+    height: 80px;
+}
+
+label[for=id_payments_0] + .quiz_radio label,
+label[for=id_payments_0] + ul + .quiz_radio label {
+    width: 100px;
+    padding: 0;
+}
+
+label[for=id_hosting_0] + .quiz_radio label,
+label[for=id_hosting_0] + ul + .quiz_radio label {
+    width: 120px;
+    padding: 0;
+    height: 70px;
+}
+
+label[for=id_payments_0] + .quiz_radio input + span,
+label[for=id_payments_0] + ul + .quiz_radio input + span,
+label[for=id_hosting_0] + .quiz_radio input + span,
+label[for=id_hosting_0] + ul + .quiz_radio input + span {
+    display: block;
+    margin: 0 auto;
+    position: relative;
+    top: 50px;
+}
+
+label[for=id_payments_0] + .quiz_radio input + span + div,
+label[for=id_payments_0] + ul + .quiz_radio input + span + div,
+label[for=id_hosting_0] + .quiz_radio input + span + div,
+label[for=id_hosting_0] + ul + .quiz_radio input + span + div {
+    display: block;
+    text-align: center;
+    width: 100%;
+    position: relative;
+    height: 50px;
+    top: -20px;
+    padding-top: 22px;
+}
+
+label[for=id_hosting_0] + .quiz_radio input + span + div,
+label[for=id_hosting_0] + ul + .quiz_radio input + span + div {
+    height: 60px;
+    top: -30px;
+    padding-top: 32px;
+}
+
+#id_payments_0 + span + div {
+    color: transparent;
+    background: url(../img/paypal.png) center 10px no-repeat;
+    background-size: auto 30px;
+}
+
+#id_payments_1 + span + div {
+    color: transparent;
+    background: url(../img/paymentwall.png) center 0 no-repeat;
+    background-size: auto 48px;
+}
+
+#id_payments_2 + span + div {
+    color: transparent;
+    background: url(../img/osc.png) center 0 no-repeat;
+    background-size: auto 46px;
+}
+
+
+#id_hosting_0 + span + div {
+    color: transparent;
+    background: url(../img/aws.png) center 10px no-repeat;
+    background-size: auto 40px;
+}
+
+#id_hosting_1 + span + div {
+    color: transparent;
+    background: url(../img/do.png) center 10px no-repeat;
+    background-size: auto 44px;
+}
+
+#id_hosting_2 + span + div {
+    color: transparent;
+    background: url(../img/azure.png) center 10px no-repeat;
+    background-size: auto 40px;
+}
+
+/* /custom radios */
+
+
+
+
+.quiz_checkbox {
+    position: relative;
+    overflow: hidden;
+    padding: 20px 0 0;
+}
+
+.quiz_checkbox label {
     cursor: pointer;
 }
 
-.quiz-switch input {
+.quiz_checkbox input {
     position: absolute;
     left: -1000px;
 }
 
-.quiz-switch input + span {
+.quiz_checkbox input + span {
     display: inline-block;
     top: 4px;
     width: 36px;
@@ -373,7 +446,7 @@
 }
 
 
-.quiz-switch input + span o {
+.quiz_checkbox input + span o {
     display: block;
     width: 10px;
     height: 10px;
@@ -386,18 +459,20 @@
     transition: transform 0.3s ease, background-color 0.3s linear;
 }
 
-.quiz-switch input:checked + span {
+.quiz_checkbox input:checked + span {
     border-color: #83d72b;
 }
 
-.quiz-switch input:checked + span o {
+.quiz_checkbox input:checked + span o {
     background-color: #83d72b;
     transform: translate3d(16px,0,0);
 }
-
+.quiz_checkbox div {
+    display: inline-block;
+}
 
 .quiz-radios,
-.quiz-switch {
+.quiz_checkbox {
     -webkit-user-select: none;
     user-select: none;
 }
@@ -420,4 +495,8 @@
     border: 2px solid #72BB25;
     display: inline-block;
     cursor: pointer;
+}
+
+.quiz-buttons .btn-finish {
+    width: 120px;
 }
