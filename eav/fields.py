@@ -95,8 +95,8 @@ class EavDatatypeField(models.CharField):
         if instance.datatype != old_datatype and instance.value_set.count():
             valid = False
             for fieldlist in can_change_fields:
-                valid = valid or  (old_datatype in fieldlist and \
-                                                instance.datatype in fieldlist)
+                valid = valid or (old_datatype in fieldlist and \
+                                  instance.datatype in fieldlist)
             if not valid:
                 raise ValidationError(
                     _(u"You cannot change the datatype of an "
