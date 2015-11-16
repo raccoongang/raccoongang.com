@@ -47,6 +47,13 @@ def survey_view(request, step=1):
                           instance=survey,
                           form_step=form_step)
         if form.is_valid():
+            try:
+                if form.cleaned_data['main_name']:
+                    edx_project.name=form.cleaned_data['main_name']
+                    edx_project.save()
+                    print edx_project
+            except Exception as e:
+                print e
             form.save()
             if go_to_step == -1:
                 form.instance.is_draft = False

@@ -2,10 +2,8 @@ __author__ = 'xahgmah'
 from copy import deepcopy
 from django.forms import Textarea, CheckboxInput
 from django.forms.widgets import RadioSelect
-from django.utils.html import conditional_escape, format_html, html_safe
-from django.utils import formats, six
-from django.utils.datastructures import MergeDict, MultiValueDict
-from django.utils.encoding import force_text, python_2_unicode_compatible
+from django.utils.html import format_html
+from django.utils.encoding import force_text
 from django.forms.utils import flatatt
 
 
@@ -38,7 +36,6 @@ class MyCheckboxInput(CheckboxInput):
         self.label = label
 
     def render(self, name, value, attrs=None):
-        print self.label
         final_attrs = self.build_attrs(attrs, type='checkbox', name=name)
         if self.check_test(value):
             final_attrs['checked'] = 'checked'
