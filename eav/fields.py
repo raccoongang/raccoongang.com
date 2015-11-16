@@ -83,8 +83,21 @@ class EavDatatypeField(models.CharField):
         '''
         super(EavDatatypeField, self).validate(value, instance)
         from eav.models import Attribute
+
         if not instance.pk:
             return
-        if instance.datatype != Attribute.objects.get(pk=instance.pk).datatype and instance.value_set.count():
-            raise ValidationError(_(u"You cannot change the datatype of an "
-                                    u"attribute that is already in use."))
+        can_change_fields = [
+            (Attribute.TYPE_TEXT, Attribute.TYPE_TEXTAREA),
+            (Attribute.TYPE_FILE, Attribute.TYPE_IMAGE),
+            (Attribute.TYPE_RADIO, Attribute.TYPE_ENUM),
+        ]
+        old_datatype = Attribute.objects.get(pk=instance.pk).datatype
+        if instance.datatype != old_datatype and instance.value_set.count():
+            valid = False
+            for fieldlist in can_change_fields:
+                valid = valid or  (old_datatype in fieldlist and \
+                                                instance.datatype in fieldlist)
+            if not valid:
+                raise ValidationError(
+                    _(u"You cannot change the datatype of an "
+                      u"attribute that is already in use."))
