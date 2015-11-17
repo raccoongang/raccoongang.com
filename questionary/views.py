@@ -11,15 +11,6 @@ from questionary.forms import SurveyForm
 
 
 def survey_view(request, step=1):
-    # if edp.check_is_hash_expire(projecthash):
-    #     messages.error(request, _(
-    #         "Seems that this link is outdated. contact with our managers to get new one.."))
-    #     return redirect('/')
-    #date, name, project_id = edp.decode_hash(projecthash)
-    # edx_project = get_object_or_404(
-    #     EdxProject,
-    #     pk=int(project_id)
-    # )
     if 'project_pk' in request.session.keys():
         edx_project = EdxProject.objects.get(pk=request.session['project_pk'])
     else:
@@ -73,6 +64,7 @@ def survey_view(request, step=1):
 
     return render(request, 'form_step.html',
                   {
+                      'session':request.session['project_pk'],
                       'all_steps':all_steps,
                       'form_step': form_step,
                       'form': form,
