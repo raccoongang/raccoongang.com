@@ -13,6 +13,7 @@ from questionary.forms import SurveyForm
 def survey_view(request, step=1):
     if 'project_pk' in request.session.keys():
         edx_project = EdxProject.objects.get(pk=request.session['project_pk'])
+        print 'no pk'
     else:
         edx_project = EdxProject(name='name')
         edx_project.save()
@@ -64,7 +65,6 @@ def survey_view(request, step=1):
 
     return render(request, 'form_step.html',
                   {
-                      'session':request.session['project_pk'],
                       'all_steps':all_steps,
                       'form_step': form_step,
                       'form': form,
