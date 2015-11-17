@@ -502,3 +502,8 @@ label[for=id_hosting_0] + ul + .quiz_radio input + span + div {
 .quiz-buttons .btn-finish {
     width: 120px;
 }
+
+
+.hrlptext {
+    display: block;
+}
