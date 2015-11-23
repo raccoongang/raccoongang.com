@@ -15,7 +15,7 @@ from questionary.models import FormStep, Survey, EdxProject
 from questionary.forms import SurveyForm
 
 
-def send_email(dict):
+def send_survey_email(dict):
     recipient_list = ['i.batozskiy@gmail.com']
     subject = 'Survey from %s' % dict['Name']
 
@@ -80,14 +80,11 @@ def survey_view(request, step=1):
                 messages.success(request,
                                  _("Data has been successfully saved."))
 
-                sur = Survey.objects.get(edx_project=edx_project)
+                survey = Survey.objects.get(edx_project=edx_project)
                 for_email = {}
-                for each in sur.eav.get_all_attributes():
-                    a=Value.objects.filter(attribute=each)
-                    for value in a:
-                        if value.entity == sur:
-                            for_email[each.name]=value.value
-                send_email(for_email)
+                for attribute in survey.eav.get_all_attributes():
+                    for_email[attribute.name] = getattr(survey.eav, attribute.slug)
+                send_survey_email(for_email)
 
                 return redirect('/')
             else:
