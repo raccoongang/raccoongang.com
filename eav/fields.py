@@ -31,7 +31,6 @@ Classes
 '''
 
 import re
-
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
 from django.core.exceptions import ValidationError
@@ -87,7 +86,8 @@ class EavDatatypeField(models.CharField):
         if not instance.pk:
             return
         can_change_fields = [
-            (Attribute.TYPE_TEXT, Attribute.TYPE_TEXTAREA),
+            (Attribute.TYPE_TEXT, Attribute.TYPE_TEXTAREA,
+             Attribute.TYPE_EMAIL),
             (Attribute.TYPE_FILE, Attribute.TYPE_IMAGE),
             (Attribute.TYPE_RADIO, Attribute.TYPE_ENUM),
         ]

@@ -32,7 +32,7 @@ Along with the :class:`Entity` helper class.
 Classes
 -------
 '''
-
+from django.core.validators import EmailValidator
 from django.utils.translation import ugettext_lazy as _
 from django.contrib.contenttypes.models import ContentType
 from django.contrib.contenttypes import generic
@@ -120,6 +120,7 @@ class Attribute(models.Model):
         * int (TYPE_INT)
         * float (TYPE_FLOAT)
         * text (TYPE_TEXT)
+        * email (TYPE_EMAIL)
         * textarea (TYPE_TEXTAREA)
         * date (TYPE_DATE)
         * bool (TYPE_BOOLEAN)
@@ -154,6 +155,7 @@ class Attribute(models.Model):
 
     TYPE_TEXT = 'text'
     TYPE_TEXTAREA = 'textarea'
+    TYPE_EMAIL = 'email'
     TYPE_FILE = 'file'
     TYPE_IMAGE = 'image'
     TYPE_FLOAT = 'float'
@@ -167,6 +169,7 @@ class Attribute(models.Model):
     DATATYPE_CHOICES = (
         (TYPE_TEXT, _(u"Text")),
         (TYPE_TEXTAREA, _(u"Text area")),
+        (TYPE_EMAIL, _(u"Email")),
         (TYPE_FILE, _(u"File")),
         (TYPE_IMAGE, _(u"Image")),
         (TYPE_FLOAT, _(u"Float")),
@@ -228,6 +231,7 @@ class Attribute(models.Model):
         DATATYPE_VALIDATORS = {
             'text': validate_text,
             'textarea': validate_text,
+            'email': EmailValidator,
             'file': validate_file,
             'image': validate_file,
             'float': validate_float,
@@ -413,6 +417,7 @@ class Value(models.Model):
         '''
         special_types = {
             'textarea': 'text',
+            'email': 'text',
             'image': 'file',
             'radio': 'enum'
         }
