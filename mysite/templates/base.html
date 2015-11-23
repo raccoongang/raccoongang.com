@@ -53,8 +53,9 @@
                              {% show_breadcrumb 1 "raccoon_breadcrumbs.html" %}
                        {% endblock %}
                 </div>
+            {% include 'message.html' %}
         </nav>
-{% include 'message.html' %}
+
 {% block content %}{% endblock content %}
 <!-- {% language_chooser "language_chooser.html" %} -->
         <footer>

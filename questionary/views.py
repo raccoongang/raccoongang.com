@@ -16,7 +16,7 @@ from questionary.forms import SurveyForm
 
 
 def send_survey_email(dict):
-    recipient_list = ['i.batozskiy@gmail.com']
+    recipient_list = ['info@raccoongang.com']
     subject = 'Survey from %s' % dict['Name']
 
     #from_mail = form_data['mail']
@@ -34,6 +34,20 @@ def send_survey_email(dict):
     msg.attach_alternative(html_content, "text/html")
     msg.send()
 
+
+def send_customer_email(customer_email):
+    d = Context({ 'username': 'Dear customer' })
+
+    plaintext = get_template('email.txt')
+    htmly     = get_template('main.html')
+
+    subject, from_email, to = 'Thanks for your message to us', 'no-reply@raccoongang.com', customer_email
+    text_content = plaintext.render(d)
+    html_content = htmly.render(d)
+
+    msg = EmailMultiAlternatives(subject, text_content, from_email, [to])
+    msg.attach_alternative(html_content, "text/html")
+    msg.send()
 
 
 def survey_view(request, step=1):
@@ -84,7 +98,11 @@ def survey_view(request, step=1):
                 for_email = {}
                 for attribute in survey.eav.get_all_attributes():
                     for_email[attribute.name] = getattr(survey.eav, attribute.slug)
+                    if attribute.datatype == 'email':
+                        customer_email = for_email[attribute.name]
+                print customer_email
                 send_survey_email(for_email)
+                send_customer_email(customer_email)
 
                 return redirect('/')
             else:
