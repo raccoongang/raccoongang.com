@@ -9,7 +9,7 @@ from eav.forms import BaseDynamicEntityForm
 from questionary.models import Survey
 
 
-class MyRadioRenderer(RadioSelect.renderer):
+class CustomRadioRenderer(RadioSelect.renderer):
     def render(self):
         """Outputs radios"""
         output = '<div class="quiz_radio">'
@@ -82,7 +82,7 @@ class SurveyForm(BaseDynamicEntityForm):
                 choices = list(enums)
                 if datatype == attribute.TYPE_RADIO:
                     defaults.update(
-                        {'widget': RadioSelect(renderer=MyRadioRenderer)})
+                        {'widget': RadioSelect(renderer=CustomRadioRenderer)})
                 else:
                     choices = [('', '-----')] + choices
                 defaults.update({'choices': choices})
