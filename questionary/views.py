@@ -4,20 +4,47 @@ from django.db.models import Max
 from django.utils.translation import ugettext as _
 from django.http import HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
+from eav.models import Value
+from django.core.mail import send_mail, EmailMultiAlternatives
+from django.template import Context
+from django.template.loader import get_template
+
 
 from django.shortcuts import get_object_or_404, render, redirect
 from questionary.models import FormStep, Survey, EdxProject
 from questionary.forms import SurveyForm
 
 
+def send_email(dict):
+    recipient_list = ['i.batozskiy@gmail.com']
+    subject = 'Survey from %s' % dict['Name']
+
+    #from_mail = form_data['mail']
+
+    #response to email sending
+    htmly = get_template('survey_email.html')
+
+    d = Context({'dict':dict})
+
+    html_content = htmly.render(d)
+    from_email = 'survey@raccoongang.com'
+
+    msg = EmailMultiAlternatives(subject=subject, from_email=from_email,
+                                     to=recipient_list)
+    msg.attach_alternative(html_content, "text/html")
+    msg.send()
+
+
+
 def survey_view(request, step=1):
     if 'project_pk' in request.session.keys():
         edx_project = EdxProject.objects.get(pk=request.session['project_pk'])
-        print 'no pk'
+        print request.session['project_pk']
     else:
         edx_project = EdxProject(name='name')
         edx_project.save()
         request.session['project_pk'] = edx_project.pk
+        request.session.set_expiry(172000)
     all_steps = FormStep.objects.all().order_by('order').values_list('name', flat=True)
     form_step = get_object_or_404(
         FormStep,
@@ -52,6 +79,16 @@ def survey_view(request, step=1):
                 form.instance.save()
                 messages.success(request,
                                  _("Data has been successfully saved."))
+
+                sur = Survey.objects.get(edx_project=edx_project)
+                for_email = {}
+                for each in sur.eav.get_all_attributes():
+                    a=Value.objects.filter(attribute=each)
+                    for value in a:
+                        if value.entity == sur:
+                            for_email[each.name]=value.value
+                send_email(for_email)
+
                 return redirect('/')
             else:
                 return HttpResponseRedirect(
