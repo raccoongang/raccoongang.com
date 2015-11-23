@@ -26,7 +26,15 @@ body {
     margin-bottom: 20px;
 }
 
-input[type="text"], select, textarea {
+input[type="text"],
+input[type="email"],
+input[type="date"],
+input[type="datetime"],
+input[type="url"],
+input[type="tel"],
+input[type="password"],
+select,
+textarea {
     width: 100%;
 }
 
