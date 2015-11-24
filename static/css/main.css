@@ -3,7 +3,7 @@
 
 }
 body {padding: 0px;
-margin: 0pz;}
+margin: 0px;}
 
 .main-content-block {
   padding: 40px 15px;
@@ -13,7 +13,7 @@ margin: 0pz;}
 .breadcrumb {
     background-color: #e7e7e9;
     width:100%;
-    align:left;
+    text-align:left;
 }
 
 
