@@ -16,7 +16,7 @@ urlpatterns = i18n_patterns('',
     url(r'^taggit_autosuggest/', include('taggit_autosuggest.urls')),
   #  url(r'djangocms_blog/', include('djangocms_blog.urls', namespace='djangocms_blog')),
     url(r'send_email/',include('send_email.urls', namespace='send_email') ),
-    url(r'^questionary/', include('questionary.urls')),
+    url(r'^questionnaire/', include('questionary.urls')),
     url(r'^', include('cms.urls')),
 )
 
