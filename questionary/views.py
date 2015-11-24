@@ -17,7 +17,7 @@ from questionary.forms import SurveyForm
 
 def send_survey_email(dict):
     recipient_list = ['info@raccoongang.com']
-    subject = 'Survey from %s' % dict['Name']
+    subject = 'Survey from %s' % dict['Organization']
 
     #from_mail = form_data['mail']
 
@@ -81,8 +81,8 @@ def survey_view(request, step=1):
                           form_step=form_step)
         if form.is_valid():
             try:
-                if form.cleaned_data['main_name']:
-                    edx_project.name=form.cleaned_data['main_name']
+                if form.cleaned_data['organization']:
+                    edx_project.name=form.cleaned_data['organization']
                     edx_project.save()
                     print edx_project
             except Exception as e:
