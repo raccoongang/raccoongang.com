@@ -101,7 +101,7 @@ def survey_view(request, step=1):
                     if attribute.datatype == 'email':
                         customer_email = for_email[attribute.name]
                 send_survey_email(for_email)
-                send_customer_email(customer_email, for_email['First name'])
+                send_customer_email(customer_email, for_email['First Name'])
 
                 return redirect('/')
             else:
