@@ -35,8 +35,8 @@ def send_survey_email(dict):
     msg.send()
 
 
-def send_customer_email(customer_email):
-    d = Context({ 'username': 'Dear customer' })
+def send_customer_email(customer_email, customer_name):
+    d = Context({ 'username': customer_name })
 
     plaintext = get_template('email.txt')
     htmly     = get_template('main.html')
@@ -100,9 +100,8 @@ def survey_view(request, step=1):
                     for_email[attribute.name] = getattr(survey.eav, attribute.slug)
                     if attribute.datatype == 'email':
                         customer_email = for_email[attribute.name]
-                print customer_email
                 send_survey_email(for_email)
-                send_customer_email(customer_email)
+                send_customer_email(customer_email, for_email['First name'])
 
                 return redirect('/')
             else:
