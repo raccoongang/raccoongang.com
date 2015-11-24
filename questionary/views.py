@@ -15,16 +15,16 @@ from questionary.models import FormStep, Survey, EdxProject
 from questionary.forms import SurveyForm
 
 
-def send_survey_email(dict):
+def send_survey_email(info, organisation):
     recipient_list = ['info@raccoongang.com']
-    subject = 'Survey from %s' % dict['Organization']
+    subject = 'Survey from %s' % organisation
 
     #from_mail = form_data['mail']
 
     #response to email sending
     htmly = get_template('survey_email.html')
 
-    d = Context({'dict':dict})
+    d = Context({'dict':info})
 
     html_content = htmly.render(d)
     from_email = 'survey@raccoongang.com'
@@ -95,13 +95,19 @@ def survey_view(request, step=1):
                                  _("Data has been successfully saved."))
 
                 survey = Survey.objects.get(edx_project=edx_project)
-                for_email = {}
+                for_email = []
+                organisation, first_name = '', ''
+                print survey.eav.get_all_attributes()
                 for attribute in survey.eav.get_all_attributes():
-                    for_email[attribute.name] = getattr(survey.eav, attribute.slug)
+                    for_email.append({attribute.name:getattr(survey.eav, attribute.slug)})
                     if attribute.datatype == 'email':
-                        customer_email = for_email[attribute.name]
-                send_survey_email(for_email)
-                send_customer_email(customer_email, for_email['First Name'])
+                        customer_email = getattr(survey.eav, attribute.slug)
+                    if attribute.name == 'First Name':
+                        first_name = getattr(survey.eav, attribute.slug)
+                    if attribute.name == 'Organisation':
+                        organisation = getattr(survey.eav, attribute.slug)
+                send_survey_email(for_email, organisation)
+                send_customer_email(customer_email, first_name)
 
                 return redirect('/')
             else:
