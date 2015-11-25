@@ -1,6 +1,4 @@
 {% for each in dict %}
-    {% for key, value in each.items %}
-       <p> <b>{{ key }}</b> <br>
-           &nbsp; {{ value|default:"None" }} </p> <br>
-    {% endfor %}
+       <p> <b>{{ each.0 }}</b> <br>
+           &nbsp; {{ each.1|default:"None" }} </p> <br>
 {% endfor %}
