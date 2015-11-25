@@ -97,10 +97,8 @@ def survey_view(request, step=1):
 
                 survey = Survey.objects.get(edx_project=edx_project)
                 for_email = []
-                organisation, first_name = '', ''
-                print survey.eav.get_all_attributes()
                 for attribute in survey.eav.get_all_attributes():
-                    for_email.append((attribute.name:getattr(survey.eav, attribute.slug)))
+                    for_email.append((attribute.name, getattr(survey.eav, attribute.slug)))
                     if attribute.datatype == 'email':
                         customer_email = getattr(survey.eav, attribute.slug)
                 send_survey_email(for_email)
