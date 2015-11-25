@@ -18,7 +18,7 @@ from questionary.forms import SurveyForm
 def send_survey_email(info):
     #recipient_list = ['info@raccoongang.com']
     recipient_list = ['i.batozskiy@gmail.com']
-    subject = 'Survey from %s' % dict(info)['Organisation']
+    subject = 'Survey from %s' % dict(info)['Organization']
 
     #from_mail = form_data['mail']
 
@@ -101,6 +101,7 @@ def survey_view(request, step=1):
                     for_email.append((attribute.name, getattr(survey.eav, attribute.slug)))
                     if attribute.datatype == 'email':
                         customer_email = getattr(survey.eav, attribute.slug)
+                print dict(for_email)
                 send_survey_email(for_email)
                 send_customer_email(customer_email, dict(for_email)['First Name'])
 
