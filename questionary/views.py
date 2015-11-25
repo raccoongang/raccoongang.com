@@ -16,8 +16,8 @@ from questionary.forms import SurveyForm
 
 
 def send_survey_email(info):
-    #recipient_list = ['info@raccoongang.com']
-    recipient_list = ['i.batozskiy@gmail.com']
+    recipient_list = ['info@raccoongang.com']
+    # recipient_list = ['i.batozskiy@gmail.com']
     subject = 'Survey from %s' % dict(info)['Organization']
 
     #from_mail = form_data['mail']
