@@ -506,7 +506,7 @@ label[for=id_hosting_0] + ul + .quiz_radio input + span + div {
     display: block;
 }
 
-@media (max-width: 999px) {
+@media (max-width: 970px) {
     .highlights {
         display: none;
     }
@@ -531,6 +531,7 @@ label[for=id_hosting_0] + ul + .quiz_radio input + span + div {
         width: 100% !important;
         margin-left: 0px !important;
     }
+
     .quiz-steps li a {
         padding-left: 12px;
     }
@@ -539,5 +540,11 @@ label[for=id_hosting_0] + ul + .quiz_radio input + span + div {
     .quiz-steps li a:after {
         display: none !important;
         border: 0 !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar + div {
+        height: 50px !important;
     }
 }

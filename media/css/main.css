@@ -65,6 +65,7 @@ footer {
    width: 250px;
    display: inline-block;
    cursor: pointer;
+   transition: border-color 0.2s linear;
 }
 
 .call-btn img {
@@ -228,6 +229,7 @@ h5.title {
 .sadffss .wrapper {
     margin-top: 40px;
 }
+
 .btn-g{
    font: 22px/60px Khula, sans-serif;
    text-align: center;
@@ -240,6 +242,7 @@ h5.title {
    width: 250px;
    display: inline-block;
    cursor: pointer;
+   transition: border-color 0.2s linear;
 }
 
 .btn-g:hover{
@@ -298,8 +301,8 @@ h5.title {
 }
 
 .carousel-inner > div > img{
-    min-height: 680px;
-    min-width: 1500px;
+    min-height: 600px;
+    min-width: 1450px;
     opacity: 0.5;
 }
 
@@ -621,4 +624,7 @@ header > h1 > a{
   display: table-cell;
   float: none;
   height: 100%;
+}
+.carousel-control {
+  transition: opacity 0.2s linear;
 }

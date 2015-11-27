@@ -7,13 +7,13 @@
         {% if child.children %}
              <!-- <a class="dropdown-toggle" data-hover="dropdown" href="{{ child.get_absolute_url }}"> -->
             <a class="dropdown-toggle" data-toggle="dropdown" href="/">
-                {{ child.get_menu_title }} <span class="caret"></span>
+                <div>{{ child.get_menu_title }} <span class="caret"></span></div><div>{{ child.get_menu_title }} <span class="caret"></span></div>
             </a>
             <ul class="dropdown-menu">
                 {% show_menu from_level to_level extra_inactive extra_active template "" "" child %}
             </ul>
         {% else %}
-            <a href="{{ child.get_absolute_url }}">{{ child.get_menu_title }}</a>
+            <a href="{{ child.get_absolute_url }}"><div>{{ child.get_menu_title }}</div><div>{{ child.get_menu_title }}</div></a>
         {% endif %}
     </li>
     {% if class and forloop.last and not forloop.parentloop %}{% endif %}

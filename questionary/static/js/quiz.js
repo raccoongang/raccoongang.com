@@ -10,7 +10,9 @@
 
         $areas.hide();
 
-        setTimeout(function() {
+        setTimeout(calcHighlightsPos, 1000);
+
+        function calcHighlightsPos() {
             var topOffset = $highlights.offset().top;
 
             $areas.each(function() {
@@ -86,11 +88,11 @@
                     });
                 }
             })
-        }, 1000);
+        }
 
         var minVisiblePercentage = 25,
             totallyVisiblePercentage = 15,
-            maxPositionDelta = 200
+            maxPositionDelta = 200;
 
         $(window).scroll(function() {
             var scrollTop = $(window).scrollTop(),
@@ -128,6 +130,35 @@
                     });
                 }
             }
-        })
+        });
+
+        var mobileSiteWidth = 480,
+            mobileSite = false,
+            resizeTimer = false,
+            resizeTimerTimeout = 300,
+            hCache = [];
+
+        $(window).resize(function() {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(checkSiteWidth, resizeTimerTimeout)
+        });
+        checkSiteWidth();
+
+        function checkSiteWidth() {
+            if (window.innerWidth > mobileSiteWidth) {
+                if (mobileSite) {
+                    // turned to desktop mode
+                    mobileSite = false;
+                    $('.highlights').show();
+                }
+                calcHighlightsPos();
+
+            } else if (window.innerWidth <= mobileSiteWidth && !mobileSite) {
+                // turned to mobile mode
+                mobileSite = true;
+                $('.highlights').hide();
+            }
+        }
+
     })
 })(window.$)

@@ -12,17 +12,18 @@
     color: #222;
     font: 14px Arial, sans-serif;
 
-
+    transition: color 0.1s linear;
+    -webkit-transition: color 0.1s linear;
+    -moz-transition: color 0.1s linear;
 }
 
 
 .footer_info:hover{
     color: #72BB25;
-
 }
 
 .footer_name{
-    color: #222222;
+    color: #222;
     font: 14px Arial, sans-serif;
     margin-top: 25px;
 }
@@ -30,86 +31,51 @@
 
 .social{margin-top: 25px;}
 
-.social a{
+.social a {
     display: inline-block;
     width: 42px;
     height: 42px;
     margin: 0 2px;
 
     border-radius: 50%;
-    background: url(../img/social.png)#72BB25 no-repeat;
+    background: #72BB25 url(../img/social.png) 0 0 no-repeat;
     background-size: 240px;
     -webkit-border-radius: 50%;
        -moz-border-radius: 50%;
          -o-border-radius: 50%;
 
+    transition: background-color 0.3s linear;
+    -webkit-transition: background-color 0.3s linear;
+    -moz-transition: background-color 0.3s linear;
+}
+
+.social a:hover{
+    background-color: #252536;
 }
 
 .social a.ic-fb{
-    background-position: 0px 0;
-  }
+    background-position: 0 0;
+}
 
-
-.social a.ic-fb:hover{
-    background-position: 0px 0px;
-
-    background-color: #252536;
-    }
-
-    .social a.ic-tw{
+.social a.ic-tw{
     background-position: -40px 0;
-  }
+}
 
-
-.social a.ic-tw:hover{
-    background-position: -40px 0px;
-
-    background-color: #252536;
-    }
-
-  .social a.ic-in{
+.social a.ic-in{
     background-position: -80px 0;
-  }
-
-
-.social a.ic-in:hover{
-    background-position: -80px 0px;
-
-    background-color: #252536;
-    }
+}
 
 .social a.ic-g{
-    background-position: -120px 0px;
-  }
-
-
-.social a.ic-g:hover{
-    background-position: -120px 0px;
-
-    background-color: #252536;
-    }
+    background-position: -120px 0;
+}
 
 .social a.ic-ins{
     background-position: -160px 0;
-  }
-
-
-.social a.ic-ins:hover{
-    background-position: -160px 0px;
-
-    background-color: #252536;
-    }
+}
 
 .social a.ic-gh{
     background-position: -200px 0;
-  }
-
-
-.social a.ic-gh:hover{
-    background-position: -200px 0px;
-
-    background-color: #252536;
-    }
+}
 
 .media-area-footer-bottom > a{
     text-transform: none;
