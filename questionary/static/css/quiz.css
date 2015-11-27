@@ -31,7 +31,7 @@
     padding: 11px 0 8px 40px;
     text-decoration: none;
     position: relative;
-    cursor: normal;
+    cursor: text;
 }
 
 .quiz-steps li:first-child a {
@@ -57,11 +57,11 @@
 
 /* complete quiz steps */
 
-.quiz-steps li.done {
+.quiz-steps li.done a {
     background: #72BB25;
 }
 
-.quiz-steps li.active {
+.quiz-steps li.active a {
     background: #252536;
 }
 
@@ -199,7 +199,6 @@
 .highlights.active {
     background-color: #f7f7f7;
 }
-
 
 .highlight-area {
     background: #fff;
@@ -447,7 +446,6 @@ label[for=id_hosting_0] + ul + .quiz_radio input + span + div {
     transition: border-color 0.3s linear;
 }
 
-
 .quiz_checkbox input + span o {
     display: block;
     width: 10px;
@@ -506,4 +504,40 @@ label[for=id_hosting_0] + ul + .quiz_radio input + span + div {
 
 .helptext {
     display: block;
+}
+
+@media (max-width: 999px) {
+    .highlights {
+        display: none;
+    }
+
+    .quiz_radio {
+        width: 100%;
+    }
+
+    .quiz-steps li {
+        width: 50% !important;
+        margin-bottom: 2px;
+    }
+
+    .quiz-steps li:nth-child(2n+1) {
+        margin-left: -20px;
+    }
+
+}
+
+@media (max-width: 600px) {
+    .quiz-steps li {
+        width: 100% !important;
+        margin-left: 0px !important;
+    }
+    .quiz-steps li a {
+        padding-left: 12px;
+    }
+
+    .quiz-steps li a:before,
+    .quiz-steps li a:after {
+        display: none !important;
+        border: 0 !important;
+    }
 }
