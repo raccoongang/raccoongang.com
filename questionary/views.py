@@ -16,8 +16,8 @@ from questionary.forms import SurveyForm
 
 
 def send_survey_email(info):
-    recipient_list = ['info@raccoongang.com']
-    # recipient_list = ['i.batozskiy@gmail.com']
+    # recipient_list = ['info@raccoongang.com']
+    recipient_list = ['i.batozskiy@gmail.com']
     subject = 'Survey from %s' % dict(info)['Organization']
 
     #from_mail = form_data['mail']
@@ -92,20 +92,20 @@ def survey_view(request, step=1):
             if go_to_step == -1:
                 form.instance.is_draft = False
                 form.instance.save()
-                messages.success(request,
+                messages.add_message(request, messages.INFO,
                                  _("Your request has been filed, thank you. We will contact you within a business day."))
-
                 survey = Survey.objects.get(edx_project=edx_project)
                 for_email = []
                 for attribute in survey.eav.get_all_attributes():
                     for_email.append((attribute.name, getattr(survey.eav, attribute.slug)))
                     if attribute.datatype == 'email':
                         customer_email = getattr(survey.eav, attribute.slug)
-                print dict(for_email)
-                send_survey_email(for_email)
-                send_customer_email(customer_email, dict(for_email)['First Name'])
-
-                return redirect('/')
+                try:
+                    send_survey_email(for_email)
+                    send_customer_email(customer_email, dict(for_email)['First Name'])
+                except Exception as e:
+                    print e
+                return HttpResponseRedirect(reverse('cms.views.details', kwargs={'slug': ''}))
             else:
                 return HttpResponseRedirect(
                     reverse('questionary', 'mysite.urls',
