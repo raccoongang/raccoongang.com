@@ -33,7 +33,7 @@ def send_survey_email(info):
     msg = EmailMultiAlternatives(subject=subject, from_email=from_email,
                                      to=recipient_list)
     msg.attach_alternative(html_content, "text/html")
-    #msg.send()
+    msg.send()
 
 
 def send_customer_email(customer_email, customer_name):
@@ -48,7 +48,7 @@ def send_customer_email(customer_email, customer_name):
 
     msg = EmailMultiAlternatives(subject, text_content, from_email, [to])
     msg.attach_alternative(html_content, "text/html")
-#    msg.send()
+    msg.send()
 
 
 def survey_view(request, step=1):
