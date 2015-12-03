@@ -345,17 +345,19 @@ h5.title {
 .message-send {
     position: absolute;
     vertical-align: middle;
-    margin: 0 auto;
-    top:116px;
-    width: 100%;
+    /*margin: 0 auto;*/
+    top:300px;
+    left:30%;
+    width: 40%;
+    height: 50%;
     z-index: 100;
+    opacity: 0.85;
 }
-
 
 @media (max-width: 480px) {
 #raccoon-carousel {margin-top: 58px;}
     .message-send {
-        top:58px;
+        top:150px;
     }
 
     .carousel-caption {
@@ -627,4 +629,19 @@ header > h1 > a{
 }
 .carousel-control {
   transition: opacity 0.2s linear;
+}
+
+.messageDialog {
+    top: 30%;
+}
+.messageDialog .modal-header{
+    margin: 0 auto;
+   background-color: #62b31c;
+    color:white;
+    font-size: x-large;
+}
+
+.messageDialog .modal-body{
+    font-size: large;
+    margin: 0 auto;
 }

@@ -55,9 +55,8 @@
                              {% show_breadcrumb 1 "raccoon_breadcrumbs.html" %}
                        {% endblock %}
                 </div>
-            {% include 'message.html' %}
+{#            {% include 'message.html' %}#}
         </nav>
-
 {% block content %}{% endblock content %}
 <!-- {% language_chooser "language_chooser.html" %} -->
         <footer>
@@ -83,6 +82,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js"></script>
 <script src="/media/js/myscripts.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap3-dialog/1.34.7/js/bootstrap-dialog.min.js"></script>
 <!-- on hove menu scripts
 <script src="/media/js/bootstrap.min.js"></script>
 <script src="/media/js/bootstrap-hover-dropdown.min.js"></script> -->
@@ -91,6 +91,24 @@ $("#year").html('&copy; RACCOON GANG '+new Date().getFullYear() );
 if ($(".breadcrumb").children().length > 1) {
     $(".breadcrumb").show();
 }
+$(document).ready(function(){
+{% if messages %}
+    {% for message in messages %}
+        {% if message.tags == 'info' %}
+            var a = '{{ message }}';
+            var messages = a.split('|');
+           BootstrapDialog.show({
+{#               size:'size-small',#}
+               cssClass:'messageDialog',
+               closable:true,
+               type:'type-success',
+               title: '<h3 align=center>'+messages[0]+'</h3>',
+               message: '<h3 align=center>'+messages[1]+'</h3>'
+            });
+        {% endif %}
+    {% endfor %}
+{% endif %}
+});
 </script>
 {% render_block "js" %}
 </body>
