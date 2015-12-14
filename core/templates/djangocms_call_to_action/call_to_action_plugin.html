@@ -11,8 +11,8 @@
 {% addtoblock "js" %}
 <script>
     $(document).on('click','#{{ instance.id }}', function(){
-        {% if instance.block_to_show.button_title == 'Get a quote'  %}
-                 ga('send', 'event', 'main_sevey', 'click', 1);
+        {% if instance.google_event  %}
+                 ga('send', 'event', {{ instance.google_event }}, 'click', 1);
 
         {% endif %}
     window.location='{{ instance.block_to_show.button_link }}';
