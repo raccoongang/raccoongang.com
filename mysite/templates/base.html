@@ -92,9 +92,6 @@ if ($(".breadcrumb").children().length > 1) {
     $(".breadcrumb").show();
 }
 $(document).ready(function(){
-$("button:contains('quote')").click(function(){
-     ga('send', 'event', 'main_sevey', 'click', 1);
- });
 {% if messages %}
     {% for message in messages %}
         {% if message.tags == 'info' %}
