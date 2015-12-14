@@ -82,6 +82,7 @@
                     return false;
                 });
                 $('.btn-finish').click(function () {
+                    ga('send', 'event', 'survey', 'click', 1);
                     sendForm(-1);
                     return false;
                 });
