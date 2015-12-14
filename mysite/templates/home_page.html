@@ -54,6 +54,12 @@
         {% placeholder "to action 2" %}
     </div>
 </div>
-
+<script>
+$(document).ready(function () {
+ $("button:contains('quote')").click(function(){
+     ga('send', 'event', 'main_sevey', 'click', 1);
+ });
+});
+</script>
 
 {% endblock content %}
