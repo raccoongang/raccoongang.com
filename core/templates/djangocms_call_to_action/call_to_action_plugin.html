@@ -12,7 +12,7 @@
 <script>
     $(document).on('click','#{{ instance.id }}', function(){
         {% if instance.google_event  %}
-                 ga('send', 'event', {{ instance.google_event }}, 'click', 1);
+                 ga('send', 'event','{{ instance.google_event }}', 'click', 1);
 
         {% endif %}
     window.location='{{ instance.block_to_show.button_link }}';
