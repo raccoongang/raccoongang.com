@@ -18,7 +18,7 @@ from questionary.forms import SurveyForm
 def send_survey_email(info):
     recipient_list = ['info@raccoongang.com']
     # recipient_list = ['i.batozskiy@gmail.com']
-    subject = 'Survey from %s' % dict(info)['Organization']
+    subject = 'Survey from %s' % info['organization']
 
     #from_mail = form_data['mail']
 
@@ -54,7 +54,6 @@ def send_customer_email(customer_email, customer_name):
 def survey_view(request, step=1):
     if 'project_pk' in request.session.keys():
         edx_project = EdxProject.objects.get(pk=request.session['project_pk'])
-        print request.session['project_pk']
     else:
         edx_project = EdxProject(name='name')
         edx_project.save()
@@ -85,7 +84,6 @@ def survey_view(request, step=1):
                 if form.cleaned_data['organization']:
                     edx_project.name=form.cleaned_data['organization']
                     edx_project.save()
-                    print edx_project
             except Exception as e:
                 print e
             form.save()
@@ -97,12 +95,12 @@ def survey_view(request, step=1):
                 survey = Survey.objects.get(edx_project=edx_project)
                 for_email = []
                 for attribute in survey.eav.get_all_attributes():
-                    for_email.append((attribute.name, getattr(survey.eav, attribute.slug)))
+                    for_email.append((attribute.slug, getattr(survey.eav, attribute.slug)))
                     if attribute.datatype == 'email':
                         customer_email = getattr(survey.eav, attribute.slug)
                 try:
-                    send_survey_email(for_email)
-                    send_customer_email(customer_email, dict(for_email)['First Name'])
+                    send_survey_email(dict(for_email))
+                    send_customer_email(customer_email, dict(for_email)['first_name'])
                 except Exception as e:
                     print e
                 return HttpResponseRedirect(reverse('cms.views.details', kwargs={'slug': ''}))
@@ -110,7 +108,6 @@ def survey_view(request, step=1):
                 return HttpResponseRedirect(
                     reverse('questionary', 'mysite.urls',
                             kwargs={
-                                # 'projecthash': projecthash,
                                 'step': go_to_step
                             }))
     else:
