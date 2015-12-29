@@ -99,7 +99,7 @@ def survey_view(request, step=1):
                     if attribute.datatype == 'email':
                         customer_email = getattr(survey.eav, attribute.slug)
                 try:
-                    # send_survey_email(dict(for_email))
+                    send_survey_email(dict(for_email))
                     send_customer_email(customer_email, dict(for_email)['first_name'], dict(for_email))
                 except Exception as e:
                     print e
