@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from __future__ import print_function
 from cms.sitemaps import CMSSitemap
 from django.conf.urls import *  # NOQA
@@ -5,6 +6,7 @@ from django.conf.urls.i18n import i18n_patterns
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.contrib import admin
 from django.conf import settings
+from django.views.defaults import page_not_found
 
 admin.autodiscover()
 
@@ -17,6 +19,7 @@ urlpatterns = i18n_patterns('',
   #  url(r'djangocms_blog/', include('djangocms_blog.urls', namespace='djangocms_blog')),
     url(r'send_email/',include('send_email.urls', namespace='send_email') ),
     url(r'^questionnaire/', include('questionary.urls')),
+    url(ur'^[АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯабвгдеёжзийклмнопрстуфхцчшщъыьэюя]+/$', page_not_found),
     url(r'^', include('cms.urls')),
 )
 
