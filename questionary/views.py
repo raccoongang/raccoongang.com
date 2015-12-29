@@ -46,7 +46,7 @@ def send_customer_email(customer_email, customer_name, info):
     text_content = plaintext.render(d)
     html_content = htmly.render(d)
 
-    msg = EmailMultiAlternatives(subject, text_content, from_email, [to], cc='info@raccoongang.com')
+    msg = EmailMultiAlternatives(subject, text_content, from_email, [to], cc=['info@raccoongang.com'])
     msg.attach_alternative(html_content, "text/html")
     msg.send()
 
