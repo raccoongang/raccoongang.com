@@ -36,17 +36,17 @@ def send_survey_email(info):
     msg.send()
 
 
-def send_customer_email(customer_email, customer_name):
-    d = Context({ 'username': customer_name })
+def send_customer_email(customer_email, customer_name, info):
+    d = Context({ 'username': customer_name, 'dict':info })
 
     plaintext = get_template('email.txt')
-    htmly     = get_template('main.html')
+    htmly = get_template('main.html')
 
     subject, from_email, to = 'Thanks for your message to us', 'no-reply@raccoongang.com', customer_email
     text_content = plaintext.render(d)
     html_content = htmly.render(d)
 
-    msg = EmailMultiAlternatives(subject, text_content, from_email, [to])
+    msg = EmailMultiAlternatives(subject, text_content, from_email, [to], cc='info@raccoongang.com')
     msg.attach_alternative(html_content, "text/html")
     msg.send()
 
@@ -100,7 +100,7 @@ def survey_view(request, step=1):
                         customer_email = getattr(survey.eav, attribute.slug)
                 try:
                     send_survey_email(dict(for_email))
-                    send_customer_email(customer_email, dict(for_email)['first_name'])
+                    send_customer_email(customer_email, dict(for_email)['first_name'], dict(for_email))
                 except Exception as e:
                     print e
                 return HttpResponseRedirect(reverse('cms.views.details', kwargs={'slug': ''}))
