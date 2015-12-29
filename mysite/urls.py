@@ -7,6 +7,7 @@ from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.contrib import admin
 from django.conf import settings
 from django.views.defaults import page_not_found
+from django.views.generic import TemplateView
 
 admin.autodiscover()
 
