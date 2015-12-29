@@ -42,7 +42,7 @@ def send_customer_email(customer_email, customer_name, info):
     plaintext = get_template('email.txt')
     htmly = get_template('survey_main.html')
 
-    subject, from_email, to = 'Thanks for your message to us', 'no-reply@raccoongang.com', customer_email
+    subject, from_email, to = 'Thanks for your message to us', 'info@raccoongang.com', customer_email
     text_content = plaintext.render(d)
     html_content = htmly.render(d)
 
