@@ -32,5 +32,6 @@ if settings.DEBUG:
 
 
 urlpatterns += patterns('',
+    url(r'^google5a92251e5fa234cc.html$', TemplateView.as_view(template_name="google5a92251e5fa234cc.html")),
     (r'^admin/jsi18n/', 'django.views.i18n.javascript_catalog'),
 )
