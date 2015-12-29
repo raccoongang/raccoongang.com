@@ -40,7 +40,7 @@ def send_customer_email(customer_email, customer_name, info):
     d = Context({ 'username': customer_name, 'dict':info })
 
     plaintext = get_template('email.txt')
-    htmly = get_template('main.html')
+    htmly = get_template('survey_main.html')
 
     subject, from_email, to = 'Thanks for your message to us', 'no-reply@raccoongang.com', customer_email
     text_content = plaintext.render(d)
@@ -99,7 +99,7 @@ def survey_view(request, step=1):
                     if attribute.datatype == 'email':
                         customer_email = getattr(survey.eav, attribute.slug)
                 try:
-                    send_survey_email(dict(for_email))
+                    # send_survey_email(dict(for_email))
                     send_customer_email(customer_email, dict(for_email)['first_name'], dict(for_email))
                 except Exception as e:
                     print e
