@@ -42,7 +42,7 @@ def send_customer_email(customer_email, customer_name, info):
     plaintext = get_template('email.txt')
     htmly = get_template('survey_main.html')
 
-    subject = 'Request for a Open edX services from %s %s' % (customer_name.capitalize(),
+    subject = 'Request for an Open edX services from %s %s' % (customer_name.capitalize(),
                                                               info['second_name'].capitalize())
     from_email = 'info@raccoongang.com'
 
