@@ -66,169 +66,76 @@
       </style>
 </head>
 <body>
-
-
-<table width="100%" bgcolor="#ffffff" cellpadding="0" cellspacing="0" border="0" id="backgroundTable" st-sortable="preheader"><tbody><tr>
-<td>
-<table width="100%" cellpadding="0" cellspacing="0" border="0" align="center" class="devicewidth" hasbackground="true"><tbody><tr>
-<td width="100%">
-								<table width="100%" cellpadding="0" cellspacing="0" border="0" align="center" class="devicewidth"><tbody>
-<!-- Spacing --><tr>
-<td width="100%" height="10">
-											</td>
-										</tr>
-<!-- Spacing --><tr>
-<td>
-												<table width="100" align="left" border="0" cellpadding="0" cellspacing="0"><tbody><tr>
-<td align="left" valign="middle" style="font-family: Helvetica, arial, sans-serif; font-size: 14px;color: #666666" st-content="viewonline">
-																<p>
-																	<a style="text-decoration: none; color: #666666" href="#"></a>
-																</p>
-															</td>
-														</tr></tbody></table>
-
-<table width="100" align="left" border="0" cellpadding="0" cellspacing="0" class="devicewidth"><tbody><tr>
-
-															<td width="30" height="30" align="center">
-
-															</td>
-														</tr></tbody></table>
-</td>
-										</tr>
-<!-- Spacing --><tr>
-<td width="100%" height="10">
-											</td>
-										</tr>
-<!-- Spacing -->
-</tbody></table>
-</td>
-						</tr></tbody></table>
-</td>
-		</tr></tbody></table>
-<table width="100%" bgcolor="#ffffff" cellpadding="0" cellspacing="0" border="0" id="backgroundTable" st-sortable="banner"><tbody><tr>
-<td>
-				<table width="100%" cellpadding="0" cellspacing="0" border="0" align="center" class="devicewidth" bgcolor="#ffffff" hasbackground="true"><tbody><tr>
-<td width="100%">
-								<table width="100%" align="center" cellspacing="0" cellpadding="0" border="0" class="devicewidth" bgcolor="#ffffff"><tbody><tr>
-<!-- start of image --><td align="center">
-
-											</td>
-										</tr></tbody></table>
-<!-- end of image -->
-</td>
-						</tr></tbody></table>
-</td>
-		</tr></tbody></table>
 <table width="100%" bgcolor="#ffffff" cellpadding="0" cellspacing="0" border="0" id="backgroundTable" st-sortable="full-text"><tbody><tr>
 <td>
 	<table width="100%" cellpadding="0" cellspacing="0" border="0" align="center" class="devicewidth" hasbackground="true"><tbody><tr>
 <td width="100%">
 <table width="100%" cellpadding="0" cellspacing="0" border="0" align="center" class="devicewidth"><tbody>
 <!-- Spacing --><tr>
-<td height="20" style="font-size:1px; line-height:1px; mso-line-height-rule: exactly;">
-											</td>
-										</tr>
-<!-- Spacing --><tr>
 <td>
 <table width="100%" align="center" cellpadding="0" cellspacing="0" border="0" class="devicewidthinner"><tbody>
 <!-- Title --><tr>
-<td style="font-family: Helvetica, arial, sans-serif; font-size: 20px; color: #333333; text-align:left; vertical-align: middle;">
-
-			<div class="imgpop" style="float:left;">
-				<a href="#"><img width="80" border="0"  st-image="banner" alt="" style="display:block; border:none; outline:none; text-decoration:none;" src="http://raccoongang.com/media/img/c8988eccc5fe450fabaa494f29d64cbf.png" class="banner" id="9zbonl7iig8"></a>
-			</div>
-			<div class="imgpop">
-																	 <a href="https://www.linkedin.com/company/raccoon-gang"><img src="http://raccoongang.com/media/img/linkedin.png" st-image="linkedin" alt="" border="0" width="30" height="30" style="display:block; border:none; outline:none; text-decoration:none;" id="g2jyp8fd68l"></a>
-																</div>
-
-
-		</td>
-	</tr>
-<!-- End of Title --><!-- spacing --><tr>
-<td width="100%" height="20" style="font-size:1px; line-height:1px; mso-line-height-rule: exactly;">
-
-		</td>
-	</tr>
+<td style="font-family: Helvetica, arial, sans-serif; font-size: 20px; color: #333333; text-align:left; vertical-align: middle;">												
+		<div class="imgpop" style="float:left;">
+			<a href="#"><img width="300" border="0"  st-image="banner" alt="" style="display:block; border:none; outline:none; text-decoration:none;" src="http://raccoongang.com/media/img/c8988eccc5fe450fabaa494f29d64cbf.png" class="banner" id="9zbonl7iig8"></a>
+		</div>
+	</td>
+</tr>			
 <!-- End of spacing --><!-- content --><tr>
-<td style="font-family: Helvetica, arial, sans-serif; font-size: 16px; color: #666666; text-align:left;" st-content="fulltext-content">
-	<p>Dear {{ username }},</p>
-		<p style="margin:0px; padding:0px;">Thanks for reaching us out. We will contact you shortly.</p>
-		<br>
+<td style="text-align:left;" st-content="fulltext-content">
+    <br>
+	<p>Dear {{ username|title }},</p><br>
+		<p>Thanks for reaching us out! We will contact you shortly.</p><br>
 		<p >Here is your submission:</p>
 </td>
 </tr>
 <tr>
-<td style="font-family: Helvetica, arial, sans-serif; font-size: 16px; color: #666666; text-align:left;" st-content="fulltext-content">
-
-
-<br>
-
+<td style="text-align:left;" st-content="fulltext-content">
 {% include 'survey_email.html' %}
 
 <br>
-<p align=center>
-<p>If you want to add or change anything, just reply to this email with corrections or submit <a href="https://raccoongang.com/en/pricing/"> the whole thing again :)</a></p>
+<p>If you want to add or change anything, just reply to this email with corrections or submit <a href="https://raccoongang.com/en/pricing/"> the whole thing</a> again :)</p>
+<br>
 </td>
-														</tr>
+</tr>
 <!-- End of content -->
 </tbody></table>
 </td>
-										</tr>
-<!-- Spacing --><tr>
-<td height="20" style="font-size:1px; line-height:1px; mso-line-height-rule: exactly;">
-											</td>
-										</tr>
+</tr>
+<!-- Spacing -->
 <!-- Spacing -->
 </tbody></table>
 </td>
-						</tr></tbody></table>
+</tr></tbody></table>
 </td>
-		</tr></tbody></table>
-<table width="100%" bgcolor="#ffffff" cellpadding="0" cellspacing="0" border="0" id="backgroundTable" st-sortable="separator"><tbody><tr>
-<td>
-				<table width="100%" align="center" cellspacing="0" cellpadding="0" border="0" class="devicewidth" hasbackground="true"><tbody>
-<tr>
-<td align="center" height="10" style="font-size:1px; line-height:1px;">
-							</td>
-						</tr>
-<tr>
-<td width="550" align="center" height="1" bgcolor="#d1d1d1" style="font-size:1px; line-height:1px;">
-							</td>
-						</tr>
-<tr>
-<td align="center" height="10" style="font-size:1px; line-height:1px;">
-
-							</td>
-						</tr>
-</tbody></table>
+</tr></tbody></table>
 </td>
-		</tr></tbody></table>
+</tr></tbody></table>
 <table width="100%" bgcolor="#ffffff" cellpadding="0" cellspacing="0" border="0" id="backgroundTable" st-sortable="full-text"><tbody><tr>
 <td>
-				<table width="100%" cellpadding="0" cellspacing="0" border="0" align="center" class="devicewidth" hasbackground="true"><tbody><tr>
+<table width="100%" cellpadding="0" cellspacing="0" border="0" align="center" class="devicewidth" hasbackground="true"><tbody><tr>
 <td width="100%">
-								<table width="100%" cellpadding="0" cellspacing="0" border="0" align="center" class="devicewidth"><tbody>
-<!-- Spacing --><tr>
-<td height="0" style="font-size:1px; line-height:1px; mso-line-height-rule: exactly;">
-
-											</td>
-										</tr>
+<table width="100%" cellpadding="0" cellspacing="0" border="0" align="center" class="devicewidth"><tbody>
 <!-- Spacing --><tr>
 <td>
-												<table width="100%" align="center" cellpadding="0" cellspacing="0" border="0" class="devicewidthinner"><tbody>
-
+	<table width="100%" align="center" cellpadding="0" cellspacing="0" border="0" class="devicewidthinner"><tbody>
 
 <!-- End of spacing --><!-- content --><tr>
-<td style="font-family: Helvetica, arial, sans-serif; font-size: 14px; color: #666666; text-align:left;" st-content="fulltext-content">
-	<p>
-		<div style="float:left;">
-	<img src="https://raccoongang.com/media/img/8.png"><br>
+<td style="text-align:left;" st-content="fulltext-content">
+
+
+    <div>
+
+<div style="color:rgb(0,0,0);font-family:Helvetica;font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;letter-spacing:normal;line-height:normal;text-align:start;text-indent:0px;text-transform:none;white-space:normal;word-spacing:0px;word-wrap:break-word">—</div>
+<table border="0"><tbody><tr>
+<td><span><img height="64" width="64" src="https://raccoongang.com/media/img/8.png" class="CToWUd" style="margin-right:3px;"></span></td>
+<td>
+<div style="color:rgb(0,0,0);font-family:Helvetica;font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;letter-spacing:normal;line-height:normal;text-align:start;text-indent:0px;text-transform:none;white-space:normal;word-spacing:0px;word-wrap:break-word"><a href="http://raccoongang.com" target="_blank">Raccoon  Gang</a><br>skype: go_raccoons<br><a href="mailto:info@raccoongang.com" target="_blank">info@raccoongang.com</a></div><div style="color:rgb(0,0,0);font-family:Helvetica;font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;letter-spacing:normal;line-height:normal;text-align:start;text-indent:0px;text-transform:none;white-space:normal;word-spacing:0px;word-wrap:break-word"><a href="https://www.linkedin.com/company/9321924?trk=tyah&trkInfo=clickedVertical%3Acompany%2CclickedEntityId%3A9321924%2Cidx%3A3-5-10%2CtarId%3A1451471228491%2Ctas%3Araccoon">LinkedIn</a>, <a href="https://www.facebook.com/raccoongangco/?fref=ts">Facebook</a></div><div style="color:rgb(0,0,0);font-family:Helvetica;font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;letter-spacing:normal;line-height:normal;text-align:start;text-indent:0px;text-transform:none;white-space:normal;word-spacing:0px;word-wrap:break-word"></div>
+</td>
+</tr></tbody></table>
+
 </div>
-<a href="https://raccoongang.com">Raccoon Gang</a><br>
-skype: go_raccoons<br>
-<a href="mailto:info@raccoongang.com">info@raccoongang.com.</a><br>
-+380675752327
-	</p>
+
 </td>
 </tr>
 <!-- End of content -->
