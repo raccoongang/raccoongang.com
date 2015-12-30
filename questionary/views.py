@@ -42,11 +42,14 @@ def send_customer_email(customer_email, customer_name, info):
     plaintext = get_template('email.txt')
     htmly = get_template('survey_main.html')
 
-    subject, from_email, to = 'Thanks for your message to us', 'info@raccoongang.com', customer_email
+    subject = 'Request for a Open edX services from %s %s' % (customer_name.capitalize(),
+                                                              info['second_name'].capitalize())
+    from_email = 'info@raccoongang.com'
+
     text_content = plaintext.render(d)
     html_content = htmly.render(d)
 
-    msg = EmailMultiAlternatives(subject, text_content, from_email, [to], cc=['info@raccoongang.com'])
+    msg = EmailMultiAlternatives(subject, text_content, from_email, [customer_email], cc=['info@raccoongang.com'])
     msg.attach_alternative(html_content, "text/html")
     msg.send()
 
