@@ -4,7 +4,7 @@ html {
 }
 
 body {
-    padding: 0 0 196px;
+    padding: 0 0 166px;
     margin: 0;
     font: 16px 'Khula',sans-serif;
     overflow-x: hidden;
@@ -308,6 +308,9 @@ h5.title {
 
 @media screen and (max-width: 999px) and (min-width: 481px) {
 
+    .top-div-padding{
+        height:106px;
+    }
 
     .carousel-caption {
         top: 0;
@@ -356,10 +359,18 @@ h5.title {
     opacity: 0.85;
 }
 
+.top-div-padding{
+    height:156px;
+}
+
 @media screen and (max-width: 480px) {
 #raccoon-carousel {margin-top: 58px;}
     .message-send {
         top:150px;
+    }
+
+    .top-div-padding{
+        height:106px;
     }
 
     .carousel-caption {
