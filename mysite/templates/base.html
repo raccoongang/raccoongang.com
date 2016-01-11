@@ -4,10 +4,11 @@
 <head>
     <meta charset="utf-8">
     <title>{% block title %}Raccoon Gang{% endblock title %}</title>
-{#    <meta name="viewport" content="width=device-width,initial-scale=1">#}
-    <meta name="description" content="Leading Open edX service provider">
-    <meta name="viewport" content="initial-scale = 1.0,maximum-scale = 1.0" />
+{#<meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">#}
 
+    <meta name="description" content="Leading Open edX service provider">
+{#    <meta name="viewport" content="initial-scale = 1.0,maximum-scale = 1.0 shrink-to-fit=no" />#}
+{#<meta name="viewport" content="initial-scale=1.0001, minimum-scale=1.0001, maximum-scale=1.0001, user-scalable=no"/>#}
     <link rel="stylesheet" href="/media/css/bootstrap.min.css">
     <link rel="stylesheet" href="/media/css/bootstrap-theme.min.css">
     <link href='https://fonts.googleapis.com/css?family=Khula:400,300,100,700, 600' rel='stylesheet' type='text/css'>
@@ -33,31 +34,29 @@
 </head>
 <body>
 {% cms_toolbar %}
-            <nav class="navbar navbar-fixed-top navbar-default" role="navigation">
+    <nav class="navbar navbar-fixed-top navbar-default" role="navigation">
+        <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
 
-                <div class="navbar-header">
-                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button>
+                <a class="navbar-brand" href="/"><img src="/media/img/logo.png" width="309px" height="116px"> </a>
+         </div>
 
-                        <a class="navbar-brand" href="/"><img src="/media/img/logo.png" width="309px" height="116px"> </a>
-                 </div>
+         <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+                    {% show_menu 0 100 100 100 "menu.html" %}
+                </ul>
+         </div>
 
-                 <div class="collapse navbar-collapse" id="myNavbar">
-                        <ul class="nav navbar-nav">
-                            {% show_menu 0 100 100 100 "menu.html" %}
-                        </ul>
-                 </div>
-
-                <div class="breadcrumb pull-left bread">
-                       {% block breadcrumb %}
-                             {% show_breadcrumb 1 "raccoon_breadcrumbs.html" %}
-                       {% endblock %}
-                </div>
-{#            {% include 'message.html' %}#}
-        </nav>
+        <div class="breadcrumb pull-left bread">
+               {% block breadcrumb %}
+                     {% show_breadcrumb 1 "raccoon_breadcrumbs.html" %}
+               {% endblock %}
+        </div>
+    </nav>
 {% block content %}{% endblock content %}
         <footer>
             {% static_placeholder 'footer' or %}
@@ -91,6 +90,9 @@ $("#year").html('&copy; RACCOON GANG '+new Date().getFullYear() );
 if ($(".breadcrumb").children().length > 1) {
     $(".breadcrumb").show();
 }
+$( window ).resize(function() {
+    $(".navbar-collapse").css({ maxHeight: $(window).height() - $(".navbar-header").height() + "px" });
+});
 $(document).ready(function(){
 {% if messages %}
     {% for message in messages %}
