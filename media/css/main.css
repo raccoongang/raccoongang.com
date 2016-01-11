@@ -79,9 +79,9 @@ footer {
 }
 
 .wrapper {
-    padding: 60px 500px;
-    margin-left: -500px;
-    margin-right: -500px;
+    padding: 60px;
+    /*margin-left: -500px;*/
+    /*margin-right: -500px;*/
     text-align: center;
     color: #fff;
     background: #252536 url(../img/textures_2.jpg) 50% 0 repeat;
@@ -306,7 +306,9 @@ h5.title {
     opacity: 0.5;
 }
 
-@media (max-width: 999px) and (min-width: 481px) {
+@media screen and (max-width: 999px) and (min-width: 481px) {
+
+
     .carousel-caption {
         top: 0;
     }
@@ -354,7 +356,7 @@ h5.title {
     opacity: 0.85;
 }
 
-@media (max-width: 480px) {
+@media screen and (max-width: 480px) {
 #raccoon-carousel {margin-top: 58px;}
     .message-send {
         top:150px;
