@@ -332,6 +332,7 @@ h5.title {
     .mainpage-col-kos{
         margin-right: 10px;
         margin-left: 10px;
+        margin-bottom: 20px;
     }
 
     .ic1, .ic2, .ic3, .ic4, .ic5, .ic6 {
@@ -559,6 +560,7 @@ h5.title {
 .mainpage-col-kos {
     padding-top: 30px;
     background: #fff;
+    margin-bottom: 30px;
 }
 
 .mainpage-col-kos .wrapper {
