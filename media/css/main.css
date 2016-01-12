@@ -137,8 +137,7 @@ footer {
 
 .box-clients{
     padding: 60px 0 40px;
-    margin-left: 10px;
-    margin-right: 10px;
+
     background: #fff;
 }
 
@@ -659,4 +658,27 @@ header > h1 > a{
 .messageDialog .modal-body{
     font-size: large;
     margin: 0 auto;
+}
+
+.grayscale{
+   -webkit-filter: grayscale(100%);
+      -moz-filter: grayscale(100%);
+       -ms-filter: grayscale(100%);
+        -o-filter: grayscale(100%);
+           filter: grayscale(100%);
+           opacity: 0.7;
+       -webkit-transition: 0.3s;
+      -moz-transition: 0.3s;
+       -ms-transition: 0.3s;
+        -o-transition: 0.3s;
+           transition: 0.3s;
+}
+
+.grayscale:hover{
+            opacity: 1;
+    -webkit-filter: grayscale(0%);
+       -moz-filter: grayscale(0%);
+        -ms-filter: grayscale(0%);
+         -o-filter: grayscale(0%);
+            filter: grayscale(0%);
 }

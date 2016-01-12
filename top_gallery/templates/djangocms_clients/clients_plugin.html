@@ -6,7 +6,7 @@
     <div class="row">
         <div class="clients-list col-md-10 col-lg-offset-1">
             {% for every_client in instance.clients.photo_set.all %}
-               <a href="{{ every_client.button_link }}" target="_blank"><img height="30px" class="client" alt="{{ every_client.title }}" src="{{ every_client.file.url }}" /></a>
+               <a href="{{ every_client.button_link }}" target="_blank"><img height="30px" class="client grayscale" alt="{{ every_client.title }}" src="{{ every_client.file.url }}" /></a>
             {% endfor %}
         </div>
     </div>
