@@ -192,7 +192,7 @@ nav {
     }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 480px)  {
     .navbar-toggle {
         margin: 12px 15px;
     }
@@ -219,12 +219,34 @@ nav {
 
     .navbar-nav {
         margin: 0;
-        width: 100%;
     }
 
 }
 
+@media screen and (max-height: 400px) {
+     .navbar-default .navbar-nav > li > a {
+        padding: 5px;
+        line-height: 20px;
+    }
 
+    .navbar-toggle {
+        margin: 12px 15px;
+        padding: 10px;
+    }
+
+    .navbar-brand, .navbar-fixed-top, .navbar-header {
+        height: 58px;
+    }
+
+    .navbar-fixed-top {
+        min-height: 0;
+    }
+
+    .navbar-nav {
+        margin: 0;
+    }
+
+}
 .navbar-nav > li > a div:first-child {
     transition: transform 0.3s ease;
     transform: none;

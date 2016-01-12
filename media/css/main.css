@@ -364,8 +364,10 @@ h5.title {
     height:156px;
 }
 
-@media screen and (max-width: 480px) {
-#raccoon-carousel {margin-top: 58px;}
+@media screen and (max-width: 480px){
+    #raccoon-carousel {margin-top: 58px;}
+
+
     .message-send {
         top:150px;
     }
@@ -397,21 +399,21 @@ h5.title {
         margin-bottom: -15px;
     }
 
-.navbar-fixed-top {
-    max-height: 94px;
-}
+    .navbar-fixed-top {
+        max-height: 94px;
+    }
 
-.navbar-nav > li > a {
-    padding-top: 0px;
-    padding-bottom: 0px;
-    line-height: 68px;
-}
+    .navbar-nav > li > a {
+        padding-top: 0px;
+        padding-bottom: 0px;
+        line-height: 68px;
+    }
 
-.navbar-brand > img {
-    width: 155px;
-    height: 58px;
+    .navbar-brand > img {
+        width: 155px;
+        height: 58px;
 
-}
+    }
     .clients-list a {
         display: block;
     }
@@ -438,6 +440,81 @@ h5.title {
     }
 }
 
+@media screen and (max-height: 400px) {
+
+    #raccoon-carousel {margin-top: 58px;}
+
+    .message-send {
+        top:150px;
+    }
+
+    .top-div-padding{
+        height:106px;
+    }
+
+    .carousel-caption {
+        top: 0;
+    }
+
+    .carousel-caption h1{
+        font-size: 30px;
+        padding-bottom: 30px;
+    }
+
+    .carousel-caption h3{
+        font-size: 16px;
+        padding-bottom: 30px;
+    }
+
+    .btn-g {
+        font-size: 12px;
+        line-height: 26px;
+        margin-top:5px;
+        height: 30px;
+        width: 120px;
+        margin-bottom: -15px;
+    }
+
+    .navbar-fixed-top {
+        max-height: 94px;
+    }
+
+    .navbar-nav > li > a {
+        padding-top: 0px;
+        padding-bottom: 0px;
+        line-height: 68px;
+    }
+
+    .navbar-brand > img {
+        width: 155px;
+        height: 58px;
+
+    }
+    .clients-list a {
+        display: block;
+    }
+
+    .carousel-inner > div > img{
+        min-height: 250px;
+        min-width: 600px;
+    }
+
+    .carousel-inner h3 {
+        display: none;
+    }
+    h1,h2,h2.title {
+        font-size: 30px;
+        font-weight: 300;
+    }
+    h3 {
+        font-size: 20px;
+        font-weight: 300;
+    }
+    h5.title {
+        font-weight: 300;
+        font-size: 20px;
+    }
+}
 
 
 .main-text {
