@@ -291,3 +291,8 @@ nav {
     margin-top: 5px;
     border-radius: 3px;
 }
+
+.active a {
+    background-color: #6bbb38 !important;
+    background-image: linear-gradient(to bottom, #6bbb38 0, #6bbb38 100%) !important;
+}
