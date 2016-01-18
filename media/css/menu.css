@@ -203,6 +203,7 @@ nav {
 
     .navbar-fixed-top {
         min-height: 0;
+        max-height: 84px;
     }
 
     .navbar-collapse {
