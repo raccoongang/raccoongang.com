@@ -761,3 +761,12 @@ header > h1 > a{
          -o-filter: grayscale(0%);
             filter: grayscale(0%);
 }
+
+
+.wrap_img{
+   margin: -30px -30px 0 -30px;
+}
+
+.about_image {
+   width: 100%;
+}
