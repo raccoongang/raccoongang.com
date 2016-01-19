@@ -33,6 +33,7 @@
 </head>
 <body>
 {% cms_toolbar %}
+<div class="nav_wrapper">
     <nav class="navbar navbar-fixed-top navbar-default" role="navigation">
         <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -56,6 +57,7 @@
                {% endblock %}
         </div>
     </nav>
+</div>
 {% block content %}{% endblock content %}
         <footer>
             {% static_placeholder 'footer' or %}

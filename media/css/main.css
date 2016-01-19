@@ -412,6 +412,10 @@ h5.title {
         max-height: 94px;
     }
 
+    .nav_wrapper{
+        max-height: 94px;
+    }
+
     .navbar-nav > li > a {
         padding-top: 0px;
         padding-bottom: 0px;
