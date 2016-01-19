@@ -308,6 +308,10 @@ h5.title {
 
 @media screen and (max-width: 999px) and (min-width: 481px) {
 
+    .wrapper {
+    margin-left: 0px;
+    margin-right: 0px;}
+
     .top-div-padding{
         height:106px;
     }
@@ -365,6 +369,11 @@ h5.title {
 }
 
 @media screen and (max-width: 480px){
+
+    .wrapper {
+    margin-left: 0px;
+    margin-right: 0px;}
+
     #raccoon-carousel {margin-top: 58px;}
 
 
@@ -441,6 +450,10 @@ h5.title {
 }
 
 @media screen and (max-height: 400px) {
+
+    .wrapper {
+    margin-left: 0px;
+    margin-right: 0px;}
 
     #raccoon-carousel {margin-top: 58px;}
 
