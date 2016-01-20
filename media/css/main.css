@@ -787,3 +787,42 @@ header > h1 > a{
 .about_image {
    width: 100%;
 }
+
+.background_img{
+   position: relative;
+}
+
+
+
+.about_img img{
+   width: 100%;
+   height: auto;
+
+
+}
+
+.container_background{
+   max-width: 1170px;
+   min-width: 300px;
+   text-align: center;
+}
+
+
+
+.img_text_wrapp{
+   width: 100%;
+   color: #fff;
+   font-size: 25px;
+   text-transform: uppercase;
+
+}
+
+
+.img_text{
+   position: absolute;
+   top: 50%;
+   left: 1%;
+   right: 1%;
+   margin-top: -0.625em;
+
+}
