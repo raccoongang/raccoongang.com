@@ -21,7 +21,7 @@ footer {
 }
 
 .main-content-block {
-  padding: 40px 15px 0px;
+  padding: 40px 15px -1px;
 }
 
 .breadcrumb {
