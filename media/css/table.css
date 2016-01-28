@@ -12,8 +12,7 @@
     vertical-align: middle;
     display: block;
 }
-​
-​
+​​
 .price{
     font-size: 20px;
     color: #37b427;
@@ -32,15 +31,13 @@
     background-color: #6B6E8D !important;
 }
 ​
-​
-.text_bold{
+​.text_bold{
     font-weight: bold;
 }
 ​
 .table>thead>tr>th {
     border-bottom: 2px solid rgba(255, 255, 255, 0) !important;
 }
-​
 ​
 .table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
     padding: 8px;
@@ -54,17 +51,13 @@
     border-right: 15px solid #F5F4F4;
     background-color: rgba( 150,150,150, .2);
     width: 12%;
-
 }
-​
-​
+
 .dark_gray{
      background-color: rgba( 150,150,150, .3)!important;
 }
 ​
-​
-​
-​
+
 .dur{
     color: #ffffff;
     font-size: 12px;
@@ -81,8 +74,8 @@
 }
 ​
 .bor_bot_dark{
-    border-bottom: 2px dotted #b2b2b2;*/
-}
+    border-bottom: 2px dotted #b2b2b2;
+}*/
 .bg_color{
     background-color: #c3cadd !important;
     color: #767676;
@@ -98,9 +91,7 @@
     background-color: #8dd441  !important;
 }
 ​
-​
-​
-.green_all{
+​.green_all{
     background-color: #9edd5b  !important;
 }
 ​
@@ -210,8 +201,7 @@ thead th{
 .strong_name{
     font-size: 22px;
     color:#ffffff;
-    text-shadow: 0px 1px 1px#363636;
-​
+    text-shadow: 0px 1px 1px #363636;
 }
 ​
  .header_table{
