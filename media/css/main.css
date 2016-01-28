@@ -370,6 +370,10 @@ h5.title {
 
 @media screen and (max-width: 480px){
 
+    .breadcrumb {
+        display: none !important;
+    }
+
     .wrapper {
     margin-left: 0px;
     margin-right: 0px;}
@@ -382,7 +386,7 @@ h5.title {
     }
 
     .top-div-padding{
-        height:106px;
+        height:58px;
     }
 
     .carousel-caption {
