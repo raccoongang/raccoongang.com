@@ -107,7 +107,7 @@ nav {
 
 /* mobile version */
 
-@media (max-width: 1090px) {
+@media (max-width: 1110px) {
     nav .navbar-nav>li>a {
         font-size: 17px;
     }
