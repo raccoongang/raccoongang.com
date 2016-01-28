@@ -823,3 +823,267 @@ header > h1 > a{
    margin-top: -0.625em;
 
 }
+
+
+.save{
+    font-size: 12px;
+    color: #6a6a6a;
+    vertical-align: middle;
+    display: block;
+}
+​
+.old_price{
+    font-size: 16px;
+    color: #6a6a6a;
+    text-decoration: line-through;
+    vertical-align: middle;
+    display: block;
+}
+​
+​
+.price{
+    font-size: 20px;
+    color: #37b427;
+    vertical-align: middle;
+    display: block;
+    font-weight: bold;
+    text-shadow: 0px 1px 1px#e8e8e8;
+}
+​
+.duration{
+    font-size: 12px;
+    font-weight: bold;
+}
+​
+.duration_field{
+    background-color: #6B6E8D !important;
+}
+​
+​
+.text_bold{
+    font-weight: bold;
+}
+​
+.table>thead>tr>th {
+    border-bottom: 2px solid rgba(255, 255, 255, 0) !important;
+}
+​
+​
+.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
+    padding: 8px;
+    line-height: 1.42857143;
+    vertical-align: middle !important;
+    border-top: 1px solid #FFF !important;
+}
+​
+.table-condensed>tbody>tr>td, .table-condensed>tbody>tr>th, .table-condensed>tfoot>tr>td, .table-condensed>tfoot>tr>th, .table-condensed>thead>tr>td, .table-condensed>thead>tr>th {
+    padding: 5px 10px !important;
+    border-right: 15px solid #F5F4F4;
+    background-color: rgba( 150,150,150, .2);
+    width: 12%;
+
+}
+​
+​
+.dark_gray{
+     background-color: rgba( 150,150,150, .3)!important;
+}
+​
+​
+​
+​
+.dur{
+    color: #ffffff;
+    font-size: 12px;
+    text-transform:uppercase;
+    text-shadow: 0px 1px 1px#848484;
+}
+​
+.big{
+    font-size: 16px;
+}
+​
+/*.bor_bot{
+    border-bottom: 2px dotted #fff;
+}
+​
+.bor_bot_dark{
+    border-bottom: 2px dotted #b2b2b2;*/
+}
+.bg_color{
+    background-color: #c3cadd !important;
+    color: #767676;
+    text-shadow: 0px 1px 1px#EFEFEF;
+
+}
+​
+.green_d{
+    background-color: #72bb25  !important;
+}
+​
+.green_l{
+    background-color: #8dd441  !important;
+}
+​
+​.green_all{
+    background-color: #9edd5b  !important;
+}
+​
+.green_top{
+    background-color: #d7d8d5   !important;
+}
+​
+​
+/*.bt{
+    border-top: 3px solid #F00 !important;
+}*/
+​
+​
+.free{
+    background-color: #9ccefc  !important;
+
+}
+​
+​
+.free_l{
+    background-color: #bed9f2 !important;
+
+}
+​
+.light{
+    background-color: #72de80 !important;
+
+}
+.light_l{
+    background-color: #adf0b5 !important;
+
+}
+​
+​
+.strong{
+    background-color: #ffba00 !important;
+
+}
+.strong_l{
+    background-color: #ffcd00 !important;
+
+}
+​
+.super{
+    background-color: #cca9f5 !important;
+
+}
+.super_l{
+    background-color: #e3cbff !important;
+
+}
+​
+.vip{
+    background-color: #ffa1c9 !important;
+
+}
+.vip_l{
+    background-color: #ffd2e5 !important;
+
+}
+​
+​
+​
+​
+
+.red{
+    background-color: #ef4646 !important;
+
+}
+​
+​
+.align{
+    vertical-align: middle;
+    text-align: center;
+
+}
+
+thead th{
+    height: 90px;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 18px;
+    color:#808080;
+    text-shadow: 0px 1px 1px#e6e6e6;
+​
+}
+/*
+.top_line{
+    position: relative;
+}
+​
+.line_green{
+    display: inline-block;
+    width: 100%;
+    height: 20px;
+    background: #9EDD5B;
+    position: absolute;
+    top:-21px;
+    left:0;
+}
+*/
+.free_name{
+    color: #37B427;
+}
+​
+.strong_name{
+    font-size: 22px;
+    color:#ffffff;
+    text-shadow: 0px 1px 1px#363636;
+​
+}
+​
+ .header_table{
+     height: 100px;
+
+}
+​
+.active_grey{
+    background-color: #d6d6d6 !important;
+}
+​
+​
+.active_grey_d{
+    background-color: #bcbcbc !important;
+}
+​
+.per_month{
+    color: #898989;
+    font-size: 12px;
+    font-weight: 500;
+    text-transform:uppercase;
+}
+​
+​
+.price_t{
+    font-size: 25px;
+    color: #ffffff;
+    vertical-align: middle;
+    display: block;
+    font-weight: bold;
+    text-shadow: 0px 1px 1px#656565;
+}
+​
+.mon{
+    font-size: 18px;
+}
+​
+/*.classcale{
+        transform: skew(-46deg) scale(1) translate(10px);
+-webkit-transform: rotate(0deg) scale(1) skew(-46deg) translate(10px);
+   -moz-transform: skew(-46deg)  scale(1) translate(10px);
+     -o-transform: skew(-46deg) scale(1)translate(10px);
+    -ms-transform: skew(-46deg)  scale(1) translate(10px);
+}*/
+​
+.table-responsive{
+    padding: 20px 0;
+    border: none;
+}
+​
