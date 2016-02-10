@@ -548,10 +548,9 @@ h5.title {
 .sk-ml p{
    margin-top: 5px;
     margin-bottom: 35px;
-    width: 220px;
 }
 
-.sk-ml p a{
+.sk-ml p a, .map{
 
    color: #72bb25 ;
    margin-left: 10px;
