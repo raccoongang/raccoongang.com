@@ -161,6 +161,7 @@ INSTALLED_APPS = (
     'adminsortable',
     'eav',
     'questionary',
+    'testinonials'
 )
 
 LANGUAGES = (
@@ -210,7 +211,8 @@ CMS_TEMPLATES = (
     ('home_page.html', 'Home page'),
     ('contact_us.html', 'Contact us'),
     ('feature_bread.html', 'Page with Feature (breadcrumbs)'),
-    ('team.html', 'Page for team')
+    ('team.html', 'Page for team'),
+    ('edx_services.html','For edX services')
 )
 
 CMS_PERMISSION = True

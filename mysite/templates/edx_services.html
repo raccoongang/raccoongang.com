@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+{% load cms_tags sekizai_tags %}
+
+{% addtoblock 'css' %}
+    <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="css/all.css">
+{% endaddtoblock %}
+
+{% block content %}
+    {% placeholder "gallery" %}
+    <div class="main-content-block row">
+        <div class="container">
+            <div class="col-xs-12">
+            {% placeholder "content" %}
+            </div>
+        </div>
+    </div>
+
+
+   <div class="container">
+      <div class="service box-services">
+    <div style="max-width:1170px;margin:0 auto;">
+        <h2 class="title" align="center"></h2>
+
+        <div class="row ming_row">
+
+            <div class="col-sm-4 col-md-4 center_text coll_marg">
+                {% placeholder "service1" %}
+            </div>
+            <div class="col-sm-4 col-md-4 center_text coll_marg">
+                {% placeholder "service2" %}
+            </div>
+            <div class="col-sm-4 col-md-4 center_text coll_marg">
+                {% placeholder "service3" %}
+            </div>
+             </div>
+             <div class="row ming_row">
+            <div class="col-sm-4 col-md-4 center_text coll_marg">
+                {% placeholder "service4" %}
+            </div>
+            <div class="col-sm-4 col-md-4 center_text coll_marg">
+                {% placeholder "service5" %}
+            </div>
+            <div class="col-sm-4 col-md-4 center_text coll_marg">
+                {% placeholder "service6" %}
+            </div>
+            </div>
+              <div class="row">
+                 <div class="col-sm-2 col-md-2"></div>
+              <div class="col-sm-4 col-md-4 center_text coll_marg">
+                {% placeholder "service7" %}
+            </div>
+              <div class="col-sm-4 col-md-4 center_text coll_marg">
+                {% placeholder "service8" %}
+            </div>
+                  <div class="col-sm-2 col-md-2"></div>
+
+              </div>
+        </div>
+        </div>
+    </div>
+
+    <div class="box-contact">
+        {% placeholder "to action" %}
+    </div>
+
+    <div class="box-clients">
+        <div class="container">
+            {% placeholder "clients" %}
+        </div>
+    </div>
+
+    <div class="box-openedx">
+        {% placeholder "to action 2" %}
+    </div>
+</div>
+{% endblock content %}

@@ -1,0 +1,53 @@
+body{
+    margin: 0;
+    padding: 0;
+    background: #F5F4F4 !important;
+    font-family: 'Khula', sans-serif !important;
+    font-size: 16px!important;*/
+  
+  
+}
+.container{
+    margin: 0 auto;
+    max-width: 1170px;
+    min-width: 300px;
+    padding: 30px;
+    background: #fff;
+    overflow: hidden;
+    background: #F5F4F4;
+
+    
+}
+
+
+*{
+    box-sizing: border-box;
+}
+
+
+
+
+
+
+.serv_ic{
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.ming_row{
+    margin-bottom: 40px;
+}
+
+.coll_marg{
+    margin-top: 30px;
+}
+
+.question{
+    font-size: 30px;
+    font-weight: 200;
+    margin-bottom: 23px;
+}
+
+.center_text{
+    text-align: center;
+}
