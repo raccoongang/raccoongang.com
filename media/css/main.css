@@ -374,6 +374,10 @@ h5.title {
 
 @media screen and (max-width: 480px){
 
+    .img_text{
+        font-size: 24px;
+    }
+
     .breadcrumb {
         display: none !important;
     }
@@ -462,6 +466,10 @@ h5.title {
 }
 
 @media screen and (max-height: 400px) {
+
+    .img_text{
+        font-size: 24px;
+    }
 
     .wrapper {
     margin-left: 0px;
