@@ -1,11 +1,11 @@
 .navbar-brand {
     padding:0px;
-    height: 116px;
+    height: 90px;
 }
 
 .navbar-fixed-top {
-    min-height: 115px;
-    max-height: 152px;
+    min-height: 90px;
+    max-height: 90px;
     max-width: 1170px;
     border-image-width:0px;
     border-bottom: 0px;
@@ -32,7 +32,7 @@
 .navbar-nav > li > a {
     padding-top: 0px;
     padding-bottom: 0px;
-    line-height: 116px;
+    line-height: 90px;
     font-size: 18px;
     font-weight: 300;
     display: block;
@@ -110,7 +110,7 @@ nav {
 @media (max-width: 1110px) {
 
     .nav > li > a {
-        padding: 10px 10px !important;
+        padding: 0px 10px !important;
     }
 
     nav .navbar-nav>li>a {
@@ -178,7 +178,7 @@ nav {
 
 @media (max-width: 999px) and (min-width: 481px) {
     .navbar-toggle {
-        margin: 30px 20px;
+        margin: 18px 20px;
         padding: 20px;
     }
 
@@ -308,9 +308,9 @@ nav {
    background-image: -webkit-linear-gradient(top, #fff 0, #f8f8f8 100%);
    box-shadow: 0px 8px 8px -10px #292929 ;
    min-height: 58px;
-   height: 116px;
+   height: 90px;
    width: 1920px;
    position: fixed;
     top: 0px;
-    z-index: 1;
+    z-index: 11;
 }
