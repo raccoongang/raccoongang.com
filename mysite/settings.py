@@ -161,7 +161,7 @@ INSTALLED_APPS = (
     'adminsortable',
     'eav',
     'questionary',
-    # 'testinonials'
+    'testinonials'
 )
 
 LANGUAGES = (
