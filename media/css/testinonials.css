@@ -40,7 +40,7 @@
 }
 
 .car_mar{
-    margin: 40px 0;
+    padding: 40px 0;
 }
 
 .carusel_img{
@@ -145,4 +145,6 @@
 }
 }
 
-
+.testinonials-wrapper {
+    background: #ffffff;
+}

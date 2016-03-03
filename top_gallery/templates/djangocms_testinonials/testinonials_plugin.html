@@ -2,7 +2,7 @@
 
 {% csrf_token %}
 
-<div id="myCarousel" class="carousel slide car_mar" data-ride="carousel" data-interval="false">
+<div id="myCarousel" class="carousel slide car_mar testinonials-wrapper" data-ride="carousel" data-interval="false">
   <!-- Wrapper for slides -->
    <div class="container">
      <div class="carousel-inner" role="listbox">
@@ -17,7 +17,7 @@
          <div class="carusel_text">
            <p class="carusel_info">“{{ every_client.text }}"” </p>
            <span class="full_name">{{ every_client.client_name }}</span>
-           <a href="{{ every_client.link }}"><span class="descript_">{{ every_client.client_position }}</span></a>
+           <a href="{{ every_client.link }}" target="_blank"><span class="descript_">{{ every_client.client_position }}</span></a>
          </div>
         </div>
       </div>
