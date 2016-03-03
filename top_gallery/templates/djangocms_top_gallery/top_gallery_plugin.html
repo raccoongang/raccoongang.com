@@ -5,7 +5,7 @@
 
 <div id="raccoon-carousel" class="carousel slide" data-ride="carousel" data-pause="hover">
   <!-- Wrapper for slides -->
-    <div class="carousel-inner" role="listbox">
+    <div class="carousel-inner carousel-inner-top" role="listbox">
     {% for every_photo in instance.gallery.photo_set.all %}
         <div class="item {% if forloop.first %}active{% endif %}">
             <img src="{{ every_photo.file.url }}" alt="...">

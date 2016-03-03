@@ -1,10 +1,37 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% load sekizai_tags %}
 
-</body>
-</html>
+{% csrf_token %}
+
+<div id="myCarousel" class="carousel slide car_mar" data-ride="carousel" data-interval="false">
+  <!-- Wrapper for slides -->
+   <div class="container">
+     <div class="carousel-inner" role="listbox">
+       {% for every_client in instance.gallery.testinonials_set.all %}
+       <div class="item{% if forloop.counter0 == 0 %} active {% endif %}">
+         <div class="col-xs-12 col-sm-4 col-md-2 tac">
+           <div class="carusel_img">
+             <img src="{{ every_client.file.url }}" height="auto" alt="">
+           </div>
+         </div>
+        <div class="col-xs-12 col-sm-8 col-md-10 ">
+         <div class="carusel_text">
+           <p class="carusel_info">“{{ every_client.text }}"” </p>
+           <span class="full_name">{{ every_client.client_name }}</span>
+           <a href="{{ every_client.link }}"><span class="descript_">{{ every_client.client_position }}</span></a>
+         </div>
+        </div>
+      </div>
+      {% endfor %}
+     </div>
+   </div>
+  <!-- Left and right controls -->
+
+    <a class="left carousel-control control_control" href="#myCarousel" role="button" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control control_control" href="#myCarousel" role="button" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+</div>

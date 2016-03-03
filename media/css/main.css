@@ -148,7 +148,7 @@ footer {
 
 .clients-list a {
     display: inline-block;
-    margin: 20px;
+    margin: 10px;
 }
 
 .service h3{
@@ -296,7 +296,7 @@ h5.title {
 
       bottom: 20px;
   }
-.carousel-inner {
+.carousel-inner-top {
     background: #252536;
 }
 
