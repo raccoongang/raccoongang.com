@@ -29,7 +29,7 @@ class Photo(models.Model):
 
 
 class Testinonials(models.Model):
-    text = models.CharField(max_length=200, blank=True)
+    text = models.CharField(max_length=600, blank=True)
     client_name = models.CharField(max_length=150, blank=True)
     client_position = models.CharField(max_length=150, blank=True)
     link = models.CharField(max_length=128, blank=True)
