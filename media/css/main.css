@@ -343,9 +343,7 @@ h5.title {
 
     h5.title {margin-top: 80px;}
 
-    .carousel-caption h1{font-size: 50px;}
 
-    .carousel-caption h3{font-size: 20px;}
 
     .mainpage-col-kos{
         margin-right: 10px;
@@ -358,12 +356,13 @@ h5.title {
     }
 
     .row-height {
-  display: inline-block;
-}
+      display: inline-block;
+    }
 
-.col-height {
-  display: inline-block;
-  table-layout: none;}
+    .col-height {
+      display: inline-block;
+      table-layout: none;
+    }
 }
 
 .message-send {
