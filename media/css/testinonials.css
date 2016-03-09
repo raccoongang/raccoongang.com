@@ -134,6 +134,11 @@
     border-bottom: 1px #72bb25 solid;
 }
 
+
+.testinonials-wrapper {
+    background: #ffffff;
+}
+
 @media screen and (max-width: 1030px){
 
    
@@ -188,5 +193,4 @@
      margin-bottom: 20px;
 }
 }
-
 
