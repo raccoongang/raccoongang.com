@@ -182,9 +182,11 @@
     }
 }
 
-
-
-
+@media screen and (max-width: 999px) {
+    .carusel_img {
+        float: none;
+    }
+}
 
 @media screen and (max-width: 480px){
 .carusel_info{
