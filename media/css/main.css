@@ -236,7 +236,7 @@ h5.title {
    color: #fff;
    text-transform: uppercase;
    background: none;
-   margin-top:30px;
+   margin-top:10px;
    height: 60px;
    border: 2px solid #ffffff ;
    width: 250px;
@@ -274,7 +274,7 @@ h5.title {
 
 
 .carousel-caption h1 {
-   font: 300 70px/1.2 Khula, sans-serif;
+   font: 300 48px/1.2 Khula, sans-serif;
    text-transform: uppercase;
    text-align: center;
    color:#fff;
@@ -282,7 +282,7 @@ h5.title {
 }
 
 .carousel-caption h3 {
-   font: 300 30px/1.2 Khula, sans-serif;
+   font: 300 px/1.2 Khula, sans-serif;
    text-transform: uppercase;
    text-align: center;
    color:#fff;
@@ -301,8 +301,8 @@ h5.title {
 }
 
 .carousel-inner > div > img{
-    min-height: 600px;
-    min-width: 1450px;
+    min-height: 490px;
+    min-width: 1920px;
     opacity: 0.5;
 }
 
@@ -325,11 +325,11 @@ h5.title {
     }
 
     .carousel-inner > div > img{
-        min-height: 400px;
+        min-height: 290px;
         min-width: 1000px;
     }
 
-    #raccoon-carousel {margin-top: 116px;}
+    #raccoon-carousel {margin-top: 90px;}
 
     h5.title {margin-top: 80px;}
 
@@ -403,7 +403,7 @@ h5.title {
 
     .carousel-caption h1{
         font-size: 30px;
-        padding-bottom: 30px;
+        padding-bottom: 10px;
     }
 
     .carousel-caption h3{
