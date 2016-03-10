@@ -144,27 +144,23 @@
 
 @media screen and (max-width: 1340px){
 
-
-.t{
+ .carusel_img{
+   float: none;
+ }
+ .t{
    margin: 0 auto;
    max-width: 870px;
    min-width: 300px;
    background: #fff;
    overflow: hidden;
-   }
-
-   .height_testim{
+ }
+ .height_testim{
    min-height: 259px;
-}
-
-
-
-
+ }
 }
 
 
 @media screen and (max-width: 999px){
-
 
 .t{
    margin: 0 auto;
