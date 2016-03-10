@@ -32,6 +32,7 @@ class Testinonials(models.Model):
     text = models.CharField(max_length=1300, blank=True)
     client_name = models.CharField(max_length=150, blank=True)
     client_position = models.CharField(max_length=150, blank=True)
+    client_organisation = models.CharField(max_length=150, blank=True)
     link = models.CharField(max_length=128, blank=True)
     file = models.ImageField(upload_to='images')
     gallery = models.ForeignKey(TestinonialsGallery)

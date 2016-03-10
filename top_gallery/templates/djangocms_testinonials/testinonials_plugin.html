@@ -4,7 +4,7 @@
 
 <div id="myCarousel" class="carousel slide car_mar testinonials-wrapper" data-ride="carousel" data-interval="false">
   <!-- Wrapper for slides -->
-   <div class="container">
+   <div class="container t padd_cont">
      <div class="carousel-inner" role="listbox">
        {% for every_client in instance.gallery.testinonials_set.all %}
        <div class="item{% if forloop.counter0 == 0 %} active {% endif %}">
@@ -17,7 +17,7 @@
          <div class="carusel_text">
            <p class="carusel_info">{{ every_client.text }}</p>
            <span class="full_name">{{ every_client.client_name }}</span>
-           <a href="{{ every_client.link }}" target="_blank"><span class="descript_">{{ every_client.client_position }}</span></a>
+           <span class="descript_">{{ every_client.client_position }}<a href="{{ every_client.link }}" target="_blank">{{ every_client.client_organisation }}</a></span>
          </div>
         </div>
       </div>

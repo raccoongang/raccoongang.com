@@ -3,14 +3,20 @@
 
 {% block content %}
     {% placeholder "gallery" %}
-    <div class="main-content-block row">
+    <div class="main-content-block row testinonials-wrapper">
         <div class="container">
             <div class="col-xs-12">
             {% placeholder "content" %}
             </div>
         </div>
     </div>
-
+    <div class="box-clients">
+        <div class="container">
+            <h2 class="title" align="center">Our clients</h2>
+            {% placeholder "clients" %}
+        </div>
+    </div>
+    {% placeholder "testinonials" %}
 <div class="service box-services">
     <div style="max-width:1170px;margin:0 auto;">
         <h2 class="title" align="center">services</h2>
@@ -43,13 +49,7 @@
         {% placeholder "to action" %}
     </div>
 
-    <div class="box-clients">
-        <div class="container">
-            <h2 class="title" align="center">Our clients</h2>
-            {% placeholder "clients" %}
-        </div>
-    </div>
-    {% placeholder "testinonials" %}
+
     <div class="box-openedx">
         {% placeholder "to action 2" %}
     </div>
