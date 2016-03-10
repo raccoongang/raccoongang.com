@@ -138,7 +138,7 @@
 
 
 .height_testim{
-   min-height: 236px;
+   min-height: 238px;
 }
 
 
@@ -154,9 +154,10 @@
    background: #fff;
    overflow: hidden;
  }
- .height_testim{
-   min-height: 259px;
- }
+.height_testim {
+   min-height: 290px;
+}
+
 }
 
 
@@ -169,18 +170,15 @@
    background: #fff;
    overflow: hidden;
    }
-
-
-.height_testim{
-   min-height: 355px;
-
-}
-.control_control {
+ .height_testim {
+   min-height: 404px;
+ }
+ .control_control {
    position: absolute;
    top: 40px !important;
    bottom: 100% !important;
    width: 15%;
-}
+ }
 
 }
 
