@@ -19,10 +19,11 @@
         <hr>
     <div class="lead">
         {% render_model post "post_text" "" "" 'truncatewords_html:TRUNCWORDS_COUNT' %}
-    </div>
-    <footer class="read-more" onclick="window.location='{{ post.get_absolute_url }}'">
+    <div class="read-more" onclick="window.location='{{ post.get_absolute_url }}'">
         <button class="btnbtn-b">MORE INFO
                          <img src="/media/img/arrow-b.png" height="8px" width="25px">
                         </button>
-    </footer>
+    </div>
+    </div>
+
 </article>

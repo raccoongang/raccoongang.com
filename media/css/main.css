@@ -648,7 +648,7 @@ h5.title {
     height: 32px;
     border: 2px solid #72BB25;
     width: 124px;
-    margin: 5px 0 30px 0;
+    margin-top: 5px;
     display: inline-block;
     cursor: pointer;
 
