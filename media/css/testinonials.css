@@ -110,8 +110,6 @@
 
 .control_control {
     position: absolute;
-    top: 40px !important;
-    bottom: 100% !important;
     width: 15%;
     font-size: 20px;
     color: #fff;
@@ -121,12 +119,12 @@
     filter: alpha(opacity=50);
     opacity: .5;
 }
+
 .descript_ a{
     font-size: 17px;
     font-weight: 300;
     color: #787878;
     margin-left: 5px;
-    
 }
 
 .descript_ a:hover{
@@ -138,60 +136,80 @@
     background: #ffffff;
 }
 
-@media screen and (max-width: 1030px){
 
-   
-.t{
-    margin: 0 auto;
-    max-width: 600px;
-    min-width: 300px;
-    background: #fff;
-    overflow: hidden;
-    }
-    
+.height_testim{
+   min-height: 236px;
 }
-
 
 
 @media screen and (max-width: 1340px){
 
-   
+
 .t{
-    margin: 0 auto;
-    max-width: 870px;
-    min-width: 300px;
-    background: #fff;
-    overflow: hidden;
-    }
+   margin: 0 auto;
+   max-width: 870px;
+   min-width: 300px;
+   background: #fff;
+   overflow: hidden;
+   }
+
+   .height_testim{
+   min-height: 259px;
 }
 
-    
 
-  
+
+
+}
+
+
+@media screen and (max-width: 999px){
+
+
+.t{
+   margin: 0 auto;
+   max-width: 850px;
+   min-width: 300px;
+   background: #fff;
+   overflow: hidden;
+   }
+
+
+.height_testim{
+   min-height: 355px;
+
+}
+.control_control {
+   position: absolute;
+   top: 40px !important;
+   bottom: 100% !important;
+   width: 15%;
+}
+
+}
+
 @media screen and (max-width: 768px){
 .carusel_info{
-    font-size: 16px;
-     margin-bottom: 20px;
+   font-size: 16px;
+    margin-bottom: 20px;
 }
-    .control_control{
-        width: 35%!important;
-    }
-    
-    .carusel_img{
-    float: none;
-    }
+   .control_control{
+       width: 35%!important;
+   }
+
+   .carusel_img{
+   float: none;
+   }
 }
 
-@media screen and (max-width: 999px) {
-    .carusel_img {
-        float: none;
-    }
-}
 
 @media screen and (max-width: 480px){
 .carusel_info{
-    font-size: 16px;
-     margin-bottom: 20px;
+   font-size: 16px;
+    margin-bottom: 20px;
 }
-}
+   .height_testim{
+   min-height: 440px;
 
+}
+}

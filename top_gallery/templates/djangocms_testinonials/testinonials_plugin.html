@@ -5,7 +5,7 @@
 <div id="myCarousel" class="carousel slide car_mar testinonials-wrapper" data-ride="carousel" data-interval="false">
   <!-- Wrapper for slides -->
    <div class="container t padd_cont">
-     <div class="carousel-inner" role="listbox">
+     <div class="carousel-inner height_testim" role="listbox">
        {% for every_client in instance.gallery.testinonials_set.all %}
        <div class="item{% if forloop.counter0 == 0 %} active {% endif %}">
          <div class="col-xs-12 col-sm-4 col-md-2 tac">
