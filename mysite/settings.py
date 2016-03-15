@@ -1,5 +1,7 @@
 import os
 
+
+
 gettext = lambda s: s
 DATA_DIR = os.path.dirname(os.path.dirname(__file__))
 """
@@ -147,7 +149,7 @@ INSTALLED_APPS = (
     'core',
     'call_to_action_plugin',
     'clients_plugin',
-   # 'debug_toolbar',
+    # 'debug_toolbar',
     'djangocms_blog',
     'parler',
     'taggit',
@@ -257,7 +259,7 @@ PARLER_LANGUAGES = {
         {'code': 'ua'},
     ),
 }
-# Ckeditor settings
+# Ckeditor settinpgs
 
 CKEDITOR_UPLOAD_PATH = "uploads/"
 
