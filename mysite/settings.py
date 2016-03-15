@@ -25,9 +25,6 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 DEBUG = True
 
 
-TEMPLATE_DEBUG = True
-
-
 # Application definition
 
 ROOT_URLCONF = 'mysite.urls'
@@ -66,16 +63,10 @@ STATICFILES_DIRS = (
 )
 SITE_ID = 1
 
-TEMPLATE_LOADERS = (
-    'django.template.loaders.filesystem.Loader',
-    'django.template.loaders.app_directories.Loader',
-    'django.template.loaders.eggs.Loader'
-)
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'APP_DIRS': True,
         'OPTIONS': {
             'context_processors':
                 (
@@ -90,15 +81,21 @@ TEMPLATES = [
                     'sekizai.context_processors.sekizai',
                     'django.core.context_processors.static',
                     'cms.context_processors.cms_settings',
+                ),
+            'loaders':
+                (
+                    'django.template.loaders.filesystem.Loader',
+                    'django.template.loaders.app_directories.Loader',
+                    'django.template.loaders.eggs.Loader'
                 )
-        }
+        },
+        'DIRS':[
+            os.path.join(BASE_DIR, 'mysite', 'templates'),
+        ],
     },
 ]
 
 
-TEMPLATE_DIRS = (
-    os.path.join(BASE_DIR, 'mysite', 'templates'),
-)
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
