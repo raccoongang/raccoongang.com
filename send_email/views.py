@@ -47,8 +47,8 @@ def send_email(request):
                 msg.attach_alternative(html_content, "text/html")
                 msg.send()
 
-            except:
-                notification = _('Message has not been sent')
+            except Exception as e:
+                notification = _('Message has not been sent ' + e )
         else:
             for key in form.errors.keys():
                 errors[key] = 'red'
