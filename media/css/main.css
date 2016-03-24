@@ -404,9 +404,9 @@ h5.title {
 @media screen and (max-width: 480px){
 
   .btn_for_content{
-    font: 16px Khula, sans-serif;
-    padding: 10px 50px;
-    line-height: 38px;
+    font: 16px Khula, sans-serif !important;
+    padding: 10px 50px !important;
+    line-height: 38px !important;
   }
 
     .img_text{
