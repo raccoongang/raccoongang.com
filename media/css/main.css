@@ -306,6 +306,26 @@ h5.title {
     opacity: 0.5;
 }
 
+
+.btn_for_content:link{
+   text-decoration: none;
+   color: #72BB25 !important;
+}
+
+.btn_for_content:visited{
+   text-decoration: none;
+   color: #72BB25 !important;
+
+}
+
+
+.btn_for_content:hover{
+   border: 2px solid #72BB25;
+   color: #ffffff  !important;
+   background: #72bb25;
+   text-decoration: none;
+}
+
 @media screen and (max-width: 999px) and (min-width: 481px) {
 
     .carousel-caption h1{
@@ -874,21 +894,3 @@ header > h1 > a{
 }
 
 
-.btn_for_content:link{
-   text-decoration: none;
-   color: #72BB25 !important;
-}
-
-.btn_for_content:visited{
-   text-decoration: none;
-   color: #72BB25 !important;
-
-}
-
-
-.btn_for_content:hover{
-   border: 2px solid #72BB25;
-   color: #ffffff  !important;
-   background: #72bb25;
-   text-decoration: none;
-}
