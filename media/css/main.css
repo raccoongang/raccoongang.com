@@ -874,10 +874,21 @@ header > h1 > a{
 }
 
 
+.btn_for_content:link{
+   text-decoration: none;
+   color: #72BB25 !important;
+}
+
+.btn_for_content:visited{
+   text-decoration: none;
+   color: #72BB25 !important;
+
+}
+
 
 .btn_for_content:hover{
    border: 2px solid #72BB25;
-   color: #ffffff;
+   color: #ffffff  !important;
    background: #72bb25;
    text-decoration: none;
 }
