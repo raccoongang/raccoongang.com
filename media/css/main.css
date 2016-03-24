@@ -383,6 +383,11 @@ h5.title {
 
 @media screen and (max-width: 480px){
 
+  .btn_for_content{
+    font: 16px Khula, sans-serif;
+    padding: 10px 50px;
+  }
+
     .img_text{
         font-size: 24px;
     }
@@ -842,5 +847,33 @@ header > h1 > a{
    left: 1%;
    right: 1%;
    margin-top: -0.625em;
+}
 
+.btn_for_content{
+    font: 24px Khula, sans-serif;
+    height: 60px;
+    line-height: 63px;
+    color: #72BB25;
+    text-transform: uppercase;
+    background: none;
+    margin: 20px auto 50px auto;
+    border: 2px solid #72BB25;
+    display: block;
+    padding: 0px 100px;
+    cursor: pointer;
+            transition: background-color 0.3s linear;
+    -webkit-transition: background-color 0.3s linear;
+       -moz-transition: background-color 0.3s linear;
+         -o-transition: background-color 0.3s linear;
+            transition: color 0.2s linear;
+    -webkit-transition: color 0.2s linear;
+       -moz-transition: color 0.2s linear;
+         -o-transition: color 0.2s linear;
+
+ }
+
+.btn_for_content:hover{
+    border: 2px solid #72BB25;
+    color: #ffffff;
+    background: #72bb25;
 }
