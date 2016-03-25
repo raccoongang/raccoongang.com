@@ -5,14 +5,14 @@ from django.db import models
 class TestinonialsGallery(models.Model):
     name = models.CharField(max_length=128)
 
-    def __str__(self):
+    def __unicode__(self):
         return u'%s' % self.name
 
 
 class Gallery(models.Model):
     name = models.CharField(max_length=128)
 
-    def __str__(self):
+    def __unicode__(self):
         return u'%s' % self.name
 
 
@@ -24,7 +24,7 @@ class Photo(models.Model):
     file = models.ImageField(upload_to='images')
     gallery = models.ForeignKey(Gallery)
 
-    def __str__(self):
+    def __unicode__(self):
         return u'%s' % self.title or self.file.name
 
 
@@ -37,6 +37,6 @@ class Testinonials(models.Model):
     file = models.ImageField(upload_to='images')
     gallery = models.ForeignKey(TestinonialsGallery)
 
-    def __str__(self):
+    def __unicode__(self):
         return u'%s' % self.client_name or self.file.name
 

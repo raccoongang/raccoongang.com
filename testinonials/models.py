@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 from django.db import models
 from cms.models import CMSPlugin
 from top_gallery.models import TestinonialsGallery

@@ -7,9 +7,8 @@ from .forms import MailForm
 import json
 from django.utils.translation import ugettext as _
 
-from django.conf import settings
+from models import ContactUsEmail
 
-# Create your views here.
 
 def send_email(request):
     if request.is_ajax():
@@ -21,12 +20,13 @@ def send_email(request):
         notification = ''
         if form.is_valid():
             form_data = form.cleaned_data
-            #recipient_list = ['info@raccoongang.com']
-            recipient_list = ['info@raccoongang.com']
+            recipient_list = ['ilya.batozskiy@raccoongang.com']
+            # recipient_list = ['info@raccoongang.com']
             subject = form_data['name']
-            message = 'From user email: %s \nMessage: \n %s' % (form_data['mail'],form_data['message'])
-
-            #from_mail = form_data['mail']
+            message = 'From user email: %s \nMessage: \n %s' % (form_data['mail'], form_data['message'])
+            ContactUsEmail.objects.create(text=form_data['message'],
+                                          name=subject,
+                                          email=form_data['mail'])
 
             try:
                 send_mail(subject, message, form_data['mail'], recipient_list, fail_silently=False)
@@ -35,7 +35,7 @@ def send_email(request):
 
                 #response to email sending
                 plaintext = get_template('email.txt')
-                htmly     = get_template('main.html')
+                htmly = get_template('main.html')
 
                 d = Context({ 'username': form_data['name'] })
 
@@ -48,7 +48,7 @@ def send_email(request):
                 msg.send()
 
             except Exception as e:
-                notification = _('Message has not been sent ' + e )
+                notification = _('Message has not been sent ' + e)
         else:
             for key in form.errors.keys():
                 errors[key] = 'red'

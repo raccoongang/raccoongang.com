@@ -20,8 +20,9 @@ urlpatterns = i18n_patterns('',
   #  url(r'djangocms_blog/', include('djangocms_blog.urls', namespace='djangocms_blog')),
     url(r'send_email/',include('send_email.urls', namespace='send_email') ),
     url(r'^questionnaire/', include('questionary.urls')),
-    url(ur'^[АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯабвгдеёжзийклмнопрстуфхцчшщъыьэюя]+/$', page_not_found),
+
     url(r'^', include('cms.urls')),
+    #url(r'^[[:ascii:]]*[^\x00-\x7F]+[[:ascii:]]*/$', page_not_found),
 )
 
 # This is only needed when using runserver.
