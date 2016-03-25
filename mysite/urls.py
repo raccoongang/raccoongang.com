@@ -22,7 +22,7 @@ urlpatterns = i18n_patterns('',
     url(r'^questionnaire/', include('questionary.urls')),
 
     url(r'^', include('cms.urls')),
-    #url(r'^[[:ascii:]]*[^\x00-\x7F]+[[:ascii:]]*/$', page_not_found),
+    url(r'^[[:ascii:]]*[^\x00-\x7F]+[[:ascii:]]*/$', page_not_found),
 )
 
 # This is only needed when using runserver.
