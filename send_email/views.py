@@ -12,16 +12,14 @@ from models import ContactUsEmail
 
 def send_email(request):
     if request.is_ajax():
-        form = MailForm(request.GET)
-        # if len(request.GET['message']) < 25:
-        #     error_message = 'very small message!'
+        form = MailForm(request.POST)
         errors = {}
         success = ''
         notification = ''
         if form.is_valid():
             form_data = form.cleaned_data
-            recipient_list = ['ilya.batozskiy@raccoongang.com']
-            # recipient_list = ['info@raccoongang.com']
+            # recipient_list = ['ilya.batozskiy@raccoongang.com']
+            recipient_list = ['info@raccoongang.com']
             subject = form_data['name']
             message = 'From user email: %s \nMessage: \n %s' % (form_data['mail'], form_data['message'])
             ContactUsEmail.objects.create(text=form_data['message'],
@@ -37,7 +35,7 @@ def send_email(request):
                 plaintext = get_template('email.txt')
                 htmly = get_template('main.html')
 
-                d = Context({ 'username': form_data['name'] })
+                d = Context({'username': form_data['name']})
 
                 subject, from_email, to = 'Thanks for your message to us', 'no-reply@raccoongang.com', form_data['mail']
                 text_content = plaintext.render(d)
