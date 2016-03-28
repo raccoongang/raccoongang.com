@@ -894,3 +894,8 @@ header > h1 > a{
 }
 
 
+div.blog-visual img{
+    width: 100%;
+    height: auto;
+}
+
