@@ -147,7 +147,7 @@ INSTALLED_APPS = (
     'call_to_action_plugin',
     'clients_plugin',
     # 'debug_toolbar',
-    # 'djangocms_blog',
+    'djangocms_blog',
     'parler',
     'taggit',
     'taggit_autosuggest',
