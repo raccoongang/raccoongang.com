@@ -24,10 +24,6 @@
     <link rel="stylesheet" href="/media/css/all.css">
     <link rel="stylesheet" href="/media/css/testinonials.css">
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap3-dialog/1.34.7/js/bootstrap-dialog.min.js"></script>
-
     <script type="text/javascript">
 
         (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -48,6 +44,10 @@
         var ss = document.getElementsByTagName('script')[0];
         ss.parentNode.insertBefore(s, ss);})();
     </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap3-dialog/1.34.7/js/bootstrap-dialog.min.js"></script>
     <!-- {/literal} END JIVOSITE CODE -->
 </head>
 <body>
@@ -69,39 +69,29 @@
                     {% show_menu 0 100 100 100 "menu.html" %}
                 </ul>
          </div>
-
-{#        <div class="breadcrumb pull-left bread">#}
-{#               {% block breadcrumb %}#}
-{#                     {% show_breadcrumb 1 "raccoon_breadcrumbs.html" %}#}
-{#               {% endblock %}#}
-{#        </div>#}
     </nav>
 </div>
 {% block content %}{% endblock content %}
-        <footer>
+    <footer>
+        <div class="wrapper-footer">
+            <div class="media-area-footer-bottom">
+                <a href="mailto:info@raccoongang.com" class="footer_info">info@raccoongang.com</a>
+           <div class="social">
+             <a href="https://www.facebook.com/raccoongangco" class="ic-fb" target="_blank"></a>
+         <!--    <a href="#" class="ic-tw"></a> -->
+             <a href="https://www.linkedin.com/company/raccoon-gang" class="ic-in" target="_blank"></a>
+         <!--      <a href="#" class="ic-g"></a>
+             <a href="#" class="ic-ins"></a>
+             <a href="https://github.com/raccoongang" class="ic-gh"></a>-->
+          </div>
+           <h1 class="footer_name" id="year"></h1>
+          </div>
+          </div>
+        </div>
+        <b id="year"></b>
 
-                <div class="wrapper-footer">
-                    <div class="media-area-footer-bottom">
-                        <a href="mailto:info@raccoongang.com" class="footer_info">info@raccoongang.com</a>
-                   <div class="social">
-                     <a href="https://www.facebook.com/raccoongangco" class="ic-fb" target="_blank"></a>
-                 <!--    <a href="#" class="ic-tw"></a> -->
-                     <a href="https://www.linkedin.com/company/raccoon-gang" class="ic-in" target="_blank"></a>
-                 <!--      <a href="#" class="ic-g"></a>
-                     <a href="#" class="ic-ins"></a>
-                     <a href="https://github.com/raccoongang" class="ic-gh"></a>-->
-                  </div>
-                   <h1 class="footer_name" id="year"></h1>
-                  </div>
-                  </div>
-                </div>
-                <b id="year"></b>
+    </footer>
 
-        </footer>
-
-<!-- on hove menu scripts
-<script src="/media/js/bootstrap.min.js"></script>
-<script src="/media/js/bootstrap-hover-dropdown.min.js"></script> -->
 <script>
 $("#year").html('&copy; RACCOON GANG '+new Date().getFullYear() );
 if ($(".breadcrumb").children().length > 1) {
