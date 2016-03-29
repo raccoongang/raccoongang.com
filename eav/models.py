@@ -37,7 +37,7 @@ Classes
 from django.core.validators import EmailValidator
 from django.utils.translation import ugettext_lazy as _
 from django.contrib.contenttypes.models import ContentType
-from django.contrib.contenttypes import generic
+from django.contrib.contenttypes import fields
 from django.contrib.sites.models import Site
 from django.contrib.sites.managers import CurrentSiteManager
 from django.conf import settings
@@ -354,7 +354,7 @@ class Value(models.Model):
 
     entity_ct = models.ForeignKey(ContentType, related_name='value_entities')
     entity_id = models.IntegerField()
-    entity = generic.GenericForeignKey(ct_field='entity_ct',
+    entity = fields.GenericForeignKey(ct_field='entity_ct',
                                        fk_field='entity_id')
 
     value_text = models.TextField(blank=True, null=True)
@@ -370,7 +370,7 @@ class Value(models.Model):
     generic_value_id = models.IntegerField(blank=True, null=True)
     generic_value_ct = models.ForeignKey(ContentType, blank=True, null=True,
                                          related_name='value_values')
-    value_object = generic.GenericForeignKey(ct_field='generic_value_ct',
+    value_object = fields.GenericForeignKey(ct_field='generic_value_ct',
                                              fk_field='generic_value_id')
 
     created = models.DateTimeField(_(u"created"), default=datetime.now)
