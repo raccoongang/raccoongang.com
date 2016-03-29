@@ -18,12 +18,17 @@
         {% endblock %}
         <hr>
     <div class="lead">
-        {% render_model post "post_text" "" "" 'truncatewords_html:TRUNCWORDS_COUNT' %}
-    <div class="read-more" onclick="window.open('{{ post.get_absolute_url }}', '_blank')">
-        <button class="btnbtn-b">MORE INFO
-                         <img src="/media/img/arrow-b.png" height="8px" width="25px">
-                        </button>
-    </div>
+        {% render_model post "post_text" "" "" '' %}
     </div>
 
 </article>
+<script>
+       $('#post-{{ post.slug }}').readmore({
+           collapsedHeight: 300,
+           moreLink: '<a class="btn_for_blog" href="#" style="width:150px;">more info&nbsp;&nbsp;<img src="/media/img/arrow.png" height="7" width="20px" alt=""></a>',
+           lessLink: '<a class="btn_for_blog" href="#" style="width:150px;"><img src="/media/img/arrow_back.png" height="7" width="20px" alt="">&nbsp;&nbsp;less info</a>'
+       });
+</script>
+
+
+
