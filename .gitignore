@@ -67,4 +67,5 @@ images/
 media/uploads
 filer_public_thumbnails/
 filer_public/
+static/
 *.db
