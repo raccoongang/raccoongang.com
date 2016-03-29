@@ -1,7 +1,6 @@
 import os
 
 
-
 gettext = lambda s: s
 DATA_DIR = os.path.dirname(os.path.dirname(__file__))
 """
@@ -111,11 +110,11 @@ MIDDLEWARE_CLASSES = (
 )
 
 INSTALLED_APPS = (
-    'djangocms_admin_style',
     'djangocms_text_ckeditor',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
+    'djangocms_admin_style',
     'django.contrib.admin',
     'django.contrib.sites',
     'django.contrib.sitemaps',
@@ -148,6 +147,7 @@ INSTALLED_APPS = (
     'clients_plugin',
     # 'debug_toolbar',
     'djangocms_blog',
+    'aldryn_apphooks_config',
     'parler',
     'taggit',
     'taggit_autosuggest',
@@ -208,8 +208,10 @@ CMS_TEMPLATES = (
     ('contact_us.html', 'Contact us'),
     ('feature_bread.html', 'Page with Feature (breadcrumbs)'),
     ('team.html', 'Page for team'),
-    ('edx_services.html','For edX services')
+    ('edx_services.html', 'For edX services')
 )
+
+CMS_TOOLBAR_SIMPLE_STRUCTURE_MODE = False
 
 CMS_PERMISSION = True
 
@@ -246,6 +248,7 @@ BLOG_POSTS_LIST_TRUNCWORDS_COUNT = 50
 BLOG_IMAGE_THUMBNAIL_SIZE = {'size': '900x350', 'crop': True, 'upscale': False}
 BLOG_IMAGE_FULL_SIZE = {'size': '900x350', 'crop': True, 'upscale': False}
 BLOG_AUTHOR_DEFAULT = False
+BLOG_DEFAULT_OBJECT_NAME = 'Post'
 
 META_SITE_PROTOCOL = 'http'
 META_USE_SITES = True
