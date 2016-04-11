@@ -84,8 +84,8 @@ def survey_view(request, step=1):
                           form_step=form_step)
         if form.is_valid():
             try:
-                if form.cleaned_data['organization']:
-                    edx_project.name=form.cleaned_data['organization']
+                if form.cleaned_data['name']:
+                    edx_project.name=form.cleaned_data['name']
                     edx_project.save()
             except Exception as e:
                 print e
