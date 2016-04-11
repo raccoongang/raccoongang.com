@@ -1,0 +1,97 @@
+{% extends "base.html" %}
+{% load cms_tags sekizai_tags %}
+{% load i18n %}
+{% block title %}Edx questionary{% endblock title %}
+
+{% block content %}
+    {% addtoblock "css" %}
+        <link rel="stylesheet" href="{{ STATIC_URL }}css/questionary_style.css">
+        <link rel="stylesheet" href="{{ STATIC_URL }}css/quiz.css">
+    {% endaddtoblock %}
+<div class="top-div-padding"></div>
+    <div class="container">
+        <div class="row">
+            <div class="quiz-header">
+                <h1>Please, take some time to complete our ​survey</h1>
+                <p>It will give us a brief story of your needs and make future conversation much easier, happier and more constructive.</p>
+                <ul class="quiz-steps">
+                    {% for step in all_steps %}
+                        <li class="{% if form_step.order == forloop.counter %}active{% elif form_step.order > forloop.counter %}done{% endif %}" style="width: {{ step_width }}%">
+                            <a href="#">
+                                <i>{{ forloop.counter }}</i>{{ step }}
+                            </a>
+                        </li>
+                    {% endfor %}
+                </ul>
+                <p>{{ form_step.description }}</p>
+            </div>
+        </div>
+        <div class="row">
+            <form action="" method="post" id="survey-form" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="col-md-6 quiz-fields">
+                    {{ form }}
+                </div>
+                <div class="highlights">
+                    {% for image in form_step.formgallery_set.all %}
+                    <div class="highlight-area" data-linked-to="{{ image.data_attribute }}">
+                        <img src="{{ image.image.url }}" class="highlight-img" alt="{{ image.name }}" title="{{ image.name }}">
+                    </div>
+                    {% endfor %}
+                </div>
+            </form>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="bottom-p quiz-buttons">
+                    <!--<div class="progress progress-striped active margin-bottom">
+                        <div class="bar" style="width: {{ progress }}%;"></div>
+                    </div>-->
+                    <!--<ul class="steps current-step-{{ form_step.order }}">
+                    {% for i in max_order_range %}
+                        <li>{{ i }}</li>
+                    {% endfor %}
+                    </ul>-->
+                        {% if form_step.order > 1 %}
+                            <a href="#" class="btn btn-back">&larr; {% trans "Back" %}</a>
+                        {% endif %}
+                        {% if form_step.order < max_order %}
+                            <a href="#" class="btn btn-next">{% trans "Next" %} &rarr;</a>
+                        {% else %}
+                            <a href="#" class="btn btn-finish">{% trans "Finish" %}</a>
+                        {% endif %}
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    {% addtoblock "js" %}
+        <script src="{{ STATIC_URL }}js/quiz.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $('.btn-next').click(function () {
+                    sendForm({{ form_step.order }}+1);
+                    return false;
+                });
+                $('.btn-back').click(function () {
+                    sendForm({{ form_step.order }}-1);
+                    return false;
+                });
+                $('.btn-finish').click(function () {
+                    ga('send', 'event', 'survey', 'click', 1);
+                    sendForm(-1);
+                    return false;
+                });
+
+            });
+
+            function sendForm(step) {
+                $('#survey-form').append('<input type="hidden" name="form_step" value="' + step + '">').submit();
+            }
+        </script>
+    {% endaddtoblock %}
+{% endblock content %}

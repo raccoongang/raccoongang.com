@@ -3,14 +3,14 @@
  */
 
 $('#send_form_submit').on('click', function (){
+            console.log($('#send_form').serialize());
             ga('send', 'event', 'Contact Us', 'click', 1);
             $.ajax({
-                url: '/send_email/',
-                type: 'GET',
-                dataType: 'json',
+                type: 'POST',
+                url: "{% url 'send_email' %}",
                 data: $('#send_form').serialize(),
                 success: function(data){
-                    console.dir(data);
+                    console.log(data);
                     if (data['success']){
                         $('#mail').val('');
                         $('#name').val('');

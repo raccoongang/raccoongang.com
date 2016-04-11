@@ -22,13 +22,38 @@
     </div>
 
 </article>
+
+
+<div class="social_div">
+    <span>
+        <a href="https://twitter.com/share" class="twitter-share-button"
+                                            data-url="{{ request.get_host }}{{ post.get_absolute_url }}"
+                                            data-text="{{ post.title }} {{ request.get_host }}{{ post.get_absolute_url }}"
+                                            data-via="RaccoonGangCom">
+            Tweet
+        </a>
+	</span>
+	<span>
+        <div class="fb-share-button" data-href="{{ post.get_absolute_url }}" data-layout="button"></div>
+	</span>
+{#    <span>#}
+{#        <script type="IN/Share" data-url="{{ post.get_absolute_url }}"></script>#}
+{#    </span>#}
+</div>
+
 <script>
-       $('#post-{{ post.slug }}').readmore({
-           collapsedHeight: 600,
-           moreLink: '<a class="btn_for_blog" href="#" style="width:150px;">more info&nbsp;&nbsp;<img src="/media/img/arrow.png" height="7" width="20px" alt=""></a>',
-           lessLink: '<a class="btn_for_blog" href="#" style="width:150px;"><img src="/media/img/arrow_back.png" height="7" width="20px" alt="">&nbsp;&nbsp;less info</a>'
-       });
+   !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';
+   if(!d.getElementById(id)){
+       js=d.createElement(s);js.id=id;
+       js.src=p+'://platform.twitter.com/widgets.js';
+       fjs.parentNode.insertBefore(js,fjs);
+       }
+   }(document, 'script', 'twitter-wjs');
+
+   $('#post-{{ post.slug }}').readmore({
+       collapsedHeight: 600,
+       moreLink: '<a class="btn_for_blog" href="#" style="width:150px;">more info&nbsp;&nbsp;<img src="/media/img/arrow.png" height="7" width="20px" alt=""></a>',
+       lessLink: '<a class="btn_for_blog" href="#" style="width:150px;"><img src="/media/img/arrow_back.png" height="7" width="20px" alt="">&nbsp;&nbsp;less info</a>'
+   });
 </script>
-
-
 

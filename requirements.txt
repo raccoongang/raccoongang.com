@@ -32,10 +32,10 @@ django-templatetag-sugar==1.0
 django-treebeard==4.0
 djangocms-admin-style==1.1.0
 djangocms-apphook-setup==0.1.2
-djangocms-blog==0.7.0
+djangocms-blog==0.6.3
 djangocms-column==1.6.0
 djangocms-flash==0.2.0
-djangocms-googlemap==0.4.0
+djangocms-googlemap==0.3
 djangocms-inherit==0.1.1
 djangocms-installer==0.8.7
 djangocms-link==1.7.2
@@ -53,5 +53,5 @@ sqlparse==0.1.16
 tzlocal==1.2.2
 Unidecode==0.4.19
 URLObject==2.4.0
-uWSGI==2.0.11.2
 YURL==0.13
+cmsplugin-twitter==1.1.0

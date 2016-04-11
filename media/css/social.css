@@ -1,0 +1,16 @@
+.social_div {
+	font-size: 1px;
+}
+
+/* This gets Facebook to fall into place */
+.social_div iframe {
+	vertical-align: middle;
+}
+
+/* Set an optional width for your button wrappers */
+.social_div span {
+   	vertical-align: middle;
+	display: inline-block;
+	width: 70px;
+    height: 21px;
+}

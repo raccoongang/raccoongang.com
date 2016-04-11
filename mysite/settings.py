@@ -157,7 +157,10 @@ INSTALLED_APPS = (
     'adminsortable',
     'eav',
     'questionary',
-    'testinonials'
+    'eav_one',
+    'questionary_one',
+    'testinonials',
+    'cmsplugin_twitter',
 )
 
 LANGUAGES = (
