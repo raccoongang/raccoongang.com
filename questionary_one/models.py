@@ -4,7 +4,7 @@ from datetime import datetime
 from django.db import models
 from django.db.models.signals import pre_save
 from django.contrib.auth.models import User
-import eav_one as eav
+import eav_one
 from adminsortable.models import SortableMixin
 from django.contrib.sites.models import Site
 
@@ -55,8 +55,8 @@ class Survey(models.Model):
         return u"Survey for %s" % self.edx_project.name
 
 
-eav.register(Survey)
-pre_save.disconnect(eav.models.Entity.pre_save_handler, sender=Survey)
+eav_one.register(Survey)
+pre_save.disconnect(eav_one.models.Entity.pre_save_handler, sender=Survey)
 
 
 class FormStep(SortableMixin):

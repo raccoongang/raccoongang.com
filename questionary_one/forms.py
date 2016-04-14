@@ -5,8 +5,8 @@ from django.forms.widgets import RadioSelect
 from django.utils.html import format_html
 from django.utils.encoding import force_text
 from django.forms.utils import flatatt
-from eav.forms import BaseDynamicEntityForm
-from questionary.models import Survey
+from eav_one.forms import BaseDynamicEntityForm
+from questionary_one.models import Survey
 
 
 class CustomRadioRenderer(RadioSelect.renderer):

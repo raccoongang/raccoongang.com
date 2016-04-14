@@ -3,14 +3,13 @@ from django.contrib import messages
 from django.db.models import Max
 from django.utils.translation import ugettext as _
 from django.http import HttpResponseRedirect
-from django.contrib.auth.decorators import login_required
-from eav.models import Value
-from django.core.mail import send_mail, EmailMultiAlternatives
+
+from django.core.mail import EmailMultiAlternatives
 from django.template import Context
 from django.template.loader import get_template
 
 
-from django.shortcuts import get_object_or_404, render, redirect
+from django.shortcuts import get_object_or_404, render
 from questionary_one.models import FormStep, Survey, EdxProject
 from questionary_one.forms import SurveyForm
 
@@ -55,12 +54,12 @@ def send_customer_email(customer_email, customer_name, info):
 
 
 def survey_view(request, step=1):
-    if 'project_pk' in request.session.keys():
-        edx_project = EdxProject.objects.get(pk=request.session['project_pk'])
+    if 'survey_pk' in request.session.keys():
+        edx_project = EdxProject.objects.get(pk=request.session['survey_pk'])
     else:
         edx_project = EdxProject(name='name')
         edx_project.save()
-        request.session['project_pk'] = edx_project.pk
+        request.session['survey_pk'] = edx_project.pk
         request.session.set_expiry(172000)
     all_steps = FormStep.objects.all().order_by('order').values_list('name', flat=True)
     form_step = get_object_or_404(
@@ -97,7 +96,7 @@ def survey_view(request, step=1):
                                  _("Thank you for choosing our company.| We will contact you within a business day."))
                 survey = Survey.objects.get(edx_project=edx_project)
                 for_email = []
-                for attribute in survey.eav.get_all_attributes():
+                for attribute in survey.eav_one.get_all_attributes():
                     for_email.append((attribute.slug, getattr(survey.eav, attribute.slug)))
                     if attribute.datatype == 'email':
                         customer_email = getattr(survey.eav, attribute.slug)
@@ -115,7 +114,6 @@ def survey_view(request, step=1):
                             }))
     else:
         form = SurveyForm(instance=survey, form_step=form_step)
-
     return render(request, 'form_step.html',
                   {
                       'all_steps':all_steps,

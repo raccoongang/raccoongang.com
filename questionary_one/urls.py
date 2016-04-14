@@ -3,7 +3,7 @@ __author__ = 'xahgmah'
 from django.conf.urls import url
 from django.views.defaults import page_not_found
 
-from questionary.views import survey_view
+from questionary_one.views import survey_view
 
 urlpatterns = [
     url(r'^(?P<step>\d+)/$', survey_view, name='questionary'),
