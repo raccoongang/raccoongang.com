@@ -96,7 +96,7 @@ def survey_view(request, step=1):
                                  _("Thank you for choosing our company.| We will contact you within a business day."))
                 survey = Survey.objects.get(edx_project=edx_project)
                 for_email = []
-                for attribute in survey.eav_one.get_all_attributes():
+                for attribute in survey.eav.get_all_attributes():
                     for_email.append((attribute.slug, getattr(survey.eav, attribute.slug)))
                     if attribute.datatype == 'email':
                         customer_email = getattr(survey.eav, attribute.slug)
@@ -108,7 +108,7 @@ def survey_view(request, step=1):
                 return HttpResponseRedirect(reverse('cms.views.details', kwargs={'slug': ''}))
             else:
                 return HttpResponseRedirect(
-                    reverse('questionary', 'mysite.urls',
+                    reverse('questionary_one', 'mysite.urls',
                             kwargs={
                                 'step': go_to_step
                             }))
