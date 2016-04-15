@@ -17,7 +17,7 @@ from questionary_one.forms import SurveyForm
 def send_survey_email(info):
     recipient_list = ['info@raccoongang.com']
     # recipient_list = ['i.batozskiy@gmail.com']
-    subject = 'Survey from %s' % info['organization']
+    subject = 'Survey from %s' % info['name']
 
     #from_mail = form_data['mail']
 
@@ -36,13 +36,13 @@ def send_survey_email(info):
 
 
 def send_customer_email(customer_email, customer_name, info):
-    d = Context({ 'username': customer_name, 'dict':info })
+    d = Context({'username': customer_name, 'dict': info})
 
     plaintext = get_template('email.txt')
     htmly = get_template('survey_main.html')
 
-    subject = 'Request for an Open edX services from %s %s' % (customer_name.capitalize(),
-                                                              info['second_name'].capitalize())
+    subject = 'Request for an Open edX services from %s' % (customer_name.capitalize(),
+                                                            info['surname'].capitalize())
     from_email = 'info@raccoongang.com'
 
     text_content = plaintext.render(d)
@@ -98,11 +98,11 @@ def survey_view(request, step=1):
                 for_email = []
                 for attribute in survey.eav.get_all_attributes():
                     for_email.append((attribute.slug, getattr(survey.eav, attribute.slug)))
-                    if attribute.datatype == 'email':
+                    if attribute.datatype == 'e-mail':
                         customer_email = getattr(survey.eav, attribute.slug)
                 try:
                     send_survey_email(dict(for_email))
-                    send_customer_email(customer_email, dict(for_email)['first_name'], dict(for_email))
+                    send_customer_email(customer_email, dict(for_email)['name'], dict(for_email))
                 except Exception as e:
                     print e
                 return HttpResponseRedirect(reverse('cms.views.details', kwargs={'slug': ''}))
