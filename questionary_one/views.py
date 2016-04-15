@@ -100,11 +100,10 @@ def survey_view(request, step=1):
                     for_email.append((attribute.slug, getattr(survey.eav, attribute.slug)))
                     if attribute.datatype == 'email':
                         customer_email = getattr(survey.eav, attribute.slug)
-                try:
-                    send_survey_email(dict(for_email))
-                    send_customer_email(customer_email, dict(for_email)['name'], dict(for_email))
-                except Exception as e:
-                    print e
+
+                send_survey_email(dict(for_email))
+                send_customer_email(customer_email, dict(for_email)['name'], dict(for_email))
+
                 return HttpResponseRedirect(reverse('cms.views.details', kwargs={'slug': ''}))
             else:
                 return HttpResponseRedirect(
