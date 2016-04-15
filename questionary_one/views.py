@@ -34,11 +34,12 @@ def send_survey_email(info):
     msg.attach_alternative(html_content, "text/html")
     msg.send()
 
+
 def send_customer_email(customer_email, customer_name, info):
     d = Context({'username': customer_name, 'dict': info})
 
     plaintext = get_template('email.txt')
-    htmly = get_template('survey_main.html')
+    htmly = get_template('survey_main_one.html')
 
     subject = 'Request for an Open edX services from %s %s' % (customer_name.capitalize(),
                                                             info['surname'].capitalize())
@@ -97,7 +98,7 @@ def survey_view(request, step=1):
                 for_email = []
                 for attribute in survey.eav.get_all_attributes():
                     for_email.append((attribute.slug, getattr(survey.eav, attribute.slug)))
-                    if attribute.datatype == 'e-mail':
+                    if attribute.datatype == 'email':
                         customer_email = getattr(survey.eav, attribute.slug)
                 try:
                     send_survey_email(dict(for_email))
