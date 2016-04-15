@@ -22,7 +22,7 @@ def send_survey_email(info):
     #from_mail = form_data['mail']
 
     #response to email sending
-    htmly = get_template('survey_email.html')
+    htmly = get_template('survey_email_one.html')
 
     d = Context({'dict':info})
 
@@ -34,14 +34,13 @@ def send_survey_email(info):
     msg.attach_alternative(html_content, "text/html")
     msg.send()
 
-
 def send_customer_email(customer_email, customer_name, info):
     d = Context({'username': customer_name, 'dict': info})
 
     plaintext = get_template('email.txt')
     htmly = get_template('survey_main.html')
 
-    subject = 'Request for an Open edX services from %s' % (customer_name.capitalize(),
+    subject = 'Request for an Open edX services from %s %s' % (customer_name.capitalize(),
                                                             info['surname'].capitalize())
     from_email = 'info@raccoongang.com'
 
