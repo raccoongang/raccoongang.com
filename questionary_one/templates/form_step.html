@@ -12,8 +12,9 @@
     <div class="container">
         <div class="row">
             <div class="quiz-header">
-                <h1>Please, take some time to complete our ​survey</h1>
-                <p>It will give us a brief story of your needs and make future conversation much easier, happier and more constructive.</p>
+                <h1>Песочница имеет ограниченный функционал и не предусмотрена для полноценного проведения онлайн курсов.</h1>
+                <p>Для того, чтобы перенести курсы на платформу <a href="https://university.raccoongang.com/" target="_blank">Raccoon University</a>,
+                    запустить платные онлайн курсы, включить сертификаты или получить ответы на ваши вопросы, заполните пожалуйста форму.</p>
                 <ul class="quiz-steps">
                     {% for step in all_steps %}
                         <li class="{% if form_step.order == forloop.counter %}active{% elif form_step.order > forloop.counter %}done{% endif %}" style="width: {{ step_width }}%">
