@@ -114,7 +114,7 @@ def survey_view(request, step=1):
                             }))
     else:
         form = SurveyForm(instance=survey, form_step=form_step)
-    return render(request, 'form_step.html',
+    return render(request, 'form_step_one.html',
                   {
                       'all_steps':all_steps,
                       'form_step': form_step,
