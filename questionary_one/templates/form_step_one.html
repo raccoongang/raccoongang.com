@@ -74,6 +74,12 @@
         <script src="{{ STATIC_URL }}js/quiz.js"></script>
         <script type="text/javascript">
             $(document).ready(function () {
+                var lang = navigator.language;
+                var russian = ['ru-mo', 'ru', 'uk'];
+                if (!$.inArray(lang, russian)){
+                    $('.quiz-header h1').html('some english text');
+                    $('.quiz-header p').html('some english text');
+                }
                 $('.btn-next').click(function () {
                     sendForm({{ form_step.order }}+1);
                     return false;
