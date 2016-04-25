@@ -10,7 +10,7 @@
     {% if image and post.main_image %}
     <div class="blog-visual">
         {% thumbnail post.main_image post.thumbnail_options.size crop=post.thumbnail_options.crop upscale=post.thumbnail_options.upscale subject_location=post.main_image.subject_location as thumb %}
-        <img src="{{ thumb.url }}" alt="{{ post.main_image.default_alt_text }}" width="{{ thumb.width }}" height="{{ thumb.height }}" />
+      <a href="{{ post.get_absolute_url }}"><img src="{{ thumb.url }}" alt="{{ post.main_image.default_alt_text }}" width="{{ thumb.width }}" height="{{ thumb.height }}" /></a>
     </div>
     {% endif %}
             {% block blog_meta %}
