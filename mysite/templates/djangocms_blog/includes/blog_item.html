@@ -1,6 +1,6 @@
 {% load i18n thumbnail cms_tags %}
 
-<article id="post-{{ post.slug }}" class="post-item">
+<article class="post-item">
     <header>
         <h1><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h1>
         <hr>
@@ -17,7 +17,7 @@
             {% include "djangocms_blog/includes/blog_meta.html" %}
         {% endblock %}
         <hr>
-    <div class="lead">
+    <div class="lead" id="post-{{ post.slug }}" >
         {% render_model post "post_text" "" "" '' %}
     </div>
 
@@ -49,9 +49,9 @@
        fjs.parentNode.insertBefore(js,fjs);
        }
    }(document, 'script', 'twitter-wjs');
-
+    var font_size = 22;
    $('#post-{{ post.slug }}').readmore({
-       collapsedHeight: 630,
+       collapsedHeight: font_size*8,
        moreLink: '<a class="btn_for_blog" href="#" style="width:150px;">more info&nbsp;&nbsp;<img src="/media/img/arrow.png" height="7" width="20px" alt=""></a>',
        lessLink: '<a class="btn_for_blog" href="#" style="width:150px;"><img src="/media/img/arrow_back.png" height="7" width="20px" alt="">&nbsp;&nbsp;less info</a>'
    });
