@@ -243,7 +243,7 @@ THUMBNAIL_PROCESSORS = (
 
 # Blog settings
 
-BLOG_PAGINATION = 4
+BLOG_PAGINATION = 5
 BLOG_USE_PLACEHOLDER = False
 BLOG_USE_ABSTRACT = False
 BLOG_ENABLE_COMMENTS = True
@@ -290,4 +290,3 @@ try:
     from local_settings import *
 except ImportError:
     print ('Local settings import error')
-
