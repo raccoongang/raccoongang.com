@@ -69,8 +69,6 @@
     </div>
     </div>
     <script>
-    The Sandbox has limited functionality and is not available for a full online courses.
-In order to move your courses to the Raccoon University platform, run paid online courses, include certificates, or get answers to your questions, please fill in the form below.
         var lang = navigator.language;
         var russian = ['ru-mo', 'ru', 'uk', 'ru-RU'];
         var english_h1 = 'The Sandbox has limited functionality and is not available for a full online courses.';
@@ -90,10 +88,8 @@ In order to move your courses to the Raccoon University platform, run paid onlin
         else {
             $('.quiz-header > h1').html(russian_h1);
             $('.quiz-header  p span').html(russian_p);
-{#            $('label[for="id_name"]').html('Имя');#}
-{#            $('label[for="id_surname"]').html('Фамилия');#}
-
-
+            $('label[for="id_name"]').html('Имя');
+            $('label[for="id_surname"]').html('Фамилия');
         }
     </script>
     {% addtoblock "js" %}
