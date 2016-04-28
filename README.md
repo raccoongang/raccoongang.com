@@ -1,13 +1,18 @@
 # raccoongang.com
 Raccoon Gang corporate site
 
-To make syncdb from scratch you have to comment
+Clone project form GitHub:
 
-    url(r'^sitemap\.xml$', 'django.contrib.sitemaps.views.sitemap'),
+    git clone https://github.com/raccoongang/raccoongang.com.git
 
-and
+Install dependencies
 
+    pip install -r requirements.txt
 
-    url(r'^', include('cms.urls')),
+Make migrations
 
-in urls.py, make migration and uncomment them after that.
+    python manage.py migrate
+
+Start site
+
+    python manage.py
