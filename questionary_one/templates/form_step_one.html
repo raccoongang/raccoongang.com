@@ -69,14 +69,18 @@
     </div>
     </div>
     <script>
+    The Sandbox has limited functionality and is not available for a full online courses.
+In order to move your courses to the Raccoon University platform, run paid online courses, include certificates, or get answers to your questions, please fill in the form below.
         var lang = navigator.language;
         var russian = ['ru-mo', 'ru', 'uk', 'ru-RU'];
+        var english_h1 = 'The Sandbox has limited functionality and is not available for a full online courses.';
+        var english_p = 'In order to move your courses to the <a href="https://university.raccoongang.com/" target="_blank">Raccoon University platform</a> , run paid online courses, include certificates, or get answers to your questions, please fill in the form below.';
         var russian_h1 = 'Песочница имеет ограниченный функционал и не предусмотрена для полноценного проведения онлайн курсов.';
         var russian_p = 'Для того, чтобы перенести курсы на платформу <a href="https://university.raccoongang.com/" target="_blank">Raccoon University</a> запустить платные онлайн курсы, включить сертификаты или получить ответы на ваши вопросы, заполните пожалуйста форму.';
         console.log(lang);
         if ($.inArray(lang, russian) == -1){
-            $('.quiz-header > h1').html('some english text');
-            $('.quiz-header p span').html('some english text');
+            $('.quiz-header > h1').html(english_h1);
+            $('.quiz-header p span').html(english_p);
             $('label[for="id_name"]').html('First name');
             $('label[for="id_surname"]').html('Last name');
             $('label[for="id_course_id"]').html('Course id');
