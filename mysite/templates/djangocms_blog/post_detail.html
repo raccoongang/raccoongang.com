@@ -8,13 +8,24 @@
 
 {% block content_blog %}{% spaceless %}
 <div id="fb-root"></div>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.5&appId=255230447851555";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '1763261790626738',
+      xfbml      : true,
+      version    : 'v2.6'
+    });
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
+
 <article class="post-item post-detail">
     <header>
         <h2>{% render_model post "title" %}</h2>
@@ -46,7 +57,7 @@
     </a>
 </span>
 <span>
-    <div class="fb-share-button" data-href="{{ post.get_absolute_url }}" data-layout="button"></div>
+    <div class="fb-share-button" data-href="{{ post.get_absolute_url }}" data-layout="button_count"></div>
 </span>
 {#    <span>#}
 {#        <script type="IN/Share" data-url="{{ post.get_absolute_url }}"></script>#}

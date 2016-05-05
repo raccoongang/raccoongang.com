@@ -6,13 +6,23 @@
 {% block content_blog %}
     <script src="/media/js/readmore.min.js"></script>
     <div id="fb-root"></div>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.5&appId=255230447851555";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
+    <script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '1763261790626738',
+      xfbml      : true,
+      version    : 'v2.6'
+    });
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
 <section class="blog-list">
     {% for post in post_list %}
         {% include "djangocms_blog/includes/blog_item.html" with post=post image="true" TRUNCWORDS_COUNT=TRUNCWORDS_COUNT %}
