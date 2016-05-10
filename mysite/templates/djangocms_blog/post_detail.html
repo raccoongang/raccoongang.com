@@ -29,8 +29,21 @@
 <article class="post-item post-detail">
     <header>
         <h2>{% render_model post "title" %}</h2>
-
     </header>
+    <div class="social_div">
+        <span>
+            <a href="https://twitter.com/share" class="twitter-share-button"
+                                                data-url="{{ request.get_host }}{{ post.get_absolute_url }}"
+                                                data-text="{{ post.title }} {{ request.get_host }}{{ post.get_absolute_url }}"
+                                                data-via="RaccoonGangCom">
+                Tweet
+            </a>
+        </span>
+            <span>
+            <div class="fb-share-button" data-href="{{ post.get_absolute_url }}" data-layout="button_count"></div>
+        </span>
+    </div>
+
     {% if post.main_image_id %}
     <div class="blog-visual">
         {% thumbnail post.main_image post.full_image_options.size crop=post.full_image_options.crop upscale=post.full_image_options.upscale subject_location=post.main_image.subject_location  as thumb %}
