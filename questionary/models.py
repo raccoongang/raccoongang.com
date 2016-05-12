@@ -52,10 +52,13 @@ class Survey(models.Model):
     edx_project = models.ForeignKey(EdxProject)
     is_draft = models.BooleanField(default=True)
     logo = models.ImageField(upload_to='images',blank=True)
+    timestamp = models.DateTimeField(auto_now_add=True, blank=True, null=True)
 
     def __unicode__(self):
-        return u"Survey for %s" % self.edx_project.name
-
+        if self.timestamp:
+            return u"Survey for %s from %s" % (self.edx_project.name, self.timestamp.date())
+        else:
+            return u"Survey for %s" % self.edx_project.name
 
 eav.register(Survey)
 pre_save.disconnect(eav.models.Entity.pre_save_handler, sender=Survey)

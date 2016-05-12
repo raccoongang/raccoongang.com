@@ -49,7 +49,7 @@ class EdxProject(models.Model):
 class Survey(models.Model):
     edx_project = models.ForeignKey(EdxProject)
     is_draft = models.BooleanField(default=True)
-    logo = models.ImageField(upload_to='images',blank=True)
+    logo = models.ImageField(upload_to='images', blank=True)
 
     def __unicode__(self):
         return u"Survey for %s" % self.edx_project.name
