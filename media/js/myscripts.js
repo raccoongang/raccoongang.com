@@ -3,7 +3,6 @@
  */
 
 $('#send_form_submit').on('click', function (){
-            console.log($('#send_form').serialize());
             ga('send', 'event', 'Contact Us', 'click', 1);
             $.ajax({
                 type: 'POST',
@@ -20,7 +19,6 @@ $('#send_form_submit').on('click', function (){
                         $('#message').css("border","1px solid black");
                         $('#finalMessage').text(data['notification']);
                         $("#success").show().fadeOut(5000);
-    //                    $("#success").hide();
                         }
                     else {
                         $('#name').css("border","1px solid black");
@@ -29,11 +27,7 @@ $('#send_form_submit').on('click', function (){
                         $('#name').css("border","2px solid "+data['errors']['name']);
                         $('#mail').css("border","2px solid "+data['errors']['mail']);
                         $('#message').css("border","2px solid "+data['errors']['message']);
-//                        $('#finalMessage').text(data['notification']);
-//                        $("#success").show().fadeOut(5000);
                         }
                 }
 	        })
 	    });
-
-

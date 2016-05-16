@@ -3,6 +3,10 @@
    margin-bottom: 15px;
 }
 
+article + .social_div{
+	margin-top: -20px;
+}
+
 /* This gets Facebook to fall into place */
 .social_div iframe {
 	vertical-align: middle;

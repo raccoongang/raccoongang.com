@@ -17,8 +17,13 @@
             {% include "djangocms_blog/includes/blog_meta.html" %}
         {% endblock %}
         <hr>
-    <div class="lead" id="post-{{ post.slug }}" >
+    <div class="lead" id="post-{{ post.slug }}-short" >
+        {% render_model post "post_text" "" "" 'truncatewords_html:TRUNCWORDS_COUNT' %}
+        <a class="btn_for_blog" href="#" style="width:150px;">more info&nbsp;&nbsp;<img src="/media/img/arrow.png" height="7" width="20px" alt=""></a>
+    </div>
+    <div class="lead" id="post-{{ post.slug }}-full" style="display:None">
         {% render_model post "post_text" "" "" '' %}
+        <a class="btn_for_blog" href="#" style="width:150px;"><img src="/media/img/arrow_back.png" height="7" width="20px" alt="">&nbsp;&nbsp;less info</a>
     </div>
 
 </article>
@@ -34,7 +39,8 @@
         </a>
 	</span>
 	<span>
-        <div class="fb-share-button" data-href="{{ post.get_absolute_url }}" data-layout="button_count" data-mobile-iframe="true"></div>
+        <div class="fb-share-button" data-href="{{ post.get_absolute_url }}"
+             data-layout="button_count" data-mobile-iframe="true"></div>
 	</span>
 {#    <span>#}
 {#        <script type="IN/Share" data-url="{{ post.get_absolute_url }}"></script>#}
@@ -49,11 +55,17 @@
        fjs.parentNode.insertBefore(js,fjs);
        }
    }(document, 'script', 'twitter-wjs');
-    var font_size = 22;
-   $('#post-{{ post.slug }}').readmore({
-       collapsedHeight: font_size*8,
-       moreLink: '<a class="btn_for_blog" href="#" style="width:150px;">more info&nbsp;&nbsp;<img src="/media/img/arrow.png" height="7" width="20px" alt=""></a>',
-       lessLink: '<a class="btn_for_blog" href="#" style="width:150px;"><img src="/media/img/arrow_back.png" height="7" width="20px" alt="">&nbsp;&nbsp;less info</a>'
+   $('#post-{{ post.slug }}-short .btn_for_blog').click(function (e) {
+       e.preventDefault();
+        console.log('full length');
+       $('#post-{{ post.slug }}-short').hide();
+       $('#post-{{ post.slug }}-full').show();
+   });
+   $('#post-{{ post.slug }}-full .btn_for_blog').click(function (e) {
+       e.preventDefault();
+        console.log('short length');
+       $('#post-{{ post.slug }}-short').show();
+       $('#post-{{ post.slug }}-full').hide();
    });
 </script>
 
