@@ -27,7 +27,7 @@ def send_survey_email(info):
     d = Context({'dict':info})
 
     html_content = htmly.render(d)
-    from_email = 'survey@raccoongang.com'
+    from_email = '%s %s <%s>'%(info['name'], info['surname'], info['email'])
 
     msg = EmailMultiAlternatives(subject=subject, from_email=from_email,
                                      to=recipient_list)

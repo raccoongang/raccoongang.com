@@ -20,18 +20,15 @@ def send_survey_email(info):
     # recipient_list = ['i.batozskiy@gmail.com']
     subject = 'Survey from %s' % info['organization']
 
-    #from_mail = form_data['mail']
-
     #response to email sending
     htmly = get_template('survey_email.html')
 
-    d = Context({'dict':info})
+    d = Context({'dict': info})
 
     html_content = htmly.render(d)
-    from_email = 'survey@raccoongang.com'
+    from_email = '%s %s <%s>'%(info['first_name'], info['second_name'], info['email'])
 
-    msg = EmailMultiAlternatives(subject=subject, from_email=from_email,
-                                     to=recipient_list)
+    msg = EmailMultiAlternatives(subject=subject, from_email=from_email, to=recipient_list)
     msg.attach_alternative(html_content, "text/html")
     msg.send()
 
