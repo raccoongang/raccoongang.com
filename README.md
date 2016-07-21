@@ -12,6 +12,13 @@ Install dependencies
 Make migrations
 
     python manage.py migrate
+    
+Remove djangocms-blog additional menu
+
+go to *<virtualenv dir>/lib/python2.7/site-packages/djangocms_blog/cms_app.py*
+and comment or remove string 
+
+    menus = [BlogCategoryMenu]
 
 Start site
 
