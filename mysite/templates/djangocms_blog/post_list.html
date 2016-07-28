@@ -38,9 +38,16 @@
     <div class="{% firstof css_grid instance.css_grid %} col-md-6 col-md-offset-4" >
         <ul class="pagination ">
         {% if page_obj.has_previous %}
+            {% if page_obj.number == 2 %}
+            <li>
+             <a href="/blog/" aria-label="Previous">&laquo; {% trans "Previous" %}</a>
+            </li>
+            {% else %}
             <li>
              <a href="?{{ view.page_kwarg }}={{ page_obj.previous_page_number }}" aria-label="Previous">&laquo; {% trans "Previous" %}</a>
             </li>
+            {% endif %}
+
             {% else %}
             <li class="disabled">
                <a href="#"  aria-label="Previous"> &laquo; {% trans "Previous" %} </a>
