@@ -11,7 +11,7 @@ from django.views.generic import TemplateView
 
 admin.autodiscover()
 
-urlpatterns = i18n_patterns('',
+urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),  # NOQA
     url(r'^sitemap\.xml$', 'django.contrib.sitemaps.views.sitemap',
         {'sitemaps': {'cmspages': CMSSitemap}}),
