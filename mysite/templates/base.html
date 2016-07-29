@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <link rel="stylesheet" href="/media/css/bootstrap.min.css">
     <!--<link rel="stylesheet" href="/media/css/bootstrap-theme.min.css">-->
-
+    {% block blog_rel %}{% endblock blog_rel %}
     <link href='https://fonts.googleapis.com/css?family=Khula:400,300,100,700, 600' rel='stylesheet' type='text/css'>
     <!-- <link rel="stylesheet" href="/media/css/style.css"> -->
     <link rel="icon" type="image/png" href="/media/img/favicon.png" height="13px" width="16px"/>
@@ -52,9 +52,28 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </div>
 {% block content %}{% endblock content %}
     <footer>
+
         <div class="wrapper-footer">
             <div class="media-area-footer-bottom">
-                <a href="mailto:info@raccoongang.com" class="footer_info">info@raccoongang.com</a>
+              <!--  <div itemscope itemtype="http://schema.org/LocalBusiness">
+                    <span itemprop="name">Raccoon Gang</span>
+                </div>
+                <div itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+                    <span itemprop="addressCountry">Estonia</span>
+                    <span itemprop="addressLocality">Tallinn</span>,
+                    <span itemprop="streetAddress">Pae tn 21</span>
+                    <span itemprop="postalCode">11415</span>
+                </div>
+                <div>
+                    <span itemprop="telephone">+1 857 4533328</span>,
+                </div>
+<!--Электронная почта: <span itemprop="email">info@raccoongang.com</span>-->
+                <!--<div>
+                    <time itemprop="openingHours" datetime="Mo-Fr 09:00−18:00">Mo-Fr 09:00−18:00</time>
+                </div>-->
+                <div>
+                    <a href="mailto:info@raccoongang.com" class="footer_info">info@raccoongang.com</a>
+                </div>
            <div class="social">
              <a href="https://www.facebook.com/raccoongangco" class="ic-fb" target="_blank"></a>
              <a href="https://twitter.com/raccoongangcom" class="ic-tw" target="_blank"></a>
@@ -62,7 +81,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
          <!--      <a href="#" class="ic-g"></a>
              <a href="#" class="ic-ins"></a>
              <a href="https://github.com/raccoongang" class="ic-gh"></a>-->
-          </div>
+           </div>
            <p class="footer_name" id="year"></p>
           </div>
           </div>
