@@ -8,41 +8,17 @@
     <meta name="description" content="{% page_attribute meta_description %}"/>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <link rel="stylesheet" href="/media/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/media/css/bootstrap-theme.min.css">
-
+    <!--<link rel="stylesheet" href="/media/css/bootstrap-theme.min.css">-->
+    {% block blog_rel %}{% endblock blog_rel %}
     <link href='https://fonts.googleapis.com/css?family=Khula:400,300,100,700, 600' rel='stylesheet' type='text/css'>
     <!-- <link rel="stylesheet" href="/media/css/style.css"> -->
     <link rel="icon" type="image/png" href="/media/img/favicon.png" height="13px" width="16px"/>
 
     {% render_block "css" %}
-    <link rel="stylesheet" href="/media/css/footer.css">
-    <link rel="stylesheet" href="/media/css/main.css">
-    <link rel="stylesheet" href="/media/css/menu.css">
-    <link rel="stylesheet" href="/media/css/table.css">
-    <link rel="stylesheet" href="/media/css/fonts.css">
-    <link rel="stylesheet" href="/media/css/all.css">
-    <link rel="stylesheet" href="/media/css/social.css">
-    <link rel="stylesheet" href="/media/css/testinonials.css">
 
-    <script type="text/javascript">
-        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-60134517-1', 'auto');  // Replace with your property ID.
-        ga('send', 'pageview');
-    </script>
+    <link rel="stylesheet" href="/media/css/all_styles.min.css">
     <!-- BEGIN JIVOSITE CODE {literal} -->
-    <script type='text/javascript'>
-    (function(){ var widget_id = 'IV9JgYurk3';
-        var s = document.createElement('script');
-        s.type = 'text/javascript';
-        s.async = true;
-        s.src = '//code.jivosite.com/script/widget/'+widget_id;
-        var ss = document.getElementsByTagName('script')[0];
-        ss.parentNode.insertBefore(s, ss);})();
-    </script>
+    <script src=/media/js/base_head.js ></script>
     <!-- {/literal} END JIVOSITE CODE -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js"></script>
@@ -52,11 +28,7 @@
 <!-- Google Tag Manager -->
 <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-XXXX"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-PM3LMX');</script>
+
 <!-- End Google Tag Manager -->
 {% cms_toolbar %}
 <div class="nav_wrapper">
@@ -73,16 +45,35 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
          <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav">
-                    {% show_menu 0 100 100 100 "menu.html" %}
+                   {% show_menu 0 100 100 100 "menu.html" %}
                 </ul>
          </div>
     </nav>
 </div>
 {% block content %}{% endblock content %}
     <footer>
+
         <div class="wrapper-footer">
             <div class="media-area-footer-bottom">
-                <a href="mailto:info@raccoongang.com" class="footer_info">info@raccoongang.com</a>
+              <!--  <div itemscope itemtype="http://schema.org/LocalBusiness">
+                    <span itemprop="name">Raccoon Gang</span>
+                </div>
+                <div itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+                    <span itemprop="addressCountry">Estonia</span>
+                    <span itemprop="addressLocality">Tallinn</span>,
+                    <span itemprop="streetAddress">Pae tn 21</span>
+                    <span itemprop="postalCode">11415</span>
+                </div>
+                <div>
+                    <span itemprop="telephone">+1 857 4533328</span>,
+                </div>
+<!--Электронная почта: <span itemprop="email">info@raccoongang.com</span>-->
+                <!--<div>
+                    <time itemprop="openingHours" datetime="Mo-Fr 09:00−18:00">Mo-Fr 09:00−18:00</time>
+                </div>-->
+                <div>
+                    <a href="mailto:info@raccoongang.com" class="footer_info">info@raccoongang.com</a>
+                </div>
            <div class="social">
              <a href="https://www.facebook.com/raccoongangco" class="ic-fb" target="_blank"></a>
              <a href="https://twitter.com/raccoongangcom" class="ic-tw" target="_blank"></a>
@@ -90,8 +81,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
          <!--      <a href="#" class="ic-g"></a>
              <a href="#" class="ic-ins"></a>
              <a href="https://github.com/raccoongang" class="ic-gh"></a>-->
-          </div>
-           <h1 class="footer_name" id="year"></h1>
+           </div>
+           <p class="footer_name" id="year"></p>
           </div>
           </div>
         </div>
@@ -99,12 +90,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
     </footer>
 
+<script src=/media/js/base_body.js ></script>
 <script>
-$("#year").html('&copy; RACCOON GANG '+new Date().getFullYear() );
-if ($(".breadcrumb").children().length > 1) {
-    $(".breadcrumb").show();
-}
-
 $(document).ready(function(){
 {% if messages %}
     {% for message in messages %}

@@ -1,5 +1,28 @@
 {% extends CMS_TEMPLATE %}
 
+{% block title %}
+    Blog
+    {% if is_paginated %}
+        {% if page_obj.number != 1 %}
+            Page {{ page_obj.number }}
+        {% endif %}
+    {% endif %}
+{% endblock title %}
+
+{% block blog_rel %}
+    {% if is_paginated %}
+        {% if page_obj.has_previous %}
+            {% if page_obj.number == 2 %}
+                <link rel="prev" href="/blog/">
+            {% else %}
+                <link rel="prev" href="/blog/?{{ view.page_kwarg }}={{ page_obj.previous_page_number }}">
+            {% endif %}
+        {% endif %}
+        {% if page_obj.has_next %}
+            <link rel="next" href="/blog/?{{ view.page_kwarg }}={{ page_obj.next_page_number }}">
+        {% endif %}
+    {% endif %}
+{% endblock blog_rel %}
 
 {% block content %}
     <div class="top-div-padding"></div>
