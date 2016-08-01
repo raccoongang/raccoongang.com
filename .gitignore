@@ -69,5 +69,3 @@ filer_public_thumbnails/
 filer_public/
 static/
 *.db
-
-mysite/settings.py
