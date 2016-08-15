@@ -17,6 +17,8 @@
     {% render_block "css" %}
 
     <link rel="stylesheet" href="/media/css/all_styles.min.css">
+    <link rel="stylesheet" href="/media/css/thanks_page.css">
+    <link rel="stylesheet" href="/media/css/footer.css">
     <!-- BEGIN JIVOSITE CODE {literal} -->
     <script src=/media/js/base_head.js ></script>
     <!-- {/literal} END JIVOSITE CODE -->
@@ -50,30 +52,32 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
          </div>
     </nav>
 </div>
-{% block content %}{% endblock content %}
-    <footer>
 
+{% block content %}{% endblock content %}
+
+
+
+    <footer>
         <div class="wrapper-footer">
             <div class="media-area-footer-bottom">
-              <!--  <div itemscope itemtype="http://schema.org/LocalBusiness">
-                    <span itemprop="name">Raccoon Gang</span>
-                </div>
-                <div itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
-                    <span itemprop="addressCountry">Estonia</span>
-                    <span itemprop="addressLocality">Tallinn</span>,
-                    <span itemprop="streetAddress">Pae tn 21</span>
-                    <span itemprop="postalCode">11415</span>
-                </div>
-                <div>
-                    <span itemprop="telephone">+1 857 4533328</span>,
-                </div>
-<!--Электронная почта: <span itemprop="email">info@raccoongang.com</span>-->
-                <!--<div>
-                    <time itemprop="openingHours" datetime="Mo-Fr 09:00−18:00">Mo-Fr 09:00−18:00</time>
-                </div>-->
-                <div>
-                    <a href="mailto:info@raccoongang.com" class="footer_info">info@raccoongang.com</a>
-                </div>
+                                {% show_breadcrumb 0 "menu/breadcrumb.html" 0 %}
+              <div class = "footer-address-area" itemscope itemtype="http://schema.org/LocalBusiness">
+
+                  <div itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+                      <span itemprop="name">Raccoon Gang</span>
+                        <span class="inline" itemprop="postalCode">11415</span>
+                        <span class="inline" itemprop="addressCountry">Estonia</span>
+                        <span class="inline" itemprop="addressLocality">Tallinn</span>
+                        <span class="inline" itemprop="streetAddress">Pae tn 21</span>
+                      <span itemprop="telephone">+1 857 4533328</span>
+                <span itemprop="email">
+                  <a href="mailto:info@raccoongang.com" class="footer_info">info@raccoongang.com</a>
+                </span>
+                  </div>
+
+              </div>
+
+
            <div class="social">
              <a href="https://www.facebook.com/raccoongangco" class="ic-fb" target="_blank"></a>
              <a href="https://twitter.com/raccoongangcom" class="ic-tw" target="_blank"></a>

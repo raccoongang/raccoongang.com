@@ -40,7 +40,7 @@
         {% if page_obj.has_previous %}
             {% if page_obj.number == 2 %}
             <li>
-             <a href="/blog/" aria-label="Previous">&laquo; {% trans "Previous" %}</a>
+             <a href="{% url "djangocms_blog:posts-latest" %}" aria-label="Previous">&laquo; {% trans "Previous" %}</a>
             </li>
             {% else %}
             <li>
