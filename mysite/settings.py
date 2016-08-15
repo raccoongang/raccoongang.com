@@ -37,7 +37,7 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 # Internationalization
 # https://docs.djangoproject.com/en/1.7/topics/i18n/
 
-LANGUAGE_CODE = 'ru'
+LANGUAGE_CODE = 'en'
 
 TIME_ZONE = 'Europe/Kiev'
 
@@ -106,7 +106,7 @@ MIDDLEWARE_CLASSES = (
     'cms.middleware.user.CurrentUserMiddleware',
     'cms.middleware.page.CurrentPageMiddleware',
     'cms.middleware.toolbar.ToolbarMiddleware',
-    'cms.middleware.language.LanguageCookieMiddleware'
+    # 'cms.middleware.language.LanguageCookieMiddleware',
 )
 
 INSTALLED_APPS = (
@@ -161,41 +161,42 @@ INSTALLED_APPS = (
     'questionary_one',
     'testinonials',
     'cmsplugin_twitter',
+
 )
 
 LANGUAGES = (
     ## Customize this
-    ('ru', gettext('ru')),
-    ('ua', gettext('ua')),
+    # ('ru', gettext('ru')),
+    # ('ua', gettext('ua')),
     ('en', gettext('en')),
 )
 
 CMS_LANGUAGES = {
     ## Customize this
     'default': {
-        'redirect_on_fallback': True,
+        'redirect_on_fallback': False,
         'public': True,
         'hide_untranslated': False,
     },
     1: [
-        {
-            'name': gettext('ru'),
-            'code': 'ru',
-            'redirect_on_fallback': True,
-            'public': True,
-            'hide_untranslated': False,
-        },
-        {
-            'name': gettext('ua'),
-            'code': 'ua',
-            'redirect_on_fallback': True,
-            'public': True,
-            'hide_untranslated': False,
-        },
+    #     {
+    #         'name': gettext('ru'),
+    #         'code': 'ru',
+    #         'redirect_on_fallback': True,
+    #         'public': True,
+    #         'hide_untranslated': False,
+    #     },
+    #     {
+    #         'name': gettext('ua'),
+    #         'code': 'ua',
+    #         'redirect_on_fallback': True,
+    #         'public': True,
+    #         'hide_untranslated': False,
+    #     },
         {
             'name': gettext('en'),
             'code': 'en',
-            'redirect_on_fallback': True,
+            'redirect_on_fallback': False,
             'public': True,
             'hide_untranslated': False,
         },
@@ -211,7 +212,9 @@ CMS_TEMPLATES = (
     ('contact_us.html', 'Contact us'),
     ('feature_bread.html', 'Page with Feature (breadcrumbs)'),
     ('team.html', 'Page for team'),
-    ('edx_services.html', 'For edX services')
+    ('edx_services.html', 'For edX services'),
+    ('thanks_page.html', 'Thanks')
+
 )
 
 CMS_TOOLBAR_SIMPLE_STRUCTURE_MODE = False
@@ -258,8 +261,8 @@ META_USE_SITES = True
 PARLER_LANGUAGES = {
     1: (
         {'code': 'en'},
-        {'code': 'ru'},
-        {'code': 'ua'},
+#         {'code': 'ru'},
+#         {'code': 'ua'},
     ),
 }
 # Ckeditor settinpgs
