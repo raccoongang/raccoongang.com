@@ -43,24 +43,31 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 </button>
 
                 <a class="navbar-brand" href="/"><img src="/media/img/logo.png"  height="90px"> </a>
+
          </div>
 
-         <div class="collapse navbar-collapse" id="myNavbar">
+        <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav">
                    {% show_menu 0 100 100 100 "menu.html" %}
                 </ul>
-         </div>
+        </div>
     </nav>
+
 </div>
 
+        {% block breadcrumb %}
+            <div class="top-div-padding"></div>
+            {% show_breadcrumb 0 "raccoon_breadcrumbs.html" 0 %}
+        {% endblock %}
+
 {% block content %}{% endblock content %}
+
 
 
 
     <footer>
         <div class="wrapper-footer">
             <div class="media-area-footer-bottom">
-                                {% show_breadcrumb 0 "menu/breadcrumb.html" 0 %}
               <div class = "footer-address-area" itemscope itemtype="http://schema.org/LocalBusiness">
 
                   <div itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">

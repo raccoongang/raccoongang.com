@@ -1,12 +1,11 @@
 {% extends "base.html" %}
-{% load cms_tags %}
+{% load cms_tags menu_tags %}
 
 {% block title %}{% page_attribute "page_title" %}{% endblock title %}
 
 {% block content %}
     <div class="background">
-    <div class="top-div-padding"></div>
-
+    <!--<div class="top-div-padding"></div>-->
 
     {% placeholder "img" %}
 
@@ -36,3 +35,4 @@
     </div>
 
 {% endblock content %}
+

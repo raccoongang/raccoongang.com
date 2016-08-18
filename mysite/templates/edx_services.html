@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load cms_tags sekizai_tags %}
+{% load cms_tags sekizai_tags menu_tags %}
 
 {% block title %}{% page_attribute "page_title" %}{% endblock title %}
 
@@ -9,7 +9,7 @@
 {% endaddtoblock %}
 
 {% block content %}
-    <div class="top-div-padding"></div>
+    <!--<div class="top-div-padding"></div>-->
 
     {% placeholder "gallery" %}
     <div class="main-content-block row">
@@ -79,3 +79,5 @@
     </div>
 </div>
 {% endblock content %}
+
+
