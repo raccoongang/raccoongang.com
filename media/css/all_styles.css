@@ -26,11 +26,11 @@
 
 @font-face {
     font-family: 'khulabold';
-    src: url('../khula-bold-webfont.eot');
-    src: url('../khula-bold-webfont.eot?#iefix') format('embedded-opentype'),
-         url('../khula-bold-webfont.woff2') format('woff2'),
-         url('../khula-bold-webfont.woff') format('woff'),
-         url('../khula-bold-webfont.ttf') format('truetype');
+    src: url('../fonts/khula-bold-webfont.eot');
+    src: url('../fonts/khula-bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/khula-bold-webfont.woff2') format('woff2'),
+         url('../fonts/khula-bold-webfont.woff') format('woff'),
+         url('../fonts/khula-bold-webfont.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 
@@ -41,11 +41,11 @@
 
 @font-face {
     font-family: 'khulalight';
-    src: url('../khula-light-webfont.eot');
-    src: url('../khula-light-webfont.eot?#iefix') format('embedded-opentype'),
-         url('../khula-light-webfont.woff2') format('woff2'),
-         url('../khula-light-webfont.woff') format('woff'),
-         url('../khula-light-webfont.ttf') format('truetype');
+    src: url('../fonts/khula-light-webfont.eot');
+    src: url('../fonts/khula-light-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/khula-light-webfont.woff2') format('woff2'),
+         url('../fonts/khula-light-webfont.woff') format('woff'),
+         url('../fonts/khula-light-webfont.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 
@@ -56,11 +56,11 @@
 
 @font-face {
     font-family: 'khularegular';
-    src: url('../khula-regular-webfont.eot');
-    src: url('../khula-regular-webfont.eot?#iefix') format('embedded-opentype'),
-         url('../khula-regular-webfont.woff2') format('woff2'),
-         url('../khula-regular-webfont.woff') format('woff'),
-         url('../khula-regular-webfont.ttf') format('truetype');
+    src: url('../fonts/khula-regular-webfont.eot');
+    src: url('../fonts/khula-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/khula-regular-webfont.woff2') format('woff2'),
+         url('../fonts/khula-regular-webfont.woff') format('woff'),
+         url('../fonts/khula-regular-webfont.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 
@@ -152,7 +152,7 @@
 /*! Gray v1.4.5 (https://github.com/karlhorky/gray) | MIT */
 .grayscale {
   /* Firefox 10-34 */
-  filter: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'><filter id='grayscale'><feColorMatrix type='saturate' values='0'/></filter></svg>#grayscale");
+/*  filter: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'><filter id='grayscale'><feColorMatrix type='saturate' values='0'/></filter></svg>#grayscale");*/
 
   /*
     Chrome 19+,
