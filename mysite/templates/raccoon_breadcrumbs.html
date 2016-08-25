@@ -1,9 +1,21 @@
-{% if not ancestors.1.get_parent_id  %}
+<div class="breadcumbs-tnx" itemscope itemtype="http://schema.org/BreadcrumbList">
 {% for ance in ancestors %}
-	{% if not forloop.last %}
-	<a href="{{ ance.get_absolute_url }}">{{ ance.get_menu_title }} </a> <span class="separator" >&raquo;</span>
-	{% else %}
-	<span class="active">{{ ance.get_menu_title }}</span>
-	{% endif %}
+    <div itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+    {% if not forloop.last or post.title %}
+        <a class="bredcumb-item" itemprop="item" href="{{ ance.get_absolute_url }}">
+            <span itemprop="name">{{ ance.get_menu_title }}</span></a>
+        <span class="separator" >&gt;</span>
+        <meta itemprop="position" content="{{ forloop.counter0 }}" />
+    </div>
+    {% else %}
+    <div>
+    {% if ance.title != "Home" %}
+        <span class="active">{{ ance.get_menu_title }}</span>
+    {% endif %}
+    </div>
+    {% endif %}
 {% endfor %}
+{% if post.title %}
+    <span class="active">{{ post.title }}</span>
 {% endif %}
+</div></div>

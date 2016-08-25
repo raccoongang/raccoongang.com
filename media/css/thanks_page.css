@@ -1,0 +1,85 @@
+
+.wrapper-tnx {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 100px 0 75px 0;
+}
+
+.badge-tnx {
+    max-width: 500px;
+    width: 100%;
+    box-shadow: 0px 11px 37px -5px rgba(0, 0, 0, 0.15);
+    background: #fff;
+}
+.badge-head-tnx {
+    width: 100%;
+    background: linear-gradient(to bottom, #75bb25 0%,#72bb25 31%,#ffffff 31%,#ffffff 100%);
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 40px;
+    min-height: 58px;
+}
+.badge-head-tnx:before {
+    /*content: "";*/
+    position: absolute;
+    top: 14px;
+    left: 50%;
+    width: 66px;
+    height: 66px;
+    transform: translateX(-50%) rotate(45deg);
+    background: #fff;
+
+}
+.badge-head-tnx .logo {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    z-index: 100;
+}
+.badge-head-tnx svg {
+    width: 38px;
+}
+.badge-body-tnx {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-bottom: 50px;
+}
+.badge-body-tnx .correct svg {
+    width: 28px;
+    margin-bottom: 11px;
+}
+.badge-body-tnx h1 {
+    margin: 0 0 20px 0;
+    font-size: 27px;
+}
+.badge-body-tnx p {
+    margin: 0 0 17px 0;
+}
+.badge-body-tnx .envelope svg {
+    height: 33px;
+    width: 27px;
+}
+
+.badge-footer-tnx {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 30px;
+    margin-bottom: 35px;
+}
+.badge-footer-tnx a {
+    text-decoration: none;
+    color: #72bb25;
+    border: 2px solid #72bb25;
+    text-transform: uppercase;
+    padding: 6px 12px;
+    letter-spacing: -0.5px;
+}
+.badge-footer-tnx a:hover {
+    background: #72bb25;
+    color: #fff;
+}

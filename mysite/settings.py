@@ -212,7 +212,9 @@ CMS_TEMPLATES = (
     ('contact_us.html', 'Contact us'),
     ('feature_bread.html', 'Page with Feature (breadcrumbs)'),
     ('team.html', 'Page for team'),
-    ('edx_services.html', 'For edX services')
+    ('edx_services.html', 'For edX services'),
+    ('thanks_page.html', 'Thanks')
+
 )
 
 CMS_TOOLBAR_SIMPLE_STRUCTURE_MODE = False

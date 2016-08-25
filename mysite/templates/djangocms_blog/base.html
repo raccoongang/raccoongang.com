@@ -13,19 +13,19 @@
     {% if is_paginated %}
         {% if page_obj.has_previous %}
             {% if page_obj.number == 2 %}
-                <link rel="prev" href="/blog/">
+                <link rel="prev" href="{% url "djangocms_blog:posts-latest" %}">
             {% else %}
-                <link rel="prev" href="/blog/?{{ view.page_kwarg }}={{ page_obj.previous_page_number }}">
+                <link rel="prev" href="{% url "djangocms_blog:posts-latest" %}?{{ view.page_kwarg }}={{ page_obj.previous_page_number }}">
             {% endif %}
         {% endif %}
         {% if page_obj.has_next %}
-            <link rel="next" href="/blog/?{{ view.page_kwarg }}={{ page_obj.next_page_number }}">
+            <link rel="next" href="{% url "djangocms_blog:posts-latest" %}?{{ view.page_kwarg }}={{ page_obj.next_page_number }}">
         {% endif %}
     {% endif %}
 {% endblock blog_rel %}
 
 {% block content %}
-    <div class="top-div-padding"></div>
+   <!-- <div class="top-div-padding"></div>-->
       <div class="background">
     <div class="container">
     <div class="row ">

@@ -26,10 +26,10 @@
 </head>
 <body>
 <!-- Google Tag Manager -->
-<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-XXXX"
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-PM3LMX"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-
 <!-- End Google Tag Manager -->
+
 {% cms_toolbar %}
 <div class="nav_wrapper">
     <nav class="navbar navbar-fixed-top navbar-default" role="navigation">
@@ -41,36 +41,63 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 </button>
 
                 <a class="navbar-brand" href="/"><img src="/media/img/logo.png"  height="90px"> </a>
+
          </div>
 
-         <div class="collapse navbar-collapse" id="myNavbar">
+        <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav">
                    {% show_menu 0 100 100 100 "menu.html" %}
                 </ul>
-         </div>
+        </div>
     </nav>
-</div>
-{% block content %}{% endblock content %}
-    <footer>
 
+</div>
+
+        {% block breadcrumb %}
+            <div class="top-div-padding"></div>
+            {% show_breadcrumb 0 "raccoon_breadcrumbs.html" 0 %}
+        {% endblock %}
+
+{% block content %}{% endblock content %}
+
+
+
+
+    <footer>
+{#        <div class="wrapper-footer">#}
+{#            <div class="media-area-footer-bottom">#}
+{#              <div class = "footer-address-area" itemscope itemtype="http://schema.org/LocalBusiness">#}
+{##}
+{#                  <div itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">#}
+{#                      <span itemprop="name">Raccoon Gang</span>#}
+{#                        <span class="inline" itemprop="postalCode">11415</span>#}
+{#                        <span class="inline" itemprop="addressCountry">Estonia</span>#}
+{#                        <span class="inline" itemprop="addressLocality">Tallinn</span>#}
+{#                        <span class="inline" itemprop="streetAddress">Pae tn 21</span>#}
+{#                      <span itemprop="telephone">+1 857 4533328</span>#}
+{#                <span itemprop="email">#}
+{#                  <a href="mailto:info@raccoongang.com" class="footer_info">info@raccoongang.com</a>#}
+{#                </span>#}
+{#                  </div>#}
+{##}
+{#              </div>#}
+{##}
+{##}
+{#           <div class="social">#}
+{#             <a href="https://www.facebook.com/raccoongangco" class="ic-fb" target="_blank"></a>#}
+{#             <a href="https://twitter.com/raccoongangcom" class="ic-tw" target="_blank"></a>#}
+{#             <a href="https://www.linkedin.com/company/raccoon-gang" class="ic-in" target="_blank"></a>#}
+{#         <!--      <a href="#" class="ic-g"></a>#}
+{#             <a href="#" class="ic-ins"></a>#}
+{#             <a href="https://github.com/raccoongang" class="ic-gh"></a>-->#}
+{#           </div>#}
+{#           <p class="footer_name" id="year"></p>#}
+{#          </div>#}
+{#          </div>#}
+{#        </div>#}
         <div class="wrapper-footer">
             <div class="media-area-footer-bottom">
-              <!--  <div itemscope itemtype="http://schema.org/LocalBusiness">
-                    <span itemprop="name">Raccoon Gang</span>
-                </div>
-                <div itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
-                    <span itemprop="addressCountry">Estonia</span>
-                    <span itemprop="addressLocality">Tallinn</span>,
-                    <span itemprop="streetAddress">Pae tn 21</span>
-                    <span itemprop="postalCode">11415</span>
-                </div>
-                <div>
-                    <span itemprop="telephone">+1 857 4533328</span>,
-                </div>
-<!--Электронная почта: <span itemprop="email">info@raccoongang.com</span>-->
-                <!--<div>
-                    <time itemprop="openingHours" datetime="Mo-Fr 09:00−18:00">Mo-Fr 09:00−18:00</time>
-                </div>-->
+
                 <div>
                     <a href="mailto:info@raccoongang.com" class="footer_info">info@raccoongang.com</a>
                 </div>
@@ -78,16 +105,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
              <a href="https://www.facebook.com/raccoongangco" class="ic-fb" target="_blank"></a>
              <a href="https://twitter.com/raccoongangcom" class="ic-tw" target="_blank"></a>
              <a href="https://www.linkedin.com/company/raccoon-gang" class="ic-in" target="_blank"></a>
-         <!--      <a href="#" class="ic-g"></a>
-             <a href="#" class="ic-ins"></a>
-             <a href="https://github.com/raccoongang" class="ic-gh"></a>-->
            </div>
            <p class="footer_name" id="year"></p>
           </div>
           </div>
         </div>
-        <b id="year"></b>
-
     </footer>
 
 <script src=/media/js/base_body.js ></script>
