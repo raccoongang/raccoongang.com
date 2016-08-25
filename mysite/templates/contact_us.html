@@ -1,15 +1,16 @@
 {% extends "base.html" %}
-{% load cms_tags %}
+{% load cms_tags sekizai_tags %}
 {% block title %}{% page_attribute "page_title" %}{% endblock title %}
 {% block content %}
+
 <div class="background">
     <section class="form-section">
         <div class="container mainpage-col-kos">
-                <div class="row contacts-header">
+                <!--<div class="row contacts-header">-->
                     <div class="col-xs-12">
                         <h1 сlass="title">Contact us</h1>
                     </div>
-                </div>
+                <!--</div>-->
             <div class="message-form row">
                     {% placeholder 'Contact us text' %}
                 <div class="col-md-3 sk-ml">
@@ -50,9 +51,11 @@
                                 </div>
                             </div>
                             <div class="submit-holder">
-                                <button type="button" id="send_form_submit" class="btnc pull-right">
-                                    Send message <img src="/media/img/arrow.png" width="35px" height="12px" class="arr">
-                                </button>
+                                <a href="{% page_url "thanks" %}" class="button">
+                                    <button type="button" id="send_form_submit" class="btnc pull-right">
+                                      Send message <img src="/media/img/arrow.png" width="35px" height="12px" class="arr">
+                                    </button>
+                                </a>
                             </div>
                             </div>
                         </fieldset>
@@ -62,5 +65,5 @@
         </div>
     </section>
 </div>
-<script src="/media/js/contact_form.js"></script>
+{#<script src="/media/js/contact_form.js"></script>#}
 {% endblock content %}

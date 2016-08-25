@@ -90,8 +90,8 @@ def survey_view(request, step=1):
             if go_to_step == -1:
                 form.instance.is_draft = False
                 form.instance.save()
-                messages.add_message(request, messages.INFO,
-                                 _("Thank you for choosing our company.| We will contact you within a business day."))
+                #messages.add_message(request, messages.INFO,
+                                 #_("Thank you for choosing our company.| We will contact you within a business day."))
                 survey = Survey.objects.get(edx_project=edx_project)
                 for_email = []
                 for attribute in survey.eav.get_all_attributes():
@@ -103,7 +103,7 @@ def survey_view(request, step=1):
                     send_customer_email(customer_email, dict(for_email)['first_name'], dict(for_email))
                 except Exception as e:
                     print e
-                return HttpResponseRedirect(reverse('cms.views.details', kwargs={'slug': ''}))
+                return HttpResponseRedirect(reverse('cms.views.details', kwargs={'slug': 'thanks'}))
             else:
                 return HttpResponseRedirect(
                     reverse('questionary', 'mysite.urls',

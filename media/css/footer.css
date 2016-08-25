@@ -80,3 +80,33 @@
 .media-area-footer-bottom > a{
     text-transform: none;
 }
+
+.footer-address-area {
+    position: absolute;
+    display: inline-block;
+    left: 10px;
+    top: 59%;
+    transform: translateY(-50%);
+    color: #222;
+}
+.wrapper-footer {
+    position: relative;
+    text-transform: none;
+}
+.footer-address-area span {
+    display: block;
+    line-height: 15px;
+}
+.footer-address-area .inline {
+    display: inline;
+}
+
+@media all and (max-width: 690px) {
+    .footer-address-area {
+        display: none;
+    }
+    .breadcumbs-tnx {
+        display: none;
+    }
+}
+
