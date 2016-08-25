@@ -244,6 +244,8 @@ THUMBNAIL_PROCESSORS = (
     'easy_thumbnails.processors.filters'
 )
 
+APPEND_SLASH = True
+
 # Blog settings
 
 BLOG_PAGINATION = 5
