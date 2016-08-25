@@ -5,7 +5,7 @@
         <a class="bredcumb-item" itemprop="item" href="{{ ance.get_absolute_url }}">
             <span itemprop="name">{{ ance.get_menu_title }}</span></a>
         <span class="separator" >&gt;</span>
-        <!--<meta itemprop="position" content="1" />-->
+        <meta itemprop="position" content="{{ forloop.counter0 }}" />
     </div>
     {% else %}
     <div>

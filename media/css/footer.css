@@ -80,7 +80,7 @@
 .media-area-footer-bottom > a{
     text-transform: none;
 }
-/*start here*/
+
 .footer-address-area {
     position: absolute;
     display: inline-block;
@@ -100,31 +100,6 @@
 .footer-address-area .inline {
     display: inline;
 }
-/*breadcrumbs*/
-.bredcumb-item {
-    color: #72BB25;
-}
-.breadcrumb-inline {
-    display: inline-block;
-}
-.breadcumbs-tnx {
-    display: flex;
-    max-width: 1170px;
-    margin: 0 auto;
-    margin-top: 6px;
-    font-size: 16px;
-
-}
-
-/*.navbar-fixed-top {*/
-    /*max-height: 111px;*/
-/*}*/
-/*.nav_wrapper {*/
-    /*height: 111px;*/
-/*}*/
-/*.top-div-padding {*/
-    /*height: 111px;*/
-/*}*/
 
 @media all and (max-width: 690px) {
     .footer-address-area {
