@@ -51,8 +51,8 @@
                                 </div>
                             </div>
                             <div class="submit-holder">
-                                  <a href="{% page_url "thanks" %}" class="button">
-                                    <button type="button" id="send_form_submit" class="btnc pull-right">
+                                  <a href="{% page_url "thanks" %}" class="button" id="send_form_submit">
+                                    <button type="button"  class="btnc pull-right">
                                       Send message <img src="/media/img/arrow.png" width="35px" height="12px" class="arr">
                                     </button>
                                 </a>
@@ -67,8 +67,6 @@
 </div>
 <script >
  $(document).on('click', '#send_form_submit', function (event){
-            event.preventDefault();
-            console.log('asdfsadfsadfasdfasdfasfd');
             $.ajax({
                 type: 'POST',
                 url: "{% url 'send_email:send_email' %}",
