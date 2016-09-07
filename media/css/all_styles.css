@@ -414,7 +414,12 @@ footer {
 
 
 .box-services {
-    padding: 60px 0 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 60px 0 0;
+    flex-wrap: wrap;
     background: #ECECEC;
 }
 
@@ -439,9 +444,6 @@ footer {
     list-style: none;
 }
 
-.box-services .col-md-4:nth-child(3n+1) {
-    clear: left;
-}
 
 .box-clients{
     padding: 60px 0 40px;
