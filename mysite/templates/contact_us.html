@@ -25,7 +25,7 @@
                             <p style="text-indent: -10px;"><a href="skype:Go.Raccoons?chat">Go.Raccoons</a></p>
                             <p style="text-indent: -10px;"><a href="mailto:info@raccoongang.com">info@raccoongang.com</a></p>
                             <p style="text-indent: -10px;"><span class="map">+1 857 4533328</span></p>
-                            <p style="text-indent: -10px;"><span class="map">Pae tn 21, Tallinn city, Harju country, Estonia 11415</span></p>
+                            <p style="text-indent: -10px;"><span class="map">9455 SW 106 ST<br>MIAMI, FL 33176</span></p>
 
                         </div>
                     </div>
@@ -51,11 +51,9 @@
                                 </div>
                             </div>
                             <div class="submit-holder">
-                                <a href="{% page_url "thanks" %}" class="button">
-                                    <button type="button" id="send_form_submit" class="btnc pull-right">
-                                      Send message <img src="/media/img/arrow.png" width="35px" height="12px" class="arr">
-                                    </button>
-                                </a>
+                                <button type="button"  class="btnc pull-right" id="send_form_submit">
+                                  Send message <img src="/media/img/arrow.png" width="35px" height="12px" class="arr">
+                                </button>
                             </div>
                             </div>
                         </fieldset>
@@ -65,5 +63,34 @@
         </div>
     </section>
 </div>
-<script src="/media/js/contact_form.js"></script>
+<script >
+ $(document).on('click', '#send_form_submit', function (event){
+            $.ajax({
+                type: 'POST',
+                url: "{% url 'send_email:send_email' %}",
+                data: $('#send_form').serialize(),
+                success: function(data){
+                    console.log(data);
+                    if (data['success']){
+                        $('#mail').val('');
+                        $('#name').val('');
+                        $('#message').val('');
+                        $('#mail').css("border","1px solid black");
+                        $('#name').css("border","1px solid black");
+                        $('#message').css("border","1px solid black");
+                        $('#finalMessage').text(data['notification']);
+                        window.location.href = "{% page_url "thanks" %}";
+                        }
+                    else {
+                        $('#name').css("border","1px solid black");
+                        $('#mail').css("border","1px solid black");
+                        $('#message').css("border","1px solid black");
+                        $('#name').css("border","2px solid "+data['errors']['name']);
+                        $('#mail').css("border","2px solid "+data['errors']['mail']);
+                        $('#message').css("border","2px solid "+data['errors']['message']);//
+                        }
+                }
+	        })
+	    });
+</script>
 {% endblock content %}

@@ -2,11 +2,10 @@
 from __future__ import print_function
 from cms.sitemaps import CMSSitemap
 from django.conf.urls import *  # NOQA
-from django.conf.urls.i18n import i18n_patterns
+from django.conf.urls import patterns
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.contrib import admin
 from django.conf import settings
-from django.views.defaults import page_not_found
 from django.views.generic import TemplateView
 
 admin.autodiscover()
