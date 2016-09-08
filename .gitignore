@@ -67,10 +67,11 @@ raccoonGang
 raccoonGang.pub
 project.db
 project.sql
+corpdump.sql
 local_settings.py
 images/
 media/uploads
 filer_public_thumbnails/
 filer_public/
-static
+static/*
 *.db
