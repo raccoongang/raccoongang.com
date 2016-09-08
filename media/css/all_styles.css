@@ -416,7 +416,7 @@ footer {
 .box-services {
     width: 100%;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
     margin: 20px 0 10px;
     flex-wrap: wrap;
