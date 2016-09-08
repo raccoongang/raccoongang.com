@@ -71,6 +71,7 @@ corpdump.sql
 local_settings.py
 images/
 media/uploads
+media/img/*
 filer_public_thumbnails/
 filer_public/
 static/*
