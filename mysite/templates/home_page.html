@@ -3,23 +3,40 @@
 
 {% block content %}
     {% placeholder "gallery" %}
-    <div class="main-content-block row testinonials-wrapper">
+    <div class="main-content-block row">
         <div class="container">
             <div class="col-xs-12">
             {% placeholder "content" %}
             </div>
         </div>
     </div>
+    <div class="box-services">
+        <div class="container">
+            {% placeholder "service" %}
+        </div>
+    </div>
+    <div class="main-content-block row">
+        <div class="container">
+            <div class="col-xs-12">
+                {% placeholder "text" %}
+            </div>
+        </div>
+    </div>
     <div class="box-clients">
         <div class="container">
-            <h2 class="title" align="center">Our clients</h2>
             {% placeholder "clients" %}
         </div>
     </div>
+
+
     {% placeholder "testinonials" %}
 
-    <div class="box-services">
-        {% placeholder "service" %}
+    <div class="main-content-block row">
+        <div class="container">
+            <div class="col-xs-12">
+                {% placeholder "text2" %}
+            </div>
+        </div>
     </div>
 
     <div class="box-contact">
