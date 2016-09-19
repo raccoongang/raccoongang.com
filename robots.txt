@@ -1,6 +1,6 @@
 User-Agent: *
-Allow: /media/css/
-Allow: /static/css/
+Allow: /
+Disallow: /admin
 
-Sitemap: https://raccoongang.com/en/sitemap.xml
+Sitemap: https://raccoongang.com/sitemap.xml
 host: https://raccoongang.com/
