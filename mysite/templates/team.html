@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load cms_tags sekizai_tags %}
+{% load staticfiles cms_tags sekizai_tags %}
 
 {% block title %}{% page_attribute "page_title" %}{% endblock title %}
 
@@ -10,14 +10,14 @@
     <div class="row ">
         <div class="container mainpage-col-kos">
             <div class="col-md-3 kryklia">
-                <img style="width:100%;" src="/media/img/kryklia.jpg"/>
+                <img style="width:100%;" src="{% static 'img/kryklia.jpg' %}"/>
                     <p><h4>ALEXANDER KRYKLIA</h4>
 <h5>R&amp;D expert</h5>
 Former lead of edX blades team. Worked in edX for more than two years.
 Except knowledge of Open edX platform/Python/JS has R&D background (PhD) which allows him to do really good course specific content. Alexander was core developer or supervised development of variety of edX problem types, including edX video player, chemical equation problem, conditional, poll, LTI, drag and drop, etc</p>
             </div>
             <div class="col-md-3">
-                <img style="width:100%;" src="/media/img/radchenko.jpg"/>
+                <img style="width:100%;" src="{% static 'img/radchenko.jpg' %}"/>
                 <p><h4>ALEXEY RADCHENKO</h4>
 <h5>Web development expert</h5>
 Aleksey has a lot of experience in web-development since 2003 year and since 2007 with python/django.
@@ -27,7 +27,7 @@ He participated in the development of some educational projects. Also he has a d
 </p>
             </div>
                         <div class="col-md-3">
-                            <img style="width:100%;" src="/media/img/movchan.jpg"/>
+                            <img style="width:100%;" src="{% static 'img/movchan.jpg' %}"/>
                             <p>
                                 <h4>SERGIY MOVCHAN</h4>
 <h5>Business development</h5>
@@ -38,7 +38,7 @@ Specialties: problem solving, negotiations, business analysis, leading software 
 
             </div>
                         <div class="col-md-3">
-                            <img style="width:100%;" src="/media/img/koblyakov.jpg"/>
+                            <img style="width:100%;" src="{% static 'img/koblyakov.jpg' %}"/>
                             <p><h4>PETER KOBLYAKOV</h4>
                                <H5> Project Manager</H5>
 Peter has a background in management and startup development. Has an experience in building complicated mathematical models in finance, statistics and data analize. Areas of expertise: agile project management, effective teams creation, business communications, complex problems solving with a help of mathematical solutions and methods

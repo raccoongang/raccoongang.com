@@ -1,8 +1,11 @@
+from django.contrib.sites.models import Site
 from django.http import HttpResponse
 from django.shortcuts import redirect
 from django.core.mail import send_mail, EmailMultiAlternatives
 from django.template.loader import get_template
 from django.template import Context
+
+from mysite.settings import STATIC_URL
 from .forms import MailForm
 import json
 from django.utils.translation import ugettext as _
@@ -12,6 +15,7 @@ from models import ContactUsEmail
 
 def send_email(request):
     if request.is_ajax():
+        current_site = Site.objects.get_current()
         form = MailForm(request.POST)
         errors = {}
         success = ''
@@ -35,18 +39,24 @@ def send_email(request):
                 plaintext = get_template('email.txt')
                 htmly = get_template('main.html')
 
-                d = Context({'username': form_data['name']})
+                context = Context({'username': form_data['name'],
+                                   'site_url': 'https://{}'.format(current_site.domain),
+                                   'STATIC_URL': STATIC_URL
+                                   })
 
                 subject, from_email, to = 'Thanks for your message to us', 'no-reply@raccoongang.com', form_data['mail']
-                text_content = plaintext.render(d)
-                html_content = htmly.render(d)
+                text_content = plaintext.render(context)
+                html_content = htmly.render(context)
 
                 msg = EmailMultiAlternatives(subject, text_content, from_email, [to])
                 msg.attach_alternative(html_content, "text/html")
                 msg.send()
 
             except Exception as e:
-                notification = _('Message has not been sent ' + e)
+                print '----------------------------'
+                print e
+                print '----------------------------'
+                notification = _('Message has not been sent {}'.format(e))
         else:
             for key in form.errors.keys():
                 errors[key] = 'red'

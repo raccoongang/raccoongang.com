@@ -1,11 +1,11 @@
-{% load sekizai_tags %}
+{% load staticfiles sekizai_tags %}
 
  <div class="wrapper">
         <h1>{{ instance.block_to_show.title }}</h1>
         <h3>{{ instance.block_to_show.subtitle }}</h3>
         <button class="call-btn" id="{{ instance.id }}">
             {{ instance.block_to_show.button_title }}
-             <img src="/media/img/arrow.png" width="35px" height="12px">
+             <img src="{% static 'img/arrow.png' %}" width="35px" height="12px">
         </button>
  </div>
 {% addtoblock "js" %}
