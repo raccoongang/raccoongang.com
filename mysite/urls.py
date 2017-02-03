@@ -8,6 +8,9 @@ from django.contrib import admin
 from django.conf import settings
 from django.views.generic import TemplateView
 
+from core.views import RssLatestPostFeed, AtomLatestPostFeed
+
+
 admin.autodiscover()
 
 urlpatterns = patterns('',
@@ -19,7 +22,8 @@ urlpatterns = patterns('',
     url(r'send_email/',include('send_email.urls', namespace='send_email') ),
     url(r'^questionnaire/', include('questionary.urls')),
     # url(r'^question/', include('questionary_one.urls')),
-
+    url(r'^blog/feed/rss/*$', RssLatestPostFeed(), name='rss'),
+    url(r'^blog/feed/atom/*$', AtomLatestPostFeed(), name='atom'),
     url(r'^', include('cms.urls')),
     # url(r'^[[:ascii:]]*[^\x00-\x7F]+[[:ascii:]]*/$', page_not_found),
 )
