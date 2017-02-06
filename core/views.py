@@ -7,9 +7,9 @@ class RssLatestPostFeed(Feed):
     """
     View for RSS 2.0.
     """
-    title = "Raccoongang Blog"
+    title = "Raccoon Gang News feed"
     link = "/blog/"
-    description = "About Raccoons"
+    description = "Insights and tips on eLearning from Raccoon Gang, trusted online learning provider"
 
     def items(self):
         return Post.objects.filter(publish=True).order_by('-date_published')[:5]
