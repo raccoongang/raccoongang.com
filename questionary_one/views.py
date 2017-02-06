@@ -1,3 +1,4 @@
+from django.contrib.sites.models import Site
 from django.core.urlresolvers import reverse
 from django.contrib import messages
 from django.db.models import Max
@@ -10,6 +11,8 @@ from django.template.loader import get_template
 
 
 from django.shortcuts import get_object_or_404, render
+
+from mysite.settings import STATIC_URL
 from questionary_one.models import FormStep, Survey, EdxProject
 from questionary_one.forms import SurveyForm
 
@@ -36,7 +39,12 @@ def send_survey_email(info):
 
 
 def send_customer_email(customer_email, customer_name, info):
-    d = Context({'username': customer_name, 'dict': info})
+    current_site = Site.objects.get_current()
+    context = Context({'username': customer_name,
+                       'dict': info,
+                       'site_url': 'https://{}'.format(current_site.domain),
+                       'STATIC_URL': STATIC_URL
+                       })
 
     plaintext = get_template('email.txt')
     htmly = get_template('survey_main_one.html')
@@ -45,8 +53,8 @@ def send_customer_email(customer_email, customer_name, info):
                                                             info['surname'].capitalize())
     from_email = 'info@raccoongang.com'
 
-    text_content = plaintext.render(d)
-    html_content = htmly.render(d)
+    text_content = plaintext.render(context)
+    html_content = htmly.render(context)
 
     msg = EmailMultiAlternatives(subject, text_content, from_email, [customer_email], cc=['info@raccoongang.com'])
     msg.attach_alternative(html_content, "text/html")

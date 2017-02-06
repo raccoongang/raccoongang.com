@@ -4,7 +4,6 @@
 {% block canonical_url %}<link rel="canonical" href="{{ SITE.domain }}{{ view.get_view_url }}"/>{% endblock canonical_url %}
 
 {% block content_blog %}
-{#    <script src="/media/js/readmore.min.js"></script>#}
     <div id="fb-root"></div>
     <script>
   window.fbAsyncInit = function() {
@@ -73,19 +72,5 @@
     {% endif %}
 
 
-    <script>
-   /* var elements = document.getElementsByClassName('cutThis');
-    while(elements.length > 0){
-        elements[0].parentNode.removeChild(elements[0]);
-    }
-    elements = document.getElementsByClassName('lead');
-    var i=0;
-    var last=0;
-    for (i=0;i<elements.length;i++){
-        last = elements[i].children.length;
-        last_last = elements[i].children[last-1].children.length;
-        elements[i].children[last-1].children[last_last-1].innerHTML+='...';
-    }*/
-</script>
 {% endblock %}
 {% endspaceless %}

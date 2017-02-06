@@ -2,7 +2,6 @@
 /node_modules
 /2.7
 /bower.json
-/media/js/.eslintrc.js
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -70,7 +69,7 @@ project.sql
 corpdump.sql
 local_settings.py
 images/
-media/uploads
+media/
 filer_public_thumbnails/
 filer_public/
 static/*

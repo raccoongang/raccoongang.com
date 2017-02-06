@@ -15,6 +15,7 @@ https://docs.djangoproject.com/en/1.7/ref/settings/
 
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.7/howto/deployment/checklist/
 
@@ -52,12 +53,13 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
 
 STATIC_URL = '/static/'
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(DATA_DIR, 'media')
 STATIC_ROOT = os.path.join(DATA_DIR, 'static')
 
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(DATA_DIR, 'media')
+
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'mysite', 'static'),
+    os.path.join(BASE_DIR, 'static_files'),
 )
 SITE_ID = 1
 
